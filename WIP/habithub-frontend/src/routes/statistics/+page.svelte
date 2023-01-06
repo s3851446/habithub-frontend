@@ -1,0 +1,1 @@
+<h1>I am the Statistics page!</h1>
