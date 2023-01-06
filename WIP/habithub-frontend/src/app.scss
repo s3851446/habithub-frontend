@@ -1,1 +1,33 @@
 /* Write your global styles here, in SCSS syntax. Variables and mixins from the src/variables.scss file are available here without importing */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(
+    to bottom right,
+    #fdf4ee,
+    #fcf6ee,
+    #fdf1ed,
+    #e8e9eb
+  );
+  background-attachment: fixed;
+  padding-left: 130px;
+  padding-top: 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Merriweather", serif;
+}
+
+p {
+  font-family: "Questrial", sans-serif;
+}
