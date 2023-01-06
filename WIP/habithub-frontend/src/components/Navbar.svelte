@@ -31,6 +31,12 @@
             </a>
         </li>
         <li>
+            <a href="/guide">
+                <i class="fa-solid fa-circle-info"></i>
+                <span class="nav-item">Help/Guide</span>
+            </a>
+        </li>
+        <li>
             <a href="/login" class="logout">
                 <i class="fa-solid fa-right-from-bracket"></i>
                 <span class="nav-item">Logout</span>
