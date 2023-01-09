@@ -16,22 +16,22 @@ https://youtu.be/B4KZYsyuVOE -->
                     references.</p>
                     <ul class="sci">
                         <li>
-                            <a href="https://www.facebook.com/">
+                            <a href="https://www.facebook.com/curtinuniversity">
                                 <i class="fa-brands fa-facebook"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="https://twitter.com/?lang=en">
+                            <a href="https://twitter.com/CurtinUni">
                                 <i class="fa-brands fa-twitter"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.instagram.com/">
+                            <a href="https://www.instagram.com/curtinuniversity/">
                                 <i class="fa-brands fa-instagram"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.youtube.com/">
+                            <a href="https://www.youtube.com/@curtinuniversity">
                                 <i class="fa-brands fa-youtube"></i>
                             </a>
                         </li>
