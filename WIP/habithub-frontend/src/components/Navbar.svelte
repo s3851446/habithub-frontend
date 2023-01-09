@@ -1,123 +1,180 @@
-<nav>
-    <ul>
-        <li>
-            <a href="/" class="logo">
-                <img src="./images/logo_app.png" alt=""/>
-                <span class="nav-item">Habit Hub</span>
-            </a>
-        </li>
-        <li>
-            <a href="/">
-                <i class="fa-solid fa-house"></i>
-                <span class="nav-item">Dashboard</span>
-            </a>
-        </li>
-        <li>
-            <a href="/habits">
-                <i class="fa-solid fa-list-check"></i>
-                <span class="nav-item">Habits</span>
-            </a>
-        </li>
-        <li>
-            <a href="/statistics">
-                <i class="fa-solid fa-chart-line"></i>
-                <span class="nav-item">Statistics</span>
-            </a>
-        </li>
-        <li>
-            <a href="/settings">
-                <i class="fa-solid fa-gears"></i>
-                <span class="nav-item">Settings</span>
-            </a>
-        </li>
-        <li>
-            <a href="/login" class="logout">
-                <i class="fa-solid fa-right-from-bracket"></i>
-                <span class="nav-item">Logout</span>
-            </a>
-        </li>
-    </ul>
+<!-- This component was created with the help of a YouTube tutorial.
+https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
+<nav class="sidebar close">
+    <header>
+        <div class="image-text">
+            <span class="image">
+                <img src="./images/logo_app.png" alt="Logo">
+            </span>
+            <div class="text header-text">
+                <span class="name">Habit Hub</span>
+            </div>
+        </div>
+        <i class='bx bx-chevron-right toggle'></i>
+    </header>
+    <div class="menu-bar">
+        <div class="menu">
+            <ul class="menu-links">
+                <li class="nav-link">
+                    <a href="/">
+                        <i class='bx bx-home-alt icon'></i>
+                        <span class="text nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="/habits">
+                        <i class='bx bx-list-check icon'></i>
+                        <span class="text nav-text">Habits</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="/statistics">
+                        <i class='bx bx-line-chart icon'></i>
+                        <span class="text nav-text">Statistics</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="/settings">
+                        <i class='bx bx-cog icon'></i>
+                        <span class="text nav-text">Settings</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="/guide">
+                        <i class='bx bx-help-circle icon'></i>
+                        <span class="text nav-text">Help/Guide</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="bottom-content">
+            <ul class="menu-links">
+                <li class="">
+                    <a href="/login">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>
 
 <style>
-    nav {
-    outline: none;
-    border: none;
-    }
-
-    a {
-        text-decoration: none;
-    }
-
-    nav {
+    .sidebar {
         position: fixed;
         top: 0;
-        bottom: 0;
         left: 0;
         height: 100%;
+        width: 250px;
         background: #313638;
-        width: 99px;
-        overflow: hidden;
-        transition: width 0.2s linear;
-        box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
-        z-index: 99;
+        padding: 10px 14px;
+        z-index: 100;
+        color: #E8E9EB;
+        transition: all .5s ease;
     }
 
-    .logo{
-        text-align: center;
+    .sidebar.close {
+        width: 88px;
+    }
+
+    header {
+        position: relative;
+    }
+
+    img {
+        width: 40px;
+        border-radius: 6px;
+    }
+
+    .image-text {
         display: flex;
-        transition: all 0.5s ease;
-        margin: 10px 0 0 10px;
+        align-items: center;
     }
 
-    .logo img {
-        width: 60px;
-        height: 60px;
-        border-radius: 10%;
+    .text {
+        font-size: 16px;
+        font-weight: 400;
+        transition: all 0.4s ease;
+        white-space: nowrap;
+        opacity: 1;
     }
 
-    .logo span {
+    .sidebar.close .text {
+        opacity: 0;
+    }
+
+    .image {
+        min-width: 60px;
+        display: flex;
+        align-items: center;
+    }
+
+    .header-text {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidebar.close .toggle {
+        transform: translateY(-50%);
+    }
+
+    .toggle {
+        position: absolute;
+        top: 50%;
+        right: -25px;
+        transform: translateY(-50%) rotate(180deg);
+        height: 25px;
+        width: 25px;
+        background: #EF6461;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 22px;
         font-weight: bold;
-        padding-left: 15px;
-        font-size: 18px;
-        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    li {
+        height: 50px;
+        margin-top: 10px;
+        list-style: none;
+        display: flex;
+        align-items: center;
+    }
+
+    .icon {
+        font-size: 23px;
+        color: #EF6461;
+        min-width: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     a {
-        position: relative;
-        color: #EF6461;
         font-size: 16px;
-        display: table;
-        width: 300px;
-        padding: 10px;
+        width: 100%;
+        color: #E8E9EB;
+        text-decoration: none;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        border-radius: 6px;
+        transition: all 0.4s ease;
     }
 
-    .fa-solid {
-        position: relative;
-        width: 70px;
-        height: 40px;
-        top: 14px;
-        font-size: 23px;
-        text-align: center;
-    }
-
-    .nav-item {
-        position: relative;
-        top: 12px;
-        margin-left: 20px;
-    }
-
-    a:hover {
+    a:hover{
         background: #E8E9EB;
+        color: #313638;
     }
 
-    nav:hover {
-        width: 280px;
-        transition: all 0.5s ease;
-    }
-
-    .logout {
-        position: absolute;
-        bottom: 0;
+    .menu-bar {
+        height: calc(100% - 50px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 </style>

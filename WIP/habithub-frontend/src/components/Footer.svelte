@@ -85,7 +85,6 @@ https://youtu.be/B4KZYsyuVOE -->
     align-items: center;
     min-height: 100vh;
     flex-direction: column;
-    margin-left: -40px;
    }
 
    footer {

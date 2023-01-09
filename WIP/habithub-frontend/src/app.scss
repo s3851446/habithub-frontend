@@ -15,8 +15,12 @@ body {
     #e8e9eb
   );
   background-attachment: fixed;
-  margin-left: 130px;
-  margin-top: 20px;
+  height: 100vh;
+  color: #313638;
+  width: calc(100% - 88px);
+  position: relative;
+  left: 88px;
+  transition: all 0.5s ease;
 }
 
 h1,
@@ -33,4 +37,8 @@ p {
   font-family: "Questrial", sans-serif;
   line-height: 1.5;
   margin-bottom: 10px;
+}
+
+.body {
+  padding: 8px 40px;
 }

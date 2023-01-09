@@ -49,5 +49,7 @@
     })
 </script>
 
-<h1>I am the Login page!</h1>
-<button id="do-thing">Test a login</button>
+<div class="body">
+    <h1>I am the Login page!</h1>
+    <button id="do-thing">Test a login</button>
+</div>
