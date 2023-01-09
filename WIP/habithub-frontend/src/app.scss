@@ -15,8 +15,8 @@ body {
     #e8e9eb
   );
   background-attachment: fixed;
-  padding-left: 130px;
-  padding-top: 20px;
+  margin-left: 130px;
+  margin-top: 20px;
 }
 
 h1,
@@ -26,8 +26,11 @@ h4,
 h5,
 h6 {
   font-family: "Merriweather", serif;
+  margin-bottom: 20px;
 }
 
 p {
   font-family: "Questrial", sans-serif;
+  line-height: 1.5;
+  margin-bottom: 10px;
 }
