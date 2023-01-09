@@ -40,10 +40,10 @@ https://youtu.be/B4KZYsyuVOE -->
             <div class="sec quicklinks">
                 <h1>Quick Links</h1>
                 <ul>
-                    <li><a href="/">About</a></li>
+                    <li><a href="https://www.topuniversities.com/universities/curtin-university#:~:text=We%20are%20Western%20Australia%27s%20top,the%20Good%20Universities%20Guide%202021.&text=As%20a%20university%20with%20an,people%20all%20over%20the%20world.">About</a></li>
                     <li><a href="/guide">Help</a></li>
-                    <li><a href="/">Privacy Policy</a></li>
-                    <li><a href="/">Contact Us</a></li>
+                    <li><a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwi6mJTP1rr8AhV03TgGHVfuCNUQFnoECAgQAw&url=https%3A%2F%2Finformationmanagement.curtin.edu.au%2Flocal%2Fdocs%2FPrivacyStatement.pdf&usg=AOvVaw32ACqZL8ziEiAoaJO6xCpH">Privacy Policy</a></li>
+                    <li><a href="https://www.curtincollege.edu.au/about/contact#:~:text=If%20you%20are%20a%20current,Questions%20before%20sending%20your%20enquiry.">Contact Us</a></li>
                 </ul>
             </div>
             <div class="sec contact">
@@ -53,21 +53,21 @@ https://youtu.be/B4KZYsyuVOE -->
                         <span>
                             <i class="fa-solid fa-location-dot"></i>
                         </span>
-                        <span>7 Tabilk St, 3060<br/>
-                        Fawkner, Melbourne, Victoria<br/>
+                        <span>Curtin University<br/>
+                        Kent Street, WA, Bently<br/>
                         Australia</span>
                     </li>
                     <li>
                         <span>
                             <i class="fa-solid fa-phone"></i>
                         </span>
-                        <p><a href="tel:123456789">+1 234 567 8900</a></p>
+                        <p><a href="tel:61892669266">+6 189 266 9266</a></p>
                     </li>
                     <li>
                         <span>
                             <i class="fa-solid fa-envelope"></i>
                         </span>
-                        <p><a href="mailto:mail@example.com">mail@example.com</a></p>
+                        <p><a href="mailto: info@curtincollege.edu.au"> info@curtincollege.edu.au</a></p>
                     </li>
                 </ul>
             </div>
