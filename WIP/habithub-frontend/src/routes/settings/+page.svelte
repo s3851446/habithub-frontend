@@ -1,3 +1,43 @@
 <div class="body">
-    <h1>I am the Settings page!</h1>
+    <!-- <h1>I am the Settings page!</h1> -->
+    <section class="settings">
+        <div class="content-wrap item-details divider">
+          <h2 id="settings">Settings</h2>
+        </div>
+        <div class="row">
+          <div class="column">
+            <div class="new-container">
+              <h3>Profile Settings</h3>
+              <hr>
+              <p>Username</p>
+              <p>First Name</p>
+              <p>Last Name</p>
+              <p>Email</p>
+              <p>Profile Picture</p>
+              <img src="./images/portrait1.jpg" alt="chef" style="width:50%">
+            </div>
+          </div>
+          <div class="column">
+            <div class="new-container">
+              <h3>Notification Settings</h3>
+              <hr>
+              <h4>Workout</h4>
+              <p>Reminders</p>
+              <p>Reminder Frequency</p>
+              <p>Reminder Time</p>
+              <hr>
+              <h4>Wake up at 6am</h4>
+              <p>Reminders</p>
+              <p>Reminder Frequency</p>
+              <p>Reminder Time</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="new-container">
+              <h3>Site Appearance</h3>
+              <p>Colour Scheme</p>
+            </div>
+          </div>
+        </div>
+      </section>
 </div>
