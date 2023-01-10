@@ -1,5 +1,4 @@
 <div class="body">
-    <!-- <h1>I am the Settings page!</h1> -->
     <section class="settings">
         <div class="content-wrap item-details divider">
           <h2 id="settings">Settings</h2>

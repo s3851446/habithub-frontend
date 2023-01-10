@@ -63,14 +63,15 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
 <style>
     .sidebar {
         position: fixed;
-        top: 0;
-        left: 0;
+        top: 10px;
+        left: 10px;
         height: 100%;
         width: 250px;
         background: #313638;
         padding: 10px 14px;
         z-index: 100;
         color: #E8E9EB;
+        border-radius: 6px;
         transition: all .5s ease;
     }
 
