@@ -1,6 +1,6 @@
 <script>
     import NewHabit from './../../components/NewHabit.svelte'
-    import { validateToken } from './../../utils.svelte'
+    import { validateToken } from './../../utils'
     import { onMount } from 'svelte'
 
     onMount(() => {
