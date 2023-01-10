@@ -30,8 +30,8 @@
 
             const data = await response.json();
 
-            // add response checking here
             if (!response.ok) {
+                localStorage.clear()
                 const message = 'A problem occured while logging in: ' + response.status + ' ' + response.statusText
                 throw new Error(message)
             }
