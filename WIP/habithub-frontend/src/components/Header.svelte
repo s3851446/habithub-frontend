@@ -1,3 +1,5 @@
+<!-- This component was created with the help of a YouTube tutorial.
+https://youtu.be/ybXulmeilFM -->
 <nav>
     <div class="icon">
         <a href="/"><i class='bx bx-bell'></i></a>
@@ -74,6 +76,10 @@
 
     .sub-menu-link:hover .arrow {
         transform: translateX(5px);
+    }
+
+    .icon i {
+        font-size: 27px;
     }
 
     .icon a:hover i {
