@@ -62,7 +62,7 @@
     }
 
     i {
-        font-size: 25px;
+        font-size: 20px;
         color: #EF6461;
     }
 
@@ -89,7 +89,7 @@
         position: absolute;
         top: 100%;
         right: 1.5%;
-        width: 280px;
+        width: 240px;
         z-index: 101;
         max-height: 400px;
         overflow: hidden;
