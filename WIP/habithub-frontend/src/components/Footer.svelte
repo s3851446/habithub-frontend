@@ -17,22 +17,22 @@ https://youtu.be/B4KZYsyuVOE -->
                     <ul class="sci">
                         <li>
                             <a href="https://www.facebook.com/curtinuniversity">
-                                <i class="fa-brands fa-facebook"></i>
+                                <i class='bx bxl-facebook'></i>
                             </a>
                         </li>
                         <li>
                             <a href="https://twitter.com/CurtinUni">
-                                <i class="fa-brands fa-twitter"></i>
+                                <i class='bx bxl-twitter'></i>
                             </a>
                         </li>
                         <li>
                             <a href="https://www.instagram.com/curtinuniversity/">
-                                <i class="fa-brands fa-instagram"></i>
+                                <i class='bx bxl-instagram'></i>
                             </a>
                         </li>
                         <li>
                             <a href="https://www.youtube.com/@curtinuniversity">
-                                <i class="fa-brands fa-youtube"></i>
+                                <i class='bx bxl-youtube'></i>
                             </a>
                         </li>
                     </ul>
@@ -51,7 +51,7 @@ https://youtu.be/B4KZYsyuVOE -->
                 <ul class="info">
                     <li>
                         <span>
-                            <i class="fa-solid fa-location-dot"></i>
+                            <i class='bx bx-map' ></i>
                         </span>
                         <span>Curtin University<br/>
                         Kent Street, WA, Bently<br/>
@@ -59,13 +59,13 @@ https://youtu.be/B4KZYsyuVOE -->
                     </li>
                     <li>
                         <span>
-                            <i class="fa-solid fa-phone"></i>
+                            <i class='bx bx-phone' ></i>
                         </span>
                         <p><a href="tel:61892669266">+6 189 266 9266</a></p>
                     </li>
                     <li>
                         <span>
-                            <i class="fa-solid fa-envelope"></i>
+                            <i class='bx bx-envelope' ></i>
                         </span>
                         <p><a href="mailto: info@curtincollege.edu.au"> info@curtincollege.edu.au</a></p>
                     </li>
