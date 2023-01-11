@@ -1,5 +1,6 @@
 <script>
     import { onMount } from 'svelte'
+    import Button from "../../components/Button.svelte"
 
     onMount(() => {
         const btn = document.getElementById('do-thing')
@@ -51,5 +52,5 @@
 
 <div class="body">
     <h1>I am the Login page!</h1>
-    <button id="do-thing">Test a login</button>
+    <Button id="do-thing">Test a login</Button>
 </div>

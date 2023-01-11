@@ -1,6 +1,25 @@
+<script>
+    import Button from "../components/Button.svelte"
+    import { onMount } from 'svelte'
+
+    onMount(() => {
+        const button = document.querySelector("button")
+
+        button.addEventListener("click", () => {
+        })
+
+        console.log(button)
+    })
+
+</script>
+
 <div class="body">
-    <h1>Habit Hub Under Construction</h1>
-    <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> 
-    to read the documentation</p>
+    <h1>Hello, Name LastName!</h1>
+    <p>You have completed <i>4 out of 5</i> of today's 
+    scheduled habits. Good job! Keep going!</p>
+    <Button>
+        <i class='bx bx-plus'></i>
+        Add Habit
+    </Button>
 </div>
 

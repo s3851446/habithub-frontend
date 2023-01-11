@@ -5,7 +5,7 @@
   import Header from "../components/Header.svelte"
   import { onMount } from 'svelte'
  
-  onMount(()=>{
+  onMount(() => {
     const sidebar = document.querySelector(".sidebar"),
           toggle = document.querySelector(".toggle"),
           userPic = document.querySelector(".user-pic"),
