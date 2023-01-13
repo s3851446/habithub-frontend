@@ -5,14 +5,21 @@
     export let streak
 
     import Button from './Button.svelte'
+    import { redirectToLocation } from './../utils'
+
+    const redirect = (route) => {
+        const location = route + h_id
+        redirectToLocation(location)
+    }
+
 </script>
 
 <div class="parent">
     <span class="body-content">{name}</span>
     <p>{description}</p>
     <span class="body-content">{streak} days!</span>
-    <Button>Edit</Button>
-    <Button>Delete</Button>
+    <Button on:click={() => {redirect('/edit/')}}>Edit</Button>
+    <Button on:click={() => {redirect('/delete/')}}>Delete</Button>
 </div>
 
 <style>
