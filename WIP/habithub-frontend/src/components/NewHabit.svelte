@@ -1,4 +1,6 @@
 <script>
+    import TextInput from './TextInput.svelte'
+    import Button from './Button.svelte'
     // develop based on: https://javascript.info/formdata
     // & https://svelte.dev/repl/74685aa8b4374c4c8f395ce643fee7b6?version=3.48.0
     const handleSubmit = async e => {
@@ -20,11 +22,9 @@
 
 <div>
     <form id="form" class="habit-form" action="https://habithub-backend.herokuapp.com/habit" on:submit|preventDefault={handleSubmit}>
-        <label for="title">Title</label>
-        <input type="text" name="title" placeholder="Title">
-        <label for="description">Description</label>
-        <input type="text" name="description" placeholder="description">
-        <input type="submit" value="Add habit">
+        <TextInput classs="" id="" name="title" value="" placeholder="title" label="Title"/>
+        <TextInput classs="description" id="" name="description" value="" placeholder="description" label="Description" />
+        <Button id="" on:click(handleSubmit)>Add Habit</Button>
     </form>
 </div>
 
