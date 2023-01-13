@@ -4,8 +4,11 @@
   import Footer from "../components/Footer.svelte"
   import Header from "../components/Header.svelte"
   import { onMount } from 'svelte'
+  import { validateToken } from '../utils'
+
+  let validToken
  
-  onMount(() => {
+  onMount(async () => {
     const sidebar = document.querySelector(".sidebar"),
           toggle = document.querySelector(".toggle"),
           userPic = document.querySelector(".user-pic"),
@@ -20,11 +23,27 @@
     })
 
     console.log(userPic,subMenuWrap)
+
+    const header = document.getElementById('header')
+    const navbar = document.getElementById('navbar')
+
+    validToken = await validateToken();
+    console.log("ValidToken: ", validToken)
+
+    header.classList.add("hidden")
+
+    if (validToken) {
+      header.classList.remove("hidden")
+    }
   })
   
 </script>
 
-<Header />
-<Navbar />
+<Header id="header"/>
+<Navbar id="navbar"/>
 <slot />
 <Footer />
+
+<style>
+  
+</style>

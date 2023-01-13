@@ -3,8 +3,11 @@
     import { validateToken } from './../../utils'
     import { onMount } from 'svelte'
 
-    onMount(() => {
-        validateToken()
+    onMount(async () => {
+        const validToken = await validateToken()
+        if (!validToken) {
+            window.location.href = '/login'
+        }
     })
 
 </script>

@@ -1,6 +1,60 @@
+<script>
+    import { jwt, loggedIn } from '../stores'
+    import { beforeUpdate, onMount } from "svelte";
+    export let id
+
+    let logInOutText
+    let logInOutUrl
+
+    // do not remove this or the code breaks the {#key} has to stay as well -EW
+    let loggedInVar
+    loggedIn.subscribe((data) => { loggedInVar = data })
+
+    beforeUpdate(() => {
+    })
+
+    onMount(() => {
+        loggedIn.subscribe((value) => localStorage.setItem('loggedIn', value))
+
+        updateLogout()
+
+    })
+
+    function updateLogout() {
+        console.log("running updateLogout")
+        const loginLink = document.getElementById('loginLink')
+        const loginText = document.getElementById('loginText')
+        const menuLinks = document.getElementById('menu-links')
+
+        console.log(loginLink, loginText)
+
+        const loggedInC = localStorage.getItem('loggedIn')
+        console.log("loggedInC is: ", loggedInC)
+
+        // would've thought login means show logout option but it just works like this
+        // i do not understand -EW
+        if (loggedInC) {
+            logInOutUrl = '/login'
+            logInOutText = 'Log In'
+            menuLinks.classList.add('hidden')
+        } else {
+            logInOutUrl = '/logout'
+            logInOutText = 'Log Out'
+            menuLinks.classList.remove('hidden')
+        }
+
+        console.log('LogInOutText at onMount is: ', logInOutText)
+
+        loginLink.setAttribute('href', logInOutUrl)
+        loginText.innerHTML = logInOutText
+    }
+
+
+</script>
+
 <!-- This component was created with the help of a YouTube tutorial.
 https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
-<nav class="sidebar close">
+<nav class="sidebar close" id={id}>
     <header>
         <div class="image-text">
             <span class="image">
@@ -13,8 +67,9 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
         <i class='bx bx-chevron-right toggle'></i>
     </header>
     <div class="menu-bar">
+        { #key loggedInVar }
         <div class="menu">
-            <ul class="menu-links">
+            <ul class="menu-links" id="menu-links">
                 <li class="nav-link">
                     <a href="/">
                         <i class='bx bx-home-alt icon'></i>
@@ -45,18 +100,22 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
                         <span class="text nav-text">Help/Guide</span>
                     </a>
                 </li>
+            
             </ul>
         </div>
+        { /key }
+        { #key loggedInVar }
         <div class="bottom-content">
             <ul class="menu-links">
                 <li class="">
-                    <a href="/login">
+                    <a id="loginLink" href="/logout">
                         <i class='bx bx-log-out icon'></i>
-                        <span class="text nav-text">Logout</span>
+                        <span id="loginText" class="text nav-text">Log Out</span>
                     </a>
                 </li>
             </ul>
         </div>
+        { /key }
     </div>
 </nav>
 

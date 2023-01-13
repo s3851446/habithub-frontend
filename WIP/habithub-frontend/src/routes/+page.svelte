@@ -1,8 +1,17 @@
 <script>
     import Button from "../components/Button.svelte"
     import { onMount } from 'svelte'
+    import { validateToken } from "../utils"
+    import { signout } from "../utils";
+    import { redirectToLocation } from "../utils";
 
-    onMount(() => {
+    onMount(async () => {
+        let validToken = false;
+        validToken = await validateToken()
+        if (!validToken) {
+            signout()
+            redirectToLocation('/login')
+        }
         const button = document.querySelector("button")
 
         button.addEventListener("click", () => {

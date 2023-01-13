@@ -1,16 +1,18 @@
 <script>
     import { onMount } from 'svelte'
     import Button from "../../components/Button.svelte"
+    import { jwt, loggedIn, userFirstName } from './../../stores'
 
     onMount(() => {
-        const btn = document.getElementById('do-thing')
-        btn.addEventListener('click', () => {
+        const btn = document.getElementById('login_button')
+        btn.addEventListener('click', loginClick)
+        function loginClick() {
             try {
                 loginUser()
             } catch(err) {
                 console.log(err)
             }
-        })
+        }
 
         // method for sending login form data
         // based on answer here: https://stackoverflow.com/questions/68389117/using-fetch-api-to-create-a-login-form
@@ -40,10 +42,24 @@
             // add JWT to session if good
             // ideally this should be put somewhere other than localStorage: https://auth0.com/docs/secure/security-guidance/data-security/token-storage#don-t-store-tokens-in-local-storage
             localStorage.setItem('jwt', data.accessToken)
+            localStorage.setItem('loggedIn', true)
             localStorage.setItem('userFirstName', data.user.firstName)
+
+            // $jwt = data.accessToken
+            // $loggedIn = true
+            // $userFirstName = data.user.firstName
+            loggedIn.set(true)
+            jwt.set(data.accessToken)
+            userFirstName.set(data.user.firstName)
+            let loggedInVar
+            loggedIn.subscribe((data) => loggedInVar = data)
+            console.log("LoggedIn store at Login is: ", loggedInVar)
+
 
             //NOTE - remove
             console.log("logged in successfully")
+            window.location.href = '/'
+
 
             // put message somewhere if response bad
         }
@@ -52,5 +68,5 @@
 
 <div class="body">
     <h1>I am the Login page!</h1>
-    <Button id="do-thing">Test a login</Button>
+    <Button id="login_button">Test a login</Button>
 </div>

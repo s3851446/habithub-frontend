@@ -1,6 +1,10 @@
+<script>
+    export let id
+</script>
+
 <!-- This component was created with the help of a YouTube tutorial.
 https://youtu.be/ybXulmeilFM -->
-<nav>
+<nav id={id}>
     <div class="icon">
         <a href="/"><i class='bx bx-bell'></i></a>
     </div>
@@ -29,7 +33,7 @@ https://youtu.be/ybXulmeilFM -->
                 <p>Help/Guide</p>
                 <i class='bx bx-chevron-right arrow'></i>
             </a>
-            <a href="/guide" class="sub-menu-link">
+            <a href="/logout" class="sub-menu-link">
                 <i class='bx bx-log-out img'></i>
                 <p>Logout</p>
                 <i class='bx bx-chevron-right arrow'></i>

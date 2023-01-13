@@ -1,4 +1,8 @@
-<button>
+<script>
+    export let id;
+</script>
+
+<button on:click id={id}>
     <slot></slot>
 </button>
 
