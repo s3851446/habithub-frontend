@@ -22,8 +22,8 @@
 
 <div>
     <form id="form" class="habit-form" action="https://habithub-backend.herokuapp.com/habit" on:submit|preventDefault={handleSubmit}>
-        <TextInput classs="" id="" name="title" value="" placeholder="title" label="Title"/>
-        <TextInput classs="description" id="" name="description" value="" placeholder="description" label="Description" />
+        <TextInput class="" id="" name="title" value="" placeholder="title" label="Title"/>
+        <TextInput class="description" id="" name="description" value="" placeholder="description" label="Description" />
         <Button id="" on:click(handleSubmit)>Add Habit</Button>
     </form>
 </div>
