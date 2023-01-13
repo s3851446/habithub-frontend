@@ -31,12 +31,14 @@ h5,
 h6 {
   font-family: "Merriweather", serif;
   margin-bottom: 20px;
+  font-language-override: 1;
 }
 
 p {
   font-family: "Questrial", sans-serif;
   line-height: 1.5;
   margin-bottom: 10px;
+  font-size: 15px;
 }
 
 .body {
@@ -49,6 +51,14 @@ p {
   visibility: hidden;
 }
 
-label, span.body-content {
+label,
+span.body-content {
   font-family: "Questrial", sans-serif;
+}
+
+hr {
+  border: 0;
+  height: 0.1px;
+  width: 100%;
+  background: #a8a8a8;
 }

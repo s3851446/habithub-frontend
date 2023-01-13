@@ -141,14 +141,6 @@ https://youtu.be/ybXulmeilFM -->
         margin-right: 15px;
     }
 
-    hr {
-        border: 0;
-        height: 0.1px;
-        width: 100%;
-        background: #A8A8A8;
-        margin: 15px 0 10px;
-    }
-
     .sub-menu-link {
         display: flex;
         align-items: center;
@@ -159,5 +151,9 @@ https://youtu.be/ybXulmeilFM -->
 
     .img {
         margin-right: 15px;
+    }
+
+    hr {
+        margin: 15px 0 10px;
     }
 </style>
