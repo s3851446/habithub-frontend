@@ -1,3 +1,15 @@
+<script>
+  import { validateToken } from './../../utils'
+  import { onMount } from 'svelte'
+
+  onMount(async () => {
+      const validToken = await validateToken()
+      if (!validToken) {
+          window.location.href = '/login'
+      }
+  })
+</script>
+
 <div class="body">
     <section class="settings">
         <div class="content-wrap item-details divider">

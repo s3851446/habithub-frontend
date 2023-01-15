@@ -1,5 +1,14 @@
 <script>
   import Button from "../../components/Button.svelte";
+  import { validateToken } from './../../utils'
+  import { onMount } from 'svelte'
+
+  onMount(async () => {
+      const validToken = await validateToken()
+      if (!validToken) {
+          window.location.href = '/login'
+      }
+  })
 </script>
 
 <div class="body">
