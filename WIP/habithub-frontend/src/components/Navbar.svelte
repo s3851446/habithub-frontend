@@ -1,6 +1,7 @@
 <script>
     import { jwt, loggedIn } from '../stores'
     import { beforeUpdate, onMount } from "svelte";
+    import { base } from '$app/paths'
     export let id
 
     let logInOutText
@@ -47,9 +48,8 @@
 
         loginLink.setAttribute('href', logInOutUrl)
         loginText.innerHTML = logInOutText
+
     }
-
-
 </script>
 
 <!-- This component was created with the help of a YouTube tutorial.
@@ -58,7 +58,7 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
     <header>
         <div class="image-text">
             <span class="image">
-                <img src="./images/logo_app.png" alt="Logo">
+                <img src="{base}/images/logo_app.png" alt="Logo">
             </span>
             <div class="text header-text">
                 <span class="name">Habit Hub</span>
