@@ -175,7 +175,6 @@
   /* Display the columns on small screens */
   @media screen and (max-width: 900px) {
     .column {
-      float: left;
       width: 70%;
       display: block;
     }
@@ -183,7 +182,6 @@
 
   @media screen and (max-width: 750px) {
     .column {
-      float: left;
       width: 100%;
       display: block;
     }
