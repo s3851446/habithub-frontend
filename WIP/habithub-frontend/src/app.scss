@@ -34,6 +34,13 @@ h6 {
   font-language-override: 1;
 }
 
+h1 {
+  font-size: 32px;
+  @media all and (max-width: 900px) {
+    font-size: 25px;
+  }
+}
+
 p {
   font-family: "Questrial", sans-serif;
   line-height: 1.5;
