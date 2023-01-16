@@ -1,1 +1,16 @@
-/* Variables and mixins declared here will be available in all other SCSS files */
+// Colors
+$base-txt-color-dark: #313638;
+$base-txt-color-light: #e8e9eb;
+
+$red: #ef6461;
+$yellow: #e4b363;
+$orange: #ea8462;
+$black: $base-txt-color-dark;
+$light-grey: $base-txt-color-light;
+$dark-grey: #a8a8a8;
+
+// Transitions
+
+// Fonts
+$heading-font: "Merriweather", serif;
+$paragraph-font: "Questrial", sans-serif;
