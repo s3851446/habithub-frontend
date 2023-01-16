@@ -35,7 +35,7 @@
     </div>
 </div>
 
-<style>
+<style lang="scss">
     .card-container {
         display: flex;
         flex-wrap: wrap;

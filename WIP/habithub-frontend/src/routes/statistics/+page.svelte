@@ -30,7 +30,7 @@
   </div>
 </div>
 
-<style>
+<style lang="scss">
   .statistics-button {
     float: right;
   }

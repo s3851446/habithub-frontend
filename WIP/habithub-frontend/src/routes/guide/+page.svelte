@@ -22,7 +22,7 @@
     </div>
 </div>
 
-<style>
+<style lang="scss">
     h2 {
         font-size: 17px;
     }
