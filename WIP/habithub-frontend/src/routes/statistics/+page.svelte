@@ -2,6 +2,7 @@
   import Button from "../../components/Button.svelte";
   import { validateToken } from './../../utils'
   import { onMount } from 'svelte'
+  import ProgressCard from "../../components/ProgressCard.svelte";
 
   onMount(async () => {
       const validToken = await validateToken()
@@ -22,86 +23,19 @@
         Data Range Selector
       </Button>
     </div>
-    <div class="column">
-      <div class="new-container">
-        <h3>Workout</h3>
-        <hr>
-        <br>
-        <div class="variable-row">
-          <div class="variable-column">
-            <h4>Current Streak</h4>
-            <p>7 days</p>
-          </div>
-          <div class="variable-column">
-            <h4>Best Streak</h4>
-            <p>14 days</p>
-          </div>
-          <div class="variable-column">
-            <h4>Overall Progress</h4>
-            <p>7/30 Days</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="column">
-      <div class="new-container">
-        <h3>Workout</h3>
-        <hr>
-        <br>
-        <div class="variable-row">
-          <div class="variable-column">
-            <h4>Current Streak</h4>
-            <p>7 days</p>
-          </div>
-          <div class="variable-column">
-            <h4>Best Streak</h4>
-            <p>14 days</p>
-          </div>
-          <div class="variable-column">
-            <h4>Overall Progress</h4>
-            <p>7/30 Days</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="column">
-      <div class="new-container">
-        <h3>Workout</h3>
-        <hr>
-        <br>
-        <div class="variable-row">
-          <div class="variable-column">
-            <h4>Current Streak</h4>
-            <p>7 days</p>
-          </div>
-          <div class="variable-column">
-            <h4>Best Streak</h4>
-            <p>14 days</p>
-          </div>
-          <div class="variable-column">
-            <h4>Overall Progress</h4>
-            <p>7/30 Days</p>
-          </div>
-        </div>
-      </div>
+    <div class="progress-cards">
+      <ProgressCard />
+      <ProgressCard />
+      <ProgressCard />
+      <ProgressCard />
     </div>
   </section>
 </div>
 
 <style>
-  h2, h3, h4 {
+  h2{
     line-height: 1;
     margin-bottom: 10px;
-  }
-
-  h3 {
-    padding: 20px 0;
-  }
-
-  p {
-    text-align: left;
   }
 
   .content-wrap {
@@ -111,80 +45,13 @@
       padding-bottom: 16px;
   }
 
-  .variable-column h4 {
-    text-align: left;
-  }
-
-  .column {
-    width: 70%;
-    margin-bottom: 16px;
-  }
-
-  .column h3 {
-    margin-bottom: 10px;
-    text-align: left;
-  }
-
-  .column h4 {
-    margin-left: 0;
-  }
-
-  @media screen and (max-width: 750px) {
-    .column {
-      width: 100%;
-      display: block;
-    }
-  }
-
-  .new-container {
-    padding: 0 16px;
-    border-radius: 5px;
-    background-color: #ffffff;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  }
-
-  .new-container::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-
   .statistics-button {
     float: right;
-  }
-
-  .variable-column {
-    float: left;
-    width: 33%;
-  }
-
-  .variable-row:after {
-    content: "";
-    display: table;
-    clear: both;
   }
 
   i {
     font-size: 20px;
     margin-right: 7px;
-  }
-
-  /* Responsive Elements
-  --------------------- */
-
-  /* Display the columns on small screens */
-  @media screen and (max-width: 900px) {
-    .column {
-      width: 70%;
-      display: block;
-    }
-  }
-
-  @media screen and (max-width: 750px) {
-    .column {
-      width: 100%;
-      display: block;
-    }
   }
 
   /* this is a media query that uses max-width. It triggers at 749 
