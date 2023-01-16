@@ -37,7 +37,7 @@
     </form>
 </div>
 
-<style>
+<style lang="scss">
     .btn {
         margin-top: 1.5em;
     }
