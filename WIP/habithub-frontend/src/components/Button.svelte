@@ -8,7 +8,7 @@
 
 
 
-<style>
+<style lang="scss">
     button {
         border: none;
         background-image: radial-gradient(#EF6461, #E4B363);
@@ -17,16 +17,14 @@
         color: #fff;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         font-size: 14px;
-    }
-
-    button:hover {
-        font-size: 16px;
-    }
-
-    button:focus {
-        background: #EF6461;
+        &:hover {
+            font-size: 16px;
+        }
+        &:focus {
+             background: #EF6461;
         color: #fff;
         border: none;
+        }
     }
 
     slot {
