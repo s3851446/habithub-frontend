@@ -119,7 +119,17 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
     </div>
 </nav>
 
-<style>
+<style lang="scss">
+    @mixin flex-column {
+        display: flex;
+        flex-direction: column;
+    }
+
+    @mixin flex-center {
+        display: flex;
+        align-items: center;
+    }
+
     .sidebar {
         position: fixed;
         top: 10px;
@@ -132,10 +142,15 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
         color: #E8E9EB;
         border-radius: 6px;
         transition: all .5s ease;
-    }
-
-    .sidebar.close {
-        width: 88px;
+        &.close {
+            width: 88px;
+            .text {
+                opacity: 0;
+            }
+            .toggle {
+                transform: translateY(-50%);
+            }
+        }
     }
 
     header {
@@ -148,8 +163,7 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
     }
 
     .image-text {
-        display: flex;
-        align-items: center;
+        @include flex-center;
     }
 
     .text {
@@ -160,24 +174,15 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
         opacity: 1;
     }
 
-    .sidebar.close .text {
-        opacity: 0;
-    }
-
     .image {
         min-width: 60px;
-        display: flex;
-        align-items: center;
+        @include flex-center;
     }
 
     .header-text {
-        display: flex;
-        flex-direction: column;
+        @include flex-column;
     }
 
-    .sidebar.close .toggle {
-        transform: translateY(-50%);
-    }
 
     .toggle {
         position: absolute;
@@ -187,8 +192,7 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
         height: 25px;
         width: 25px;
         background: #EF6461;
-        display: flex;
-        align-items: center;
+        @include flex-center;
         justify-content: center;
         border-radius: 50%;
         font-size: 22px;
@@ -201,16 +205,14 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
         height: 50px;
         margin-top: 10px;
         list-style: none;
-        display: flex;
-        align-items: center;
+        @include flex-center;
     }
 
     .icon {
         font-size: 23px;
         color: #EF6461;
         min-width: 60px;
-        display: flex;
-        align-items: center;
+        @include flex-center;
         justify-content: center;
     }
 
@@ -220,21 +222,18 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
         color: #E8E9EB;
         text-decoration: none;
         height: 100%;
-        display: flex;
-        align-items: center;
+        @include flex-center;
         border-radius: 6px;
         transition: all 0.4s ease;
-    }
-
-    a:hover{
-        background: #E8E9EB;
-        color: #313638;
+        &:hover {
+            background: #E8E9EB;
+            color: #313638;
+        }
     }
 
     .menu-bar {
         height: calc(100% - 50px);
-        display: flex;
-        flex-direction: column;
+        @include flex-column;
         justify-content: space-between;
     }
 </style>

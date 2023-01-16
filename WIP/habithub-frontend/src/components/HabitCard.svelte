@@ -32,16 +32,13 @@
     
 </div>
 
-<style>
+<style lang="scss">
 .parent {
-    border: 0.1em solid #E4B363;
-    /* border: 0.1em solid #EF6461; */
-    border-radius: 1em;
+    border-radius: 6px;
     margin: 0.5em 0;
     padding: 1em;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    background-color: #fdf4ee;
-    /* max-width: 25em; */
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: #fff;
     min-width: 25em;
 }
 
@@ -50,14 +47,16 @@ p {
 }
 
 i {
-    font-size: 1.5em;
+    font-size: 20px;
+    color: #E4B363;
 }
 
-.flex, .dud-card{
+.flex {
     flex-grow: 1;
 }
 
 .dud-card {
+    @extend .flex;
     visibility: hidden;
 }
 

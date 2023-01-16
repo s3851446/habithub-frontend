@@ -22,14 +22,16 @@
     </div>
 </div>
 
-<style>
+<style lang="scss">
+    @mixin flex {
+        display: flex;
+        align-items: center;
+    }
+
     .column {
         width: 70%;
         transition: all 0.5s ease;
-    }
-
-    @media all and (max-width: 900px) {
-        .column {
+        @media all and (max-width: 900px)  {
             width: 100%;
         }
     }
@@ -42,25 +44,23 @@
         padding: 16px;
     }
 
-    .title i {
-        font-size: 29px;
-        color: #EF6461;
-    }
-
     .title {
-        display: flex;
+        @include flex;
         flex-flow: row nowrap;
         justify-content: flex-start;
-        align-items: center;
         column-gap: 16px;
+        i {
+            font-size: 29px;
+            color: #EF6461;
+        }
     }
 
-    h2, h4 {
-        
+    h4 {
         margin: 0;
     }
 
     h2 {
+        @extend h4;
         font-size: 19px;
     }
 
@@ -69,10 +69,9 @@
     }
 
     .variable-row {
-        display: flex;
+        @include flex;
         flex-flow: row wrap;
         justify-content: space-between;
-        align-items: center;
         padding: 0 15px;
         gap: 30px;
     }

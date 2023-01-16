@@ -42,14 +42,18 @@ https://youtu.be/ybXulmeilFM -->
     </div>
 </nav>
 
-<style>
+<style lang="scss">
+    @mixin flex {
+        display: flex;
+        align-items: center;
+    }
+
     nav {
         height: 80px;
         width: 100%;
         border-bottom: solid 0.01px #A8A8A8;
         padding: 10px 2%;
-        display: flex;
-        align-items: center;
+        @include flex;
         justify-content: flex-end;
         position: relative;
         flex-direction: row;
@@ -61,9 +65,8 @@ https://youtu.be/ybXulmeilFM -->
         height: 60px;
         background-color: #A8A8A8;
         border-radius: 100%;
-        display: flex;
+        @include flex;
         justify-content: center;
-        align-items: center;
         cursor: pointer;
     }
 
@@ -76,10 +79,6 @@ https://youtu.be/ybXulmeilFM -->
         color: #313638;
         font-size: 20px;
         transition: all 0.5s ease;
-    }
-
-    .sub-menu-link:hover .arrow {
-        transform: translateX(5px);
     }
 
     .icon i {
@@ -118,8 +117,7 @@ https://youtu.be/ybXulmeilFM -->
     }
 
     .user-info {
-        display: flex;
-        align-items: center;
+        @include flex;
     }
 
     h2 {
@@ -133,20 +131,23 @@ https://youtu.be/ybXulmeilFM -->
         transition: all 0.5s ease;
     }
 
-    .sub-menu-link:hover p {
-        font-weight: bolder;
-    }
-
     .user-info i {
         margin-right: 15px;
     }
 
     .sub-menu-link {
-        display: flex;
-        align-items: center;
+        @include flex;
         text-decoration: none;
         color: #313638;
         margin: 12px 0;
+        &:hover {
+            p {
+                font-weight: bolder;
+            }
+            .arrow {
+            transform: translateX(5px);
+        }
+        }
     }
 
     .img {
