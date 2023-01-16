@@ -18,10 +18,9 @@
     padding: 0.3em;
     box-shadow: none;
     border:none;
-    border: 0.1em solid #fff;
-    border-radius: 0.5em;
+    border-radius: $card-radius;
     &:hover, &:focus, &:focus-visible {
-        border-color: #ccc;
+        border-color: $light-grey;
         box-shadow: inset rgba(0, 0, 0, 0.14) 0px 0px 8px;
     }
 }

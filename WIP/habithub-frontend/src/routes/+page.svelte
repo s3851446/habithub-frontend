@@ -64,7 +64,7 @@
     }
 
     b {
-        color: #EF6461;
+        color: $red;
     }
 
     .heading {

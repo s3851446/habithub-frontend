@@ -34,11 +34,11 @@
 
 <style lang="scss">
 .parent {
-    border-radius: 6px;
+    border-radius: $card-radius;
     margin: 0.5em 0;
     padding: 1em;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    background-color: #fff;
+    box-shadow: $card-shadow;
+    background-color: $white;
     min-width: 25em;
 }
 
@@ -48,7 +48,7 @@ p {
 
 i {
     font-size: 20px;
-    color: #E4B363;
+    color: $yellow;
 }
 
 .flex {

@@ -30,16 +30,16 @@
 
     .column {
         width: 70%;
-        transition: all 0.5s ease;
+        transition: $trans-05;
         @media all and (max-width: 900px)  {
             width: 100%;
         }
     }
 
     .new-container {
-        background: #fff;
-        border-radius: 6px;
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        background: $white;
+        border-radius: $card-radius;
+        box-shadow: $card-shadow;
         margin-bottom: 20px;
         padding: 16px;
     }
@@ -51,7 +51,7 @@
         column-gap: 16px;
         i {
             font-size: 29px;
-            color: #EF6461;
+            color: $red;
         }
     }
 

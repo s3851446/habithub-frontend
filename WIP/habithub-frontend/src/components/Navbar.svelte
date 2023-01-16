@@ -136,12 +136,12 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
         left: 10px;
         height: 100%;
         width: 250px;
-        background: #313638;
+        background: $black;
         padding: 10px 14px;
         z-index: 100;
-        color: #E8E9EB;
-        border-radius: 6px;
-        transition: all .5s ease;
+        color: $light-grey;
+        border-radius: $card-radius;
+        transition: $trans-05;
         &.close {
             width: 88px;
             .text {
@@ -159,7 +159,7 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
 
     img {
         width: 40px;
-        border-radius: 6px;
+        border-radius: $card-radius;
     }
 
     .image-text {
@@ -169,7 +169,7 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
     .text {
         font-size: 16px;
         font-weight: 400;
-        transition: all 0.4s ease;
+        transition: $trans-04;
         white-space: nowrap;
         opacity: 1;
     }
@@ -191,14 +191,14 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
         transform: translateY(-50%) rotate(180deg);
         height: 25px;
         width: 25px;
-        background: #EF6461;
+        background: $red;
         @include flex-center;
         justify-content: center;
         border-radius: 50%;
         font-size: 22px;
         font-weight: bold;
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: $trans-03;
     }
 
     li {
@@ -210,7 +210,7 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
 
     .icon {
         font-size: 23px;
-        color: #EF6461;
+        color: $red;
         min-width: 60px;
         @include flex-center;
         justify-content: center;
@@ -219,15 +219,15 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
     a {
         font-size: 16px;
         width: 100%;
-        color: #E8E9EB;
+        color: $light-grey;
         text-decoration: none;
         height: 100%;
         @include flex-center;
-        border-radius: 6px;
-        transition: all 0.4s ease;
+        border-radius: $card-radius;
+        transition: $trans-04;
         &:hover {
-            background: #E8E9EB;
-            color: #313638;
+            background: $light-grey;
+            color: $black;
         }
     }
 

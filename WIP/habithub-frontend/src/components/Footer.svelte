@@ -136,7 +136,7 @@ https://youtu.be/B4KZYsyuVOE -->
         left: 0;
         width: 50px;
         height: 2px;
-        background: #EF6461;
+        background: $red;
     }
    }
 
@@ -145,10 +145,10 @@ https://youtu.be/B4KZYsyuVOE -->
     margin-bottom: 10px;
     list-style: none;
     a {
-        color: #313638;
+        color: $black;
         text-decoration: none;
         &:hover {
-            color: #EF6461;
+            color: $red;
         }
     }
    }
@@ -165,20 +165,20 @@ https://youtu.be/B4KZYsyuVOE -->
         display: inline-block;
         width: 40px;
         height: 40px;
-        background-color: #E8E9EB;
+        background-color: $light-grey;
         border-radius: 4px;
         display: flex;
         justify-content: center;
         align-items: center;
         margin-right: 10px;
         &:hover {
-            background: #EF6461;
+            background: $red;
             i {
-                color: #E8E9EB;
+                color: $light-grey;
             }
         }
         i {
-            color: #313638;
+            color: $black;
             font-size: 25px;
         }
     }
@@ -214,7 +214,7 @@ https://youtu.be/B4KZYsyuVOE -->
 
    .copyright {
     width: 100%;
-    background: #E8E9EB;
+    background: $light-grey;
     padding: 8px 100px;
     text-align: center;
      @media (max-width: 991px) {
