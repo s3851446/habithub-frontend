@@ -40,7 +40,10 @@
               <i class='bx bxs-user profile'></i>
             </div>
           </div>
-          <Button>Change Password</Button>
+          <Button>
+            <i class='bx bx-edit' ></i>
+            Edit Profile
+          </Button>
         </div>
         <div class="container">
           <h2>Notification settings</h2>
@@ -92,14 +95,6 @@
             <p>Light</p>
           </div>
         </div>
-      <!-- 
-          <div class="column">
-            <div class="new-container">
-              <h3>Site Appearance</h3>
-              <hr>
-              <p>Colour Scheme</p>
-            </div>
-          </div> -->
     </section>
 </div>
 

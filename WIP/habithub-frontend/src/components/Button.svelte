@@ -30,7 +30,7 @@
 
     slot {
         display: flex;
-        flex-direction: row;
+        flex-flow: row nowrap;
         align-items: center;
         justify-content: center;
     }

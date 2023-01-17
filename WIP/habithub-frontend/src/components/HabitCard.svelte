@@ -25,8 +25,14 @@
             <span class="body-content">{streak} days!</span>
         </div>
         <div class="end">
-            <Button on:click={() => {redirect('/edit/')}}>Edit</Button>
-            <Button on:click={() => {redirect('/delete/')}}>Delete</Button>
+            <Button on:click={() => {redirect('/edit/')}}>
+                <i class='bx bx-edit'></i>
+                Edit
+            </Button>
+            <Button on:click={() => {redirect('/delete/')}}>
+                <i class='bx bx-trash'></i>
+                Delete
+            </Button>
         </div>
     </div>
     
@@ -44,11 +50,6 @@
 
 p {
     width: 100%;
-}
-
-i {
-    font-size: 20px;
-    color: $yellow;
 }
 
 .flex {
@@ -70,5 +71,9 @@ i {
     justify-content: flex-start;
     align-items: center;
     gap: 0.3em;
+    i {
+        font-size: 20px;
+        color: $yellow;
+    }
 }
 </style>
