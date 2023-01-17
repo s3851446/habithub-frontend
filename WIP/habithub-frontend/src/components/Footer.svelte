@@ -80,11 +80,8 @@ https://youtu.be/B4KZYsyuVOE -->
 
 <style lang="scss">
    .footer {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    min-height: 100vh;
-    flex-direction: column;
+    bottom: 0;
+    margin-top: 40px;
     footer {
         position: relative;
         width: 100%;
