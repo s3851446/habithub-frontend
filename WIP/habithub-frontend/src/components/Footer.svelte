@@ -81,7 +81,6 @@ https://youtu.be/B4KZYsyuVOE -->
 <style lang="scss">
    .footer {
     bottom: 0;
-    position: absolute;
     margin-top: 40px;
     footer {
         position: relative;
