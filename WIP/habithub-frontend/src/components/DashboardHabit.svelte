@@ -27,22 +27,27 @@
     </div>
 </div>
 
-<style>
+<style lang="scss">
     .habit-card {
         width: 450px;
         height: auto;
-        background: #fff;
-        border-radius: 6px;
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        background: $white;
+        border-radius: $card-radius;
+        box-shadow: $card-shadow;
+        @media all and (max-width: 600px) {
+            width: 380px;
+        }
+        @media all and (max-width: 525px) {
+            width: 340px;
+        }
+        &:hover .bx-chevron-right{
+            transform: translateX(5px);
+        }
     }
 
     .bx-chevron-right {
         font-size: 20px;
-        transition: all 0.2s ease;
-    }
-
-    .habit-card:hover .bx-chevron-right {
-        transform: translateX(5px);
+        transition: $trans-02;
     }
 
     h2 {
@@ -62,44 +67,28 @@
         flex-wrap: wrap;
     }
 
-    .title, .streak {
+    .title {
         display: flex;
         flex-flow: row nowrap;
         justify-content: flex-start;
         align-items: center;
         column-gap: 16px;
+        i {
+            font-size: 25px;
+            color: $red;
+        }
     }
 
     .streak {
+        @extend .title;
         column-gap: 7px;
-    }
-
-    .streak i {
-        color: #E4B363;
-    }
-
-    .title i {
-        font-size: 25px;
-        color: #EF6461;
+        i {
+            color: $yellow;
+            font-size: 20px;
+        }
     }
 
     p {
         margin: 0;
-    }
-
-    input[type=checkbox] {
-        border-radius: 50%;
-    }
-
-    @media all and (max-width: 600px) {
-        .habit-card {
-            width: 380px;
-        }
-    }
-
-    @media all and (max-width: 525px) {
-        .habit-card {
-            width: 340px;
-        }
     }
 </style>

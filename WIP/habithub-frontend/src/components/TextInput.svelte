@@ -12,30 +12,27 @@
     <input type="text" id={id} value={value} name={name} placeholder={placeholder} class="input">
 </div>
 
-<style>
+<style lang="scss">
 .input {
     font-family: "Questrial", sans-serif;
     padding: 0.3em;
     box-shadow: none;
     border:none;
-    border: 0.1em solid #fff;
-    border-radius: 0.5em;
-}
-
-.input:hover, .input:focus, .input:focus-visible {
-    border-color: #ccc;
-    box-shadow: inset rgba(0, 0, 0, 0.14) 0px 0px 8px;
+    border-radius: $card-radius;
+    &:hover, &:focus, &:focus-visible {
+        border-color: $light-grey;
+        box-shadow: inset rgba(0, 0, 0, 0.14) 0px 0px 8px;
+    }
 }
 
 .description {
     width: 100%;
-}
-
-.description>input {
-    width: 100%;
-    max-width: 60em;
-    min-width: 11.5em;
-    height: 3em;
+    input {
+        width: 100%;
+        max-width: 60em;
+        min-width: 11.5em;
+        height: 3em;
+    }
 }
 
 label {

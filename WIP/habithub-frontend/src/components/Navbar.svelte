@@ -113,23 +113,38 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
     </div>
 </nav>
 
-<style>
+<style lang="scss">
+    @mixin flex-column {
+        display: flex;
+        flex-direction: column;
+    }
+
+    @mixin flex-center {
+        display: flex;
+        align-items: center;
+    }
+
     .sidebar {
         position: fixed;
         top: 10px;
         left: 10px;
         height: 100%;
         width: 250px;
-        background: #313638;
+        background: $black;
         padding: 10px 14px;
         z-index: 100;
-        color: #E8E9EB;
-        border-radius: 6px;
-        transition: all .5s ease;
-    }
-
-    .sidebar.close {
-        width: 88px;
+        color: $light-grey;
+        border-radius: $card-radius;
+        transition: $trans-05;
+        &.close {
+            width: 88px;
+            .text {
+                opacity: 0;
+            }
+            .toggle {
+                transform: translateY(-50%);
+            }
+        }
     }
 
     header {
@@ -138,40 +153,30 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
 
     img {
         width: 40px;
-        border-radius: 6px;
+        border-radius: $card-radius;
     }
 
     .image-text {
-        display: flex;
-        align-items: center;
+        @include flex-center;
     }
 
     .text {
         font-size: 16px;
         font-weight: 400;
-        transition: all 0.4s ease;
+        transition: $trans-04;
         white-space: nowrap;
         opacity: 1;
     }
 
-    .sidebar.close .text {
-        opacity: 0;
-    }
-
     .image {
         min-width: 60px;
-        display: flex;
-        align-items: center;
+        @include flex-center;
     }
 
     .header-text {
-        display: flex;
-        flex-direction: column;
+        @include flex-column;
     }
 
-    .sidebar.close .toggle {
-        transform: translateY(-50%);
-    }
 
     .toggle {
         position: absolute;
@@ -180,55 +185,49 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
         transform: translateY(-50%) rotate(180deg);
         height: 25px;
         width: 25px;
-        background: #EF6461;
-        display: flex;
-        align-items: center;
+        background: $red;
+        @include flex-center;
         justify-content: center;
         border-radius: 50%;
         font-size: 22px;
         font-weight: bold;
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: $trans-03;
     }
 
     li {
         height: 50px;
         margin-top: 10px;
         list-style: none;
-        display: flex;
-        align-items: center;
+        @include flex-center;
     }
 
     .icon {
         font-size: 23px;
-        color: #EF6461;
+        color: $red;
         min-width: 60px;
-        display: flex;
-        align-items: center;
+        @include flex-center;
         justify-content: center;
     }
 
     a {
         font-size: 16px;
         width: 100%;
-        color: #E8E9EB;
+        color: $light-grey;
         text-decoration: none;
         height: 100%;
-        display: flex;
-        align-items: center;
-        border-radius: 6px;
-        transition: all 0.4s ease;
-    }
-
-    a:hover{
-        background: #E8E9EB;
-        color: #313638;
+        @include flex-center;
+        border-radius: $card-radius;
+        transition: $trans-04;
+        &:hover {
+            background: $light-grey;
+            color: $black;
+        }
     }
 
     .menu-bar {
         height: calc(100% - 50px);
-        display: flex;
-        flex-direction: column;
+        @include flex-column;
         justify-content: space-between;
     }
 </style>

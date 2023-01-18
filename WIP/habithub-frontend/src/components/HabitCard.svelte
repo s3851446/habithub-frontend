@@ -25,23 +25,26 @@
             <span class="body-content">{streak} days!</span>
         </div>
         <div class="end">
-            <Button on:click={() => {redirect('/edit/')}}>Edit</Button>
-            <Button on:click={() => {redirect('/delete/')}}>Delete</Button>
+            <Button on:click={() => {redirect('/edit/')}}>
+                <i class='bx bx-edit'></i>
+                Edit
+            </Button>
+            <Button on:click={() => {redirect('/delete/')}}>
+                <i class='bx bx-trash'></i>
+                Delete
+            </Button>
         </div>
     </div>
     
 </div>
 
-<style>
+<style lang="scss">
 .parent {
-    border: 0.1em solid #E4B363;
-    /* border: 0.1em solid #EF6461; */
-    border-radius: 1em;
+    border-radius: $card-radius;
     margin: 0.5em 0;
     padding: 1em;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    background-color: #fdf4ee;
-    /* max-width: 25em; */
+    box-shadow: $card-shadow;
+    background-color: $white;
     min-width: 25em;
 }
 
@@ -49,15 +52,12 @@ p {
     width: 100%;
 }
 
-i {
-    font-size: 1.5em;
-}
-
-.flex, .dud-card{
+.flex {
     flex-grow: 1;
 }
 
 .dud-card {
+    @extend .flex;
     visibility: hidden;
 }
 
@@ -71,5 +71,9 @@ i {
     justify-content: flex-start;
     align-items: center;
     gap: 0.3em;
+    i {
+        font-size: 20px;
+        color: $yellow;
+    }
 }
 </style>

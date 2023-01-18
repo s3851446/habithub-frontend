@@ -43,6 +43,4 @@
 <slot />
 <Footer />
 
-<style>
-  
-</style>
+<style lang="scss"></style>

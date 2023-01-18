@@ -44,7 +44,7 @@
     </div>
 </div>
 
-<style>
+<style lang="scss">
     h2 {
         font-size: 16px;
     }
@@ -64,7 +64,7 @@
     }
 
     b {
-        color: #EF6461;
+        color: $red;
     }
 
     .heading {

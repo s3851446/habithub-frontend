@@ -1,6 +1,8 @@
 <script>
   import { validateToken } from './../../utils'
   import { onMount } from 'svelte'
+  import Button from '../../components/Button.svelte';
+  import NotificationCard from '../../components/NotificationCardInner.svelte';
 
   onMount(async () => {
       const validToken = await validateToken()
@@ -11,127 +13,123 @@
 </script>
 
 <div class="body">
-    <section class="settings">
-        <div class="content-wrap item-details divider">
-          <h2 id="settings">Settings</h2>
+  <h1>Settings</h1>
+    <section>
+      <!-- This is temporary & will be changed to a component soon. -AB -->
+        <div class="container">
+          <h2>Profile</h2>
+          <hr>
+          <div class="wrapper">
+            <h3>Username</h3>
+            <p>User1234</p>
+          </div>
+          <div class="wrapper">
+            <h3>First Name</h3>
+            <p>Name</p>
+          </div>
+          <div class="wrapper">
+            <h3>Last Name</h3>
+            <p>LastName</p>
+          </div>
+          <div class="wrapper">
+            <h3>Email</h3>
+            <p>example@mail.com</p>
+          </div>
+          <div class="wrapper">
+            <h3>Profile Picture</h3>
+            <div class="user-pic">
+              <i class='bx bxs-user profile'></i>
+            </div>
+          </div>
+          <Button>
+            <i class='bx bx-edit' ></i>
+            Edit Profile
+          </Button>
         </div>
-        <div class="row">
-          <div class="column">
-            <div class="new-container">
-              <h3>Profile Settings</h3>
-              <hr>
-              <br>
-              <p>Username</p>
-              <p>First Name</p>
-              <p>Last Name</p>
-              <p>Email</p>
-              <p>Profile Picture</p>
-              <img src="./images/portrait1.jpg" alt="chef" style="width:50%">
-            </div>
-          </div>
-          <div class="column">
-            <div class="new-container">
-              <h3>Notification Settings</h3>
-              <hr>
-              <br>
-              <h4>Workout</h4>
-              <p>Reminders</p>
-              <p>Reminder Frequency</p>
-              <p>Reminder Time</p>
-              <hr>
-              <br>
-              <h4>Wake up at 6am</h4>
-              <p>Reminders</p>
-              <p>Reminder Frequency</p>
-              <p>Reminder Time</p>
-            </div>
-          </div>
-          <div class="column">
-            <div class="new-container">
-              <h3>Site Appearance</h3>
-              <hr>
-              <br>
-              <p>Colour Scheme</p>
-            </div>
+        <div class="container">
+          <h2>Notification settings</h2>
+          <hr>
+          <NotificationCard />
+          <NotificationCard />
+        </div>
+        <div class="container">
+          <h2>Colour Scheme</h2>
+          <hr>
+          <div class="wrapper">
+            <h3>Colour Scheme</h3>
+            <p>Light</p>
           </div>
         </div>
-      </section>
+    </section>
 </div>
 
-<style>
-  img {
-      width: 300px;
-  }
-
-  h3 {
-    padding: 20px 0;
-  }
-
-  .content-wrap {
-      max-width: 95%;
-      width: 85%;
-      padding-bottom: 16px;
-  }
-
-  .column {
-    float: left;
-    width: 25%;
-    margin-bottom: 16px;
-    padding: 8px 8px;
-  }
-
-  .column h3 {
-    margin-bottom: 10px;
-  }
-
-  @media screen and (max-width: 750px) {
-    .column {
-      width: 100%;
-      display: block;
+<style lang="scss">
+  @mixin flex {
+    display: flex;
+    align-items: center;
     }
-  }
 
-  .new-container {
-    padding: 0 16px;
-    border-radius: 5px;
-    background-color: #ffffff;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  }
-
-  .new-container::after, .row::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-
-  /* Responsive Elements
-  --------------------- */
-
-  /* Display the columns on small screens */
-  @media screen and (max-width: 900px) {
-    .column {
-      float: left;
-      width: 70%;
-      display: block;
-    }
-  }
-
-  @media screen and (max-width: 750px) {
-    .column {
-      float: left;
-      width: 100%;
-      display: block;
-    }
-  }
-
-  /* this is a media query that uses max-width. It triggers at 749 
-  so it doesn't clash with the min-width. h1 font size reduces in size.
-  It also changes line height of h2 and h1 and margin of h1.
-  */
-  @media screen and (max-width:749px){
-    h2 {
-      line-height: 1;
+  .user-pic {
+    width: 60px;
+    height: 60px;
+    background-color: $dark-grey;
+    border-radius: 100%;
+    @include flex;
+    justify-content: center;
+    i {
       font-size: 35px;
+      color: $light-grey;
     }
-  }
+    }
+
+    .wrapper {
+      @include flex;
+      justify-content: space-between;
+      flex-flow: row wrap;
+      gap: 15px;
+      margin: 20px 5px;
+    }
+
+    p, h3, h2 {
+      margin: 0;
+    }
+
+    hr {
+      margin-top: 16px;
+    }
+
+    .container {
+      width: 300px;
+      height: auto;
+      background: $white;
+      border-radius: $card-radius;
+      box-shadow: $card-shadow;
+      padding: 16px;
+      margin-top: 30px;
+      h2 {
+        font-size: 20px;
+      }
+      h3 {
+        font-size: 15px;
+      }
+      @media all and (max-width:900px) {
+        width: 100%;
+      }
+    }
+
+    section {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 30px;
+      width: 100%;
+      transition: $trans-05;
+      @media all and (max-width: 900px) {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+    }
 </style>

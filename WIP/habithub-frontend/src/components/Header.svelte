@@ -42,14 +42,18 @@ https://youtu.be/ybXulmeilFM -->
     </div>
 </nav>
 
-<style>
+<style lang="scss">
+    @mixin flex {
+        display: flex;
+        align-items: center;
+    }
+
     nav {
         height: 80px;
         width: 100%;
-        border-bottom: solid 0.01px #A8A8A8;
+        border-bottom: solid 0.01px $light-grey;
         padding: 10px 2%;
-        display: flex;
-        align-items: center;
+        @include flex;
         justify-content: flex-end;
         position: relative;
         flex-direction: row;
@@ -59,27 +63,22 @@ https://youtu.be/ybXulmeilFM -->
     .user-pic {
         width: 60px;
         height: 60px;
-        background-color: #A8A8A8;
+        background-color: $dark-grey;
         border-radius: 100%;
-        display: flex;
+        @include flex;
         justify-content: center;
-        align-items: center;
         cursor: pointer;
     }
 
     i {
         font-size: 20px;
-        color: #EF6461;
+        color: $red;
     }
 
     .arrow {
-        color: #313638;
+        color: $black;
         font-size: 20px;
-        transition: all 0.5s ease;
-    }
-
-    .sub-menu-link:hover .arrow {
-        transform: translateX(5px);
+        transition: $trans-05;
     }
 
     .icon i {
@@ -87,12 +86,12 @@ https://youtu.be/ybXulmeilFM -->
     }
 
     .icon a:hover i {
-        color: #E4B363;
+        color: $yellow;
     }
 
     .profile {
         font-size: 35px;
-        color: #E8E9EB;
+        color: $light-grey;
     }
 
     .sub-menu-wrap {
@@ -103,7 +102,7 @@ https://youtu.be/ybXulmeilFM -->
         z-index: 101;
         max-height: 400px;
         overflow: hidden;
-        transition: max-height 0.5s ease;
+        transition: $trans-05;
     }
 
     .sub-menu-wrap.close-menu {
@@ -111,15 +110,15 @@ https://youtu.be/ybXulmeilFM -->
     }
 
     .sub-menu {
-        background: #E8E9EB;
+        background: $light-grey;
         padding: 20px;
         margin: 10px;
-        border-radius: 6px;
+        border-radius: $card-radius;
+        box-shadow: $card-shadow;
     }
 
     .user-info {
-        display: flex;
-        align-items: center;
+        @include flex;
     }
 
     h2 {
@@ -130,11 +129,7 @@ https://youtu.be/ybXulmeilFM -->
     p {
         margin-bottom: 0;
         width: 100%;
-        transition: all 0.5s ease;
-    }
-
-    .sub-menu-link:hover p {
-        font-weight: bolder;
+        transition: $trans-05;
     }
 
     .user-info i {
@@ -142,11 +137,18 @@ https://youtu.be/ybXulmeilFM -->
     }
 
     .sub-menu-link {
-        display: flex;
-        align-items: center;
+        @include flex;
         text-decoration: none;
-        color: #313638;
+        color: $black;
         margin: 12px 0;
+        &:hover {
+            p {
+                font-weight: bolder;
+            }
+            .arrow {
+            transform: translateX(5px);
+        }
+        }
     }
 
     .img {

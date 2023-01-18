@@ -68,3 +68,5 @@
     <h1>I am the Login page!</h1>
     <Button id="login_button">Test a login</Button>
 </div>
+
+<style lang="scss"></style>

@@ -8,30 +8,29 @@
 
 
 
-<style>
+<style lang="scss">
     button {
         border: none;
-        background-image: radial-gradient(#EF6461, #E4B363);
+        background-image: radial-gradient($red, $yellow);
         padding: 10px 35px;
-        border-radius: 50px;
-        color: #fff;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        border-radius: $card-radius;
+        color: $white;
+        box-shadow: $button-shadow;
         font-size: 14px;
-    }
-
-    button:hover {
-        font-size: 16px;
-    }
-
-    button:focus {
-        background: #EF6461;
-        color: #fff;
+        transition: $trans-03;
+        &:hover {
+            font-size: 16px;
+        }
+        &:focus {
+             background: $red;
+        color: $white;
         border: none;
+        }
     }
 
     slot {
         display: flex;
-        flex-direction: row;
+        flex-flow: row nowrap;
         align-items: center;
         justify-content: center;
     }

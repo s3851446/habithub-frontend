@@ -78,39 +78,47 @@ https://youtu.be/B4KZYsyuVOE -->
     </div>
 </div>
 
-<style>
+<style lang="scss">
    .footer {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    min-height: 100vh;
-    flex-direction: column;
-   }
-
-   footer {
-    position: relative;
-    width: 100%;
-    height: auto;
-    padding: 50px 100px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
-   }
-
-   .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    flex-direction: row;
+    bottom: 0;
+    margin-top: 40px;
+    footer {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 50px 100px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+        @media (max-width: 991px) {
+            padding: 40px;
+        }
+    }
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        flex-direction: row;
+        @media (max-width: 991px) {
+            flex-direction: column;
+        }
+    }
    }
 
    .sec {
     margin-right: 30px;
+    @media (max-width: 991px) {
+        margin-right: 0;
+        margin-bottom: 40px;
+    }
    }
 
    .statement {
     width: 40%;
+    @media (max-width: 991px) {
+        width: 100%;
+    }
    }
 
    h1 {
@@ -118,19 +126,31 @@ https://youtu.be/B4KZYsyuVOE -->
     font-size: 13px;
     font-weight: 500;
     margin-bottom: 15px;
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 50px;
+        height: 2px;
+        background: $red;
+    }
    }
 
-   h1:before {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 50px;
-    height: 2px;
-    background: #EF6461;
+   li {
+    font-size: 12px;
+    margin-bottom: 10px;
+    list-style: none;
+    a {
+        color: $black;
+        text-decoration: none;
+        &:hover {
+            color: $red;
+        }
+    }
    }
 
-   p, li {
+   p {
     font-size: 12px;
     margin-bottom: 10px;
    }
@@ -138,96 +158,64 @@ https://youtu.be/B4KZYsyuVOE -->
    .sci {
     margin-top: 20px;
     display: flex;
+    li a {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background-color: $light-grey;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 10px;
+        &:hover {
+            background: $red;
+            i {
+                color: $light-grey;
+            }
+        }
+        i {
+            color: $black;
+            font-size: 25px;
+        }
+    }
    }
 
-    li {
-    list-style: none;
-   }
-
-   li a {
-    color: #313638;
-    text-decoration: none;
-   }
-
-   li a:hover {
-    color: #EF6461;
-   }
-
-   .sci li a {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background-color: #E8E9EB;
-    border-radius: 4px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 10px;
-   }
-
-   .sci li a:hover {
-    background: #EF6461;
-   }
-
-   .sci li a i {
-    color: #313638;
-    font-size: 25px;
-   }
-   .sci li a:hover i {
-    color: #E8E9EB;
-   }
-
-   .quicklinks{
+   .quicklinks {
     position: relative;
     width: 25%;
+    @media (max-width: 991px) {
+        width: 100%;
+    }
    }
 
    .contact {
     width: calc(35% - 60px);
     margin-right: 0 !important;
+    @media (max-width: 991px) {
+        width: 100%;
+    }
    }
 
    .info {
     position: relative;
-   }
-
-   .info li {
-    display: flex;
-    margin-bottom: 16px;
-   }
-
-   .info i {
-    font-size: 20px;
+    li {
+        display: flex;
+        margin-bottom: 16px;
+    }
+    i {
+        font-size: 20px;
     margin-right: 10px;
+    }
    }
 
    .copyright {
     width: 100%;
-    background: #E8E9EB;
+    background: $light-grey;
     padding: 8px 100px;
     text-align: center;
+     @media (max-width: 991px) {
+        padding: 8px 40px;
+     }
    }
-
-   @media (max-width: 991px) {
-    footer {
-        padding: 40px;
-    }
-
-    .container {
-        flex-direction: column;
-    }
-
-    .sec {
-        margin-right: 0;
-        margin-bottom: 40px;
-    }
-
-    .statement, .quicklinks, .contact {
-    width: 100%;
-   }
-
-   .copyright {
-    padding: 8px 40px;
-   }
-  }
 </style>

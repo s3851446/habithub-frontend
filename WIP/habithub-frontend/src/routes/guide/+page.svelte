@@ -22,7 +22,7 @@
     </div>
 </div>
 
-<style>
+<style lang="scss">
     h2 {
         font-size: 17px;
     }
@@ -30,7 +30,7 @@
     img {
         width: 600px;
         height: 400px;
-        border-radius: 16px;
+        border-radius: $card-radius;
     }
 
     .step {
