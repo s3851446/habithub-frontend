@@ -22,15 +22,11 @@
     })
 
     function updateLogout() {
-        console.log("running updateLogout")
         const loginLink = document.getElementById('loginLink')
         const loginText = document.getElementById('loginText')
         const menuLinks = document.getElementById('menu-links')
 
-        console.log(loginLink, loginText)
-
         const loggedInC = localStorage.getItem('loggedIn')
-        console.log("loggedInC is: ", loggedInC)
 
         // would've thought login means show logout option but it just works like this
         // i do not understand -EW
@@ -43,8 +39,6 @@
             logInOutText = 'Log Out'
             menuLinks.classList.remove('hidden')
         }
-
-        console.log('LogInOutText at onMount is: ', logInOutText)
 
         loginLink.setAttribute('href', logInOutUrl)
         loginText.innerHTML = logInOutText

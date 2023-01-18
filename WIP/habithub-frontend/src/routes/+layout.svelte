@@ -28,7 +28,6 @@
     const navbar = document.getElementById('navbar')
 
     validToken = await validateToken();
-    console.log("ValidToken: ", validToken)
 
     header.classList.add("hidden")
 

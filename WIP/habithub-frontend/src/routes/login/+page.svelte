@@ -53,8 +53,6 @@
             userFirstName.set(data.user.firstName)
             let loggedInVar
             loggedIn.subscribe((data) => loggedInVar = data)
-            console.log("LoggedIn store at Login is: ", loggedInVar)
-
 
             //NOTE - remove
             console.log("logged in successfully")

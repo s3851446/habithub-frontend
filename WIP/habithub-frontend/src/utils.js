@@ -2,7 +2,6 @@
 import { jwt, loggedIn, userFirstName } from './stores'
 
 export async function validateToken() {
-    console.log("executing validatetoken")
     const response = await fetch('https://habithub-backend.herokuapp.com/auth/validate', { //API base url should be stored somewhere for the whole site
         method: 'GET',
         headers: {
@@ -25,11 +24,9 @@ export async function validateToken() {
     jwt.set(localStorage.getItem('jwt'))
     let loggedInVar
     loggedIn.subscribe((data) => loggedInVar = data)
-    console.log("LoggedIn store value at validateToken: ", loggedInVar)
 
     let jwtVar
     jwt.subscribe((data) => jwtVar = data) 
-    console.log("jwtVar at validateToken is: ", jwtVar)
 
     return true
 }
@@ -42,7 +39,6 @@ export function signout() {
 
     let loggedInVar
     loggedIn.subscribe((data) => loggedInVar = data)
-    console.log("LoggedIn store at signout is: ", loggedInVar)
 }
 
 export function redirectToLocation(location) {
