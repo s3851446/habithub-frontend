@@ -22,8 +22,12 @@
     })
 
     function updateLogout() {
+        let logInOutIconClass
+        let logInOutIconRemove
+
         const loginLink = document.getElementById('loginLink')
         const loginText = document.getElementById('loginText')
+        const loginIcon = document.getElementById('loginIcon')
         const menuLinks = document.getElementById('menu-links')
 
         const loggedInC = localStorage.getItem('loggedIn')
@@ -33,15 +37,20 @@
         if (loggedInC) {
             logInOutUrl = '/login'
             logInOutText = 'Log In'
+            logInOutIconClass = 'bx-log-in'
+            logInOutIconRemove = 'bx-log-out'
             menuLinks.classList.add('hidden')
         } else {
             logInOutUrl = '/logout'
             logInOutText = 'Log Out'
+            logInOutIconClass = 'bx-log-out'
+            logInOutIconRemove = 'bx-log-in'
             menuLinks.classList.remove('hidden')
         }
 
         loginLink.setAttribute('href', logInOutUrl)
         loginText.innerHTML = logInOutText
+        loginIcon.classList.replace(logInOutIconRemove, logInOutIconClass)
 
     }
 </script>
@@ -103,7 +112,7 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
             <ul class="menu-links">
                 <li class="">
                     <a id="loginLink" href="/logout">
-                        <i class='bx bx-log-out icon'></i>
+                        <i id="loginIcon" class='bx bx-log-out icon'></i>
                         <span id="loginText" class="text nav-text">Log Out</span>
                     </a>
                 </li>
