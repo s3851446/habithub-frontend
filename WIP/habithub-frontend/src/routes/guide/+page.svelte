@@ -25,16 +25,15 @@
 <style lang="scss">
     h2 {
         font-size: 17px;
-    }
-
-    img {
-        width: 600px;
-        height: 400px;
-        border-radius: $card-radius;
-    }
+    }    
 
     .step {
         margin-bottom: 50px;
+        img {
+        width: 600px;
+        height: 400px;
+        border-radius: $card-radius;
+        }
     }
 
     .btn {
