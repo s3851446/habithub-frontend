@@ -3,7 +3,6 @@
   import { onMount } from 'svelte'
   import Button from '../../components/Button.svelte';
   import NotificationCard from '../../components/NotificationCardInner.svelte';
-  // export let data;
 
   onMount(async () => {
       const validToken = await validateToken()
@@ -24,7 +23,12 @@
       
       const data = await response.json()
 
-      console.log("data: ", data)
+      document.getElementById('email').innerHTML = data.email
+      document.getElementById('firstName').innerHTML = data.firstName
+      document.getElementById('lastName').innerHTML = data.lastName
+      if (data.settings != null) document.getElementById('colourScheme').innerHTML = data.settings.colourScheme
+
+      
   })
 </script>
 
@@ -41,15 +45,15 @@
           </div>
           <div class="wrapper">
             <h3>First Name</h3>
-            <p>Name</p>
+            <p id="firstName">Name</p>
           </div>
           <div class="wrapper">
             <h3>Last Name</h3>
-            <p>LastName</p>
+            <p id="lastName">LastName</p>
           </div>
           <div class="wrapper">
             <h3>Email</h3>
-            <p>example@mail.com</p>
+            <p id="email">example@mail.com</p>
           </div>
           <div class="wrapper">
             <h3>Profile Picture</h3>
@@ -73,7 +77,7 @@
           <hr>
           <div class="wrapper">
             <h3>Colour Scheme</h3>
-            <p>Light</p>
+            <p id="colourScheme">Light</p>
           </div>
         </div>
     </section>
