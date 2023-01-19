@@ -15,17 +15,19 @@
         }
         const button = document.querySelector("button")
 
-        button.addEventListener("click", () => {
-            redirectToLocation('/habits')
-        })
+        
     })
+
+    const newHabit = () => {
+        redirectToLocation('/edit/new')
+    }
 
 </script>
 
 <div class="body">
     <div class="heading">
         <h1>Hello, Name LastName!</h1>
-         <Button>
+         <Button on:click={newHabit}>
             <i class='bx bx-plus'></i>
             Add Habit
         </Button>
