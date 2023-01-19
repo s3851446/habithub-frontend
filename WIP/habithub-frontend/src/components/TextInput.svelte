@@ -15,33 +15,27 @@
 <style lang="scss">
 .input {
     font-family: "Questrial", sans-serif;
-    padding: 0.3em;
+    font-size: 16px;
+    padding: 15px 20px;
     box-shadow: none;
     border:none;
     border-radius: $card-radius;
+    width: 100%;
+    max-width: 500px;
+    min-width: 11.5em;
     &:hover, &:focus, &:focus-visible {
         border-color: $light-grey;
         box-shadow: inset rgba(0, 0, 0, 0.14) 0px 0px 8px;
     }
 }
 
-.description {
-    width: 100%;
-    input {
-        width: 100%;
-        max-width: 60em;
-        min-width: 11.5em;
-        height: 3em;
-    }
-}
-
 label {
     display: block;
-    margin-bottom: 0.2em;
+    margin-bottom: 5px;
 }
 
-div.parent {
-    margin-bottom: 0.5em;
+.parent {
+    margin-bottom: 20px;
     margin-top: 0.5em;
 }
 </style>
