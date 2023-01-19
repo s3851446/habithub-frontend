@@ -17,7 +17,7 @@ export function load({ params }) {
             h_data: {
                 title: '',
                 description: '',
-                h_id: '',
+                h_id: ''
             }
         }
     }

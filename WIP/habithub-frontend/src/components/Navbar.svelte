@@ -22,32 +22,35 @@
     })
 
     function updateLogout() {
-        console.log("running updateLogout")
+        let logInOutIconClass
+        let logInOutIconRemove
+
         const loginLink = document.getElementById('loginLink')
         const loginText = document.getElementById('loginText')
+        const loginIcon = document.getElementById('loginIcon')
         const menuLinks = document.getElementById('menu-links')
 
-        console.log(loginLink, loginText)
-
         const loggedInC = localStorage.getItem('loggedIn')
-        console.log("loggedInC is: ", loggedInC)
 
         // would've thought login means show logout option but it just works like this
         // i do not understand -EW
         if (loggedInC) {
             logInOutUrl = '/login'
             logInOutText = 'Log In'
+            logInOutIconClass = 'bx-log-in'
+            logInOutIconRemove = 'bx-log-out'
             menuLinks.classList.add('hidden')
         } else {
             logInOutUrl = '/logout'
             logInOutText = 'Log Out'
+            logInOutIconClass = 'bx-log-out'
+            logInOutIconRemove = 'bx-log-in'
             menuLinks.classList.remove('hidden')
         }
 
-        console.log('LogInOutText at onMount is: ', logInOutText)
-
         loginLink.setAttribute('href', logInOutUrl)
         loginText.innerHTML = logInOutText
+        loginIcon.classList.replace(logInOutIconRemove, logInOutIconClass)
 
     }
 </script>
@@ -109,7 +112,7 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
             <ul class="menu-links">
                 <li class="">
                     <a id="loginLink" href="/logout">
-                        <i class='bx bx-log-out icon'></i>
+                        <i id="loginIcon" class='bx bx-log-out icon'></i>
                         <span id="loginText" class="text nav-text">Log Out</span>
                     </a>
                 </li>

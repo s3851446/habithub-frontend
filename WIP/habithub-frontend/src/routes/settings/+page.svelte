@@ -9,6 +9,26 @@
       if (!validToken) {
           window.location.href = '/login'
       }
+
+      const fetchURL = 'https://habithub-backend.herokuapp.com/user/' + localStorage.getItem('userID')
+      
+      const response = await fetch(fetchURL, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application.json',
+          'Content-Type': 'application/json',
+          'Authorization': 'BEARER ' + localStorage.getItem('jwt')
+        }
+      })
+      
+      const data = await response.json()
+
+      document.getElementById('email').innerHTML = data.email
+      document.getElementById('firstName').innerHTML = data.firstName
+      document.getElementById('lastName').innerHTML = data.lastName
+      if (data.settings != null) document.getElementById('colourScheme').innerHTML = data.settings.colourScheme
+
+      
   })
 </script>
 
@@ -25,15 +45,15 @@
           </div>
           <div class="wrapper">
             <h3>First Name</h3>
-            <p>Name</p>
+            <p id="firstName">Name</p>
           </div>
           <div class="wrapper">
             <h3>Last Name</h3>
-            <p>LastName</p>
+            <p id="lastName">LastName</p>
           </div>
           <div class="wrapper">
             <h3>Email</h3>
-            <p>example@mail.com</p>
+            <p id="email">example@mail.com</p>
           </div>
           <div class="wrapper">
             <h3>Profile Picture</h3>
@@ -57,7 +77,7 @@
           <hr>
           <div class="wrapper">
             <h3>Colour Scheme</h3>
-            <p>Light</p>
+            <p id="colourScheme">Light</p>
           </div>
         </div>
     </section>
