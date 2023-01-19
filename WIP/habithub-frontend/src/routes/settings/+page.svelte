@@ -3,12 +3,28 @@
   import { onMount } from 'svelte'
   import Button from '../../components/Button.svelte';
   import NotificationCard from '../../components/NotificationCardInner.svelte';
+  // export let data;
 
   onMount(async () => {
       const validToken = await validateToken()
       if (!validToken) {
           window.location.href = '/login'
       }
+
+      const fetchURL = 'https://habithub-backend.herokuapp.com/user/' + localStorage.getItem('userID')
+      
+      const response = await fetch(fetchURL, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application.json',
+          'Content-Type': 'application/json',
+          'Authorization': 'BEARER ' + localStorage.getItem('jwt')
+        }
+      })
+      
+      const data = await response.json()
+
+      console.log("data: ", data)
   })
 </script>
 

@@ -31,7 +31,7 @@
                 })
             })
 
-            const data = await response.json();
+            const data = await response.json()
 
             if (!response.ok) {
                 localStorage.clear()
@@ -43,7 +43,7 @@
             // ideally this should be put somewhere other than localStorage: https://auth0.com/docs/secure/security-guidance/data-security/token-storage#don-t-store-tokens-in-local-storage
             localStorage.setItem('jwt', data.accessToken)
             localStorage.setItem('loggedIn', true)
-            localStorage.setItem('userFirstName', data.user.firstName)
+            localStorage.setItem('userID', data.user._id)
 
             // $jwt = data.accessToken
             // $loggedIn = true
