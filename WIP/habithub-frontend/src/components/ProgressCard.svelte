@@ -1,22 +1,30 @@
+<script>
+    export let habit_title
+    export let icon
+    export let current_streak
+    export let best_streak
+    export let progress
+</script>
+
 <div class="column">
     <div class="new-container">
         <div class="title">
-             <i class='bx bx-dumbbell'></i>
-            <h2>Workout</h2>
+             <i class='bx {icon}'></i>
+            <h2>{habit_title}</h2>
         </div>
     <hr>
     <div class="variable-row">
         <div class="variable-column">
             <h4>Current Streak</h4>
-            <p>7 days</p>
+            <p>{current_streak} days</p>
         </div>
         <div class="variable-column">
             <h4>Best Streak</h4>
-            <p>14 days</p>
+            <p>{best_streak} days</p>
         </div>
         <div class="variable-column">
             <h4>Overall Progress</h4>
-            <p>7/30 Days</p>
+            <p>{progress} days achieved</p>
         </div>
     </div>
     </div>
