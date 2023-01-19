@@ -1,20 +1,28 @@
+ <script>
+  export let habit_title
+  export let icon
+  export let reminder
+  export let frequency
+  export let time
+ </script>
+ 
  <div class="container notification">
     <div class="title">
-        <i class='bx bx-dumbbell'></i>
-        <h2>Workout</h2>
+        <i class='bx {icon}'></i>
+        <h2>{habit_title}</h2>
     </div>
     <hr>
     <div class="wrapper">
         <h3>Reminders</h3>
-        <p>On</p>
+        <p>{reminder}</p>
     </div>
     <div class="wrapper">
         <h3>Reminder Frequency</h3>
-        <p>Daily</p>
+        <p>{frequency}</p>
     </div>
     <div class="wrapper">
         <h3>Reminder Time</h3>
-        <p>09:00 AM</p>
+        <p>{time}</p>
     </div>
 </div>
 
@@ -28,7 +36,7 @@
       padding: 16px;
       margin-top: 30px;
       h2 {
-        font-size: 20px;
+        font-size: 17px;
       }
       h3 {
         font-size: 15px;

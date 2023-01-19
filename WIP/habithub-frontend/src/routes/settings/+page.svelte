@@ -40,10 +40,6 @@
           <h2>Profile</h2>
           <hr>
           <div class="wrapper">
-            <h3>Username</h3>
-            <p>User1234</p>
-          </div>
-          <div class="wrapper">
             <h3>First Name</h3>
             <p id="firstName">Name</p>
           </div>
@@ -69,8 +65,8 @@
         <div class="container">
           <h2>Notification settings</h2>
           <hr>
-          <NotificationCard />
-          <NotificationCard />
+          <NotificationCard habit_title="Workout" icon="bx-dumbbell" reminder="On" frequency="Daily" time="09:00 AM"/>
+          <NotificationCard habit_title="Sleep early" icon="bx-bed" reminder="On" frequency="Daily" time="09:00 PM"/>
         </div>
         <div class="container">
           <h2>Colour Scheme</h2>
