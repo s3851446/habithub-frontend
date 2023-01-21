@@ -21,12 +21,14 @@
 
 
 <div class="body">
-    <h1>My Habits</h1>
-    <Button id="newHabit" on:click={newHabit}>
-        <!-- Use icon with proper flex when can be bothered -->
-        <!-- <i class='bx bx-plus icon'></i> -->
-        <span class="bigger">+</span> Add Habit
-    </Button>
+    <div class="heading">
+        <h1>My Habits</h1>
+        <Button id="newHabit" on:click={newHabit}>
+            <!-- Use icon with proper flex when can be bothered -->
+            <!-- <i class='bx bx-plus icon'></i> -->
+            <span class="bigger">+</span> Add Habit
+        </Button>    
+    </div>
     <div class="card-container">
         <HabitCard classs="flex" name="My New Habit" description="This is the habit that I am going to do all the time" streak="2" h_id="some:j94k905630l00dn3"/>
         <HabitCard classs="flex" name="My New Habit" description="This is the habit that I am going to do all the time" streak="2" h_id="some:j94k905630l00dn3"/>
@@ -41,5 +43,13 @@
         flex-wrap: wrap;
         align-content: stretch;
         gap: 1em;
+    }
+
+    .heading {
+        display: flex;
+        width: 100%;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
     }
 </style>
