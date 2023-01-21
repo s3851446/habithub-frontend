@@ -24,9 +24,11 @@
     <div class="heading">
         <h1>My Habits</h1>
         <Button id="newHabit" on:click={newHabit}>
-            <!-- Use icon with proper flex when can be bothered -->
-            <!-- <i class='bx bx-plus icon'></i> -->
-            <span class="bigger">+</span> Add Habit
+            <div class="innerBtn">
+                <i class='bx bx-plus'></i>
+                <!-- <span class="bigger">+</span> -->
+                Add Habit
+            </div>
         </Button>    
     </div>
     <div class="card-container">
@@ -51,5 +53,13 @@
         flex-flow: row wrap;
         justify-content: space-between;
         align-items: center;
+    }
+
+    .innerBtn {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 0.3em;
     }
 </style>

@@ -28,8 +28,10 @@
     <div class="heading">
         <h1>Hello, Name LastName!</h1>
          <Button on:click={newHabit}>
-            <i class='bx bx-plus'></i>
-            Add Habit
+            <div class="innerBtn">
+                <i class='bx bx-plus'></i>
+                Add Habit
+            </div>
         </Button>
     </div>
     <p>You have completed <i class="italics"> <b>4</b> out of 5</i> of today's 
@@ -75,6 +77,14 @@
         flex-flow: row wrap;
         justify-content: space-between;
         align-items: center;
+    }
+
+    .innerBtn {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 0.3em;
     }
 </style>
 
