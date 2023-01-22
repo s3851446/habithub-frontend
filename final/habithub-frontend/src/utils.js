@@ -2,7 +2,7 @@
 import { jwt, loggedIn, userFirstName } from './stores'
 
 export async function validateToken() {
-    const response = await fetch('https://habithub-backend.herokuapp.com/auth/validate', { //API base url should be stored somewhere for the whole site
+    const response = await fetch('https://habithub-api.herokuapp.com/auth/validate', { //API base url should be stored somewhere for the whole site
         method: 'GET',
         headers: {
             'Accept': 'application.json',

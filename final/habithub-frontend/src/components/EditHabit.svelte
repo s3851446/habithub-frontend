@@ -28,7 +28,7 @@
 </script>
 
 <div>
-    <form id="form" class="habit-form" action="https://habithub-backend.herokuapp.com/habit" on:submit|preventDefault={handleSubmit}>
+    <form id="form" class="habit-form" action="https://habithub-api.herokuapp.com/habit" on:submit|preventDefault={handleSubmit}>
         <TextInput classs="" id="" name="title" value="" placeholder="title" label="Title"/>
         <TextInput classs="description" id="" name="description" value="" placeholder="description" label="Description" />
         <div class="btn">

@@ -20,7 +20,7 @@
 
         // TODO: update url, change body content to email/password, stop form default behaviour
         async function loginUser() {
-            const response = await fetch('https://habithub-backend.herokuapp.com/auth/signin', { //API base url should be stored somewhere for the whole site
+            const response = await fetch('https://habithub-api.herokuapp.com/auth/signin', { //API base url should be stored somewhere for the whole site
                 method: 'POST',
                 headers: {
                     'Accept': 'application.json',

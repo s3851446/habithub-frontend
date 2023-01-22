@@ -10,7 +10,7 @@
           window.location.href = '/login'
       }
 
-      const fetchURL = 'https://habithub-backend.herokuapp.com/user/' + localStorage.getItem('userID')
+      const fetchURL = 'https://habithub-api.herokuapp.com/user/' + localStorage.getItem('userID')
       
       const response = await fetch(fetchURL, {
         method: 'GET',
