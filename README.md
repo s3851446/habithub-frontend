@@ -1,5 +1,8 @@
 # HabitHub Frontend
 
+WIP URL: https://habithub-frontend.netlify.app/ 
+Final URL: https://habithub-app.netlify.app/ 
+
 ### Reference material
 
 [Tutorial on setting up a Svelte application on Netlify](https://medium.com/@edades/simple-svelte-demo-deployed-in-netlify-9f1817452903)
