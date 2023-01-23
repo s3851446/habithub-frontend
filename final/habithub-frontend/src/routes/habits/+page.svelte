@@ -36,6 +36,11 @@
         <HabitCard classs="flex" name="My New Habit" description="This is the habit that I am going to do all the time" streak="2" h_id="some:j94k905630l00dn3"/>
         <HabitCard classs="dud-card" name="" description="" streak="" h_id="" />
     </div>
+
+    <!-- <form action="http://localhost:3000/user/pic/63b7b3ba17291e9d0483bfa3" method="post" enctype="multipart/form-data">
+        <input type="file" name="profilepic">
+        <input type="submit" value="submit">
+    </form> -->
 </div>
 
 <style lang="scss">

@@ -1,5 +1,34 @@
 <script>
     export let id
+    import { onMount } from 'svelte'
+
+    onMount(async () => {
+        var fetchURL = 'https://habithub-api.herokuapp.com/pic/' + localStorage.getItem('userID')
+        console.log("fetchurl: ", fetchURL)
+        const picResponse = await fetch (fetchURL, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application.json',
+                'Content-Type': 'application/json'
+            }
+        })
+
+        const data = await picResponse.json()
+        const picDiv = document.getElementById('user-pic')
+        const picImg = document.getElementById('pic-img')
+        const picIcon = document.getElementById('pic-icon')
+
+        if (picResponse.ok) {
+            picImg.src = `data:${data.pic.mimetype};base64,${data.pic.buffer64}`
+            picImg.style.display = "block"
+            picIcon.style.display = "none"
+        }
+
+        console.log(data)
+    })
+
+    
+
 </script>
 
 <!-- This component was created with the help of a YouTube tutorial.
@@ -8,8 +37,9 @@ https://youtu.be/ybXulmeilFM -->
     <div class="icon">
         <a href="/"><i class='bx bx-bell'></i></a>
     </div>
-    <div class="user-pic">
-        <i class='bx bxs-user profile'></i>
+    <div class="user-pic" id="user-pic">
+        <i id="pic-icon" class='bx bxs-user profile'></i>
+        <img id="pic-img" src="" alt="user-avatar">
     </div>
     <div class="sub-menu-wrap close-menu">
         <div class="sub-menu">
@@ -157,5 +187,12 @@ https://youtu.be/ybXulmeilFM -->
 
     hr {
         margin: 15px 0 10px;
+    }
+
+    #pic-img {
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        display: none;
     }
 </style>

@@ -12,13 +12,18 @@
     const sidebar = document.querySelector(".sidebar"),
           toggle = document.querySelector(".toggle"),
           userPic = document.querySelector(".user-pic"),
-          subMenuWrap = document.querySelector(".sub-menu-wrap")
+          subMenuWrap = document.querySelector(".sub-menu-wrap"),
+          picImg = document.querySelector(".pic-img")
 
     toggle.addEventListener("click", () => {
       sidebar.classList.toggle("close")
     })
 
     userPic.addEventListener("click", () => {
+      subMenuWrap.classList.toggle("close-menu")
+    })
+
+    picImg.addEventListener("click", () => {
       subMenuWrap.classList.toggle("close-menu")
     })
 
