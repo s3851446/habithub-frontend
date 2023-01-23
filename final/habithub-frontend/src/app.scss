@@ -72,6 +72,11 @@ hr {
 object {
   float: right;
   margin: 40px 0;
+}
+
+.man {
+  width: 300px;
+  float: right;
   @media all and (max-width: 400px) {
     float: none;
   }

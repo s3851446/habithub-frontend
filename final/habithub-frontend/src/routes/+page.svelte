@@ -46,9 +46,11 @@
             <DashboardHabit />
         </div>
     </div>
-    <object title="Man waving hand" type="image/svg+xml" data="./images/waving.svg" width="250">
-        <img src="./images/waving.svg" alt="Man waving his hand"/>
-    </object>
+    <div class="man">
+        <object title="Man waving hand" type="image/svg+xml" data="./images/waving.svg">
+            <img src="./images/waving.svg" alt="Man waving his hand"/>
+        </object>
+    </div>
 </div>
 
 <style lang="scss">
