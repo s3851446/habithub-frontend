@@ -54,6 +54,14 @@
 </div>
 
 <style lang="scss">
+    .man {
+        width: 300px;
+        float: right;
+        @media all and (max-width: 400px) {
+            float: none;
+        }
+    }
+
     h2 {
         font-size: 16px;
     }

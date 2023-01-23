@@ -13,26 +13,64 @@
 </script>
 
 <div class="body">
-  <div>
-    <h1>Overall Progress</h1>
+  <div class="container content">
+    <div>
+      <h1>Overall Progress</h1>
+    </div>
+    <div class="statistics-button">
+      <Button class="range-selector">
+        <i class='bx bx-calendar'></i>
+        Data Range Selector
+      </Button>
+    </div>
+    <div class="progress-cards">
+      <ProgressCard habit_title="Workout" icon="bx-dumbbell" current_streak="30" best_streak="30" progress="30/60"/>
+      <ProgressCard habit_title="Sleep Early" icon="bx-bed" current_streak="1" best_streak="1" progress="1/60"/>
+      <ProgressCard habit_title="Wake-up Early" icon="bx-sun" current_streak="1" best_streak="1" progress="1/60"/>
+      <ProgressCard habit_title="Drink Water" icon="bx-droplet" current_streak="20" best_streak="45" progress="50/60"/>
+    </div>
   </div>
-  <div class="statistics-button">
-    <Button class="range-selector">
-      <i class='bx bx-calendar'></i>
-      Data Range Selector
-    </Button>
-  </div>
-  <div class="progress-cards">
-    <ProgressCard habit_title="Workout" icon="bx-dumbbell" current_streak="30" best_streak="30" progress="30/60"/>
-    <ProgressCard habit_title="Sleep Early" icon="bx-bed" current_streak="1" best_streak="1" progress="1/60"/>
-    <ProgressCard habit_title="Wake-up Early" icon="bx-sun" current_streak="1" best_streak="1" progress="1/60"/>
-    <ProgressCard habit_title="Drink Water" icon="bx-droplet" current_streak="20" best_streak="45" progress="50/60"/>
+  <div class="man container">
+    <object title="Man jumping up and down" type="image/svg+xml" data="./images/jumping.svg">
+        <img src="./images/jumping.svg" alt="Man jumping up and down"/>
+    </object>
   </div>
 </div>
 
 <style lang="scss">
-  .statistics-button {
-    float: right;
+  .body {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    column-gap: 50px;
+    transition: $trans-05;
+    @media all and (max-width: 900px) {
+      flex-flow: column nowrap;
+      align-items: center;
+    }
+  }
+
+  .man {
+    width: 20%;
+    transition: $trans-05;
+    @media all and (max-width: 900px) {
+      width: 25%;
+    }
+    @media all and (max-width: 600px) {
+      width: 40%;
+    }
+    @media all and (max-width: 400px) {
+      width: 100%;
+    }
+  }
+
+  .content {
+    width: 75%;
+    transition: $trans-05;
+    @media all and (max-width: 900px) {
+      width: 100%;
+    }
   }
 
   i {

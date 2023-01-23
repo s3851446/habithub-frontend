@@ -37,7 +37,7 @@
     }
 
     .column {
-        width: 70%;
+        width: 100%;
         transition: $trans-05;
         @media all and (max-width: 900px)  {
             width: 100%;
