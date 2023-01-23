@@ -2,7 +2,12 @@
     export let id
     import { onMount } from 'svelte'
 
-    onMount(async () => {
+    onMount(() => {
+        loadProfile()
+        loadUserData()
+    })
+
+    async function loadProfile() {
         var fetchURL = 'https://habithub-api.herokuapp.com/pic/' + localStorage.getItem('userID')
         console.log("fetchurl: ", fetchURL)
         const picResponse = await fetch (fetchURL, {
@@ -14,7 +19,6 @@
         })
 
         const data = await picResponse.json()
-        const picDiv = document.getElementById('user-pic')
         const picImg = document.getElementById('pic-img')
         const picIcon = document.getElementById('pic-icon')
 
@@ -23,9 +27,24 @@
             picImg.style.display = "block"
             picIcon.style.display = "none"
         }
+    }
 
-        console.log(data)
-    })
+    async function loadUserData() {
+        const fetchURL = 'https://habithub-api.herokuapp.com/user/' + localStorage.getItem('userID')
+
+        const response = await fetch(fetchURL, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application.json',
+          'Content-Type': 'application/json',
+          'Authorization': 'BEARER ' + localStorage.getItem('jwt')
+        }
+      })
+      
+      const data = await response.json()
+
+      document.getElementById('name').innerHTML = `${data.firstName} ${data.lastName}`
+    }
 
     
 
@@ -45,7 +64,7 @@ https://youtu.be/ybXulmeilFM -->
         <div class="sub-menu">
             <div class="user-info">
                     <i class='bx bxs-user'></i>
-                <h2>Name LastName</h2>
+                <h2 id="name">Name LastName</h2>
             </div>
             <hr />
             <a href="/settings" class="sub-menu-link">
