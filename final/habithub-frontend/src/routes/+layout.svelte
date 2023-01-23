@@ -23,7 +23,7 @@
       subMenuWrap.classList.toggle("close-menu")
     })
 
-    picImg.addEventListener("click", () => {
+    if (picImg) picImg.addEventListener("click", () => {
       subMenuWrap.classList.toggle("close-menu")
     })
 

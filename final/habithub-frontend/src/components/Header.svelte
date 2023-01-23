@@ -1,49 +1,28 @@
 <script>
     export let id
     import { onMount } from 'svelte'
+    import { loadUserData, loadUserPic } from '../utils'
 
     onMount(() => {
         loadProfile()
-        loadUserData()
+        loadName()
     })
 
     async function loadProfile() {
-        var fetchURL = 'https://habithub-api.herokuapp.com/pic/' + localStorage.getItem('userID')
-        console.log("fetchurl: ", fetchURL)
-        const picResponse = await fetch (fetchURL, {
-            method: 'GET',
-            headers: {
-                'Accept': 'application.json',
-                'Content-Type': 'application/json'
-            }
-        })
-
-        const data = await picResponse.json()
+        const data = await loadUserPic(localStorage.getItem('userID'), localStorage.getItem('jwt'))
         const picImg = document.getElementById('pic-img')
         const picIcon = document.getElementById('pic-icon')
 
-        if (picResponse.ok) {
+        if (data) {
             picImg.src = `data:${data.pic.mimetype};base64,${data.pic.buffer64}`
             picImg.style.display = "block"
             picIcon.style.display = "none"
         }
     }
 
-    async function loadUserData() {
-        const fetchURL = 'https://habithub-api.herokuapp.com/user/' + localStorage.getItem('userID')
-
-        const response = await fetch(fetchURL, {
-        method: 'GET',
-        headers: {
-          'Accept': 'application.json',
-          'Content-Type': 'application/json',
-          'Authorization': 'BEARER ' + localStorage.getItem('jwt')
-        }
-      })
-      
-      const data = await response.json()
-
-      document.getElementById('name').innerHTML = `${data.firstName} ${data.lastName}`
+    async function loadName() {
+        const data = await loadUserData(localStorage.getItem('userID'), localStorage.getItem('jwt'))
+        document.getElementById('name').innerHTML = `${data.firstName} ${data.lastName}`
     }
 
     
