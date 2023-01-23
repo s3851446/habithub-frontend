@@ -68,3 +68,11 @@ hr {
   width: 100%;
   background: $dark-grey;
 }
+
+object {
+  float: right;
+  margin: 40px 0;
+  @media all and (max-width: 400px) {
+    float: none;
+  }
+}
