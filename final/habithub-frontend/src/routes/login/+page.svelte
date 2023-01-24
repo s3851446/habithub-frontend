@@ -65,30 +65,6 @@
     })
 </script>
 
-<!-- <div class="body">
-    <img src="./images/logo_web.png" alt="">
-    <h1>Welcome back!</h1>
-    <p>It's so good to see you again!</p>
-    <Button id="login_button">Test a login</Button>
-</div>
-
-<style lang="scss">
-    img {
-        width: 300px;
-        height: auto;
-    }
-
-    .body {
-        padding: 0 40px;
-        margin-top: 0;
-        text-align: center;
-    }
-
-    h1 {
-        font-size: 20px;
-    }
-</style> -->
-
   <div class="container">
     <img class="logo" src="{base}/images/logo_app.png" alt="Habit Hub logo" />
     <form class="form">
