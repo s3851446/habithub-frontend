@@ -115,6 +115,6 @@
       <button class="btn" on:click={handleSignup}>Sign Up</button>
     </form>
     <div class="signup">
-      Already have an account? <a href="#" on:click={handleLogin}>Log In</a>
+      Already have an account? <a href="/login">Log In</a>
     </div>
   </div>
