@@ -37,16 +37,49 @@
       passwordConfirm: ""
     };
   
-    function handleSignup() {
+    async function handleSignup() {
       user.email = document.getElementById("email").value;
       user.password = document.getElementById("password").value;
       user.firstName = document.getElementById("firstName").value;
       user.lastName = document.getElementById("lastName").value;
       user.passwordConfirm = document.getElementById("passwordConfirm").value;
-      // send user data to backend for signup
-      // ...
+      
+      // NOTE - needs to do something to check passwords match
+      const response = await fetch('https://habithub-api.herokuapp.com/user', { //API base url should be stored somewhere for the whole site
+        method: 'POST',
+        headers: {
+          'Accept': 'application.json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            password: user.password
+        })
+      })
+
+      const data = await response.json()
+
+
+      // NOTE - needs to return a message if bad email
     }
   </script>
+
+  <div class="container">
+    <img class="logo" src="{base}/images/logo_app.png" alt="Habit Hub logo" />
+    <form class="form">
+      <input class="form-control" type="text" placeholder="First Name" id="firstName" />
+      <input class="form-control" type="text" placeholder="Last Name" id="lastName" />
+      <input class="form-control" type="email" placeholder="Email" id="email" />
+      <input class="form-control" type="password" placeholder="Password" id="password" />
+      <input class="form-control" type="password" placeholder="Confirm Password" id="passwordConfirm" />
+      <button class="btn" on:click={handleSignup}>Sign Up</button>
+    </form>
+    <div class="signup">
+      Already have an account? <a href="/login">Log In</a>
+    </div>
+  </div>
 
   <style>
     .container {
@@ -103,18 +136,3 @@
     }
   
   </style>
-
-  <div class="container">
-    <img class="logo" src="{base}/images/logo_app.png" alt="Habit Hub logo" />
-    <form class="form">
-      <input class="form-control" type="text" placeholder="First Name" id="firstName" />
-      <input class="form-control" type="text" placeholder="Last Name" id="lastName" />
-      <input class="form-control" type="email" placeholder="Email" id="email" />
-      <input class="form-control" type="password" placeholder="Password" id="password" />
-      <input class="form-control" type="password" placeholder="Confirm Password" id="passwordConfirm" />
-      <button class="btn" on:click={handleSignup}>Sign Up</button>
-    </form>
-    <div class="signup">
-      Already have an account? <a href="/login">Log In</a>
-    </div>
-  </div>
