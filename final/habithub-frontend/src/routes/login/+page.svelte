@@ -21,6 +21,9 @@
 
         // TODO: update url, change body content to email/password, stop form default behaviour
         async function loginUser() {
+            const emailField = document.getElementById('email')
+            const passwordField = document.getElementById('password')
+
             const response = await fetch('https://habithub-api.herokuapp.com/auth/signin', { //API base url should be stored somewhere for the whole site
                 method: 'POST',
                 headers: {
@@ -28,8 +31,8 @@
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    email: 'ella@watts.com.au',
-                    password: 'ella1234'
+                    email: emailField.value,
+                    password: passwordField.value
                 })
             })
 
@@ -47,9 +50,6 @@
             localStorage.setItem('loggedIn', true)
             localStorage.setItem('userID', data.user._id)
 
-            // $jwt = data.accessToken
-            // $loggedIn = true
-            // $userFirstName = data.user.firstName
             loggedIn.set(true)
             jwt.set(data.accessToken)
             userFirstName.set(data.user.firstName)
