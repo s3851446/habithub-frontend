@@ -42,6 +42,7 @@
 
   <div class="body">
     <img class="logo" src="{base}/images/logo_web.png" alt="Habit Hub logo" />
+    <h1>Sign Up</h1>
     <form class="form">
       <TextInput 
         id="firstName"
