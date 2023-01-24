@@ -79,14 +79,6 @@
 </div>
 
 <style lang="scss">
-    .man {
-        width: 300px;
-        // float: right;
-        // @media all and (max-width: 400px) {
-        //     float: none;
-        // }
-    }
-
     .list-items {
         display: flex;
         flex-flow: column nowrap;
