@@ -1,5 +1,7 @@
 <script>
     import { base } from '$app/paths'
+    import Button from '../../components/Button.svelte';
+    import TextInput from '../../components/TextInput.svelte';
 
     let user = {
       email: "",
@@ -38,73 +40,80 @@
     }
   </script>
 
-  <div class="container">
-    <img class="logo" src="{base}/images/logo_app.png" alt="Habit Hub logo" />
+  <div class="body">
+    <img class="logo" src="{base}/images/logo_web.png" alt="Habit Hub logo" />
     <form class="form">
-      <input class="form-control" type="text" placeholder="First Name" id="firstName" />
-      <input class="form-control" type="text" placeholder="Last Name" id="lastName" />
-      <input class="form-control" type="email" placeholder="Email" id="email" />
-      <input class="form-control" type="password" placeholder="Password" id="password" />
-      <input class="form-control" type="password" placeholder="Confirm Password" id="passwordConfirm" />
-      <button class="btn" on:click={handleSignup}>Sign Up</button>
+      <TextInput 
+        id="firstName"
+        value=""
+        name="FirstName"
+        placeholder="Enter your first name here"
+        label="First Name"
+        input_type="text"
+      />
+      <TextInput 
+        id="lastName"
+        value=""
+        name="LastName"
+        placeholder="Enter your last name here"
+        label="Last Name"
+        input_type="text"
+      />
+      <TextInput 
+        id="email"
+        value=""
+        name="Email"
+        placeholder="Enter your email address here"
+        label="Email"
+        input_type="email"
+      />
+      <TextInput 
+        id="password"
+        value=""
+        name="Password"
+        placeholder="Enter the password here"
+        label="Password"
+        input_type="password"
+      />
+      <TextInput 
+        id="passwordConfirm"
+        value=""
+        name="PasswordConfirm"
+        placeholder="Re-enter the password here"
+        label="Confirm Password"
+        input_type="password"
+      />
+      <Button on:click={handleSignup}>Signup</Button>
     </form>
-    <div class="signup">
+    <p class="p">
       Already have an account? <a href="/login">Log In</a>
-    </div>
+    </p>
   </div>
 
-  <style>
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background: radial-gradient(circle at 30% 107%, #ef6461, #e4b363);
+  <style lang="scss">
+    .body {
+      padding: 0 40px;
+      margin-top: 0;
     }
-  
+
     .logo {
-      width: 200px;
-      margin-bottom: 20px;
+      width: 250px;
+      margin: 0 0 20px -20px;
     }
   
     .form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 300px;
-      margin-bottom: 20px;
+      margin: 30px 0;
     }
-  
-    .form-control {
-      margin-bottom: 10px;
-      width: 100%;
-      padding: 12px 20px;
-      box-sizing: border-box;
-      border: 2px solid #e4b363;
-      border-radius: 4px;
-    }
-  
-    .btn {
-      background-color: #e4b363;
-      color: #fff;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-      width: 100%;
-      transition: background-color 0.2s ease;
-    }
-  
-    .btn:hover {
-      background-color: #ef6461;
-    }
-  
-    .signup {
-      margin-top: 20px;
-      font-size: 14px;
-      text-align: center;
+
+    a {
+      color: $red;
+      text-decoration: none;
+      &:hover {
+        color: $white;
+        background-color: $red;
+        padding: 5px 10px;
+        border-radius: $card-radius;
+      }
     }
   
   </style>

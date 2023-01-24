@@ -96,13 +96,14 @@
   </div>
 
   <style lang="scss">
+    .body {
+      padding: 0 40px;
+      margin-top: 0;
+    }
+    
     .logo {
       width: 250px;
       margin: 0 0 20px -20px;
-    }
-  
-    .btn {
-      width: 100%;
     }
 
     .form {
