@@ -1,12 +1,17 @@
 <script>
     let yes = false
+
+    export let title
+    export let icon
+    export let streak
+    export let items_completed
 </script>
 
 <div class="habit-card">
     <div class="wrapper">
         <div class="title">
-            <i class='bx bx-dumbbell'></i>
-            <h2>Workout</h2>
+            <i class='bx {icon}'></i>
+            <h2>{title}</h2>
         </div>
     <i class='bx bx-chevron-right'></i>
     </div>
@@ -14,14 +19,14 @@
     <div class="wrapper card-info">
         <div class="streak">
         <i class='bx bxs-hot'></i>
-        <p>30 day streak</p>
+        <p>{streak} day streak</p>
         </div>
         <label>
             <input type=checkbox bind:checked={yes}>
             {#if yes}
-            1/1 items completed
+            {items_completed}/{items_completed} items completed
             {:else}
-            0/1 items completed
+            0/{items_completed} items completed
             {/if}
         </label>
     </div>
@@ -29,19 +34,15 @@
 
 <style lang="scss">
     .habit-card {
-        width: 450px;
-        height: auto;
+        width: 100%;
         background: $white;
         border-radius: $card-radius;
         box-shadow: $card-shadow;
-        @media all and (max-width: 600px) {
-            width: 380px;
-        }
-        @media all and (max-width: 525px) {
-            width: 340px;
-        }
-        &:hover .bx-chevron-right{
+        &:hover {
+            cursor: pointer;
+            .bx-chevron-right{
             transform: translateX(5px);
+        }
         }
     }
 
@@ -61,6 +62,7 @@
         flex-flow: row nowrap;
         justify-content: space-between;
         align-items: center;
+        gap: 20px;
     }
 
     .card-info {

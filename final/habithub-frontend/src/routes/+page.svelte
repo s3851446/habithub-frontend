@@ -13,9 +13,6 @@
             signout()
             redirectToLocation('/login')
         }
-        const button = document.querySelector("button")
-
-        
     })
 
     const newHabit = () => {
@@ -27,53 +24,117 @@
 <div class="body">
     <div class="heading">
         <h1>Hello, Name LastName!</h1>
-         <Button on:click={newHabit}>
-            <div class="innerBtn">
-                <i class='bx bx-plus'></i>
-                Add Habit
-            </div>
-        </Button>
+        <div class="btn">
+            <Button on:click={newHabit}>
+                    <i class='bx bx-plus'></i>
+                    Add Habit
+            </Button>
+        </div>
     </div>
-    <p>You have completed <i class="italics"> <b>4</b> out of 5</i> of today's 
+    <p>You have completed <i class="italics"> <b>3</b> out of 4</i> of today's 
     scheduled habits. Good job! Keep going!</p>
-    <div class="habit-lists">
-        <div class="list">
-            <h2>Upcoming Habits</h2>
-            <DashboardHabit />
+    <div class="content">
+        <div class="habit-lists">
+            <div class="list">
+                <h2>Upcoming Habits</h2>
+                <div class="list-items">
+                    <DashboardHabit 
+                        title="Workout"
+                        icon="bx-dumbbell"
+                        streak="30"
+                        items_completed="1"
+                    />
+                </div>
+            </div>
+            <div class="list">
+                <h2>Completed Habits</h2>
+                <div class="list-items">
+                    <DashboardHabit 
+                        title="Sleep early"
+                        icon="bx-bed"
+                        streak="1"
+                        items_completed="1"
+                    />
+                    <DashboardHabit 
+                        title="Wake up early"
+                        icon="bx-sun"
+                        streak="1"
+                        items_completed="1"
+                    />
+                    <DashboardHabit 
+                        title="Drink Water"
+                        icon="bx-droplet"
+                        streak="20"
+                        items_completed="7"
+                    />
+                </div>
+            </div>
         </div>
-        <div class="list">
-            <h2>Completed Habits</h2>
-            <DashboardHabit />
+        <div class="man">
+            <object title="Man waving hand" type="image/svg+xml" data="./images/waving.svg">
+                <img src="./images/waving.svg" alt="Man waving his hand"/>
+            </object>
         </div>
-    </div>
-    <div class="man">
-        <object title="Man waving hand" type="image/svg+xml" data="./images/waving.svg">
-            <img src="./images/waving.svg" alt="Man waving his hand"/>
-        </object>
     </div>
 </div>
 
 <style lang="scss">
     .man {
         width: 300px;
-        float: right;
-        @media all and (max-width: 400px) {
-            float: none;
-        }
+        // float: right;
+        // @media all and (max-width: 400px) {
+        //     float: none;
+        // }
+    }
+
+    .list-items {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 20px;
     }
 
     h2 {
         font-size: 16px;
     }
 
-    .habit-lists {
+    .content {
         display: flex;
-        flex-flow: row wrap;
+        flex-flow: row nowrap;
         justify-content: flex-start;
         align-items: flex-start;
-        align-content: flex-start;
-        gap: 60px;
-        margin-top: 40px;
+        transition: $trans-05;
+        @media all and (max-width: 900px) {
+            flex-flow: column nowrap;
+            align-items: center;
+        }
+    }
+
+    .man {
+        width: 20%;
+        transition: $trans-05;
+        @media all and (max-width: 900px) {
+            width: 25%;
+        }
+        @media all and (max-width: 600px) {
+            width: 40%;
+        }
+        @media all and (max-width: 400px) {
+            width: 100%;
+        }
+    }
+
+    .list {
+        margin-top: 30px;
+    }
+
+    .habit-lists {
+        width: 75%;
+        transition: $trans-05;
+        @media all and (max-width: 900px) {
+            width: 100%;
+        }
     }
 
     .italics {
@@ -90,14 +151,11 @@
         flex-flow: row wrap;
         justify-content: space-between;
         align-items: center;
+        column-gap: 20px;
     }
 
-    .innerBtn {
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
-        margin-right: 0.3em;
+    .btn {
+        margin: 10px 0 20px 0;
     }
 </style>
 

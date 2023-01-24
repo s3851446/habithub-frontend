@@ -24,10 +24,34 @@
       </Button>
     </div>
     <div class="progress-cards">
-      <ProgressCard habit_title="Workout" icon="bx-dumbbell" current_streak="30" best_streak="30" progress="30/60"/>
-      <ProgressCard habit_title="Sleep Early" icon="bx-bed" current_streak="1" best_streak="1" progress="1/60"/>
-      <ProgressCard habit_title="Wake-up Early" icon="bx-sun" current_streak="1" best_streak="1" progress="1/60"/>
-      <ProgressCard habit_title="Drink Water" icon="bx-droplet" current_streak="20" best_streak="45" progress="50/60"/>
+      <ProgressCard 
+        habit_title="Workout" 
+        icon="bx-dumbbell" 
+        current_streak="30" 
+        best_streak="30" 
+        progress="30/60"
+      />
+      <ProgressCard 
+        habit_title="Sleep Early" 
+        icon="bx-bed" 
+        current_streak="1" 
+        best_streak="1" 
+        progress="1/60"
+      />
+      <ProgressCard 
+        habit_title="Wake-up Early" 
+        icon="bx-sun" 
+        current_streak="1" 
+        best_streak="1" 
+        progress="1/60"
+      />
+      <ProgressCard 
+        habit_title="Drink Water" 
+        icon="bx-droplet" 
+        current_streak="20" 
+        best_streak="45" 
+        progress="50/60"
+      />
     </div>
   </div>
   <div class="man container">
