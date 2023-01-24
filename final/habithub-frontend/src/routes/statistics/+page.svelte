@@ -13,7 +13,7 @@
 </script>
 
 <div class="body">
-  <div class="container content">
+  <div class="content">
     <div>
       <h1>Overall Progress</h1>
     </div>
@@ -54,7 +54,7 @@
       />
     </div>
   </div>
-  <div class="man container">
+  <div class="man">
     <object title="Man jumping up and down" type="image/svg+xml" data="./images/jumping.svg">
         <img src="./images/jumping.svg" alt="Man jumping up and down"/>
     </object>
