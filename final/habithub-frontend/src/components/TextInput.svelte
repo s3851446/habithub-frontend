@@ -7,35 +7,69 @@
     export let label
 </script>
 
-<div class="parent {classs}">
-    <label for={name}>{label}</label>
-    <input type="text" id={id} value={value} name={name} placeholder={placeholder} class="input">
+<div class="input-container {classs}">
+    <input required type="text" id={id} value={value} name={name} placeholder={placeholder} class="text-input">
+    <label class="label" for={name}>{label}</label>
 </div>
 
 <style lang="scss">
-.input {
-    font-family: "Questrial", sans-serif;
-    font-size: 16px;
-    padding: 15px 20px;
-    box-shadow: none;
-    border:none;
-    border-radius: $card-radius;
-    width: 100%;
-    max-width: 500px;
-    min-width: 11.5em;
-    &:hover, &:focus, &:focus-visible {
-        border-color: $light-grey;
-        box-shadow: inset rgba(0, 0, 0, 0.14) 0px 0px 8px;
+    .input-container {
+        width: 70%;
+        position: relative;
+        margin: 20px 0;
     }
-}
 
-label {
-    display: block;
-    margin-bottom: 5px;
-}
+    .label {
+        position: absolute;
+        left: 10px;
+        top: 14px;
+        transition: $trans-02;
+        padding: 0 2px;
+        z-index: 1;
+        &::before {
+            content: "";
+            height: 5px;
+            background-color: $white;
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 100%;
+            z-index: -1;
+        }
+    }
 
-.parent {
-    margin-bottom: 20px;
-    margin-top: 0.5em;
-}
+    .text-input {
+        padding: .8rem;
+        border-radius: $card-radius;
+        width: 100%;
+        height: 100%;
+        border: 1px solid $light-grey;
+        background: $white;
+        font-size: 15px;
+        outline: none;
+        transition: $trans-03;
+        color: $black;
+        &:focus {
+            border: 1px solid $red;
+            &+ .label {
+                top: -10px;
+                color: $red;
+                font-size: 14px;
+            }
+        }
+        &::placeholder {
+            font-size: 15px;
+            opacity: 0;
+            transition: $trans-03;
+        }
+        &:focus::placeholder {
+            opacity: 1;
+            animation-delay: 0.2s;
+        }
+        &:focus+label, &:valid+label {
+            top: -10px;
+            color: $red;
+            font-size: 14px;
+        }
+    }
 </style>
