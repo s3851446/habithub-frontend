@@ -1,3 +1,4 @@
+<!-- Styled with the help of https://youtu.be/7yXUfcujpsk -->
 <script>
     export let id
     export let value
@@ -5,10 +6,11 @@
     export let placeholder
     export let classs
     export let label
+    export let input_type
 </script>
 
 <div class="input-container {classs}">
-    <input required type="text" id={id} value={value} name={name} placeholder={placeholder} class="text-input">
+    <input required type="{input_type}" id={id} value={value} name={name} placeholder={placeholder} class="text-input">
     <label class="label" for={name}>{label}</label>
 </div>
 
@@ -17,6 +19,10 @@
         width: 70%;
         position: relative;
         margin: 20px 0;
+        transition: $trans-05;
+        @media all and (max-width: 900px) {
+            width: 100%;
+        }
     }
 
     .label {

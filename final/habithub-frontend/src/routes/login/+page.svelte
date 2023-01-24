@@ -19,7 +19,7 @@
         // method for sending login form data
         // based on answer here: https://stackoverflow.com/questions/68389117/using-fetch-api-to-create-a-login-form
 
-        // TODO: update url, change body content to email/password, stop form default behaviour
+        // TODO: update url, change body content to email/password, stop form default behavior
         async function loginUser() {
             const emailField = document.getElementById('email')
             const passwordField = document.getElementById('password')
@@ -65,70 +65,58 @@
     })
 </script>
 
-  <div class="container">
-    <img class="logo" src="{base}/images/logo_app.png" alt="Habit Hub logo" />
+  <div class="body">
+    <img class="logo" src="{base}/images/logo_web.png" alt="Habit Hub logo" />
+    <h1>Welcome Back!</h1>
+    <p>It's so good to see you again!</p>
     <form class="form">
-      <input class="form-control" type="email" placeholder="Email" id="email" />
-      <input class="form-control" type="password" placeholder="Password" id="password" />
-      <button class="btn" id="login_button">Login</button>
+      <TextInput 
+        id="email"
+        value=""
+        name="Email"
+        placeholder="Enter your email address here"
+        label="Email"
+        input_type="email"
+      />
+      <TextInput 
+        id="password"
+        value=""
+        name="Password"
+        placeholder="Enter your password here"
+        label="Password"
+        input_type="password"
+      />
+      <div class="btn">
+        <Button id="login_button">
+          Login
+        </Button>
+      </div>
     </form>
-    <div class="signup">
-      Don't have an account? <a href="/signup">Sign Up</a>
-    </div>
+    <p class="p">Don't have an account? <a href="/signup">Sign Up</a></p>
   </div>
 
-  <style>
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background: radial-gradient(circle at 30% 107%, #ef6461, #e4b363);
-    }
-  
+  <style lang="scss">
     .logo {
-      width: 200px;
-      margin-bottom: 20px;
-    }
-  
-    .form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 300px;
-      margin-bottom: 20px;
-    }
-  
-    .form-control {
-      margin-bottom: 10px;
-      width: 100%;
-      padding: 12px 20px;
-      box-sizing: border-box;
-      border: 2px solid #e4b363;
-      border-radius: 4px;
+      width: 250px;
+      margin: 0 0 20px -20px;
     }
   
     .btn {
-      background-color: #e4b363;
-      color: #fff;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
       width: 100%;
-      transition: background-color 0.2s ease;
     }
-  
-    .btn:hover {
-      background-color: #ef6461;
+
+    .form {
+      margin: 30px 0;
     }
-  
-    .signup {
-      margin-top: 20px;
-      font-size: 14px;
-      text-align: center;
+
+    a {
+      color: $red;
+      text-decoration: none;
+      &:hover {
+        color: $white;
+        background-color: $red;
+        padding: 5px 10px;
+        border-radius: $card-radius;
+      }
     }
-  
   </style>
