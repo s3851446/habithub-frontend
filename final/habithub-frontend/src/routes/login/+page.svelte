@@ -5,6 +5,10 @@
     import { jwt, loggedIn, userFirstName } from './../../stores'
     import { base } from '$app/paths'
 
+    const formSubmit = (event) => {
+      event.preventDefault()
+    }
+
     onMount(() => {
         const btn = document.getElementById('login_button')
         btn.addEventListener('click', loginClick)
@@ -69,7 +73,7 @@
     <img class="logo" src="{base}/images/logo_web.png" alt="Habit Hub logo" />
     <h1>Welcome Back!</h1>
     <p>It's so good to see you again!</p>
-    <form class="form">
+    <form class="form" on:submit={formSubmit}>
       <TextInput 
         id="email"
         value=""
