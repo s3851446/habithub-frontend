@@ -18,7 +18,6 @@
     .input-container {
         width: 70%;
         position: relative;
-        margin: 20px 0;
         transition: $trans-05;
         @media all and (max-width: 900px) {
             width: 100%;
