@@ -48,7 +48,8 @@
     }
 
     .popup {
-        width: 80%;background-image: linear-gradient(
+        width: 50%;
+        background-image: linear-gradient(
             to bottom right,
             #fdf4ee,
             #fcf6ee,
@@ -59,6 +60,7 @@
         padding: 20px;
         border-radius: $card-radius;
         position: relative;
+        transition: $trans-05;
         .btn {
             cursor: pointer;
             position: absolute;
@@ -77,6 +79,12 @@
                     color: $white;
                 }
             }
+        }
+        @media all and (max-width: 900px) {
+            width: 80%;
+        }
+        @media all and (max-width: 500px) {
+            width: 90%;
         }
     }
 
