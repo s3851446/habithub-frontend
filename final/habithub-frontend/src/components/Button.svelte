@@ -20,6 +20,7 @@
         transition: $trans-03;
         &:hover {
             font-size: 16px;
+            cursor: pointer;
         }
         &:focus {
              background: $red;
