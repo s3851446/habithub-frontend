@@ -26,8 +26,8 @@
         <h1>Hello, Name LastName!</h1>
         <div class="btn">
             <Button on:click={newHabit}>
-                    <i class='bx bx-plus'></i>
-                    Add Habit
+                <i class='bx bx-plus'></i>
+                Add Habit
             </Button>
         </div>
     </div>
@@ -77,7 +77,7 @@
         </div>
     </div>
 </div>
-
+ 
 <style lang="scss">
     .list-items {
         display: flex;
@@ -96,6 +96,7 @@
         flex-flow: row nowrap;
         justify-content: flex-start;
         align-items: flex-start;
+        gap: 50px;
         transition: $trans-05;
         @media all and (max-width: 900px) {
             flex-flow: column nowrap;
@@ -104,13 +105,13 @@
     }
 
     .man {
-        width: 20%;
+        width: 28%;
         transition: $trans-05;
         @media all and (max-width: 900px) {
             width: 25%;
         }
         @media all and (max-width: 600px) {
-            width: 40%;
+            width: 40%; 
         }
         @media all and (max-width: 400px) {
             width: 100%;
