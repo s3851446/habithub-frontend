@@ -62,8 +62,8 @@
         .btn {
             cursor: pointer;
             position: absolute;
-            top: 5px;
-            right: 5px;
+            top: 10px;
+            right: 10px;
             padding: 5px;
             border-radius: $card-radius;
             transition: $trans-05;

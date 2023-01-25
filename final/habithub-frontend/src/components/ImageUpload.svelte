@@ -10,6 +10,7 @@
 <div class="input_container">
     <label for="file" class="custom-file-upload">Upload profile picture</label>
     <input type="file" id="file" bind:value={file}>
+    <p>Selected file: {file ? file.name : 'none'}</p>
 </div>
 
 
@@ -22,6 +23,9 @@
         align-items: center;
         gap: 0;
         transition: $trans-05;
+        p {
+            margin: 0;
+        }
     }
 
     input[type="file"] {
