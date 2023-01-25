@@ -122,6 +122,7 @@
     a {
       color: $red;
       text-decoration: none;
+      transition: $trans-05;
       &:hover {
         color: $white;
         background-color: $red;
