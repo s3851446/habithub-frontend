@@ -38,7 +38,12 @@
 </div>
 
 <style lang="scss">
-    .btn {
-        margin-top: 1.5em;
+    #form {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 20px;
     }
 </style>

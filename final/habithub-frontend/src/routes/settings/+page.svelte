@@ -1,9 +1,12 @@
 <script>
   import { validateToken } from './../../utils'
   import { onMount } from 'svelte'
-  import Button from '../../components/Button.svelte'
+  import TextInput from '../../components/TextInput.svelte'
   import NotificationCard from '../../components/NotificationCardInner.svelte'
+  import Button from '../../components/Button.svelte'
   import { loadUserData, loadUserPic } from './../../utils'
+  import PopUp from '../../components/PopUp.svelte';
+  import ImageUpload from '../../components/ImageUpload.svelte';
 
   onMount(async () => {
       const validToken = await validateToken()
@@ -58,10 +61,41 @@
               <img id="pic-img-settings" src="" alt="user-avatar">
             </div>
           </div>
-          <Button>
-            <i class='bx bx-edit' ></i>
-            Edit Profile
-          </Button>
+          <PopUp icon="bx-edit" button_name="Edit Profile">
+            <form action="">
+              <h2>Edit Profile</h2>
+              <p>Please enter your new profile information here</p>
+              <TextInput 
+                id="firstName"
+                value=""
+                name="FirstName"
+                placeholder="Enter your first name here"
+                label="First Name"
+                input_type="text"
+              />
+              <TextInput 
+                id="lastName"
+                value=""
+                name="LastName"
+                placeholder="Enter your last name here"
+                label="Last Name"
+                input_type="text"
+              />
+              <TextInput 
+                id="email"
+                value=""
+                name="Email"
+                placeholder="Enter your email address here"
+                label="Email"
+                input_type="email"
+              />
+              <ImageUpload />
+                <Button>
+                  <i class="bx bx-save"></i>
+                  Save Profile
+                </Button>
+            </form>
+          </PopUp>
         </div>
         <div class="container">
           <h2>Notification settings</h2>
@@ -81,6 +115,15 @@
 </div>
 
 <style lang="scss">
+  form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+
   @mixin flex {
     display: flex;
     align-items: center;

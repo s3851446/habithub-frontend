@@ -95,7 +95,10 @@
         label="Confirm Password"
         input_type="password"
       />
-      <Button on:click={handleSignup}>Signup</Button>
+      <div class="btn">
+        <Button on:click={handleSignup}>Signup</Button>
+      </div>
+
     </form>
     <p class="p">
       Already have an account? <a href="/login">Log In</a>
@@ -106,6 +109,7 @@
     .body {
       padding: 0 40px;
       margin-top: 0;
+      text-align: center;
     }
 
     .logo {
@@ -114,12 +118,17 @@
     }
   
     .form {
-      margin: 30px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
     }
 
     a {
       color: $red;
       text-decoration: none;
+      transition: $trans-05;
       &:hover {
         color: $white;
         background-color: $red;
@@ -127,5 +136,8 @@
         border-radius: $card-radius;
       }
     }
-  
+
+    .btn {
+      margin: 10px 0;
+    }
   </style>

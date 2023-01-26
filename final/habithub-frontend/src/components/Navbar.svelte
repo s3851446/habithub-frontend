@@ -154,6 +154,19 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
                 transform: translateY(-50%);
             }
         }
+        @media all and (max-width: 800px) {
+            top: 0;
+            left: 0;
+            bottom: 0;
+            border-radius: 0 6px 6px 0;
+            padding: 10px 8px;
+            .toggle {
+                display: none;
+            }
+            &.close {
+                width: 60px;
+            }
+        }
     }
 
     header {
@@ -175,6 +188,9 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
         transition: $trans-04;
         white-space: nowrap;
         opacity: 1;
+        @media all and (max-width: 800px) {
+            display: none;
+        }
     }
 
     .image {
@@ -184,6 +200,9 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
 
     .header-text {
         @include flex-column;
+        @media all and (max-width: 800px) {
+            display: none;
+        }
     }
 
 
@@ -209,6 +228,9 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
         margin-top: 10px;
         list-style: none;
         @include flex-center;
+        @media all and (max-width: 800px) {
+            margin-left: -6px;
+        }
     }
 
     .icon {

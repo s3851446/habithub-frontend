@@ -26,76 +26,71 @@
         <h1>Hello, Name LastName!</h1>
         <div class="btn">
             <Button on:click={newHabit}>
-                    <i class='bx bx-plus'></i>
-                    Add Habit
+                <i class='bx bx-plus'></i>
+                Add Habit
             </Button>
         </div>
     </div>
-    <p>You have completed <i class="italics"> <b>3</b> out of 4</i> of today's 
-    scheduled habits. Good job! Keep going!</p>
-    <div class="content">
-        <div class="habit-lists">
-            <div class="list">
-                <h2>Upcoming Habits</h2>
-                <div class="list-items">
-                    <DashboardHabit 
-                        title="Workout"
-                        icon="bx-dumbbell"
-                        streak="30"
-                        items_completed="1"
-                    />
+    <div class="container">
+        <div class="content">
+            <p>You have completed <i class="italics"> <b>3</b> out of 4</i> of today's 
+            scheduled habits. Good job! Keep going!</p>
+            <div class="habit-lists">
+                <div class="list">
+                    <h2>Upcoming Habits</h2>
+                    <div class="list-items">
+                        <DashboardHabit 
+                            title="Workout"
+                            icon="bx-dumbbell"
+                            streak="30"
+                            items_completed="1"
+                        />
+                    </div>
                 </div>
-            </div>
-            <div class="list">
-                <h2>Completed Habits</h2>
-                <div class="list-items">
-                    <DashboardHabit 
-                        title="Sleep early"
-                        icon="bx-bed"
-                        streak="1"
-                        items_completed="1"
-                    />
-                    <DashboardHabit 
-                        title="Wake up early"
-                        icon="bx-sun"
-                        streak="1"
-                        items_completed="1"
-                    />
-                    <DashboardHabit 
-                        title="Drink Water"
-                        icon="bx-droplet"
-                        streak="20"
-                        items_completed="7"
-                    />
+                <div class="list">
+                    <h2>Completed Habits</h2>
+                    <div class="list-items">
+                        <DashboardHabit 
+                            title="Sleep early"
+                            icon="bx-bed"
+                            streak="1"
+                            items_completed="1"
+                        />
+                        <DashboardHabit 
+                            title="Wake up early"
+                            icon="bx-sun"
+                            streak="1"
+                            items_completed="1"
+                        />
+                        <DashboardHabit 
+                            title="Drink Water"
+                            icon="bx-droplet"
+                            streak="20"
+                            items_completed="7"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
         <div class="man">
-            <object title="Man waving hand" type="image/svg+xml" data="./images/waving.svg">
+            <object 
+                title="Man waving hand" 
+                type="image/svg+xml" 
+                data="./images/waving.svg"
+            >
                 <img src="./images/waving.svg" alt="Man waving his hand"/>
             </object>
         </div>
     </div>
 </div>
-
+ 
 <style lang="scss">
-    .list-items {
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: flex-start;
-        align-items: flex-start;
-        gap: 20px;
-    }
-
-    h2 {
-        font-size: 16px;
-    }
-
-    .content {
+    .container {
         display: flex;
         flex-flow: row nowrap;
-        justify-content: flex-start;
-        align-items: flex-start;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 5px;
         transition: $trans-05;
         @media all and (max-width: 900px) {
             flex-flow: column nowrap;
@@ -104,29 +99,59 @@
     }
 
     .man {
-        width: 20%;
+        width: calc(20% + 60px);
         transition: $trans-05;
         @media all and (max-width: 900px) {
-            width: 25%;
+            width: calc(25% + 60px);
         }
         @media all and (max-width: 600px) {
-            width: 40%;
+            width: calc(40% + 60px);
         }
         @media all and (max-width: 400px) {
-            width: 100%;
+            width: calc(100% + 60px);
         }
     }
 
-    .list {
-        margin-top: 30px;
-    }
-
-    .habit-lists {
+    .content {
         width: 75%;
         transition: $trans-05;
         @media all and (max-width: 900px) {
             width: 100%;
         }
+    }
+
+    .list-items {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    .list {
+        width: 46%;
+        margin: 10px 0;
+        @media all and (max-width: 1000px) {
+            width: 100%;
+        }
+    }
+
+    .habit-lists {
+       display: flex;
+       flex-flow: row wrap;
+       justify-content: flex-start;
+       align-items: flex-start;
+       gap: 30px;
+       width: 100%;
+       transition: $trans-05;
+       @media all and (max-width: 1000px) {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+       }
     }
 
     .italics {

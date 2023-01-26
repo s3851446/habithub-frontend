@@ -80,8 +80,7 @@ https://youtu.be/B4KZYsyuVOE -->
 
 <style lang="scss">
    .footer {
-    bottom: 0;
-    margin-top: 40px;
+    margin-top: auto;
     footer {
         position: relative;
         width: 100%;
