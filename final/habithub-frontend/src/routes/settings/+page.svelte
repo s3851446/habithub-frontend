@@ -61,7 +61,7 @@
               <img id="pic-img-settings" src="" alt="user-avatar">
             </div>
           </div>
-          <PopUp>
+          <PopUp icon="bx-edit" button_name="Edit Profile">
             <form action="">
               <h2>Edit Profile</h2>
               <p>Please enter your new profile information here</p>
@@ -90,7 +90,10 @@
                 input_type="email"
               />
               <ImageUpload />
-                <Button>Save Profile</Button>
+                <Button>
+                  <i class="bx bx-save"></i>
+                  Save Profile
+                </Button>
             </form>
           </PopUp>
         </div>

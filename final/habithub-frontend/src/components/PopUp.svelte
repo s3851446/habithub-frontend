@@ -12,11 +12,14 @@
             togglePopup();
         }
     }
+
+    export let icon
+    export let button_name
 </script>
 
 <Button on:click={togglePopup}>
-    <i class='bx bx-edit' ></i>
-    Edit Profile
+    <i class='bx {icon}' ></i>
+    {button_name}
 </Button>
 
 {#if showPopup}
