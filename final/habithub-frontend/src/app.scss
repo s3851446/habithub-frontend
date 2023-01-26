@@ -25,6 +25,9 @@ body {
   min-height: 100vh;
   @media all and (max-width: 800px) {
     left: 60px;
+    width: calc(100% - 70px);
+  }
+  @media all and (max-width: 300px) {
     width: 100%;
   }
 }
