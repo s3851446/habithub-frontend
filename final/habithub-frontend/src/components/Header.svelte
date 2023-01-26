@@ -4,8 +4,10 @@
     import { loadUserData, loadUserPic } from '../utils'
 
     onMount(() => {
-        loadProfile()
-        loadName()
+        if (localStorage.getItem('loggedIn')) {
+            loadProfile()
+            loadName()
+        }
     })
 
     async function loadProfile() {
@@ -13,7 +15,7 @@
         const picImg = document.getElementById('pic-img')
         const picIcon = document.getElementById('pic-icon')
 
-        if (data) {
+        if (data && data.pic.buffer64) {
             picImg.src = `data:${data.pic.mimetype};base64,${data.pic.buffer64}`
             picImg.style.display = "block"
             picIcon.style.display = "none"

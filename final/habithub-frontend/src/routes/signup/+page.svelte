@@ -17,6 +17,11 @@
       user.firstName = document.getElementById("firstName").value;
       user.lastName = document.getElementById("lastName").value;
       user.passwordConfirm = document.getElementById("passwordConfirm").value;
+
+      if (user.password != user.passwordConfirm) {
+        // insert toast
+        return
+      }
       
       // NOTE - needs to do something to check passwords match
       const response = await fetch('https://habithub-api.herokuapp.com/user', { //API base url should be stored somewhere for the whole site
@@ -33,10 +38,16 @@
         })
       })
 
-      const data = await response.json()
+      if (!response.ok) {
+        // NOTE - needs to return a message if bad email or just bad request
+
+      }
+
+      // const data = await response.json()
+      console.log("here")
+      window.location.href = '/login'
 
 
-      // NOTE - needs to return a message if bad email
     }
   </script>
 
