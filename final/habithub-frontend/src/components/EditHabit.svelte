@@ -48,13 +48,18 @@
 
         window.location.href = '/habits'
     }
+
+    if (type == 'edit') {
+        // title.value = h_title
+        // description.value = h_description
+    }
 </script>
 
 <div>
     <form id="form" class="habit-form" on:submit|preventDefault={handleSubmit}>
         <h2>{submitText}</h2>
-        <TextInput classs="" bind:this={title} name="title" value="" placeholder="title" label="Title"/>
-        <TextInput classs="description" bind:this={description} name="description" value="" placeholder="description" label="Description" />
+        <TextInput classs="" bind:this={title} name="title" bind:value={h_title} placeholder="title" label="Title"/>
+        <TextInput classs="description" bind:this={description} name="description" bind:value={h_description} placeholder="description" label="Description" />
         <div class="btn">
             <Button id="" on:click(handleSubmit)>{submitText}</Button>
         </div>

@@ -4,15 +4,25 @@
     export let h_id
     export let streak
     export let classs
+    export let jwt
+    export let userID
 
-    import Button from './Button.svelte'
-    import { redirectToLocation } from './../utils'
-  import PopUp from './PopUp.svelte';
+    // import { redirectToLocation } from './../utils'
+    import PopUp from './PopUp.svelte'
+    import EditHabit from './EditHabit.svelte'
+    import { onMount } from 'svelte'
 
-    const redirect = (route) => {
-        const location = route + h_id
-        redirectToLocation(location)
-    }
+    // let jwt
+    // let userID
+
+    // const redirect = (route) => {
+    //     const location = route + h_id
+    //     redirectToLocation(location)
+    // }
+
+    onMount(() => {
+
+    })
 
 </script>
 
@@ -35,10 +45,9 @@
                 Delete
             </Button> -->
             <PopUp icon="bx-edit" button_name="Edit">
-                
+                <EditHabit bind:jwt={jwt} bind:userID={userID} type="edit" submitText="Save" h_id={h_id} h_description={description} h_title={name}/>
             </PopUp>
             <PopUp icon="bx-trash" button_name="Delete">
-
             </PopUp>
         </div>
     </div>

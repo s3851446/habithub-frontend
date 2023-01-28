@@ -56,7 +56,7 @@
     <div class="card-container" id="card-container">
         {#key habits}
             {#each habits as habit}
-                <HabitCard classs="flex" name={habit.title} description={habit.description} streak={habit.streak} h_id={habit._id} />
+                <HabitCard classs="flex" name={habit.title} description={habit.description} streak={habit.streak} h_id={habit._id} jwt={jwt} userID={userID}/>
             {/each}
         {/key}
         <HabitCard classs="dud-card" name="" description="" streak="" h_id="" />
