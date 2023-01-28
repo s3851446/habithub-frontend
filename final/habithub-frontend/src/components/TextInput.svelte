@@ -1,5 +1,9 @@
 <!-- Styled with the help of https://youtu.be/7yXUfcujpsk -->
 <script>
+  import Page from "../routes/+page.svelte"
+  import { onMount } from 'svelte'
+
+
     export let id
     export let value
     export let name
@@ -7,12 +11,19 @@
     export let classs
     export let label
     export let input_type
+    
+    onMount(() => {
+        if (input_type == "password") {
+            document.getElementById(id).type = input_type
+        }
+    })
 </script>
 
 <div class="input-container {classs}">
-    <input required type="{input_type}" id={id} value={value} name={name} placeholder={placeholder} class="text-input">
+    <input required type="text" id={id} bind:value={value} name={name} placeholder={placeholder} class="text-input">
     <label class="label" for={name}>{label}</label>
 </div>
+<svelte:options accessors={true}></svelte:options>
 
 <style lang="scss">
     .input-container {

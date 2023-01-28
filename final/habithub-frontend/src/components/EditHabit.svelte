@@ -1,36 +1,56 @@
 <script>
     import TextInput from './TextInput.svelte'
     import Button from './Button.svelte'
-    // develop based on: https://javascript.info/formdata
-    // & https://svelte.dev/repl/74685aa8b4374c4c8f395ce643fee7b6?version=3.48.0
-    const handleSubmit = async e => {
-        const ACTION_URL = e.target.action
-
-        const formData = new FormData(e.target)
-        const data = new FormData(form)
-        console.log(data)
-
-        let response = await fetch(ACTION_URL, {
-            method: 'POST',
-            body: data
-        })
-
-        let result = await response.json()
-
-        // DO SOMETHING WITH THE RESPONSE
-    }
 
     export let type
     export let h_title
     export let h_description
     export let h_id
     export let submitText
+    export let userID
+    export let jwt
+
+    let title
+    let description
+
+    // develop based on: https://javascript.info/formdata
+    // & https://svelte.dev/repl/74685aa8b4374c4c8f395ce643fee7b6?version=3.48.0
+    const handleSubmit = async e => {
+        var ACTION_URL = 'https://habithub-api.herokuapp.com/habit/'
+        var method = 'POST'
+        if (type == 'new') ACTION_URL += `user/${userID}`
+        if (type == 'edit') { 
+            ACTION_URL += `habit/${h_id}`
+            method = 'PUT'
+        }
+
+        const titleString = title.value
+        const descriptionString = description.value
+
+        let response = await fetch(ACTION_URL, {
+            method: method,
+            headers: {
+                'Accept': 'application.json',
+                'Content-Type': 'application/json',
+                'Authorization': 'BEARER ' + jwt
+            },
+            body: JSON.stringify({
+                title: titleString,
+                description: descriptionString
+            })
+        })
+
+        let result = await response.json()
+
+        // DO SOMETHING WITH THE RESPONSE
+    }
 </script>
 
 <div>
-    <form id="form" class="habit-form" action="https://habithub-api.herokuapp.com/habit" on:submit|preventDefault={handleSubmit}>
-        <TextInput classs="" id="" name="title" value="" placeholder="title" label="Title"/>
-        <TextInput classs="description" id="" name="description" value="" placeholder="description" label="Description" />
+    <form id="form" class="habit-form" on:submit|preventDefault={handleSubmit}>
+        <h2>{submitText}</h2>
+        <TextInput classs="" bind:this={title} name="title" value="" placeholder="title" label="Title"/>
+        <TextInput classs="description" bind:this={description} name="description" value="" placeholder="description" label="Description" />
         <div class="btn">
             <Button id="" on:click(handleSubmit)>{submitText}</Button>
         </div>
@@ -38,12 +58,12 @@
 </div>
 
 <style lang="scss">
-    #form {
+    form {
         margin-top: 20px;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
     }
 </style>

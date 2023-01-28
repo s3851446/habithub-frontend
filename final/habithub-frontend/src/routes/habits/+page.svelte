@@ -2,15 +2,22 @@
     import EditHabit from '../../components/EditHabit.svelte'
     import HabitCard from '../../components/HabitCard.svelte'
     import Button from '../../components/Button.svelte'
+    import PopUp from '../../components/PopUp.svelte'
     import { redirectToLocation } from './../../utils'
     import { validateToken } from './../../utils'
     import { onMount } from 'svelte'
+
+    let jwt
+    let userID
 
     onMount(async () => {
         const validToken = await validateToken()
         if (!validToken) {
             window.location.href = '/login'
         }
+
+        jwt = localStorage.getItem('jwt')
+        userID = localStorage.getItem('userID')
     })
 
     const newHabit = () => {
@@ -23,12 +30,15 @@
 <div class="body">
     <div class="heading">
         <h1>My Habits</h1>
-        <Button id="newHabit" on:click={newHabit}>
+        <!-- <Button id="newHabit" on:click={newHabit}>
             <div class="innerBtn">
                 <i class='bx bx-plus'></i>
                 Add Habit
             </div>
-        </Button>    
+        </Button>   -->
+        <PopUp icon="bx-plus" button_name="Add Habit">
+            <EditHabit jwt={jwt} userID={userID} type="new" submitText="Add Habit"/>
+        </PopUp>  
     </div>
     <div class="card-container">
         <HabitCard classs="flex" name="My New Habit" description="This is the habit that I am going to do all the time" streak="2" h_id="some:j94k905630l00dn3"/>
