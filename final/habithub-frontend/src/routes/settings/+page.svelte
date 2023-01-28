@@ -6,7 +6,11 @@
   import Button from '../../components/Button.svelte'
   import { loadUserData, loadUserPic } from './../../utils'
   import PopUp from '../../components/PopUp.svelte';
-  import ImageUpload from '../../components/ImageUpload.svelte';
+  import ImageUpload from '../../components/ImageUpload.svelte'
+
+  let firstName = "Name"
+  let lastName = "Last name"
+  let email = "example@mail.com"
 
   onMount(async () => {
       const validToken = await validateToken()
@@ -16,9 +20,12 @@
 
       const data = await loadUserData(localStorage.getItem('userID'), localStorage.getItem('jwt'))
 
-      document.getElementById('email').innerHTML = data.email
-      document.getElementById('firstName').innerHTML = data.firstName
-      document.getElementById('lastName').innerHTML = data.lastName
+      // document.getElementById('email').innerHTML = data.email
+      // document.getElementById('firstName').innerHTML = data.firstName
+      // document.getElementById('lastName').innerHTML = data.lastName
+      firstName = data.firstName
+      lastName = data.lastName
+      email = data.email
       if (data.settings != null) document.getElementById('colourScheme').innerHTML = data.settings.colourScheme
 
       const picData = await loadUserPic(localStorage.getItem('userID'), localStorage.getItem('jwt'))
@@ -44,15 +51,15 @@
           <hr>
           <div class="wrapper">
             <h3>First Name</h3>
-            <p id="firstName">Name</p>
+            <p id="firstName">{firstName}</p>
           </div>
           <div class="wrapper">
             <h3>Last Name</h3>
-            <p id="lastName">LastName</p>
+            <p id="lastName">{lastName}</p>
           </div>
           <div class="wrapper">
             <h3>Email</h3>
-            <p id="email">example@mail.com</p>
+            <p id="email">{email}</p>
           </div>
           <div class="wrapper">
             <h3>Profile Picture</h3>
@@ -67,7 +74,7 @@
               <p>Please enter your new profile information here</p>
               <TextInput 
                 id="firstName"
-                value=""
+                bind:value={firstName}
                 name="FirstName"
                 placeholder="Enter your first name here"
                 label="First Name"
@@ -75,7 +82,7 @@
               />
               <TextInput 
                 id="lastName"
-                value=""
+                bind:value={lastName}
                 name="LastName"
                 placeholder="Enter your last name here"
                 label="Last Name"
@@ -83,7 +90,7 @@
               />
               <TextInput 
                 id="email"
-                value=""
+                bind:value={email}
                 name="Email"
                 placeholder="Enter your email address here"
                 label="Email"

@@ -50,13 +50,27 @@
     <div class="heading">
         <h1>My Habits</h1>
         <PopUp icon="bx-plus" button_name="Add Habit">
-            <EditHabit jwt={jwt} userID={userID} type="new" submitText="Add Habit" h_id="" h_description="" h_title=""/>
+            <EditHabit 
+                jwt={jwt} 
+                userID={userID} 
+                type="new" 
+                submitText="Add Habit" 
+                h_id="" 
+                h_description="" 
+                h_title=""/>
         </PopUp>  
     </div>
     <div class="card-container" id="card-container">
         {#key habits}
             {#each habits as habit}
-                <HabitCard classs="flex" name={habit.title} description={habit.description} streak={habit.streak} h_id={habit._id} jwt={jwt} userID={userID}/>
+                <HabitCard 
+                    classs="flex" 
+                    name={habit.title} 
+                    description={habit.description} 
+                    streak={habit.streak} 
+                    h_id={habit._id} 
+                    jwt={jwt} 
+                    userID={userID}/>
             {/each}
         {/key}
         <HabitCard classs="dud-card" name="" description="" streak="" h_id="" />
