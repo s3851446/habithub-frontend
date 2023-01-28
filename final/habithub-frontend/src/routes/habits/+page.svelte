@@ -9,6 +9,7 @@
 
     let jwt
     let userID
+    let habits = [{}]
 
     onMount(async () => {
         const validToken = await validateToken()
@@ -18,10 +19,28 @@
 
         jwt = localStorage.getItem('jwt')
         userID = localStorage.getItem('userID')
+
+        fetchHabits(userID, jwt)
     })
 
-    const newHabit = () => {
-        redirectToLocation('/edit/new')
+    async function fetchHabits(userID, jwt) {
+        let response = await fetch(`https://habithub-api.herokuapp.com/habit/user/${userID}`, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application.json',
+                'Content-Type': 'application/json',
+                'Authorization': 'BEARER ' + jwt
+            }
+        })
+
+        if (!response.ok) {
+            // set a problem message
+            return
+        }
+
+        let data = await response.json()
+        habits = data
+        document.getElementById('card-container').style.visibility = "visible"
     }
 
 </script>
@@ -30,20 +49,16 @@
 <div class="body">
     <div class="heading">
         <h1>My Habits</h1>
-        <!-- <Button id="newHabit" on:click={newHabit}>
-            <div class="innerBtn">
-                <i class='bx bx-plus'></i>
-                Add Habit
-            </div>
-        </Button>   -->
         <PopUp icon="bx-plus" button_name="Add Habit">
-            <EditHabit jwt={jwt} userID={userID} type="new" submitText="Add Habit"/>
+            <EditHabit jwt={jwt} userID={userID} type="new" submitText="Add Habit" h_id="" h_description="" h_title=""/>
         </PopUp>  
     </div>
-    <div class="card-container">
-        <HabitCard classs="flex" name="My New Habit" description="This is the habit that I am going to do all the time" streak="2" h_id="some:j94k905630l00dn3"/>
-        <HabitCard classs="flex" name="My New Habit" description="This is the habit that I am going to do all the time" streak="2" h_id="some:j94k905630l00dn3"/>
-        <HabitCard classs="flex" name="My New Habit" description="This is the habit that I am going to do all the time" streak="2" h_id="some:j94k905630l00dn3"/>
+    <div class="card-container" id="card-container">
+        {#key habits}
+            {#each habits as habit}
+                <HabitCard classs="flex" name={habit.title} description={habit.description} streak={habit.streak} h_id={habit._id} />
+            {/each}
+        {/key}
         <HabitCard classs="dud-card" name="" description="" streak="" h_id="" />
     </div>
 
@@ -59,6 +74,7 @@
         flex-wrap: wrap;
         align-content: stretch;
         gap: 1em;
+        visibility: hidden;
     }
 
     .heading {
@@ -67,13 +83,5 @@
         flex-flow: row wrap;
         justify-content: space-between;
         align-items: center;
-    }
-
-    .innerBtn {
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
-        margin-right: 0.3em;
     }
 </style>

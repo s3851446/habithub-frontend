@@ -7,6 +7,7 @@
 
     import Button from './Button.svelte'
     import { redirectToLocation } from './../utils'
+  import PopUp from './PopUp.svelte';
 
     const redirect = (route) => {
         const location = route + h_id
@@ -25,14 +26,20 @@
             <span class="body-content">{streak} days!</span>
         </div>
         <div class="end">
-            <Button on:click={() => {redirect('/edit/')}}>
+            <!-- <Button on:click={() => {redirect('/edit/')}}>
                 <i class='bx bx-edit'></i>
                 Edit
             </Button>
             <Button on:click={() => {redirect('/delete/')}}>
                 <i class='bx bx-trash'></i>
                 Delete
-            </Button>
+            </Button> -->
+            <PopUp icon="bx-edit" button_name="Edit">
+                
+            </PopUp>
+            <PopUp icon="bx-trash" button_name="Delete">
+
+            </PopUp>
         </div>
     </div>
     

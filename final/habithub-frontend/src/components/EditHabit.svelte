@@ -42,7 +42,11 @@
 
         let result = await response.json()
 
-        // DO SOMETHING WITH THE RESPONSE
+        if (!result.ok) {
+            // to-do display a 'something went wrong' msg
+        }
+
+        window.location.href = '/habits'
     }
 </script>
 
