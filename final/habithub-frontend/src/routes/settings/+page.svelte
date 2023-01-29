@@ -14,6 +14,8 @@
   let userID
   let jwt
 
+  let file
+
   onMount(async () => {
       const validToken = await validateToken()
       if (!validToken) {
@@ -42,27 +44,28 @@
 
   async function settingsSubmit() {
     console.log(`${firstName} ${lastName} ${email}`)
-    const response = await fetch(`https://habithub-api.herokuapp.com/user/${userID}`, {
-      method: 'PUT',
-      headers: {
-        'Accept': 'application.json',
-        'Content-Type': 'application/json',
-        'Authorization': 'BEARER ' + jwt
-      },
-      body: JSON.stringify({
-        firstName: firstName,
-        lastName: lastName,
-        email: email
-      })
-    })
+    console.log(file)
+    // const response = await fetch(`https://habithub-api.herokuapp.com/user/${userID}`, {
+    //   method: 'PUT',
+    //   headers: {
+    //     'Accept': 'application.json',
+    //     'Content-Type': 'application/json',
+    //     'Authorization': 'BEARER ' + jwt
+    //   },
+    //   body: JSON.stringify({
+    //     firstName: firstName,
+    //     lastName: lastName,
+    //     email: email
+    //   })
+    // })
 
     //NOTE - need to upload picture if present here
 
-    if (!response.ok) {
-      // display error message
-    } else {
-      // toggle popup closed
-    }
+    // if (!response.ok) {
+    //   // display error message
+    // } else {
+    //   // toggle popup closed
+    // }
   }
 </script>
 
@@ -120,7 +123,7 @@
                 label="Email"
                 input_type="email"
               />
-              <ImageUpload />
+              <ImageUpload bind:file={file}/>
                 <Button>
                   <i class="bx bx-save"></i>
                   Save Profile

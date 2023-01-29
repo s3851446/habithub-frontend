@@ -1,5 +1,5 @@
 <script>
-    let file = null;
+    export let file = null
 
     function handleFileUpload(){
         //code for handling file upload
@@ -9,8 +9,10 @@
 
 <div class="input_container">
     <label for="file" class="custom-file-upload">Upload profile picture</label>
-    <input type="file" id="file" bind:value={file}>
-    <p>Selected file: {file ? file.name : 'none'}</p>
+    <input type="file" id="file" bind:files={file}>
+    {#key file}
+        <p>Selected file: {file ? file[0].name : 'none'}</p>
+    {/key}
 </div>
 
 
