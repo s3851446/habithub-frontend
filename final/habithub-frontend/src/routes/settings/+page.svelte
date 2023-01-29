@@ -11,6 +11,8 @@
   let firstName = "Name"
   let lastName = "Last name"
   let email = "example@mail.com"
+  let userID
+  let jwt
 
   onMount(async () => {
       const validToken = await validateToken()
@@ -20,12 +22,11 @@
 
       const data = await loadUserData(localStorage.getItem('userID'), localStorage.getItem('jwt'))
 
-      // document.getElementById('email').innerHTML = data.email
-      // document.getElementById('firstName').innerHTML = data.firstName
-      // document.getElementById('lastName').innerHTML = data.lastName
       firstName = data.firstName
       lastName = data.lastName
       email = data.email
+      userID = data._id
+      jwt = localStorage.getItem('jwt')
       if (data.settings != null) document.getElementById('colourScheme').innerHTML = data.settings.colourScheme
 
       const picData = await loadUserPic(localStorage.getItem('userID'), localStorage.getItem('jwt'))
@@ -36,10 +37,33 @@
           picImg.src = `data:${picData.pic.mimetype};base64,${picData.pic.buffer64}`
           picImg.style.display = "block"
           picIcon.style.display = "none"
-      }
-
-      
+      } 
   })
+
+  async function settingsSubmit() {
+    console.log(`${firstName} ${lastName} ${email}`)
+    const response = await fetch(`https://habithub-api.herokuapp.com/user/${userID}`, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application.json',
+        'Content-Type': 'application/json',
+        'Authorization': 'BEARER ' + jwt
+      },
+      body: JSON.stringify({
+        firstName: firstName,
+        lastName: lastName,
+        email: email
+      })
+    })
+
+    //NOTE - need to upload picture if present here
+
+    if (!response.ok) {
+      // display error message
+    } else {
+      // toggle popup closed
+    }
+  }
 </script>
 
 <div class="body">
@@ -69,7 +93,7 @@
             </div>
           </div>
           <PopUp icon="bx-edit" button_name="Edit Profile">
-            <form action="">
+            <form action="" on:submit={settingsSubmit}>
               <h2>Edit Profile</h2>
               <p>Please enter your new profile information here</p>
               <TextInput 

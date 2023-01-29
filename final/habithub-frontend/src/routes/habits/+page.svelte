@@ -10,6 +10,7 @@
     let userID
     let habits = [{}]
 
+    // NOTE - exporting togglePopup may be a way to get the popup to open
     // const newHabit = $page.url.searchParams.get('new') == "true"
     // let newPopup
 
