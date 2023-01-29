@@ -14,7 +14,7 @@
   let userID
   let jwt
 
-  let file
+  let files
 
   onMount(async () => {
       const validToken = await validateToken()
@@ -44,28 +44,45 @@
 
   async function settingsSubmit() {
     console.log(`${firstName} ${lastName} ${email}`)
-    console.log(file)
-    // const response = await fetch(`https://habithub-api.herokuapp.com/user/${userID}`, {
-    //   method: 'PUT',
-    //   headers: {
-    //     'Accept': 'application.json',
-    //     'Content-Type': 'application/json',
-    //     'Authorization': 'BEARER ' + jwt
-    //   },
-    //   body: JSON.stringify({
-    //     firstName: firstName,
-    //     lastName: lastName,
-    //     email: email
-    //   })
-    // })
+    console.log(files)
+    const response = await fetch(`https://habithub-api.herokuapp.com/user/${userID}`, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application.json',
+        'Content-Type': 'application/json',
+        'Authorization': 'BEARER ' + jwt
+      },
+      body: JSON.stringify({
+        firstName: firstName,
+        lastName: lastName,
+        email: email
+      })
+    })
 
-    //NOTE - need to upload picture if present here
+    // do something with response
 
-    // if (!response.ok) {
-    //   // display error message
-    // } else {
-    //   // toggle popup closed
-    // }
+    // Thanks to this: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#uploading_a_file
+    // somehow this all worked really easily, which is suspicious
+    if (files) {
+      const formData = new FormData()
+      formData.append('profilepic', files[0])
+      // const fileResponse = await fetch(`https://habithub-api.herokuapp.com/pic/${userID}`, {
+      const fileResponse = await fetch(`http://localhost:3000/pic/${userID}`, {
+        method: 'POST',
+        headers: {
+          'Authorization': 'BEARER ' + jwt
+        },
+        body: formData
+      })
+
+      // do something with fileResponse
+    }
+
+    if (!response.ok) {
+      // display error message
+    } else {
+      // toggle popup closed
+    }
   }
 </script>
 
@@ -123,7 +140,7 @@
                 label="Email"
                 input_type="email"
               />
-              <ImageUpload bind:file={file}/>
+              <ImageUpload bind:file={files}/>
                 <Button>
                   <i class="bx bx-save"></i>
                   Save Profile
