@@ -1,15 +1,17 @@
 <script>
     import EditHabit from '../../components/EditHabit.svelte'
     import HabitCard from '../../components/HabitCard.svelte'
-    import Button from '../../components/Button.svelte'
-    import PopUp from '../../components/PopUp.svelte'
-    import { redirectToLocation } from './../../utils'
+    import PopUp /*{ togglePopup }*/ from '../../components/PopUp.svelte'
     import { validateToken } from './../../utils'
     import { onMount } from 'svelte'
+    // import { page } from '$app/stores'
 
     let jwt
     let userID
     let habits = [{}]
+
+    // const newHabit = $page.url.searchParams.get('new') == "true"
+    // let newPopup
 
     onMount(async () => {
         const validToken = await validateToken()
@@ -21,6 +23,8 @@
         userID = localStorage.getItem('userID')
 
         fetchHabits(userID, jwt)
+
+        // if (newHabit) newPopup.togglePopup()
     })
 
     async function fetchHabits(userID, jwt) {

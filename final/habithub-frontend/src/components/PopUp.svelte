@@ -1,15 +1,15 @@
 <script>
     import {slide} from "svelte/transition"
-    import Button from "./Button.svelte";
-    let showPopup = false;
+    import Button from "./Button.svelte"
+    let showPopup = false
 
-    function togglePopup() {
-        showPopup = !showPopup;
+    export function togglePopup() {
+        showPopup = !showPopup
     }
 
     function handleKeydown(event) {
         if (event.keyCode === 13 || event.keyCode === 32) {
-            togglePopup();
+            togglePopup()
         }
     }
 

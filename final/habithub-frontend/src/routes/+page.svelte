@@ -16,7 +16,8 @@
     })
 
     const newHabit = () => {
-        redirectToLocation('/edit/new')
+        // redirectToLocation('/habits?new=true')
+        redirectToLocation('/habits')
     }
 
 </script>
