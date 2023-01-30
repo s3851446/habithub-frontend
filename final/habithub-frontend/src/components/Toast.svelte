@@ -7,12 +7,15 @@
     setTimeout(() => {
         showToast = false;
     }, 2000);
+
+    export let message
+    export let description
 </script>
 
 {#if showToast}
     <div class="toast {error ? 'error' : ''}" transition:fade|local={{duration: 300}}>
         <div class="toast-header">
-            <p><b>Account Created!</b> Please sign in.</p>
+            <p><b>{message}</b> {description}</p>
             <i 
                 class="bx bx-x toast-close" 
                 on:click={() => showToast = false} 
