@@ -66,8 +66,8 @@
     if (files) {
       const formData = new FormData()
       formData.append('profilepic', files[0])
-      // const fileResponse = await fetch(`https://habithub-api.herokuapp.com/pic/${userID}`, {
-      const fileResponse = await fetch(`http://localhost:3000/pic/${userID}`, {
+      const fileResponse = await fetch(`https://habithub-api.herokuapp.com/pic/${userID}`, {
+      // const fileResponse = await fetch(`http://localhost:3000/pic/${userID}`, {
         method: 'POST',
         headers: {
           'Authorization': 'BEARER ' + jwt
