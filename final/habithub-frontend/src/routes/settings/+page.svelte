@@ -7,6 +7,7 @@
   import { loadUserData, loadUserPic } from './../../utils'
   import PopUp from '../../components/PopUp.svelte';
   import ImageUpload from '../../components/ImageUpload.svelte'
+  import Warning from '../../components/Warning.svelte';
 
   let firstName = "Name"
   let lastName = "Last name"
@@ -87,6 +88,12 @@
 </script>
 
 <div class="body">
+  <Warning 
+    message = "The notification and colour scheme
+      features are still under construction.
+      We apologise for any inconveniences caused by this.
+      This will be updated soon. Thank you for your patience."  
+  />
   <h1>Settings</h1>
     <section>
       <!-- This is temporary & will be changed to a component soon. -AB -->
@@ -151,8 +158,20 @@
         <div class="container">
           <h2>Notification settings</h2>
           <hr>
-          <NotificationCard habit_title="Workout" icon="bx-dumbbell" reminder="On" frequency="Daily" time="09:00 AM"/>
-          <NotificationCard habit_title="Sleep early" icon="bx-bed" reminder="On" frequency="Daily" time="09:00 PM"/>
+          <NotificationCard 
+            habit_title="Workout" 
+            icon="bx-dumbbell" 
+            reminder="On" 
+            frequency="Daily" 
+            time="09:00 AM"
+          />
+          <NotificationCard 
+            habit_title="Sleep early" 
+            icon="bx-bed" 
+            reminder="On" 
+            frequency="Daily" 
+            time="09:00 PM"
+          />
         </div>
         <div class="container">
           <h2>Colour Scheme</h2>

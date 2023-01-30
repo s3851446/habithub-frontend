@@ -12,7 +12,7 @@
         width: 100%;
         display: flex;
         flex-flow: row nowrap;
-        align-items: flex-start;
+        align-items: center;
         justify-content: flex-start;
         gap: 20px;
         background: rgb(255, 254, 227);
