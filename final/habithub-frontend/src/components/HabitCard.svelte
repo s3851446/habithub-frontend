@@ -28,7 +28,7 @@
 
 <div class="parent {classs}">
     <!-- Insert Icon -->
-    <span class="body-content">{name}</span>
+    <span class="body-content"><h1>{name}</h1></span>
     <p>{description}</p>
     <div class="bottom">
         <div class="start">
@@ -66,6 +66,10 @@
 
 p {
     width: 100%;
+}
+
+h1 {
+    font-size: 17px;
 }
 
 .flex {

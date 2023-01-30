@@ -3,6 +3,7 @@
   import { validateToken } from './../../utils'
   import { onMount } from 'svelte'
   import ProgressCard from "../../components/ProgressCard.svelte";
+  import Warning from "../../components/Warning.svelte";
 
   onMount(async () => {
       const validToken = await validateToken()
@@ -12,9 +13,15 @@
   })
 </script>
 
+
 <div class="body">
   <div class="content">
     <div>
+      <Warning 
+        message="This page is currently under construction. 
+          It contains demo data, components and elements.
+          It will be updated soon and we appreciate your patience."
+      />
       <h1>Overall Progress</h1>
     </div>
     <div class="statistics-button">
