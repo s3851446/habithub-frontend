@@ -3,52 +3,67 @@
 
     export let title
     export let icon
-    export let streak
-    export let items_completed
+    export let streak = int
+
+    function handleCheckboxChange() {
+        streak = yes ? (parseInt(streak) + 1) : (parseInt(streak) - 1);
+    }
 </script>
 
-<div class="habit-card">
+<div class="habit-card {yes ? 'complete' : ''}">
     <div class="wrapper">
         <div class="title">
             <i class='bx {icon}'></i>
             <h2>{title}</h2>
         </div>
-    <i class='bx bx-chevron-right'></i>
+        <i class='bx {yes ? 'bx-check-circle' : 'bx-chevron-right'}'></i>
     </div>
     <hr>
     <div class="wrapper card-info">
         <div class="streak">
-        <i class='bx bxs-hot'></i>
-        <p>{streak} day streak</p>
+            <i class='bx bxs-hot'></i>
+            <p>{streak} day streak</p>
         </div>
         <label>
-            <input type=checkbox bind:checked={yes}>
+            <input type=checkbox bind:checked={yes} on:change={handleCheckboxChange}>
             {#if yes}
-            {items_completed}/{items_completed} items completed
+                Completed
             {:else}
-            0/{items_completed} items completed
+                Incomplete
             {/if}
         </label>
     </div>
 </div>
 
 <style lang="scss">
+    label {
+        cursor: pointer;
+    }
+
     .habit-card {
         width: 100%;
         background: $white;
         border-radius: $card-radius;
         box-shadow: $card-shadow;
+        transition: $trans-05;
         &:hover {
-            cursor: pointer;
             .bx-chevron-right{
-            transform: translateX(5px);
+                transform: translateX(5px);
+            }
         }
+        &.complete {
+            background: rgb(251, 255, 239);
         }
     }
 
     .bx-chevron-right {
         font-size: 20px;
         transition: $trans-02;
+    }
+
+    .bx-check-circle {
+        color: rgb(76, 123, 0);
+        font-size: 25px;
     }
 
     h2 {

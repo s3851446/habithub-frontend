@@ -44,7 +44,6 @@
                             title="Workout"
                             icon="bx-dumbbell"
                             streak="30"
-                            items_completed="1"
                         />
                     </div>
                 </div>
@@ -55,19 +54,16 @@
                             title="Sleep early"
                             icon="bx-bed"
                             streak="1"
-                            items_completed="1"
                         />
                         <DashboardHabit 
                             title="Wake up early"
                             icon="bx-sun"
                             streak="1"
-                            items_completed="1"
                         />
                         <DashboardHabit 
                             title="Drink Water"
                             icon="bx-droplet"
                             streak="20"
-                            items_completed="7"
                         />
                     </div>
                 </div>
