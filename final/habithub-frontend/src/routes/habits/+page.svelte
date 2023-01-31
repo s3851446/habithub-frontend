@@ -2,6 +2,7 @@
     import EditHabit from '../../components/EditHabit.svelte'
     import HabitCard from '../../components/HabitCard.svelte'
     import PopUp /*{ togglePopup }*/ from '../../components/PopUp.svelte'
+    import Spinner from '../../components/Spinner.svelte'
     import { validateToken } from './../../utils'
     import { onMount } from 'svelte'
     // import { page } from '$app/stores'
@@ -9,6 +10,8 @@
     let jwt
     let userID
     let habits = [{}]
+
+    let spinnerOn = true
 
     // NOTE - exporting togglePopup may be a way to get the popup to open
     // const newHabit = $page.url.searchParams.get('new') == "true"
@@ -47,6 +50,7 @@
         let data = await response.json()
         habits = data
         document.getElementById('card-container').style.visibility = "visible"
+        document.getElementById('spinner').style.display = 'none'
     }
 
 </script>
@@ -66,6 +70,7 @@
                 h_title=""/>
         </PopUp>  
     </div>
+    <Spinner id="spinner" />
     <div class="card-container" id="card-container">
         {#key habits}
             {#each habits as habit}

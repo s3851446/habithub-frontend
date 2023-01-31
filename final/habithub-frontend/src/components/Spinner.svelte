@@ -1,6 +1,10 @@
+<script>
+    export let id
+</script>
+
 <!-- Component made with the help of 
 https://codepen.io/ahmadbassamemran/pen/bXRPdr -->
-<div class="wrapper">
+<div class="wrapper" id={id}>
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle"></div>
@@ -28,6 +32,7 @@ https://codepen.io/ahmadbassamemran/pen/bXRPdr -->
             left: 15%;
             margin: 0;
         }
+        margin-top: 50px;
     }
 
     .circle {

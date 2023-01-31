@@ -44,8 +44,6 @@
   })
 
   async function settingsSubmit() {
-    console.log(`${firstName} ${lastName} ${email}`)
-    console.log(files)
     const response = await fetch(`https://habithub-api.herokuapp.com/user/${userID}`, {
       method: 'PUT',
       headers: {
