@@ -8,7 +8,7 @@
     // let showPopup = false
     export let showPopup
 
-    if (!showPopup) showPopup = false
+    if (showPopup = undefined) showPopup = false
 
     export function togglePopup() {
         showPopup = !showPopup

@@ -1,6 +1,7 @@
 <script>
     import TextInput from './TextInput.svelte'
     import Button from './Button.svelte'
+    import { createEventDispatcher } from 'svelte'
 
     export let type
     export let h_title
@@ -12,6 +13,8 @@
 
     let title
     let description
+
+    const dispatch = createEventDispatcher()
 
     // develop based on: https://javascript.info/formdata
     // & https://svelte.dev/repl/74685aa8b4374c4c8f395ce643fee7b6?version=3.48.0
@@ -46,12 +49,17 @@
             // to-do display a 'something went wrong' msg
         }
 
-        window.location.href = '/habits'
+        sendSubmitEvent()
+        // window.location.href = '/habits'
     }
 
     if (type == 'edit') {
         // title.value = h_title
         // description.value = h_description
+    }
+
+    function sendSubmitEvent() {
+        dispatch('submitEvent')
     }
 </script>
 

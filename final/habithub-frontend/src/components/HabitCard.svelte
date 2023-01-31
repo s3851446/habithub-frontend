@@ -12,6 +12,7 @@
     import EditHabit from './EditHabit.svelte'
     import { onMount } from 'svelte'
 
+    let showEditPopup = false
     // let jwt
     // let userID
 
@@ -23,6 +24,10 @@
     onMount(() => {
 
     })
+
+    function closePopup() {
+        showEditPopup = false
+    }
 
 </script>
 
@@ -36,18 +41,11 @@
             <span class="body-content">{streak} days!</span>
         </div>
         <div class="end">
-            <!-- <Button on:click={() => {redirect('/edit/')}}>
-                <i class='bx bx-edit'></i>
-                Edit
-            </Button>
-            <Button on:click={() => {redirect('/delete/')}}>
-                <i class='bx bx-trash'></i>
-                Delete
-            </Button> -->
-            <PopUp icon="bx-edit" button_name="Edit">
-                <EditHabit bind:jwt={jwt} bind:userID={userID} type="edit" submitText="Save" h_id={h_id} h_description={description} h_title={name}/>
+            <PopUp icon="bx-edit" button_name="Edit" bind:showPopup={showEditPopup}>
+                <EditHabit bind:jwt={jwt} bind:userID={userID} type="edit" submitText="Save" h_id={h_id} h_description={description} h_title={name} on:submitEvent={closePopup}/>
             </PopUp>
-            <PopUp icon="bx-trash" button_name="Delete">
+            <PopUp icon="bx-trash" button_name="Delete" showPopup="false">
+                <!-- Put a "confirm delete" form here -->
             </PopUp>
         </div>
     </div>
