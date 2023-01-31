@@ -78,16 +78,11 @@
                 <div class="list">
                     <h2>Upcoming Habits</h2>
                     <div class="list-items">
-                        <!-- <DashboardHabit 
-                            title="Workout"
-                            icon="bx-dumbbell"
-                            streak="30"
-                        /> -->
                         {#key uncompletedHabits}
                             {#each uncompletedHabits as h}
                                 <DashboardHabit
                                     title={h.title}
-                                    icon="bx-dumbell"
+                                    icon="bx-dumbbell"
                                     streak={h.streak}
                                 />
                             {/each}
@@ -97,26 +92,11 @@
                 <div class="list">
                     <h2>Completed Habits</h2>
                     <div class="list-items">
-                        <!-- <DashboardHabit 
-                            title="Sleep early"
-                            icon="bx-bed"
-                            streak="1"
-                        />
-                        <DashboardHabit 
-                            title="Wake up early"
-                            icon="bx-sun"
-                            streak="1"
-                        />
-                        <DashboardHabit 
-                            title="Drink Water"
-                            icon="bx-droplet"
-                            streak="20"
-                        /> -->
                         {#key completedHabits}
                             {#each completedHabits as h}
                                 <DashboardHabit
                                     title={h.title}
-                                    icon="bx-dumbell"
+                                    icon="bx-dumbbell"
                                     streak={h.streak}
                                 />
                             {/each}
@@ -142,7 +122,7 @@
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
         column-gap: 5px;
         transition: $trans-05;
         @media all and (max-width: 900px) {
