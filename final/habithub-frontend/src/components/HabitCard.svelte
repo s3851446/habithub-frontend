@@ -13,8 +13,6 @@
     import { onMount } from 'svelte'
 
     let showEditPopup = false
-    // let jwt
-    // let userID
 
     // const redirect = (route) => {
     //     const location = route + h_id
@@ -29,6 +27,27 @@
         showEditPopup = false
     }
 
+    // ** This is not needed because the data is bound, however maybe the data should be refreshed somehow if the submit is bad. 
+    // or, it shouldn't be bound and should somehow only be updated if submit is good
+    // ***************************************************************
+    // async function fetchHabit() {
+    //     let response = await fetch(`https://habithub-api.herokuapp.com/habit/habit/${h_id}`, {
+    //         method: 'GET',
+    //         headers: {
+    //             'Accept': 'application.json',
+    //             'Content-Type': 'application/json',
+    //             'Authorization': 'BEARER ' + jwt
+    //         }
+    //     })
+
+    //     if (!response.ok) {
+    //         // set a problem message
+    //         return
+    //     } else {
+    //         const data = response.json()
+    //     }
+    // }
+
 </script>
 
 <div class="parent {classs}">
@@ -42,7 +61,7 @@
         </div>
         <div class="end">
             <PopUp icon="bx-edit" button_name="Edit" bind:showPopup={showEditPopup}>
-                <EditHabit bind:jwt={jwt} bind:userID={userID} type="edit" submitText="Save" h_id={h_id} h_description={description} h_title={name} on:submitEvent={closePopup}/>
+                <EditHabit bind:jwt={jwt} bind:userID={userID} type="edit" submitText="Save" h_id={h_id} bind:h_description={description} bind:h_title={name} on:submitEvent={closePopup}/>
             </PopUp>
             <PopUp icon="bx-trash" button_name="Delete" showPopup="false">
                 <!-- Put a "confirm delete" form here -->

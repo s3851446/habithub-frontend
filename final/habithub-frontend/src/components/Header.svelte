@@ -15,7 +15,7 @@
         const picImg = document.getElementById('pic-img')
         const picIcon = document.getElementById('pic-icon')
 
-        if (data && data.pic.buffer64) {
+        if (data && data.pic) {
             picImg.src = `data:${data.pic.mimetype};base64,${data.pic.buffer64}`
             picImg.style.display = "block"
             picIcon.style.display = "none"

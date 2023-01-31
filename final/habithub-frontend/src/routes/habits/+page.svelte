@@ -13,10 +13,6 @@
 
     let showNewPopup = false
 
-    // NOTE - exporting togglePopup may be a way to get the popup to open
-    // const newHabit = $page.url.searchParams.get('new') == "true"
-    // let newPopup
-
     if ($page.url.searchParams.get('new') == "true") showNewPopup = true
 
     onMount(async () => {
@@ -29,8 +25,6 @@
         userID = localStorage.getItem('userID')
 
         fetchHabits(userID, jwt)
-
-        // if (newHabit) newPopup.togglePopup()
     })
 
     // fetch habits should become a utils function (matching dashboard / )
@@ -55,6 +49,11 @@
         document.getElementById('spinner').style.display = "none"
     }
 
+    function closePopup() {
+        // need to silently update the data from here
+        showNewPopup = false
+    }
+
 </script>
 
 
@@ -69,7 +68,8 @@
                 submitText="Add Habit" 
                 h_id="" 
                 h_description="" 
-                h_title=""/>
+                h_title=""
+                on:submitEvent={closePopup}/>
         </PopUp>  
     </div>
     <Spinner id="spinner" />
