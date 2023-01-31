@@ -1,7 +1,14 @@
+<script context="module">
+
+</script>
+
 <script>
     import {slide} from "svelte/transition"
     import Button from "./Button.svelte"
-    let showPopup = false
+    // let showPopup = false
+    export let showPopup
+
+    if (showPopup = undefined) showPopup = false
 
     export function togglePopup() {
         showPopup = !showPopup

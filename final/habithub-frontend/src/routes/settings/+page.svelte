@@ -16,6 +16,7 @@
   let jwt
 
   let files
+  let showSettingsPopup = false
 
   onMount(async () => {
       const validToken = await validateToken()
@@ -66,7 +67,6 @@
       const formData = new FormData()
       formData.append('profilepic', files[0])
       const fileResponse = await fetch(`https://habithub-api.herokuapp.com/pic/${userID}`, {
-      // const fileResponse = await fetch(`http://localhost:3000/pic/${userID}`, {
         method: 'POST',
         headers: {
           'Authorization': 'BEARER ' + jwt
@@ -79,8 +79,10 @@
 
     if (!response.ok) {
       // display error message
+      // resest values (fetch again)
     } else {
-      // toggle popup closed
+      showSettingsPopup = false
+      // display confirmation message
     }
   }
 </script>
@@ -117,7 +119,7 @@
               <img id="pic-img-settings" src="" alt="user-avatar">
             </div>
           </div>
-          <PopUp icon="bx-edit" button_name="Edit Profile">
+          <PopUp icon="bx-edit" button_name="Edit Profile" bind:showPopup={showSettingsPopup}>
             <form action="" on:submit={settingsSubmit}>
               <h2>Edit Profile</h2>
               <p>Please enter your new profile information here</p>

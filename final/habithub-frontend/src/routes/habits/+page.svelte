@@ -5,17 +5,15 @@
     import Spinner from '../../components/Spinner.svelte'
     import { validateToken } from './../../utils'
     import { onMount } from 'svelte'
-    // import { page } from '$app/stores'
+    import { page } from '$app/stores'
 
     let jwt
     let userID
     let habits = [{}]
 
-    let spinnerOn = true
+    let showNewPopup = false
 
-    // NOTE - exporting togglePopup may be a way to get the popup to open
-    // const newHabit = $page.url.searchParams.get('new') == "true"
-    // let newPopup
+    if ($page.url.searchParams.get('new') == "true") showNewPopup = true
 
     onMount(async () => {
         const validToken = await validateToken()
@@ -27,8 +25,6 @@
         userID = localStorage.getItem('userID')
 
         fetchHabits(userID, jwt)
-
-        // if (newHabit) newPopup.togglePopup()
     })
 
     // fetch habits should become a utils function (matching dashboard / )
@@ -50,7 +46,12 @@
         let data = await response.json()
         habits = data
         document.getElementById('card-container').style.visibility = "visible"
-        document.getElementById('spinner').style.display = 'none'
+        document.getElementById('spinner').style.display = "none"
+    }
+
+    function closePopup() {
+        // need to silently update the data from here
+        showNewPopup = false
     }
 
 </script>
@@ -59,7 +60,7 @@
 <div class="body">
     <div class="heading">
         <h1>My Habits</h1>
-        <PopUp icon="bx-plus" button_name="Add Habit">
+        <PopUp icon="bx-plus" button_name="Add Habit" bind:showPopup={showNewPopup}>
             <EditHabit 
                 jwt={jwt} 
                 userID={userID} 
@@ -67,7 +68,8 @@
                 submitText="Add Habit" 
                 h_id="" 
                 h_description="" 
-                h_title=""/>
+                h_title=""
+                on:submitEvent={closePopup}/>
         </PopUp>  
     </div>
     <Spinner id="spinner" />
@@ -86,11 +88,6 @@
         {/key}
         <HabitCard classs="dud-card" name="" description="" streak="" h_id="" />
     </div>
-
-    <!-- <form action="http://localhost:3000/user/pic/63b7b3ba17291e9d0483bfa3" method="post" enctype="multipart/form-data">
-        <input type="file" name="profilepic">
-        <input type="submit" value="submit">
-    </form> -->
 </div>
 
 <style lang="scss">
