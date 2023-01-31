@@ -34,9 +34,6 @@
 <!-- This component was created with the help of a YouTube tutorial.
 https://youtu.be/ybXulmeilFM -->
 <nav id={id}>
-    <div class="icon">
-        <a href="/"><i class='bx bx-bell'></i></a>
-    </div>
     <div class="user-pic" id="user-pic">
         <i id="pic-icon" class='bx bxs-user profile'></i>
         <img id="pic-img" src="" alt="user-avatar">
@@ -109,14 +106,6 @@ https://youtu.be/ybXulmeilFM -->
         color: $black;
         font-size: 20px;
         transition: $trans-05;
-    }
-
-    .icon i {
-        font-size: 27px;
-    }
-
-    .icon a:hover i {
-        color: $yellow;
     }
 
     .profile {
