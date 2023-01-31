@@ -50,7 +50,7 @@
         let data = await response.json()
         habits = data
         document.getElementById('card-container').style.visibility = "visible"
-        document.getElementById('spinner').style.display = 'none'
+        document.getElementById('spinner').style.display = "none"
     }
 
 </script>
@@ -86,11 +86,6 @@
         {/key}
         <HabitCard classs="dud-card" name="" description="" streak="" h_id="" />
     </div>
-
-    <!-- <form action="http://localhost:3000/user/pic/63b7b3ba17291e9d0483bfa3" method="post" enctype="multipart/form-data">
-        <input type="file" name="profilepic">
-        <input type="submit" value="submit">
-    </form> -->
 </div>
 
 <style lang="scss">

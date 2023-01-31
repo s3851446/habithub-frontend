@@ -32,7 +32,7 @@ https://codepen.io/ahmadbassamemran/pen/bXRPdr -->
             left: 15%;
             margin: 0;
         }
-        margin-top: 50px;
+        margin-top: 80px;
     }
 
     .circle {

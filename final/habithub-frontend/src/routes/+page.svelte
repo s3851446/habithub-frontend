@@ -1,5 +1,6 @@
 <script>
     import Button from "../components/Button.svelte"
+    import Spinner from "../components/Spinner.svelte";
     import { onMount } from 'svelte'
     import { validateToken } from "../utils"
     import { signout } from "../utils";
@@ -51,6 +52,9 @@
         let data = await response.json()
         completedHabits = data.completed
         uncompletedHabits = data.uncompleted
+
+        document.getElementById('content').style.visibility = "visible"
+        document.getElementById('spinner').style.display = "none"
     }
 
 </script>
@@ -66,7 +70,8 @@
         </div>
     </div>
     <div class="container">
-        <div class="content">
+        <Spinner id="spinner" />
+        <div class="content" id="content">
             <p>You have completed <i class="italics"> <b>3</b> out of 4</i> of today's 
             scheduled habits. Good job! Keep going!</p>
             <div class="habit-lists">
@@ -166,6 +171,7 @@
         @media all and (max-width: 900px) {
             width: 100%;
         }
+        visibility: hidden;
     }
 
     .list-items {
