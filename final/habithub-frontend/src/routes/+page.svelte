@@ -54,12 +54,15 @@
         uncompletedHabits = data.uncompleted
 
         document.getElementById('content').style.visibility = "visible"
+        document.querySelector('.heading').style.visibility = "visible"
+        document.querySelector('.container').style.visibility = "visible"
         document.getElementById('spinner').style.display = "none"
     }
 
 </script>
 
 <div class="body">
+    <Spinner id="spinner" />
     <div class="heading">
         <h1>Hello, Name LastName!</h1>
         <div class="btn">
@@ -70,7 +73,6 @@
         </div>
     </div>
     <div class="container">
-        <Spinner id="spinner" />
         <div class="content" id="content">
             <p>You have completed <i class="italics"> <b>3</b> out of 4</i> of today's 
             scheduled habits. Good job! Keep going!</p>
@@ -125,6 +127,7 @@
         align-items: flex-start;
         column-gap: 5px;
         transition: $trans-05;
+        visibility: hidden;
         @media all and (max-width: 900px) {
             flex-flow: column nowrap;
             align-items: center;
@@ -203,6 +206,7 @@
         justify-content: space-between;
         align-items: center;
         column-gap: 20px;
+        visibility: hidden;
     }
 
     .btn {
