@@ -5,6 +5,12 @@
     import { signout } from "../utils";
     import { redirectToLocation } from "../utils";
     import DashboardHabit from "../components/DashboardHabit.svelte";
+  import { loggedIn } from "../stores";
+
+    let jwt
+    let userID
+    let completedHabits=[{}]
+    let uncompletedHabits=[{}]
 
     onMount(async () => {
         let validToken = false;
@@ -13,11 +19,38 @@
             signout()
             redirectToLocation('/login')
         }
+
+        jwt = localStorage.getItem('jwt')
+        userID = localStorage.getItem('userID')
+        
+        fetchHabits(userID, jwt)
+
     })
 
     const newHabit = () => {
         // redirectToLocation('/habits?new=true')
         redirectToLocation('/habits')
+    }
+
+    // fetch habits should become a utils function (matching /habits)
+    async function fetchHabits(userID, jwt) {
+        let response = await fetch(`https://habithub-api.herokuapp.com/habit/user/${userID}?category=completed`, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application.json',
+                'Content-Type': 'application/json',
+                'Authorization': 'BEARER ' + jwt
+            }
+        })
+
+        if (!response.ok) {
+            // set a problem message
+            return
+        }
+
+        let data = await response.json()
+        completedHabits = data.completed
+        uncompletedHabits = data.uncompleted
     }
 
 </script>
@@ -40,17 +73,26 @@
                 <div class="list">
                     <h2>Upcoming Habits</h2>
                     <div class="list-items">
-                        <DashboardHabit 
+                        <!-- <DashboardHabit 
                             title="Workout"
                             icon="bx-dumbbell"
                             streak="30"
-                        />
+                        /> -->
+                        {#key uncompletedHabits}
+                            {#each uncompletedHabits as h}
+                                <DashboardHabit
+                                    title={h.title}
+                                    icon="bx-dumbell"
+                                    streak={h.streak}
+                                />
+                            {/each}
+                        {/key}
                     </div>
                 </div>
                 <div class="list">
                     <h2>Completed Habits</h2>
                     <div class="list-items">
-                        <DashboardHabit 
+                        <!-- <DashboardHabit 
                             title="Sleep early"
                             icon="bx-bed"
                             streak="1"
@@ -64,7 +106,16 @@
                             title="Drink Water"
                             icon="bx-droplet"
                             streak="20"
-                        />
+                        /> -->
+                        {#key completedHabits}
+                            {#each completedHabits as h}
+                                <DashboardHabit
+                                    title={h.title}
+                                    icon="bx-dumbell"
+                                    streak={h.streak}
+                                />
+                            {/each}
+                        {/key}
                     </div>
                 </div>
             </div>

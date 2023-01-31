@@ -28,6 +28,7 @@
         // if (newHabit) newPopup.togglePopup()
     })
 
+    // fetch habits should become a utils function (matching dashboard / )
     async function fetchHabits(userID, jwt) {
         let response = await fetch(`https://habithub-api.herokuapp.com/habit/user/${userID}`, {
             method: 'GET',

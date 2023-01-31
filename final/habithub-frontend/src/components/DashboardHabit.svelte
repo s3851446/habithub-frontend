@@ -3,7 +3,7 @@
 
     export let title
     export let icon
-    export let streak = int
+    export let streak //= int
 
     function handleCheckboxChange() {
         streak = yes ? (parseInt(streak) + 1) : (parseInt(streak) - 1);
