@@ -5,17 +5,19 @@
     import Spinner from '../../components/Spinner.svelte'
     import { validateToken } from './../../utils'
     import { onMount } from 'svelte'
-    // import { page } from '$app/stores'
+    import { page } from '$app/stores'
 
     let jwt
     let userID
     let habits = [{}]
 
-    let spinnerOn = true
+    let showNewPopup = false
 
     // NOTE - exporting togglePopup may be a way to get the popup to open
     // const newHabit = $page.url.searchParams.get('new') == "true"
     // let newPopup
+
+    if ($page.url.searchParams.get('new') == "true") showNewPopup = true
 
     onMount(async () => {
         const validToken = await validateToken()
@@ -59,7 +61,7 @@
 <div class="body">
     <div class="heading">
         <h1>My Habits</h1>
-        <PopUp icon="bx-plus" button_name="Add Habit">
+        <PopUp icon="bx-plus" button_name="Add Habit" bind:showPopup={showNewPopup}>
             <EditHabit 
                 jwt={jwt} 
                 userID={userID} 

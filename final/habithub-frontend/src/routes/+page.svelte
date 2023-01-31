@@ -6,7 +6,7 @@
     import { signout } from "../utils";
     import { redirectToLocation } from "../utils";
     import DashboardHabit from "../components/DashboardHabit.svelte";
-  import { loggedIn } from "../stores";
+    import { loggedIn } from "../stores";
 
     let jwt
     let userID
@@ -30,7 +30,7 @@
 
     const newHabit = () => {
         // redirectToLocation('/habits?new=true')
-        redirectToLocation('/habits')
+        redirectToLocation('/habits?new=true')
     }
 
     // fetch habits should become a utils function (matching /habits)
