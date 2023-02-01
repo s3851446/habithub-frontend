@@ -52,13 +52,7 @@
         }
     }
 
-    if (type == 'edit') {
-        // title.value = h_title
-        // description.value = h_description
-    }
-
     function sendSubmitEvent() {
-        console.log('sending submit event')
         dispatch('submitEvent')
     }
 </script>

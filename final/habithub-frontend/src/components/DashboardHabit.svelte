@@ -1,12 +1,19 @@
 <script>
+    import { createEventDispatcher } from "svelte"
     let yes = false
 
+    export let h_id
     export let title
     export let icon
     export let streak //= int
 
+    const dispatch = createEventDispatcher()
+
     function handleCheckboxChange() {
-        streak = yes ? (parseInt(streak) + 1) : (parseInt(streak) - 1);
+        streak = yes ? (parseInt(streak) + 1) : (parseInt(streak) - 1)
+        dispatch('habitCompleteEvent', {
+            h_id: h_id
+        })
     }
 </script>
 

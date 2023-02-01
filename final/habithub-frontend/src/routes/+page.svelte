@@ -59,6 +59,12 @@
         document.getElementById('spinner').style.display = "none"
     }
 
+    function habitCompleteEvent(e) {
+        // send PUT /habit/habit/:id request to API to update streak 
+        // EITHER get habit from it's array (completed/uncompleted) and put it in the other one
+        // OR reload both arrays (slower)
+    }
+
 </script>
 
 <div class="body">
@@ -83,9 +89,11 @@
                         {#key uncompletedHabits}
                             {#each uncompletedHabits as h}
                                 <DashboardHabit
+                                    h_id={h._id}
                                     title={h.title}
                                     icon="bx-dumbbell"
                                     streak={h.streak}
+                                    on:habitCompleteEvent={habitCompleteEvent}
                                 />
                             {/each}
                         {/key}
@@ -97,9 +105,11 @@
                         {#key completedHabits}
                             {#each completedHabits as h}
                                 <DashboardHabit
+                                    h_id={h._id}
                                     title={h.title}
                                     icon="bx-dumbbell"
                                     streak={h.streak}
+                                    on:habitCompleteEvent={habitCompleteEvent}
                                 />
                             {/each}
                         {/key}
