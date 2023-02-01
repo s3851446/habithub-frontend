@@ -60,6 +60,27 @@
     }
 
     function habitCompleteEvent(e) {
+        if (e.detail.completed) {
+            uncompletedHabits.forEach(habit => {
+                if (habit._id == e.detail.h_id) {
+                    const index = uncompletedHabits.indexOf(habit)
+                    completedHabits.push(habit)
+                    completedHabits = completedHabits
+                    uncompletedHabits.splice(index, 1)
+                    uncompletedHabits = uncompletedHabits
+                }
+            })
+        } else {
+            completedHabits.forEach(habit => {
+                if (habit._id == e.detail.h_id) {
+                    const index = completedHabits.indexOf(habit)
+                    uncompletedHabits.push(habit)
+                    uncompletedHabits = uncompletedHabits
+                    completedHabits.splice(index, 1)
+                    completedHabits = completedHabits
+                }
+            })
+        }
         // send PUT /habit/habit/:id request to API to update streak 
         // EITHER get habit from it's array (completed/uncompleted) and put it in the other one
         // OR reload both arrays (slower)
@@ -93,6 +114,7 @@
                                     title={h.title}
                                     icon="bx-dumbbell"
                                     streak={h.streak}
+                                    completed="false"
                                     on:habitCompleteEvent={habitCompleteEvent}
                                 />
                             {/each}
@@ -109,6 +131,7 @@
                                     title={h.title}
                                     icon="bx-dumbbell"
                                     streak={h.streak}
+                                    completed="true"
                                     on:habitCompleteEvent={habitCompleteEvent}
                                 />
                             {/each}

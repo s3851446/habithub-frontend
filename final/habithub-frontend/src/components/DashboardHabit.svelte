@@ -3,16 +3,22 @@
     let yes = false
 
     export let h_id
+    export let completed
     export let title
     export let icon
     export let streak //= int
+
+    if (completed == true || completed == "true") {
+        yes = true
+    }
 
     const dispatch = createEventDispatcher()
 
     function handleCheckboxChange() {
         streak = yes ? (parseInt(streak) + 1) : (parseInt(streak) - 1)
         dispatch('habitCompleteEvent', {
-            h_id: h_id
+            h_id: h_id,
+            completed: yes
         })
     }
 </script>
