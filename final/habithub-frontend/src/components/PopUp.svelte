@@ -7,21 +7,25 @@
     import Button from "./Button.svelte"
     // let showPopup = false
     export let showPopup
+    export let icon
+    export let button_name
 
-    if (showPopup = undefined) showPopup = false
+    if (!showPopup) showPopup = false
+    console.log(`ShowPopup: ${showPopup} for ${button_name}`)
 
     export function togglePopup() {
         showPopup = !showPopup
+        console.log(`showPopup toggled to ${showPopup} for ${button_name}`)
     }
 
     function handleKeydown(event) {
         if (event.keyCode === 13 || event.keyCode === 32) {
+            console.log(`Keycode ${event.keyCode}`)
             togglePopup()
         }
     }
 
-    export let icon
-    export let button_name
+    
 </script>
 
 <Button on:click={togglePopup}>
@@ -29,7 +33,8 @@
     {button_name}
 </Button>
 
-{#if showPopup}
+{#key showPopup}
+{#if showPopup == true}
     <div class="popup-wrapper" transition:slide={{duration: 300, y: -50}}>
         <div class="popup">
             <div class="btn" on:click={togglePopup} on:keydown={handleKeydown}>
@@ -41,6 +46,7 @@
         </div>
     </div>
 {/if}
+{/key}
 
 <style lang="scss">
     .popup-wrapper {

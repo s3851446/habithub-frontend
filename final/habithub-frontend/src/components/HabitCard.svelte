@@ -61,7 +61,15 @@
         </div>
         <div class="end">
             <PopUp icon="bx-edit" button_name="Edit" bind:showPopup={showEditPopup}>
-                <EditHabit bind:jwt={jwt} bind:userID={userID} type="edit" submitText="Save" h_id={h_id} bind:h_description={description} bind:h_title={name} on:submitEvent={closePopup}/>
+                <EditHabit 
+                    bind:jwt={jwt} 
+                    bind:userID={userID} 
+                    type="edit" 
+                    submitText="Save" 
+                    h_id={h_id} 
+                    bind:h_description={description} 
+                    bind:h_title={name} 
+                    on:submitEvent={closePopup}/>
             </PopUp>
             <PopUp icon="bx-trash" button_name="Delete" showPopup="false">
                 <!-- Put a "confirm delete" form here -->
