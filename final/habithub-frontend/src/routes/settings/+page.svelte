@@ -67,6 +67,7 @@
       const formData = new FormData()
       formData.append('profilepic', files[0])
       const fileResponse = await fetch(`https://habithub-api.herokuapp.com/pic/${userID}`, {
+      // const fileResponse = await fetch(`http://localhost:3000/pic/${userID}`, {
         method: 'POST',
         headers: {
           'Authorization': 'BEARER ' + jwt
@@ -74,15 +75,24 @@
         body: formData
       })
 
-      // do something with fileResponse
-    }
+      if (!response.ok) {
+        // display error message
+        // resest values (fetch again)
+      } else {
+        showSettingsPopup = false
+      }
 
-    if (!response.ok) {
-      // display error message
-      // resest values (fetch again)
-    } else {
-      showSettingsPopup = false
-      // display confirmation message
+      // do something with fileResponse
+      if (fileResponse.ok) {
+        const fileData = await fileResponse.json()
+        const picImg = document.getElementById('pic-img-settings')
+        const picIcon = document.getElementById('pic-icon-settings')
+        picImg.src = `data:${fileData.mimetype};base64,${fileData.buffer64}`
+        picImg.style.display = "block"
+        picIcon.style.display = "none"
+      } else {
+        // display error messae
+      }
     }
   }
 </script>

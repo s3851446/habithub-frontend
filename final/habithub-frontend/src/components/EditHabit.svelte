@@ -47,10 +47,9 @@
 
         if (!result.ok) {
             // to-do display a 'something went wrong' msg
+        } else {
+            sendSubmitEvent()
         }
-
-        sendSubmitEvent()
-        // window.location.href = '/habits'
     }
 
     if (type == 'edit') {
