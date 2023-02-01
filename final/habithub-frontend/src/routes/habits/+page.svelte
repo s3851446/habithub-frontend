@@ -2,7 +2,7 @@
     import EditHabit from '../../components/EditHabit.svelte'
     import HabitCard from '../../components/HabitCard.svelte'
     import PopUp /*{ togglePopup }*/ from '../../components/PopUp.svelte'
-    import Spinner from '../../components/Spinner.svelte'
+    import Loader from '../../components/Loader.svelte'
     import { validateToken } from './../../utils'
     import { onMount } from 'svelte'
     import { page } from '$app/stores'
@@ -72,7 +72,7 @@
                 on:submitEvent={closePopup}/>
         </PopUp>  
     </div>
-    <Spinner id="spinner" />
+    <Loader id="spinner" />
     <div class="card-container" id="card-container">
         {#key habits}
             {#each habits as habit}

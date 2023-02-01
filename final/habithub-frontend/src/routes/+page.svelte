@@ -1,6 +1,6 @@
 <script>
     import Button from "../components/Button.svelte"
-    import Spinner from "../components/Spinner.svelte";
+    import Loader from "../components/Loader.svelte";
     import { onMount } from 'svelte'
     import { validateToken } from "../utils"
     import { signout } from "../utils";
@@ -62,7 +62,7 @@
 </script>
 
 <div class="body">
-    <Spinner id="spinner" />
+    <Loader id="spinner" />
     <div class="heading">
         <h1>Hello, Name LastName!</h1>
         <div class="btn">
