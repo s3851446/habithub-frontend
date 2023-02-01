@@ -75,13 +75,6 @@
         body: formData
       })
 
-      if (!response.ok) {
-        // display error message
-        // resest values (fetch again)
-      } else {
-        showSettingsPopup = false
-      }
-
       // do something with fileResponse
       if (fileResponse.ok) {
         const fileData = await fileResponse.json()
@@ -94,6 +87,13 @@
         // display error messae
       }
     }
+
+    if (!response.ok) {
+        // display error message
+        // resest values (fetch again)
+      } else {
+        showSettingsPopup = false
+      }
   }
 </script>
 

@@ -45,7 +45,7 @@
 
         let result = await response.json()
 
-        if (!result.ok) {
+        if (!response.ok) {
             // to-do display a 'something went wrong' msg
         } else {
             sendSubmitEvent()
@@ -58,6 +58,7 @@
     }
 
     function sendSubmitEvent() {
+        console.log('sending submit event')
         dispatch('submitEvent')
     }
 </script>
