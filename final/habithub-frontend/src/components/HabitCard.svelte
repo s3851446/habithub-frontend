@@ -80,45 +80,53 @@
 </div>
 
 <style lang="scss">
-.parent {
-    border-radius: $card-radius;
-    margin: 0.5em 0;
-    padding: 1em;
-    box-shadow: $card-shadow;
-    background-color: $white;
-    min-width: 25em;
-}
-
-p {
-    width: 100%;
-}
-
-h1 {
-    font-size: 17px;
-}
-
-.flex {
-    flex-grow: 1;
-}
-
-.dud-card {
-    @extend .flex;
-    visibility: hidden;
-}
-
-.bottom {
-    display: flex;
-    justify-content: space-between;
-}
-
-.start {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 0.3em;
-    i {
-        font-size: 20px;
-        color: $yellow;
+    .parent {
+        border-radius: $card-radius;
+        margin: 0.5em 0;
+        padding: 1em;
+        box-shadow: $card-shadow;
+        background-color: $white;
+        min-width: 200px;
     }
-}
+
+    p {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 17px;
+    }
+
+    .flex {
+        flex-grow: 1;
+    }
+
+    .dud-card {
+        @extend .flex;
+        visibility: hidden;
+    }
+
+    .bottom {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .start {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.3em;
+        i {
+            font-size: 20px;
+            color: $yellow;
+        }
+    }
+
+    .end {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 10px;
+    }
 </style>
