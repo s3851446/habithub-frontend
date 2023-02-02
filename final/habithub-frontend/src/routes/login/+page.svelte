@@ -60,8 +60,6 @@
             let loggedInVar
             loggedIn.subscribe((data) => loggedInVar = data)
 
-            //NOTE - remove
-            console.log("logged in successfully")
             window.location.href = '/'
 
             // put message somewhere if response bad

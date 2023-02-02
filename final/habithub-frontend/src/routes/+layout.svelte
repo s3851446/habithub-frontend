@@ -27,8 +27,6 @@
       subMenuWrap.classList.toggle("close-menu")
     })
 
-    console.log(userPic,subMenuWrap)
-
     const header = document.getElementById('header')
     const navbar = document.getElementById('navbar')
 

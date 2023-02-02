@@ -5,7 +5,6 @@
 
     onMount(() => {
         signout()
-        console.log("signing out")
         window.location.href = '/login'
     })
 

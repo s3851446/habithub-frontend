@@ -44,7 +44,6 @@
       }
 
       // const data = await response.json()
-      console.log("here")
       window.location.href = '/login'
 
 

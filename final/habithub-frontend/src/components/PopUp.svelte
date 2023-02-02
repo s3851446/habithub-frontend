@@ -11,16 +11,13 @@
     export let button_name
 
     if (!showPopup) showPopup = false
-    console.log(`ShowPopup: ${showPopup} for ${button_name}`)
 
     export function togglePopup() {
         showPopup = !showPopup
-        console.log(`showPopup toggled to ${showPopup} for ${button_name}`)
     }
 
     function handleKeydown(event) {
         if (event.keyCode === 13 || event.keyCode === 32) {
-            console.log(`Keycode ${event.keyCode}`)
             togglePopup()
         }
     }
