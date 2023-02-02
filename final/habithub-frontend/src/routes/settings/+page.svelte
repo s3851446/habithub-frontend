@@ -192,6 +192,8 @@
           </div>
         </div>
     </section>
+    <!-- This page has no man as I felt that it didn't one. It's just the settings 
+      page and user's don't need the man's emotions to motivate them here. -AB -->
 </div>
 
 <style lang="scss">
@@ -239,7 +241,8 @@
     }
 
     .container {
-      width: 300px;
+      width: 31%;
+      min-width: 300px;
       height: auto;
       background: $white;
       border-radius: $card-radius;
@@ -252,7 +255,7 @@
       h3 {
         font-size: 15px;
       }
-      @media all and (max-width:900px) {
+      @media all and (max-width:1097px) {
         width: 100%;
       }
     }
@@ -261,11 +264,16 @@
       display: flex;
       flex-flow: row wrap;
       align-items: flex-start;
-      justify-content: flex-start;
+      justify-content: space-evenly;
       gap: 30px;
       width: 100%;
+      margin-bottom: 20px;
       transition: $trans-05;
-      @media all and (max-width: 900px) {
+      @media all and (max-width: 1137px) {
+        justify-content: flex-start;
+        gap: 10px;
+      }
+      @media all and (max-width: 1097px) {
         width: 100%;
         justify-content: center;
         align-items: center;
