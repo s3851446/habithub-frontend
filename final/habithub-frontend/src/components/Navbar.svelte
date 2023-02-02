@@ -111,7 +111,7 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
         <div class="bottom-content">
             <ul class="menu-links">
                 <li class="">
-                    <a id="loginLink" href="/login">
+                    <a id="loginLink" href="/logout">
                         <i id="loginIcon" class='bx bx-log-out icon'></i>
                         <span id="loginText" class="text nav-text">Log Out</span>
                     </a>
