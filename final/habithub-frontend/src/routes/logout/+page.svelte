@@ -50,8 +50,8 @@
     }
   </style>
 
-  <div class="container">
+  <!-- <div class="container">
     <img class="logo" src="{base}/images/logo_app.png" alt="Habit Hub logo" />
     <div class="message">You have successfully logged out.</div>
     <button class="btn" on:click={handleLogin}>Log In Again</button>
-  </div>
+  </div> -->

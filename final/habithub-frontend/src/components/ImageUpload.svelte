@@ -13,7 +13,7 @@
 
 <div class="input_container">
     <label for="file" class="custom-file-upload">Upload profile picture</label>
-    <input type="file" id="file" bind:files={file}>
+    <input type="file" id="file" bind:files={file} accept="image/*">
     {#key file}
         <p>Selected file: {file ? file[0].name : 'none'}</p>
     {/key}
