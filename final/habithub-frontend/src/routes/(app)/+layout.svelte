@@ -1,12 +1,17 @@
 <script>
-  import "../app.scss";
-  import Navbar from "../components/Navbar.svelte"
-  import Footer from "../components/Footer.svelte"
-  import Header from "../components/Header.svelte"
+  import "../../app.scss"
+  import Navbar from "../../components/Navbar.svelte"
+  import Footer from "../../components/Footer.svelte"
+  import Header from "../../components/Header.svelte"
   import { onMount } from 'svelte'
-  import { validateToken } from '../utils'
+  import { validateToken } from '../../utils'
+  import { page } from '$app/stores'
 
   let validToken
+
+  if ($page.url) {
+    console.log($page.url)
+  }
  
   onMount(async () => {
     const sidebar = document.querySelector(".sidebar"),

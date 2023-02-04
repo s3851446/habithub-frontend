@@ -1,9 +1,9 @@
 <script>
-  import Button from "../../components/Button.svelte";
-  import { validateToken } from './../../utils'
+  import Button from "../../../components/Button.svelte";
+  import { validateToken } from '../../../utils'
   import { onMount } from 'svelte'
-  import ProgressCard from "../../components/ProgressCard.svelte";
-  import Warning from "../../components/Warning.svelte";
+  import ProgressCard from "../../../components/ProgressCard.svelte";
+  import Warning from "../../../components/Warning.svelte";
 
   onMount(async () => {
       const validToken = await validateToken()

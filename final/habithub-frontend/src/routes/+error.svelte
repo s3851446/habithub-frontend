@@ -1,5 +1,13 @@
 <script>
-    import Button from "../components/Button.svelte";
+    import Button from "../components/Button.svelte"
+    // import { onMount } from "svelte"
+
+    // onMount(() => {
+    //     var navbar = document.getElementById('navbar')
+    //     var header = document.getElementById('header')
+    //     navbar.style.display = 'none'
+    //     header.style.display = 'none'
+    // })
 </script>
 
 <div class="body">

@@ -13,7 +13,7 @@
     }
 </script>
 
-<style>
+<!-- <style>
     .container {
       display: flex;
       flex-direction: column;
@@ -48,7 +48,7 @@
     .btn:hover {
       background-color: #ef6461;
     }
-  </style>
+  </style> -->
 
   <!-- <div class="container">
     <img class="logo" src="{base}/images/logo_app.png" alt="Habit Hub logo" />

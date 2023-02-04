@@ -1,6 +1,6 @@
 <!-- Styled with the help of https://youtu.be/7yXUfcujpsk -->
 <script>
-  import Page from "../routes/+page.svelte"
+  import Page from "../routes/(app)/+page.svelte"
   import { onMount } from 'svelte'
 
 

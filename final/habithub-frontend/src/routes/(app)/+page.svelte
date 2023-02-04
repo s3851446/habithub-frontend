@@ -1,12 +1,12 @@
 <script>
-    import Button from "../components/Button.svelte"
-    import Loader from "../components/Loader.svelte";
+    import Button from "../../components/Button.svelte"
+    import Loader from "../../components/Loader.svelte";
     import { onMount } from 'svelte'
-    import { validateToken } from "../utils"
-    import { signout } from "../utils";
-    import { redirectToLocation } from "../utils";
-    import DashboardHabit from "../components/DashboardHabit.svelte";
-    import { loggedIn } from "../stores";
+    import { validateToken } from "../../utils"
+    import { signout } from "../../utils";
+    import { redirectToLocation } from "../../utils";
+    import DashboardHabit from "../../components/DashboardHabit.svelte";
+    import { loggedIn } from "../../stores";
 
     let jwt
     let userID

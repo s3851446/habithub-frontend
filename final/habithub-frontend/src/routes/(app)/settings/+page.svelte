@@ -1,13 +1,13 @@
 <script>
-  import { validateToken } from './../../utils'
+  import { validateToken } from '../../../utils'
   import { onMount } from 'svelte'
-  import TextInput from '../../components/TextInput.svelte'
-  import NotificationCard from '../../components/NotificationCardInner.svelte'
-  import Button from '../../components/Button.svelte'
-  import { loadUserData, loadUserPic } from './../../utils'
-  import PopUp from '../../components/PopUp.svelte';
-  import ImageUpload from '../../components/ImageUpload.svelte'
-  import Warning from '../../components/Warning.svelte';
+  import TextInput from '../../../components/TextInput.svelte'
+  import NotificationCard from '../../../components/NotificationCardInner.svelte'
+  import Button from '../../../components/Button.svelte'
+  import { loadUserData, loadUserPic } from '../../../utils'
+  import PopUp from '../../../components/PopUp.svelte';
+  import ImageUpload from '../../../components/ImageUpload.svelte'
+  import Warning from '../../../components/Warning.svelte';
 
   let firstName = "Name"
   let lastName = "Last name"
