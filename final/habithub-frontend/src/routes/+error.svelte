@@ -1,13 +1,5 @@
 <script>
     import Button from "../components/Button.svelte"
-    // import { onMount } from "svelte"
-
-    // onMount(() => {
-    //     var navbar = document.getElementById('navbar')
-    //     var header = document.getElementById('header')
-    //     navbar.style.display = 'none'
-    //     header.style.display = 'none'
-    // })
 </script>
 
 <div class="body">
@@ -32,8 +24,8 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 80px;
         text-align: center;
+        height: 100vh;
     }
 
     p {
@@ -45,6 +37,7 @@
 
     h1 {
         font-size: 50px;
+        margin: 0;
     }
 
     img {
