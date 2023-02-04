@@ -1,5 +1,5 @@
 <div class="spinner">
-  <div class="square"></div>
+  <div class="square" />
 </div>
 
 <style lang="scss">
@@ -47,8 +47,3 @@
     }
   }
 </style>
-
-
-
-
-
