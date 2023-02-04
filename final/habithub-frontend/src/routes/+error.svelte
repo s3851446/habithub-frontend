@@ -12,7 +12,13 @@
     <p>
       Looks like the page you are looking for has been lost in <s>SPACE</s>!
     </p>
-    <img src="./images/moon.svg" alt="moon" />
+    <object
+      title="Man lost in space"
+      type="image/svg+xml"
+      data="./images/moon.svg"
+    >
+      <img src="./images/moon.svg" alt="Man lost in space" />
+    </object>
     <Button>
       <i class="bx bx-home" />
       Go Home
@@ -42,8 +48,8 @@
     margin: 0;
   }
 
-  img {
-    width: 25%;
+  object {
+    width: 30%;
     margin-bottom: 20px;
   }
 
