@@ -3,55 +3,6 @@
   import { beforeUpdate, onMount } from "svelte";
   import { base } from "$app/paths";
   export let id;
-
-  let logInOutText;
-  let logInOutUrl;
-
-  // do not remove this or the code breaks the {#key} has to stay as well -EW
-  let loggedInVar;
-  loggedIn.subscribe((data) => {
-    loggedInVar = data;
-  });
-
-  beforeUpdate(() => {});
-
-  onMount(() => {
-    loggedIn.subscribe((value) => localStorage.setItem("loggedIn", value));
-
-    updateLogout();
-  });
-
-  function updateLogout() {
-    let logInOutIconClass;
-    let logInOutIconRemove;
-
-    const loginLink = document.getElementById("loginLink");
-    const loginText = document.getElementById("loginText");
-    const loginIcon = document.getElementById("loginIcon");
-    const menuLinks = document.getElementById("menu-links");
-
-    const loggedInC = localStorage.getItem("loggedIn");
-
-    // would've thought login means show logout option but it just works like this
-    // i do not understand -EW
-    if (loggedInC) {
-      logInOutUrl = "/login";
-      logInOutText = "Log In";
-      logInOutIconClass = "bx-log-in";
-      logInOutIconRemove = "bx-log-out";
-      menuLinks.classList.add("hidden");
-    } else {
-      logInOutUrl = "/logout";
-      logInOutText = "Log Out";
-      logInOutIconClass = "bx-log-out";
-      logInOutIconRemove = "bx-log-in";
-      menuLinks.classList.remove("hidden");
-    }
-
-    loginLink.setAttribute("href", logInOutUrl);
-    loginText.innerHTML = logInOutText;
-    loginIcon.classList.replace(logInOutIconRemove, logInOutIconClass);
-  }
 </script>
 
 <!-- This component was created with the help of a YouTube tutorial.
@@ -69,7 +20,7 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
     <i class="bx bx-chevron-right toggle" />
   </header>
   <div class="menu-bar">
-    {#key loggedInVar}
+    <!-- {#key loggedInVar} -->
       <div class="menu">
         <ul class="menu-links" id="menu-links">
           <li class="nav-link">
@@ -104,8 +55,6 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
           </li>
         </ul>
       </div>
-    {/key}
-    {#key loggedInVar}
       <div class="bottom-content">
         <ul class="menu-links">
           <li class="">
@@ -116,7 +65,6 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
           </li>
         </ul>
       </div>
-    {/key}
   </div>
 </nav>
 
