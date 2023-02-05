@@ -184,7 +184,10 @@
       </PopUp>
     </div>
     <div class="container">
-      <h2>Notification settings</h2>
+      <div class="error">
+        <h2>Notification settings</h2>
+        <i class="bx bx-error" />
+      </div>
       <hr />
       <NotificationCard
         habit_title="Workout"
@@ -202,7 +205,10 @@
       />
     </div>
     <div class="container">
-      <h2>Colour Scheme</h2>
+      <div class="error">
+        <h2>Colour scheme</h2>
+        <i class="bx bx-error" />
+      </div>
       <hr />
       <div class="wrapper">
         <h3>Colour Scheme</h3>
@@ -215,6 +221,18 @@
 </div>
 
 <style lang="scss">
+  .error {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    i {
+      color: $yellow;
+      font-size: 25px;
+    }
+  }
+
   form {
     margin-top: 20px;
     display: flex;
