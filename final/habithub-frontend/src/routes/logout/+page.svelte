@@ -1,16 +1,16 @@
 <script>
-    import { onMount } from "svelte"
-    import { signout } from "../../utils"
-    import { base } from '$app/paths'
+  import { onMount } from "svelte";
+  import { signout } from "../../utils";
+  import { base } from "$app/paths";
 
-    onMount(() => {
-        signout()
-        window.location.href = '/login'
-    })
+  onMount(() => {
+    signout();
+    window.location.href = "/login";
+  });
 
-    const handleLogin = () => {
-        window.location.href = '/login'
-    }
+  const handleLogin = () => {
+    window.location.href = "/login";
+  };
 </script>
 
 <!-- <style>
@@ -50,7 +50,7 @@
     }
   </style> -->
 
-  <!-- <div class="container">
+<!-- <div class="container">
     <img class="logo" src="{base}/images/logo_app.png" alt="Habit Hub logo" />
     <div class="message">You have successfully logged out.</div>
     <button class="btn" on:click={handleLogin}>Log In Again</button>

@@ -1,23 +1,22 @@
 <script>
   import Button from "../../../components/Button.svelte";
-  import { validateToken } from '../../../utils'
-  import { onMount } from 'svelte'
+  import { validateToken } from "../../../utils";
+  import { onMount } from "svelte";
   import ProgressCard from "../../../components/ProgressCard.svelte";
   import Warning from "../../../components/Warning.svelte";
 
   onMount(async () => {
-      const validToken = await validateToken()
-      if (!validToken) {
-          window.location.href = '/login'
-      }
-  })
+    const validToken = await validateToken();
+    if (!validToken) {
+      window.location.href = "/login";
+    }
+  });
 </script>
-
 
 <div class="body">
   <div class="content">
     <div>
-      <Warning 
+      <Warning
         message="This page is currently under construction. 
           It contains demo data, components and elements.
           It will be updated soon and we appreciate your patience."
@@ -26,44 +25,48 @@
     </div>
     <div class="statistics-button">
       <Button class="range-selector">
-        <i class='bx bx-calendar'></i>
+        <i class="bx bx-calendar" />
         Data Range Selector
       </Button>
     </div>
     <div class="progress-cards">
-      <ProgressCard 
-        habit_title="Workout" 
-        icon="bx-dumbbell" 
-        current_streak="30" 
-        best_streak="30" 
+      <ProgressCard
+        habit_title="Workout"
+        icon="bx-dumbbell"
+        current_streak="30"
+        best_streak="30"
         progress="30/60"
       />
-      <ProgressCard 
-        habit_title="Sleep Early" 
-        icon="bx-bed" 
-        current_streak="1" 
-        best_streak="1" 
+      <ProgressCard
+        habit_title="Sleep Early"
+        icon="bx-bed"
+        current_streak="1"
+        best_streak="1"
         progress="1/60"
       />
-      <ProgressCard 
-        habit_title="Wake-up Early" 
-        icon="bx-sun" 
-        current_streak="1" 
-        best_streak="1" 
+      <ProgressCard
+        habit_title="Wake-up Early"
+        icon="bx-sun"
+        current_streak="1"
+        best_streak="1"
         progress="1/60"
       />
-      <ProgressCard 
-        habit_title="Drink Water" 
-        icon="bx-droplet" 
-        current_streak="20" 
-        best_streak="45" 
+      <ProgressCard
+        habit_title="Drink Water"
+        icon="bx-droplet"
+        current_streak="20"
+        best_streak="45"
         progress="50/60"
       />
     </div>
   </div>
   <div class="man">
-    <object title="Man jumping up and down" type="image/svg+xml" data="./images/jumping.svg">
-        <img src="./images/jumping.svg" alt="Man jumping up and down"/>
+    <object
+      title="Man jumping up and down"
+      type="image/svg+xml"
+      data="./images/jumping.svg"
+    >
+      <img src="./images/jumping.svg" alt="Man jumping up and down" />
     </object>
   </div>
 </div>
