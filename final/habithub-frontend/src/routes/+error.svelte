@@ -9,7 +9,7 @@
   <div class="stars3" />
   <div class="content">
     <h1>404</h1>
-    <h2>Opps!</h2>
+    <h2>Oops!</h2>
     <p>
       Looks like the page you are looking for has been lost in <s>SPACE</s>!
     </p>
