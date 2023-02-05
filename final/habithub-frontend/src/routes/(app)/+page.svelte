@@ -59,6 +59,8 @@
         document.getElementById('spinner').style.display = "none"
     }
 
+    var streak
+
     async function habitCompleteEvent(e) {
         if (e.detail.completed) {
             uncompletedHabits.forEach(habit => {
@@ -75,7 +77,7 @@
             completedHabits.forEach(habit => {
                 if (habit._id == e.detail.h_id) {
                     const index = completedHabits.indexOf(habit)
-                    habit.streak = 0
+                    habit.streak -= 1
                     uncompletedHabits.push(habit)
                     uncompletedHabits = uncompletedHabits
                     completedHabits.splice(index, 1)
@@ -83,7 +85,10 @@
                 }
             })
         }
-        const streak = e.detail.completed ? 1 : 0
+
+        // Can be plus/minus because this event can only fire on 
+        // completing / uncompleting a habit
+        streak = e.detail.completed ? 1 : -1
         // send PUT /habit/habit/:id request to API to update streak 
         let response = await fetch(`https://habithub-api.herokuapp.com/habit/habit/${e.detail.h_id}`, {
         // let response = await fetch(`http://localhost:3000/habit/habit/${e.detail.h_id}`, {
