@@ -9,10 +9,6 @@
 
   let validToken;
 
-  if ($page.url) {
-    console.log($page.url);
-  }
-
   onMount(async () => {
     const sidebar = document.querySelector(".sidebar"),
       toggle = document.querySelector(".toggle"),
