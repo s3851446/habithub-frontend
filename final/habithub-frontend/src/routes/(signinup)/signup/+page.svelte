@@ -1,7 +1,7 @@
 <script>
   import { base } from "$app/paths";
-  import Button from "../../components/Button.svelte";
-  import TextInput from "../../components/TextInput.svelte";
+  import Button from "../../../components/Button.svelte";
+  import TextInput from "../../../components/TextInput.svelte";
 
   let user = {
     email: "",

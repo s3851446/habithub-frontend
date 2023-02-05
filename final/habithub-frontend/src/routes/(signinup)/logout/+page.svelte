@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { signout } from "../../utils";
+  import { signout } from "../../../utils";
   import { base } from "$app/paths";
 
   onMount(() => {

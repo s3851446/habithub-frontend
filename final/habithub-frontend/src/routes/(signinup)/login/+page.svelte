@@ -1,8 +1,8 @@
 <script>
   import { onMount } from "svelte";
-  import Button from "../../components/Button.svelte";
-  import TextInput from "../../components/TextInput.svelte";
-  import { jwt, loggedIn, userFirstName } from "./../../stores";
+  import Button from "../../../components/Button.svelte";
+  import TextInput from "../../../components/TextInput.svelte";
+  import { jwt, loggedIn, userFirstName } from "../../../stores";
   import { base } from "$app/paths";
 
   const formSubmit = (event) => {
