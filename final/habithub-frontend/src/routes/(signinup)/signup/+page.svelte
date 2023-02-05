@@ -103,8 +103,7 @@
 
 <style lang="scss">
   .body {
-    padding: 0 40px;
-    margin-top: 0;
+    margin-top: 0 auto;
     text-align: center;
   }
 
