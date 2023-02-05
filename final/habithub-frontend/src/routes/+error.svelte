@@ -1,4 +1,5 @@
 <script>
+  import { goto } from "$app/navigation";
   import Button from "../components/Button.svelte";
 </script>
 
@@ -19,7 +20,7 @@
     >
       <img src="./images/moon.svg" alt="Man lost in space" />
     </object>
-    <Button>
+    <Button on:click={() => goto("/")}>
       <i class="bx bx-home" />
       Go Home
     </Button>
