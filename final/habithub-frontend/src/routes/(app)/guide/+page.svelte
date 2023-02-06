@@ -1,5 +1,6 @@
 <script>
   import Button from "../../../components/Button.svelte";
+  import { goto } from "$app/navigation";
 </script>
 
 <div class="body">
@@ -19,7 +20,7 @@
       <img src="./images/img_placeholder.jpeg" alt="Placeholder" />
     </div>
     <div class="btn">
-      <Button>Okay, got it!</Button>
+      <Button on:click={() => goto("/")}>Okay, got it!</Button>
     </div>
   </div>
   <div class="man">
