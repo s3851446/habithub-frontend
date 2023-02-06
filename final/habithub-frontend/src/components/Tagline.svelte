@@ -1,7 +1,13 @@
 <div class="slogan">
-  <h1>Let's change our habits together!</h1>
-  <object title="Man nodding" type="image/svg+xml" data="./images/okay.svg">
-    <img src="./images/okay.svg" alt="Man nodding" />
+  <h1>Kill bad habits, ignite positive change!</h1>
+  <!-- Animated with Svgator.
+  Man + cigarette from Adobe Stock Images.-->
+  <object
+    title="Man slashing cigarette"
+    type="image/svg+xml"
+    data="./images/sword.svg"
+  >
+    <img src="./images/sword.svg" alt="Man slashing cigarette" />
   </object>
 </div>
 
@@ -20,7 +26,7 @@
   h1 {
     text-align: left;
     margin: 100px 0;
-    font-size: 60px;
+    font-size: 50px;
     z-index: 200;
     width: 77%;
   }
@@ -29,6 +35,6 @@
     position: absolute;
     bottom: 10px;
     right: 10px;
-    width: 30%;
+    width: 60%;
   }
 </style>
