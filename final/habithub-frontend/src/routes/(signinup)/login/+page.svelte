@@ -4,6 +4,7 @@
   import TextInput from "../../../components/TextInput.svelte";
   import { jwt, loggedIn, userFirstName } from "../../../stores";
   import { base } from "$app/paths";
+  import Tagline from "../../../components/Tagline.svelte";
 
   const formSubmit = (event) => {
     event.preventDefault();
@@ -76,37 +77,77 @@
 </script>
 
 <div class="body">
-  <img class="logo" src="{base}/images/logo_web.png" alt="Habit Hub logo" />
-  <h1>Welcome Back!</h1>
-  <p>It's so good to see you again!</p>
-  <form class="form" on:submit={formSubmit}>
-    <TextInput
-      id="email"
-      value=""
-      name="Email"
-      placeholder="Enter your email address here"
-      label="Email"
-      input_type="email"
-    />
-    <TextInput
-      id="password"
-      value=""
-      name="Password"
-      placeholder="Enter your password here"
-      label="Password"
-      input_type="password"
-    />
-    <div class="btn">
-      <Button id="login_button">Login</Button>
-    </div>
-  </form>
-  <p class="p">Don't have an account? <a href="/signup">Sign Up</a></p>
+  <div class="slogan">
+    <Tagline />
+  </div>
+  <div class="rest">
+    <img class="logo" src="{base}/images/logo_web.png" alt="Habit Hub logo" />
+    <h1>Welcome Back!</h1>
+    <p>It's so good to see you again!</p>
+    <form class="form" on:submit={formSubmit}>
+      <TextInput
+        id="email"
+        value=""
+        name="Email"
+        placeholder="Enter your email address here"
+        label="Email"
+        input_type="email"
+      />
+      <TextInput
+        id="password"
+        value=""
+        name="Password"
+        placeholder="Enter your password here"
+        label="Password"
+        input_type="password"
+      />
+      <div class="btn">
+        <Button id="login_button">Login</Button>
+      </div>
+    </form>
+    <p class="p">Don't have an account? <a href="/signup">Sign Up</a></p>
+  </div>
 </div>
 
 <style lang="scss">
   .body {
-    margin-top: 0 auto;
+    margin-left: -88px;
+    margin-top: -1px;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     text-align: center;
+    align-items: center;
+    @media all and (max-width: 900px) {
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 0;
+    }
+    @media all and (max-width: 800px) {
+      margin-left: -60px;
+    }
+  }
+
+  .slogan {
+    width: 50%;
+    @media all and (max-width: 900px) {
+      display: none;
+    }
+  }
+
+  .rest {
+    width: 50%;
+    transition: $trans-05;
+    @media all and (max-width: 900px) {
+      width: 80%;
+    }
+    @media all and (max-width: 500px) {
+      width: 90%;
+    }
+    @media all and (max-width: 300px) {
+      width: 98%;
+    }
   }
 
   .logo {

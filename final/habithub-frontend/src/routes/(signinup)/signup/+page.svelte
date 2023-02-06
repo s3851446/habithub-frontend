@@ -2,7 +2,7 @@
   import { base } from "$app/paths";
   import Button from "../../../components/Button.svelte";
   import TextInput from "../../../components/TextInput.svelte";
-  import Slogan from "../../../components/Slogan.svelte";
+  import Tagline from "../../../components/Tagline.svelte";
 
   let user = {
     email: "",
@@ -51,7 +51,7 @@
 
 <div class="body">
   <div class="slogan">
-    <Slogan />
+    <Tagline />
   </div>
   <div class="rest">
     <img class="logo" src="{base}/images/logo_web.png" alt="Habit Hub logo" />
