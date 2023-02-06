@@ -2,6 +2,7 @@
   import { base } from "$app/paths";
   import Button from "../../../components/Button.svelte";
   import TextInput from "../../../components/TextInput.svelte";
+  import Slogan from "../../../components/Slogan.svelte";
 
   let user = {
     email: "",
@@ -49,67 +50,106 @@
 </script>
 
 <div class="body">
-  <img class="logo" src="{base}/images/logo_web.png" alt="Habit Hub logo" />
-  <h1>Sign Up</h1>
-  <form class="form">
-    <TextInput
-      id="firstName"
-      value=""
-      name="FirstName"
-      placeholder="Enter your first name here"
-      label="First Name"
-      input_type="text"
-    />
-    <TextInput
-      id="lastName"
-      value=""
-      name="LastName"
-      placeholder="Enter your last name here"
-      label="Last Name"
-      input_type="text"
-    />
-    <TextInput
-      id="email"
-      value=""
-      name="Email"
-      placeholder="Enter your email address here"
-      label="Email"
-      input_type="email"
-    />
-    <TextInput
-      id="password"
-      value=""
-      name="Password"
-      placeholder="Enter the password here"
-      label="Password"
-      input_type="password"
-    />
-    <TextInput
-      id="passwordConfirm"
-      value=""
-      name="PasswordConfirm"
-      placeholder="Re-enter the password here"
-      label="Confirm Password"
-      input_type="password"
-    />
-    <div class="btn">
-      <Button on:click={handleSignup}>Signup</Button>
-    </div>
-  </form>
-  <p class="p">
-    Already have an account? <a href="/login">Log In</a>
-  </p>
+  <div class="slogan">
+    <Slogan />
+  </div>
+  <div class="rest">
+    <img class="logo" src="{base}/images/logo_web.png" alt="Habit Hub logo" />
+    <h1>Sign Up</h1>
+    <form class="form">
+      <TextInput
+        id="firstName"
+        value=""
+        name="FirstName"
+        placeholder="Enter your first name here"
+        label="First Name"
+        input_type="text"
+      />
+      <TextInput
+        id="lastName"
+        value=""
+        name="LastName"
+        placeholder="Enter your last name here"
+        label="Last Name"
+        input_type="text"
+      />
+      <TextInput
+        id="email"
+        value=""
+        name="Email"
+        placeholder="Enter your email address here"
+        label="Email"
+        input_type="email"
+      />
+      <TextInput
+        id="password"
+        value=""
+        name="Password"
+        placeholder="Enter the password here"
+        label="Password"
+        input_type="password"
+      />
+      <TextInput
+        id="passwordConfirm"
+        value=""
+        name="PasswordConfirm"
+        placeholder="Re-enter the password here"
+        label="Confirm Password"
+        input_type="password"
+      />
+      <div class="btn">
+        <Button on:click={handleSignup}>Signup</Button>
+      </div>
+    </form>
+    <p class="p">
+      Already have an account? <a href="/login">Log In</a>
+    </p>
+  </div>
 </div>
 
 <style lang="scss">
   .body {
-    margin-top: 0 auto;
+    margin-left: -88px;
+    margin-top: -1px;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     text-align: center;
+    align-items: center;
+    @media all and (max-width: 900px) {
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 0;
+    }
+    @media all and (max-width: 800px) {
+      margin-left: -60px;
+    }
+  }
+
+  .slogan {
+    width: 50%;
+    @media all and (max-width: 900px) {
+      display: none;
+    }
+  }
+
+  .rest {
+    width: 50%;
+    transition: $trans-05;
+    @media all and (max-width: 900px) {
+      width: 80%;
+    }
+    @media all and (max-width: 500px) {
+      width: 90%;
+    }
+    @media all and (max-width: 300px) {
+      width: 98%;
+    }
   }
 
   .logo {
     width: 250px;
-    margin: 0 0 20px -20px;
   }
 
   .form {
