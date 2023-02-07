@@ -20,7 +20,6 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
     <i class="bx bx-chevron-right toggle" />
   </header>
   <div class="menu-bar">
-    <!-- {#key loggedInVar} -->
       <div class="menu">
         <ul class="menu-links" id="menu-links">
           <li class="nav-link">

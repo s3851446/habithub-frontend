@@ -4,7 +4,7 @@
   import { onMount } from "svelte";
   import { validateToken } from "../../utils";
   import { signout } from "../../utils";
-  import { redirectToLocation } from "../../utils";
+  import { redirectToLocation, loadUserData } from "../../utils";
   import DashboardHabit from "../../components/DashboardHabit.svelte";
   import { loggedIn } from "../../stores";
 
@@ -12,6 +12,9 @@
   let userID;
   let completedHabits = [{}];
   let uncompletedHabits = [{}];
+  let userFirstName;
+  let completedHabitCount;
+  let totalHabitCount;
 
   onMount(async () => {
     let validToken = false;
@@ -23,6 +26,9 @@
 
     jwt = localStorage.getItem("jwt");
     userID = localStorage.getItem("userID");
+
+    const userData = await loadUserData(userID, jwt)
+    userFirstName = userData.firstName
 
     fetchHabits(userID, jwt);
   });
@@ -54,6 +60,8 @@
     let data = await response.json();
     completedHabits = data.completed;
     uncompletedHabits = data.uncompleted;
+    completedHabitCount = completedHabits.length;
+    totalHabitCount = completedHabits.length + uncompletedHabits.length;
 
     document.getElementById("content").style.visibility = "visible";
     document.querySelector(".heading").style.visibility = "visible";
@@ -88,6 +96,9 @@
             })
         }
 
+        completedHabitCount = completedHabits.length;
+    totalHabitCount = completedHabits.length + uncompletedHabits.length
+
         // Can be plus/minus because this event can only fire on 
         // completing / uncompleting a habit
         streak = e.detail.completed ? 1 : -1
@@ -114,7 +125,7 @@
 <div class="body">
   <Loader id="spinner" />
   <div class="heading">
-    <h1>Hello, Name LastName!</h1>
+    <h1>Hello, {userFirstName}!</h1>
     <div class="btn">
       <Button on:click={newHabit}>
         <i class="bx bx-plus" />
@@ -125,7 +136,7 @@
   <div class="container">
     <div class="content" id="content">
       <p>
-        You have completed <i class="italics"> <b>3</b> out of 4</i> of today's scheduled
+        You have completed <i class="italics"> <b>{completedHabitCount}</b> out of {totalHabitCount}</i> of today's scheduled
         habits. Good job! Keep going!
       </p>
       <div class="habit-lists">
