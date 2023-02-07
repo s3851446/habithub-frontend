@@ -11,8 +11,10 @@
   import PopUp from "./PopUp.svelte";
   import EditHabit from "./EditHabit.svelte";
   import { onMount } from "svelte";
+  import Button from "./Button.svelte";
 
   let showEditPopup = false;
+  let showDeletePopup = false;
 
   // const redirect = (route) => {
   //     const location = route + h_id
@@ -45,6 +47,15 @@
   //         const data = response.json()
   //     }
   // }
+
+  function closeDeletePopup() {
+    showDeletePopup = false
+  }
+
+  function deleteHabit() {
+    // NOTE - need to delete the habit and refresh the page
+    showDeletePopup = false
+  }
 </script>
 
 <div class="parent {classs}">
@@ -69,8 +80,14 @@
           on:submitEvent={closePopup}
         />
       </PopUp>
-      <PopUp icon="bx-trash" button_name="Delete" showPopup="false">
-        <!-- Put a "confirm delete" form here -->
+      <PopUp icon="bx-trash" button_name="Delete" bind:showPopup={showDeletePopup}>
+        <div class="delete-form">
+          <p>Are you sure you want to delete "{name}"?</p>
+          <div class="delete-inner">
+            <Button on:click={closeDeletePopup}>Cancel</Button>
+            <Button on:click={deleteHabit}>Delete</Button>
+          </div>
+        </div>
       </PopUp>
     </div>
   </div>
@@ -125,5 +142,13 @@
     display: flex;
     flex-flow: row wrap;
     gap: 10px;
+  }
+
+  .delete-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 </style>
