@@ -11,7 +11,9 @@
     <h1>404</h1>
     <h2>Oops!</h2>
     <p>
-      Looks like the page you are looking for has been lost in <s>SPACE</s>!
+      Lost in the vastness of <s>SPACE</s>, this page may have strayed from its
+      path, <br /> but with a click of the <b>Go Home</b> button, it's sure to find
+      its way back.
     </p>
     <object
       title="Man lost in space"
@@ -28,6 +30,10 @@
 </div>
 
 <style lang="scss">
+  .body {
+    margin: -50px -10px;
+  }
+
   .content {
     display: flex;
     flex-direction: column;
@@ -38,9 +44,9 @@
   }
 
   p {
-    font-size: 18px;
     s {
       color: $red;
+      font-size: 18px;
     }
   }
 
