@@ -12,6 +12,10 @@
     yes = true;
   }
 
+  if (icon == undefined || icon == null) {
+    icon = "bx-list-check"
+  }
+
   const dispatch = createEventDispatcher();
 
   function handleCheckboxChange() {

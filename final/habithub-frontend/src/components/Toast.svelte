@@ -1,17 +1,31 @@
 <script>
   import { fade } from "svelte/transition";
-
-  let showToast = false;
-  let error = false;
-
-  setTimeout(() => {
-    showToast = false;
-  }, 2000);
+  export let showToast
+  export let error = false;
 
   export let message;
   export let description;
+
+  if (showToast == "true") {
+    showToast = true    
+    setTimeout(() => {
+      showToast = false;
+    }, 2000);
+  } 
+  else showToast = false
+
+
+  export function showToastNow(timeout = 2000) {
+    if (timeout == NaN || timeout <=0) timeout = 2000
+    showToast = true
+    setTimeout(() => {
+      showToast = false;
+    }, timeout);
+  }
+
 </script>
 
+{#key showToast}
 {#if showToast}
   <div
     class="toast {error ? 'error' : ''}"
@@ -31,6 +45,7 @@
     </div>
   </div>
 {/if}
+{/key}
 
 <style lang="scss">
   .toast {

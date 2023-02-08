@@ -148,7 +148,7 @@
                 <DashboardHabit
                   h_id={h._id}
                   title={h.title}
-                  icon="bx-dumbbell"
+                  icon={h.icon}
                   streak={h.streak}
                   completed="false"
                   on:habitCompleteEvent={habitCompleteEvent}
@@ -165,7 +165,7 @@
                 <DashboardHabit
                   h_id={h._id}
                   title={h.title}
-                  icon="bx-dumbbell"
+                  icon={h.icon}
                   streak={h.streak}
                   completed="true"
                   on:habitCompleteEvent={habitCompleteEvent}

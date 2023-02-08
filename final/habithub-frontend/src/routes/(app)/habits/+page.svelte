@@ -89,6 +89,7 @@
               h_id={habit._id}
               {jwt}
               {userID}
+              icon={habit.icon}
             />
           {/each}
         {/key}

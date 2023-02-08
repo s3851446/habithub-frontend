@@ -6,6 +6,7 @@
   export let classs;
   export let jwt;
   export let userID;
+  export let icon;
 
   // import { redirectToLocation } from './../utils'
   import PopUp from "./PopUp.svelte";
@@ -16,10 +17,9 @@
   let showEditPopup = false;
   let showDeletePopup = false;
 
-  // const redirect = (route) => {
-  //     const location = route + h_id
-  //     redirectToLocation(location)
-  // }
+  if (icon == undefined || icon == null) {
+    icon = "bx-list-check"
+  }
 
   onMount(() => {});
 
@@ -59,8 +59,10 @@
 </script>
 
 <div class="parent {classs}">
-  <!-- Insert Icon -->
-  <span class="body-content"><h1>{name}</h1></span>
+  <div class="title">
+    <i class="bx {icon}" />
+    <h2>{name}</h2>
+  </div>
   <p>{description}</p>
   <div class="bottom">
     <div class="start">
@@ -83,7 +85,7 @@
       <PopUp icon="bx-trash" button_name="Delete" bind:showPopup={showDeletePopup}>
         <div class="delete-form">
           <p>Are you sure you want to delete "{name}"?</p>
-          <div class="delete-inner">
+          <div>
             <Button on:click={closeDeletePopup}>Cancel</Button>
             <Button on:click={deleteHabit}>Delete</Button>
           </div>
@@ -150,5 +152,23 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+  }
+
+  h2 {
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .title {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 16px;
+    margin-bottom: 10px;
+    i {
+      font-size: 25px;
+      color: $black;
+    }
   }
 </style>
