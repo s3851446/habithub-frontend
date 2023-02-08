@@ -4,6 +4,7 @@
   import TextInput from "../../../components/TextInput.svelte";
   import Tagline from "../../../components/Tagline.svelte";
   import Toast from "../../../components/Toast.svelte";
+  import { dataset_dev } from "svelte/internal";
 
   let user = {
     email: "",
@@ -31,7 +32,6 @@
       return;
     }
 
-    // NOTE - needs to do something to check passwords match
     const response = await fetch("https://habithub-api.herokuapp.com/user", {
       //API base url should be stored somewhere for the whole site
       method: "POST",
@@ -48,11 +48,20 @@
     });
 
     if (!response.ok) {
-      // NOTE - needs to return a message if bad email or just bad request
+      const data = await response.json()
+      if (data.error_code && data.error_code == "#1BE") {
+        toastObj.message = `'${user.email}' is already in use.`
+        toast.showToastNow(4000);
+      } else {
+        toastObj.message = "Something went wrong."
+        toast.showToastNow(4000);
+      }
+      return;
     }
 
-    // const data = await response.json()
-    window.location.href = "/login";
+    toastObj.message = "Account created successfully."
+    toast.showToastNow(4000);
+    // window.location.href = "/login";
   }
 </script>
 
