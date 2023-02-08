@@ -41,23 +41,14 @@ https://youtu.be/B4KZYsyuVOE -->
         <h1>Quick Links</h1>
         <ul>
           <li>
-            <a
-              href="https://www.topuniversities.com/universities/curtin-university#:~:text=We%20are%20Western%20Australia%27s%20top,the%20Good%20Universities%20Guide%202021.&text=As%20a%20university%20with%20an,people%20all%20over%20the%20world."
-              >About</a
-            >
+            <a href="/aboutUs">About</a>
           </li>
           <li><a href="/guide">Help</a></li>
           <li>
-            <a
-              href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwi6mJTP1rr8AhV03TgGHVfuCNUQFnoECAgQAw&url=https%3A%2F%2Finformationmanagement.curtin.edu.au%2Flocal%2Fdocs%2FPrivacyStatement.pdf&usg=AOvVaw32ACqZL8ziEiAoaJO6xCpH"
-              >Privacy Policy</a
-            >
+            <a href="/referenceList">Reference List</a>
           </li>
           <li>
-            <a
-              href="https://www.curtincollege.edu.au/about/contact#:~:text=If%20you%20are%20a%20current,Questions%20before%20sending%20your%20enquiry."
-              >Contact Us</a
-            >
+            <a href="/contactUs">Contact Us</a>
           </li>
         </ul>
       </div>
