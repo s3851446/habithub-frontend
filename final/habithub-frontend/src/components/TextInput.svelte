@@ -31,6 +31,8 @@
     class="text-input"
   />
   <label class="label" for={name}>{label}</label>
+
+  <slot />
 </div>
 
 <style lang="scss">

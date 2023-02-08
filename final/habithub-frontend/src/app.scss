@@ -51,8 +51,12 @@ h1 {
   }
 }
 
-p {
+button {
   font-family: $paragraph-font;
+}
+
+p {
+  @extend button;
   line-height: 1.5;
   margin-bottom: 20px;
   font-size: 15px;
