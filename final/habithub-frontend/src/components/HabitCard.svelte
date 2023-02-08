@@ -11,11 +11,13 @@
   // import { redirectToLocation } from './../utils'
   import PopUp from "./PopUp.svelte";
   import EditHabit from "./EditHabit.svelte";
-  import { onMount } from "svelte";
+  import { createEventDispatcher, onMount } from "svelte";
   import Button from "./Button.svelte";
 
   let showEditPopup = false;
   let showDeletePopup = false;
+
+  const dispatch = createEventDispatcher();
 
   if (icon == undefined || icon == null) {
     icon = "bx-list-check"
@@ -25,6 +27,10 @@
 
   function closePopup() {
     showEditPopup = false;
+    dispatch("submitEvent", {
+      type: "update",
+      title: name
+    })
   }
 
   // ** This is not needed because the data is bound, however maybe the data should be refreshed somehow if the submit is bad.
@@ -55,6 +61,9 @@
   function deleteHabit() {
     // NOTE - need to delete the habit and refresh the page
     showDeletePopup = false
+    dispatch("submitEvent", {
+      type: "delete"
+    });
   }
 </script>
 

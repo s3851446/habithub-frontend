@@ -3,6 +3,7 @@
   import HabitCard from "../../../components/HabitCard.svelte";
   import PopUp /*{ togglePopup }*/ from "../../../components/PopUp.svelte";
   import Loader from "../../../components/Loader.svelte";
+  import Toast from "../../../components/Toast.svelte";
   import { validateToken } from "./../../../utils";
   import { onMount } from "svelte";
   import { page } from "$app/stores";
@@ -10,8 +11,12 @@
   let jwt;
   let userID;
   let habits = [{}];
-
   let showNewPopup = false;
+  let toast;
+  let toastObj = {
+    message: "",
+    description: ""
+  }
 
   if ($page.url.searchParams.get("new") == "true") showNewPopup = true;
 
@@ -53,13 +58,31 @@
     document.getElementById("spinner").style.display = "none";
   }
 
-  function closePopup() {
-    // need to silently update the data from here
+  async function closePopup() {
+    await fetchHabits(userID, jwt)
+    toastObj.message = "Habit created successfully"
+    toast.showToastNow(4000)
     showNewPopup = false;
+    // usage of history.replaceState based on question and answer by user u/Silly-Freak:
+    // https://www.reddit.com/r/sveltejs/comments/t2oeqg/best_way_to_change_url_in_sveltekit_in_a/
+    // and Mozilla documentation:
+    // https://developer.mozilla.org/en-US/docs/Web/API/History/replaceState
+    history.replaceState(null, '', '/habits')
+  }
+
+  async function habitSubmitEvent(e) {
+    await fetchHabits(userID, jwt)
+    if (e.detail.type == "update") {
+      toastObj.message = "Habit updated"
+      toast.showToastNow(4000)
+    } else if (e.detail.type == "delete") {
+      toastObj.message = "Habit deleted"
+    }
   }
 </script>
 
 <div class="body">
+  <Toast bind:this={toast} bind:message={toastObj.message} bind:description={toastObj.description}/>
   <div class="heading">
     <h1>My Habits</h1>
     <PopUp icon="bx-plus" button_name="Add Habit" bind:showPopup={showNewPopup}>
@@ -90,6 +113,7 @@
               {jwt}
               {userID}
               icon={habit.icon}
+              on:submitEvent={habitSubmitEvent}
             />
           {/each}
         {/key}
