@@ -23,12 +23,6 @@
       />
       <h1>Overall Progress</h1>
     </div>
-    <div class="statistics-button">
-      <Button class="range-selector">
-        <i class="bx bx-calendar" />
-        Data Range Selector
-      </Button>
-    </div>
     <div class="progress-cards">
       <ProgressCard
         habit_title="Workout"
