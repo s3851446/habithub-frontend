@@ -3,6 +3,7 @@
   import Button from "../../../components/Button.svelte";
   import TextInput from "../../../components/TextInput.svelte";
   import Tagline from "../../../components/Tagline.svelte";
+  import Toast from "../../../components/Toast.svelte";
 
   let user = {
     email: "",
@@ -11,6 +12,11 @@
     lastName: "",
     passwordConfirm: "",
   };
+  let toast;
+  let toastObj = {
+    message: "",
+    description: ""
+  }
 
   async function handleSignup() {
     user.email = document.getElementById("email").value;
@@ -20,7 +26,8 @@
     user.passwordConfirm = document.getElementById("passwordConfirm").value;
 
     if (user.password != user.passwordConfirm) {
-      // insert toast
+      toastObj.message = "Passwords must match."
+      toast.showToastNow(4000);
       return;
     }
 
@@ -54,6 +61,7 @@
     <Tagline />
   </div>
   <div class="rest">
+    <Toast bind:this={toast} bind:message={toastObj.message} bind:description={toastObj.description} showToast=""/>
     <img class="logo" src="{base}/images/logo_web.png" alt="Habit Hub logo" />
     <h1>Sign Up</h1>
     <form class="form">
