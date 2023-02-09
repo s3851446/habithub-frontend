@@ -34,27 +34,6 @@
     })
   }
 
-  // ** This is not needed because the data is bound, however maybe the data should be refreshed somehow if the submit is bad.
-  // or, it shouldn't be bound and should somehow only be updated if submit is good
-  // ***************************************************************
-  // async function fetchHabit() {
-  //     let response = await fetch(`https://habithub-api.herokuapp.com/habit/habit/${h_id}`, {
-  //         method: 'GET',
-  //         headers: {
-  //             'Accept': 'application.json',
-  //             'Content-Type': 'application/json',
-  //             'Authorization': 'BEARER ' + jwt
-  //         }
-  //     })
-
-  //     if (!response.ok) {
-  //         // set a problem message
-  //         return
-  //     } else {
-  //         const data = response.json()
-  //     }
-  // }
-
   function closeDeletePopup() {
     showDeletePopup = false
   }

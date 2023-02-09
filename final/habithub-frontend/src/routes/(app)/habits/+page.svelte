@@ -17,6 +17,7 @@
     message: "",
     description: ""
   }
+  let noHabits = true;
 
   if ($page.url.searchParams.get("new") == "true") showNewPopup = true;
 
@@ -48,12 +49,14 @@
     );
 
     if (!response.ok) {
-      // set a problem message
+      toastObj.message = "Problem getting habits."
+      toast.showToastNow(4000)
       return;
     }
 
     let data = await response.json();
     habits = data;
+    if (habits.length > 0) noHabits = false;
     document.getElementById("card-container").style.visibility = "visible";
     document.querySelector(".man").style.visibility = "visible";
     document.getElementById("spinner").style.display = "none";
@@ -104,22 +107,28 @@
   <div class="container">
     <div class="content">
       <div class="card-container" id="card-container">
-        {#key habits}
-          {#each habits as habit}
-            <HabitCard
-              classs="flex"
-              name={habit.title}
-              description={habit.description}
-              streak={habit.streak}
-              h_id={habit._id}
-              {jwt}
-              {userID}
-              icon={habit.icon}
-              category={habit.category}
-              on:submitEvent={habitSubmitEvent}
-            />
-          {/each}
-        {/key}
+      {#key noHabits}
+        {#if noHabits}
+          <p>You haven't added any habits yet. When you do, they will appear here. Click the 'Add Habit' button to get started"</p>
+        {:else}
+            {#key habits}
+              {#each habits as habit}
+                <HabitCard
+                  classs="flex"
+                  name={habit.title}
+                  description={habit.description}
+                  streak={habit.streak}
+                  h_id={habit._id}
+                  {jwt}
+                  {userID}
+                  icon={habit.icon}
+                  category={habit.category}
+                  on:submitEvent={habitSubmitEvent}
+                />
+              {/each}
+            {/key}
+        {/if}
+      {/key}
       </div>
     </div>
     <div class="man">
