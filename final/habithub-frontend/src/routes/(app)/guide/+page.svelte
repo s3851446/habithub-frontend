@@ -17,10 +17,11 @@
 
     jwt = localStorage.getItem("jwt")
     userID = localStorage.getItem("userID")
+
+    guideFinished()
   })
 
   async function guideFinished() {
-    goto("/dashboard")
     const response = await fetch(
       `https://habithub-api.herokuapp.com/user/${userID}`,
       {
@@ -55,7 +56,7 @@
       <img src="./images/img_placeholder.jpeg" alt="Placeholder" />
     </div>
     <div class="btn">
-      <Button on:click={guideFinished}>Okay, got it!</Button>
+      <Button on:click={() => goto("/dashboard")}>Okay, got it!</Button>
     </div>
   </div>
   <div class="man">
