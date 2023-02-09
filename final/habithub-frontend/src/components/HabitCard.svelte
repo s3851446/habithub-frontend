@@ -15,6 +15,7 @@
   import EditHabit from "./EditHabit.svelte";
   import { createEventDispatcher, onMount } from "svelte";
   import Button from "./Button.svelte";
+  import SecondaryButton from "./SecondaryButton.svelte"
 
   let showEditPopup = false;
   let showDeletePopup = false;
@@ -82,7 +83,7 @@
         <div class="delete-form">
           <p>Are you sure you want to delete "{name}"?</p>
           <div>
-            <Button on:click={closeDeletePopup}>Cancel</Button>
+            <SecondaryButton on:click={closeDeletePopup}>Cancel</SecondaryButton>
             <Button on:click={deleteHabit}>Delete</Button>
           </div>
         </div>
