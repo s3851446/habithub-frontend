@@ -1,6 +1,7 @@
 <script>
   import TextInput from "./TextInput.svelte";
   import Button from "./Button.svelte";
+  import Dropdown from "./Dropdown.svelte";
   import { createEventDispatcher } from "svelte";
 
   export let type;
@@ -10,6 +11,7 @@
   export let submitText;
   export let userID;
   export let jwt;
+  export let category;
 
   let title;
   let description;
@@ -40,6 +42,7 @@
       body: JSON.stringify({
         title: titleString,
         description: descriptionString,
+        category: category
       }),
     });
 
@@ -60,6 +63,7 @@
 <div>
   <form id="form" class="habit-form" on:submit|preventDefault={handleSubmit}>
     <h2>{submitText}</h2>
+    <Dropdown bind:value={category}/>
     <TextInput
       classs=""
       bind:this={title}

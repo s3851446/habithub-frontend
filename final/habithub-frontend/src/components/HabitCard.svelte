@@ -7,6 +7,7 @@
   export let jwt;
   export let userID;
   export let icon;
+  export let category;
 
   // import { redirectToLocation } from './../utils'
   import PopUp from "./PopUp.svelte";
@@ -89,6 +90,7 @@
           bind:h_description={description}
           bind:h_title={name}
           on:submitEvent={closePopup}
+          category={category}
         />
       </PopUp>
       <PopUp icon="bx-trash" button_name="Delete" bind:showPopup={showDeletePopup}>

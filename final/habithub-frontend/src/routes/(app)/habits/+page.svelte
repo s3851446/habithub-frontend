@@ -95,6 +95,7 @@
         h_id=""
         h_description=""
         h_title=""
+        category=""
         on:submitEvent={closePopup}
       />
     </PopUp>
@@ -114,6 +115,7 @@
               {jwt}
               {userID}
               icon={habit.icon}
+              category={habit.category}
               on:submitEvent={habitSubmitEvent}
             />
           {/each}

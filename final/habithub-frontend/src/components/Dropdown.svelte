@@ -19,15 +19,22 @@
     "Other",
   ];
 
-  let value;
+  export let value;
 
+  // I changed the return when value is null because it seemed frustrating
+  // to not know what categories I was allowed to use. 
   $: listEntries = categories.filter((c) => {
     if (!value || value === "") {
-      return false;
+      return categories;
     } else {
       return c.toLowerCase().indexOf(value.toLowerCase()) >= 0;
     }
   });
+
+  function buttonClick(e) {
+    value = e.srcElement.value
+    document.getElementById('ul').style.display = "none"
+  }
 </script>
 
 <TextInput
@@ -39,13 +46,15 @@
   input_type="text"
   classs="class"
 >
-  {#if listEntries.length > 0}
-    <ul>
-      {#each listEntries as entry}
-        <li><button>{entry}</button></li>
-      {/each}
-    </ul>
-  {/if}
+  <div id="list">
+    {#if listEntries.length > 0}
+      <ul id="ul">
+        {#each listEntries as entry}
+          <li><button value={entry} on:click|preventDefault={buttonClick}>{entry}</button></li>
+        {/each}
+      </ul>
+    {/if}
+  </div>
 </TextInput>
 
 <style lang="scss">
@@ -75,5 +84,10 @@
         }
       }
     }
+  }
+
+  #list {
+    max-height: 10em;
+    overflow-y: scroll;
   }
 </style>
