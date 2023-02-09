@@ -9,6 +9,7 @@
   let jwt;
   let userID;
   let habits = [{}];
+  let noHabits = true;
 
   onMount(async () => {
     const validToken = await validateToken();
@@ -60,17 +61,23 @@
     </div>
     <Loader id="spinner" />
     <div class="progress-cards" id="progress">
-      {#key habits}
-        {#each habits as h}
-          <ProgressCard
-            habit_title={h.title}
-            icon={h.icon}
-            current_streak={h.streak}
-            best_streak={h.bestStreak}
-            goal={h.totalGoal}
-            achieved={h.totalDays}
-          />
-        {/each}
+      {#key noHabits}
+        {#if noHabits} 
+          <p>You haven't added any habits yet. When you do, they will appear here. Head to <a href="/habits?new=true">habits</a> to get started.</p>
+        {:else}
+          {#key habits}
+            {#each habits as h}
+              <ProgressCard
+                habit_title={h.title}
+                icon={h.icon}
+                current_streak={h.streak}
+                best_streak={h.bestStreak}
+                goal={h.totalGoal}
+                achieved={h.totalDays}
+              />
+            {/each}
+          {/key}
+        {/if}
       {/key}
     </div>
   </div>

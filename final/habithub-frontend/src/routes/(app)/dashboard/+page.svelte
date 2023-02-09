@@ -137,7 +137,7 @@
     <div class="content" id="content">
       {#key noHabits}
         {#if noHabits}
-          <p>You haven't added any habits yet. When you do, they will appear here. Click the 'Add Habit' button to get started"</p>
+          <p>You haven't added any habits yet. When you do, they will appear here. Click the 'Add Habit' button to get started.</p>
         {:else}
           <p>
             You have completed <i class="italics"> <b>{completedHabitCount}</b> out of {totalHabitCount}</i> of today's scheduled

@@ -109,24 +109,24 @@
       <div class="card-container" id="card-container">
       {#key noHabits}
         {#if noHabits}
-          <p>You haven't added any habits yet. When you do, they will appear here. Click the 'Add Habit' button to get started"</p>
+          <p>You haven't added any habits yet. When you do, they will appear here. Click the 'Add Habit' button to get started.</p>
         {:else}
-            {#key habits}
-              {#each habits as habit}
-                <HabitCard
-                  classs="flex"
-                  name={habit.title}
-                  description={habit.description}
-                  streak={habit.streak}
-                  h_id={habit._id}
-                  {jwt}
-                  {userID}
-                  icon={habit.icon}
-                  category={habit.category}
-                  on:submitEvent={habitSubmitEvent}
-                />
-              {/each}
-            {/key}
+          {#key habits}
+            {#each habits as habit}
+              <HabitCard
+                classs="flex"
+                name={habit.title}
+                description={habit.description}
+                streak={habit.streak}
+                h_id={habit._id}
+                {jwt}
+                {userID}
+                icon={habit.icon}
+                category={habit.category}
+                on:submitEvent={habitSubmitEvent}
+              />
+            {/each}
+          {/key}
         {/if}
       {/key}
       </div>
