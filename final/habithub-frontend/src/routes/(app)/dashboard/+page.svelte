@@ -2,7 +2,12 @@
   import Button from "../../../components/Button.svelte";
   import Loader from "../../../components/Loader.svelte";
   import { onMount } from "svelte";
-  import { validateToken, signout, redirectToLocation, loadUserData} from "../../../utils";
+  import {
+    validateToken,
+    signout,
+    redirectToLocation,
+    loadUserData,
+  } from "../../../utils";
   import DashboardHabit from "../../../components/DashboardHabit.svelte";
   import { loggedIn } from "../../../stores";
 
@@ -26,8 +31,8 @@
     jwt = localStorage.getItem("jwt");
     userID = localStorage.getItem("userID");
 
-    const userData = await loadUserData(userID, jwt)
-    userFirstName = userData.firstName
+    const userData = await loadUserData(userID, jwt);
+    userFirstName = userData.firstName;
 
     fetchHabits(userID, jwt);
   });
@@ -69,41 +74,43 @@
     document.getElementById("spinner").style.display = "none";
   }
 
-    var streak
+  var streak;
 
-    async function habitCompleteEvent(e) {
-        if (e.detail.completed) {
-            uncompletedHabits.forEach(habit => {
-                if (habit._id == e.detail.h_id) {
-                    const index = uncompletedHabits.indexOf(habit)
-                    habit.streak += 1
-                    completedHabits.push(habit)
-                    completedHabits = completedHabits
-                    uncompletedHabits.splice(index, 1)
-                    uncompletedHabits = uncompletedHabits
-                }
-            })
-        } else {
-            completedHabits.forEach(habit => {
-                if (habit._id == e.detail.h_id) {
-                    const index = completedHabits.indexOf(habit)
-                    habit.streak -= 1
-                    uncompletedHabits.push(habit)
-                    uncompletedHabits = uncompletedHabits
-                    completedHabits.splice(index, 1)
-                    completedHabits = completedHabits
-                }
-            })
+  async function habitCompleteEvent(e) {
+    if (e.detail.completed) {
+      uncompletedHabits.forEach((habit) => {
+        if (habit._id == e.detail.h_id) {
+          const index = uncompletedHabits.indexOf(habit);
+          habit.streak += 1;
+          completedHabits.push(habit);
+          completedHabits = completedHabits;
+          uncompletedHabits.splice(index, 1);
+          uncompletedHabits = uncompletedHabits;
         }
+      });
+    } else {
+      completedHabits.forEach((habit) => {
+        if (habit._id == e.detail.h_id) {
+          const index = completedHabits.indexOf(habit);
+          habit.streak -= 1;
+          uncompletedHabits.push(habit);
+          uncompletedHabits = uncompletedHabits;
+          completedHabits.splice(index, 1);
+          completedHabits = completedHabits;
+        }
+      });
+    }
 
-        completedHabitCount = completedHabits.length;
-        totalHabitCount = completedHabits.length + uncompletedHabits.length
+    completedHabitCount = completedHabits.length;
+    totalHabitCount = completedHabits.length + uncompletedHabits.length;
 
-        // Can be plus/minus because this event can only fire on 
-        // completing / uncompleting a habit
-        streak = e.detail.completed ? 1 : -1
-        // send PUT /habit/habit/:id request to API to update streak 
-        let response = await fetch(`https://habithub-api.herokuapp.com/habit/habit/${e.detail.h_id}`, {
+    // Can be plus/minus because this event can only fire on
+    // completing / uncompleting a habit
+    streak = e.detail.completed ? 1 : -1;
+    // send PUT /habit/habit/:id request to API to update streak
+    let response = await fetch(
+      `https://habithub-api.herokuapp.com/habit/habit/${e.detail.h_id}`,
+      {
         // let response = await fetch(`http://localhost:3000/habit/habit/${e.detail.h_id}`, {
         method: "PUT",
         headers: {
@@ -137,11 +144,15 @@
     <div class="content" id="content">
       {#key noHabits}
         {#if noHabits}
-          <p>You haven't added any habits yet. When you do, they will appear here. Click the 'Add Habit' button to get started.</p>
+          <p>
+            You haven't added any habits yet. When you do, they will appear
+            here. Click the 'Add Habit' button to get started.
+          </p>
         {:else}
           <p>
-            You have completed <i class="italics"> <b>{completedHabitCount}</b> out of {totalHabitCount}</i> of today's scheduled
-            habits. Good job! Keep going!
+            You have completed <i class="italics">
+              <b>{completedHabitCount}</b> out of {totalHabitCount}</i
+            > of today's scheduled habits. Good job! Keep going!
           </p>
           <div class="habit-lists">
             <div class="list">
@@ -181,7 +192,6 @@
           </div>
         {/if}
       {/key}
-      
     </div>
     <div class="man">
       <object
