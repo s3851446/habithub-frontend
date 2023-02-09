@@ -1,6 +1,33 @@
 <script>
   import Button from "../../../components/Button.svelte";
   import { goto } from "$app/navigation";
+  import { onMount } from "svelte";
+
+  let userID;
+  let jwt;
+
+  onMount(() => {
+    jwt = localStorage.getItem("jwt")
+    userID = localStorage.getItem("userID")
+  })
+
+  async function guideFinished() {
+    goto("/dashboard")
+    const response = await fetch(
+      `https://habithub-api.herokuapp.com/user/${userID}`,
+      {
+        method: "PUT",
+        headers: {
+          Accept: "application.json",
+          "Content-Type": "application/json",
+          Authorization: "BEARER " + jwt,
+        },
+        body: JSON.stringify({
+          firstTime: false
+        }),
+      }
+    );
+  }
 </script>
 
 <div class="body">
@@ -20,7 +47,7 @@
       <img src="./images/img_placeholder.jpeg" alt="Placeholder" />
     </div>
     <div class="btn">
-      <Button on:click={() => goto("/")}>Okay, got it!</Button>
+      <Button on:click={guideFinished}>Okay, got it!</Button>
     </div>
   </div>
   <div class="man">

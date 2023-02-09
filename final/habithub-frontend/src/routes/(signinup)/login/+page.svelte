@@ -69,8 +69,11 @@
       let loggedInVar;
       loggedIn.subscribe((data) => (loggedInVar = data));
 
-      // update this to guide if user first login
-      window.location.href = "/dashboard";
+      if (data.user.firstTime) {
+        window.location.href = "/guide";
+      } else {
+        window.location.href = "/dashboard";
+      }
 
       // put message somewhere if response bad
     }

@@ -34,15 +34,6 @@
 
     setUserData(userID, jwt)
 
-    // const data = await loadUserData(userID, jwt);
-
-    // firstName = data.firstName;
-    // lastName = data.lastName;
-    // email = data.email;
-    // if (data.settings != null)
-    //   document.getElementById("colourScheme").innerHTML =
-    //     data.settings.colourScheme;
-
     const picData = await loadUserPic(
       localStorage.getItem("userID"),
       localStorage.getItem("jwt")
