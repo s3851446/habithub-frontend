@@ -22,7 +22,7 @@
   const dispatch = createEventDispatcher();
 
   if (icon == undefined || icon == null) {
-    icon = "bx-list-check"
+    icon = "bx-list-check";
   }
 
   onMount(() => {});
@@ -31,19 +31,19 @@
     showEditPopup = false;
     dispatch("submitEvent", {
       type: "update",
-      title: name
-    })
+      title: name,
+    });
   }
 
   function closeDeletePopup() {
-    showDeletePopup = false
+    showDeletePopup = false;
   }
 
   function deleteHabit() {
     // NOTE - need to delete the habit and refresh the page
-    showDeletePopup = false
+    showDeletePopup = false;
     dispatch("submitEvent", {
-      type: "delete"
+      type: "delete",
     });
   }
 </script>
@@ -70,11 +70,15 @@
           bind:h_description={description}
           bind:h_title={name}
           on:submitEvent={closePopup}
-          category={category}
-          goal={goal}
+          {category}
+          {goal}
         />
       </PopUp>
-      <PopUp icon="bx-trash" button_name="Delete" bind:showPopup={showDeletePopup}>
+      <PopUp
+        icon="bx-trash"
+        button_name="Delete"
+        bind:showPopup={showDeletePopup}
+      >
         <div class="delete-form">
           <p>Are you sure you want to delete "{name}"?</p>
           <div>
@@ -160,7 +164,7 @@
     margin-bottom: 10px;
     i {
       font-size: 25px;
-      color: $black;
+      color: $red;
     }
   }
 </style>
