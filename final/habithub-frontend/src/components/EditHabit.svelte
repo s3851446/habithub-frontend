@@ -4,7 +4,6 @@
   import Button from "./Button.svelte";
   import Dropdown from "./Dropdown.svelte";
   import { createEventDispatcher } from "svelte";
-  import { onMount } from "svelte";
 
   export let type;
   export let h_title;
@@ -20,10 +19,6 @@
   let description;
 
   const dispatch = createEventDispatcher();
-
-  onMount(() => {
-    console.log(goal)
-  })
 
   // develop based on: https://javascript.info/formdata
   // & https://svelte.dev/repl/74685aa8b4374c4c8f395ce643fee7b6?version=3.48.0

@@ -1,6 +1,7 @@
 <script>
   import { set_input_value } from "svelte/internal";
   import TextInput from "./TextInput.svelte";
+  import { onMount } from "svelte/internal";
 
   const categories = [
     "Organisation",
@@ -30,6 +31,15 @@
       return c.toLowerCase().indexOf(value.toLowerCase()) >= 0;
     }
   });
+
+  console.log(value)
+
+  onMount(() => {
+    if (value != undefined && value != null && value != "") document.getElementById('ul').style.display = "none"
+    document.getElementById('habit-category').addEventListener('input', (event) => {
+      document.getElementById('ul').style.display = "block"
+    })
+  })
 
   function buttonClick(e) {
     value = e.srcElement.value
