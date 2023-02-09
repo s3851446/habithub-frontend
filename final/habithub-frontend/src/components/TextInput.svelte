@@ -18,6 +18,10 @@
       document.getElementById(id).type = input_type;
     }
   });
+
+  function focus() {
+    document.getElementById(id).focus()
+  }
 </script>
 
 <div class="input-container {classs}">
@@ -30,7 +34,7 @@
     {placeholder}
     class="text-input"
   />
-  <label class="label" for={name}>{label}</label>
+  <label class="label" for={name} on:click={focus}>{label}</label>
 
   <slot />
 </div>
@@ -61,6 +65,9 @@
       top: 10px;
       width: 100%;
       z-index: -1;
+    }
+    &:hover {
+      cursor: text;
     }
   }
 
