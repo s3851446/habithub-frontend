@@ -1,8 +1,8 @@
 <svelte:options accessors={true} />
 
-<!-- Styled with the help of https://youtu.be/7yXUfcujpsk -->
+<!-- Styled with the../routes/(app)/dashboard/+page.svelteXUfcujpsk -->
 <script>
-  import Page from "../routes/(app)/+page.svelte";
+  // import Page from "../routes/(app)/+page.svelte";
   import { onMount } from "svelte";
 
   export let id;

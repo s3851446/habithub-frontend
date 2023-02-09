@@ -8,15 +8,20 @@
   import PopUp from "../../../components/PopUp.svelte";
   import ImageUpload from "../../../components/ImageUpload.svelte";
   import Warning from "../../../components/Warning.svelte";
+  import Toast from "../../../components/Toast.svelte";
 
   let firstName = "Name";
   let lastName = "Last name";
   let email = "example@mail.com";
   let userID;
   let jwt;
-
   let files;
   let showSettingsPopup = false;
+  let toast;
+  let toastObj = {
+    message: "",
+    description: ""
+  }
 
   onMount(async () => {
     const validToken = await validateToken();
@@ -24,19 +29,19 @@
       window.location.href = "/login";
     }
 
-    const data = await loadUserData(
-      localStorage.getItem("userID"),
-      localStorage.getItem("jwt")
-    );
+    jwt = localStorage.getItem("jwt")
+    userID = localStorage.getItem("userID")
 
-    firstName = data.firstName;
-    lastName = data.lastName;
-    email = data.email;
-    userID = data._id;
-    jwt = localStorage.getItem("jwt");
-    if (data.settings != null)
-      document.getElementById("colourScheme").innerHTML =
-        data.settings.colourScheme;
+    setUserData(userID, jwt)
+
+    // const data = await loadUserData(userID, jwt);
+
+    // firstName = data.firstName;
+    // lastName = data.lastName;
+    // email = data.email;
+    // if (data.settings != null)
+    //   document.getElementById("colourScheme").innerHTML =
+    //     data.settings.colourScheme;
 
     const picData = await loadUserPic(
       localStorage.getItem("userID"),
@@ -51,6 +56,16 @@
       picIcon.style.display = "none";
     }
   });
+
+  async function setUserData(userID, jwt) {
+    const data = await loadUserData(userID, jwt)
+    firstName = data.firstName;
+    lastName = data.lastName;
+    email = data.email;
+    if (data.settings != null)
+      document.getElementById("colourScheme").innerHTML =
+        data.settings.colourScheme;
+  }
 
   async function settingsSubmit() {
     const response = await fetch(
@@ -97,13 +112,25 @@
         picImg.src = `data:${fileData.mimetype};base64,${fileData.buffer64}`;
         picImg.style.display = "block";
         picIcon.style.display = "none";
+
+        // NOTE - need to temporarily replace button with spinner
+
+        // toast not displaying properly
+        toastObj.message = "Profile pic updated!"
+        toastObj.description = "You may need to reload the page."
+        toast.showToastNow(4000)
+        setTimeout(() => {
+          toastObj.description = ""
+        }, 5000)
       } else {
-        // display error messae
+        toastObj.message = "Profile pic update failed."
+        toast.showToastNow(4000)
       }
     }
 
     if (!response.ok) {
-      // display error message
+      toastObj.message = "Problem updating settings."
+      toast.showToastNow(4000)
       // resest values (fetch again)
     } else {
       showSettingsPopup = false;
@@ -112,6 +139,7 @@
 </script>
 
 <div class="body">
+  <Toast bind:this={toast} bind:message={toastObj.message} bind:description={toastObj.description} showToast="" />
   <Warning
     message="The notification and colour scheme
       features are still under construction.

@@ -23,7 +23,7 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
       <div class="menu">
         <ul class="menu-links" id="menu-links">
           <li class="nav-link">
-            <a href="/">
+            <a href="/dashboard">
               <i class="bx bx-home-alt icon" />
               <span class="text nav-text">Dashboard</span>
             </a>
