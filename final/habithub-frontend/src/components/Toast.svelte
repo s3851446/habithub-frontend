@@ -60,7 +60,7 @@
     box-shadow: $card-shadow;
     padding: 10px 20px;
     border-radius: $card-radius;
-    z-index: 200;
+    z-index: 4001;
     transition: top 0.3s ease-in-out;
     &.error {
       background: $red;

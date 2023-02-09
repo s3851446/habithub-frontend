@@ -1,18 +1,19 @@
-<script context="module">
-</script>
-
 <script>
   import { slide } from "svelte/transition";
   import Button from "./Button.svelte";
-  // let showPopup = false
+  import { createEventDispatcher } from "svelte";
+
   export let showPopup;
   export let icon;
   export let button_name;
+
+  const dispatch = createEventDispatcher();
 
   if (!showPopup) showPopup = false;
 
   export function togglePopup() {
     showPopup = !showPopup;
+    if (!showPopup) dispatch("popupClosed");
   }
 
   function handleKeydown(event) {

@@ -8,6 +8,7 @@
   import ImageUpload from "../../../components/ImageUpload.svelte";
   import Warning from "../../../components/Warning.svelte";
   import Toast from "../../../components/Toast.svelte";
+  import Spinner from "../../../components/Spinner.svelte";
 
   let firstName = "Name";
   let lastName = "Last name";
@@ -59,6 +60,8 @@
   }
 
   async function settingsSubmit() {
+    document.getElementById('submit').style.display = "none"
+    document.getElementById('spinner').style.display = "block"
     const response = await fetch(
       `https://habithub-api.herokuapp.com/user/${userID}`,
       {
@@ -75,8 +78,6 @@
         }),
       }
     );
-
-    // do something with response
 
     // Thanks to this: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#uploading_a_file
     // somehow this all worked really easily, which is suspicious
@@ -104,11 +105,8 @@
         picImg.style.display = "block";
         picIcon.style.display = "none";
 
-        // NOTE - need to temporarily replace button with spinner
-
-        // toast not displaying properly
         toastObj.message = "Profile pic updated!"
-        toastObj.description = "You may need to reload the page."
+        toastObj.description = "You may need to reload the page to see the profile pic."
         toast.showToastNow(4000)
         setTimeout(() => {
           toastObj.description = ""
@@ -117,15 +115,32 @@
         toastObj.message = "Profile pic update failed."
         toast.showToastNow(4000)
       }
+
+      
     }
 
     if (!response.ok) {
-      toastObj.message = "Problem updating settings."
+      const data = await response.json();
+      if (data.error_code == "#1BE") {
+        toastObj.message = "Email already in use.";
+      } else {
+        toastObj.message = "Problem updating settings.";
+      }
       toast.showToastNow(4000)
-      // resest values (fetch again)
     } else {
       showSettingsPopup = false;
+      toastObj.message = "Settings updated!"
+      toast.showToastNow(4000)
     }
+
+    files = null;
+    document.getElementById('spinner').style.display = "none"
+    document.getElementById('submit').style.display = "block"
+  }
+
+  async function popupClosed() {
+    setUserData(userID, jwt);
+    files = null;
   }
 </script>
 
@@ -166,6 +181,7 @@
         icon="bx-edit"
         button_name="Edit Profile"
         bind:showPopup={showSettingsPopup}
+        on:popupClosed={popupClosed}
       >
         <form action="" on:submit={settingsSubmit}>
           <h2>Edit Profile</h2>
@@ -195,10 +211,13 @@
             input_type="email"
           />
           <ImageUpload bind:file={files} />
-          <Button>
+          <Button id="submit">
             <i class="bx bx-save" />
             Save Profile
           </Button>
+          <div id="spinner">
+            <Spinner/>
+          </div>
         </form>
       </PopUp>
     </div>
@@ -235,7 +254,7 @@
       </div>
     </div>
   </section>
-  <!-- This page has no man as I felt that it didn't one. It's just the settings 
+  <!-- This page has no man as I felt that it didn't need one. It's just the settings 
       page and user's don't need the man's emotions to motivate them here. -AB -->
 </div>
 
@@ -342,6 +361,10 @@
     width: 60px;
     height: 60px;
     border-radius: 100%;
+    display: none;
+  }
+
+  #spinner {
     display: none;
   }
 </style>
