@@ -3,7 +3,11 @@
   export let icon;
   export let current_streak;
   export let best_streak;
-  export let progress;
+  export let goal;
+  export let achieved;
+
+  if (goal == undefined || goal == null) goal = 30
+  if (best_streak == undefined || best_streak == null) best_streak = current_streak
 </script>
 
 <div class="column">
@@ -24,7 +28,7 @@
       </div>
       <div class="variable-column">
         <h4>Overall Progress</h4>
-        <p>{progress} days achieved</p>
+        <p>{achieved}/{goal} days achieved</p>
       </div>
     </div>
   </div>

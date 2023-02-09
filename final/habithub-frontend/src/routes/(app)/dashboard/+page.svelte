@@ -97,7 +97,7 @@
         }
 
         completedHabitCount = completedHabits.length;
-    totalHabitCount = completedHabits.length + uncompletedHabits.length
+        totalHabitCount = completedHabits.length + uncompletedHabits.length
 
         // Can be plus/minus because this event can only fire on 
         // completing / uncompleting a habit
