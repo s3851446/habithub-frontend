@@ -1,6 +1,23 @@
 <script>
   import { goto } from "$app/navigation";
   import Button from "../components/Button.svelte";
+  import { onMount } from "svelte";
+  import { validateToken } from "../utils";
+
+
+  let loggedIn = false;
+
+  onMount(async () => {
+    const validToken = await validateToken();
+    if (validToken) {
+      loggedIn = true;
+    }
+  })
+
+  function buttonClick() {
+    if (loggedIn) goto("/dashboard")
+    else goto("/")
+  }
 </script>
 
 <div class="body">
@@ -22,7 +39,7 @@
     >
       <img src="./images/moon.svg" alt="Man lost in space" />
     </object>
-    <Button on:click={() => goto("/")}>
+    <Button on:click={buttonClick}>
       <i class="bx bx-home" />
       Go Home
     </Button>

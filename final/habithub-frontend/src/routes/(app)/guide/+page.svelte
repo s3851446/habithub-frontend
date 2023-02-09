@@ -1,4 +1,5 @@
 <script>
+  import { validateToken, signout, redirectToLocation } from "../../../utils";
   import Button from "../../../components/Button.svelte";
   import { goto } from "$app/navigation";
   import { onMount } from "svelte";
@@ -6,7 +7,14 @@
   let userID;
   let jwt;
 
-  onMount(() => {
+  onMount(async () => {
+    let validToken = false;
+    validToken = await validateToken();
+    if (!validToken) {
+      signout();
+      redirectToLocation("/login");
+    }
+
     jwt = localStorage.getItem("jwt")
     userID = localStorage.getItem("userID")
   })

@@ -1,10 +1,9 @@
 <script>
-  import { validateToken } from "../../../utils";
+  import { validateToken, loadUserData, loadUserPic, signout, redirectToLocation } from "../../../utils";
   import { onMount } from "svelte";
   import TextInput from "../../../components/TextInput.svelte";
   import NotificationCard from "../../../components/NotificationCardInner.svelte";
   import Button from "../../../components/Button.svelte";
-  import { loadUserData, loadUserPic } from "../../../utils";
   import PopUp from "../../../components/PopUp.svelte";
   import ImageUpload from "../../../components/ImageUpload.svelte";
   import Warning from "../../../components/Warning.svelte";
@@ -26,7 +25,8 @@
   onMount(async () => {
     const validToken = await validateToken();
     if (!validToken) {
-      window.location.href = "/login";
+      signout();
+      redirectToLocation("/login");
     }
 
     jwt = localStorage.getItem("jwt")

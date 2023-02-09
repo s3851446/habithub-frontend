@@ -2,9 +2,7 @@
   import Button from "../../../components/Button.svelte";
   import Loader from "../../../components/Loader.svelte";
   import { onMount } from "svelte";
-  import { validateToken } from "../../../utils";
-  import { signout } from "../../../utils";
-  import { redirectToLocation, loadUserData } from "../../../utils";
+  import { validateToken, signout, redirectToLocation, loadUserData} from "../../../utils";
   import DashboardHabit from "../../../components/DashboardHabit.svelte";
   import { loggedIn } from "../../../stores";
 

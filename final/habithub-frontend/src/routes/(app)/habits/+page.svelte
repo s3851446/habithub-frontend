@@ -4,7 +4,7 @@
   import PopUp /*{ togglePopup }*/ from "../../../components/PopUp.svelte";
   import Loader from "../../../components/Loader.svelte";
   import Toast from "../../../components/Toast.svelte";
-  import { validateToken } from "./../../../utils";
+  import { validateToken, signout, redirectToLocation } from "./../../../utils";
   import { onMount } from "svelte";
   import { page } from "$app/stores";
 
@@ -23,7 +23,8 @@
   onMount(async () => {
     const validToken = await validateToken();
     if (!validToken) {
-      window.location.href = "/login";
+      signout();
+      redirectToLocation("/login");
     }
 
     jwt = localStorage.getItem("jwt");

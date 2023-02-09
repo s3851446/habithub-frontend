@@ -1,6 +1,5 @@
 <script>
   import { jwt, loggedIn } from "../stores";
-  import { beforeUpdate, onMount } from "svelte";
   import { base } from "$app/paths";
   export let id;
 </script>
