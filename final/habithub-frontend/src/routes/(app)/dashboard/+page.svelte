@@ -15,6 +15,7 @@
   let userFirstName;
   let completedHabitCount;
   let totalHabitCount;
+  let noHabits = true;
 
   onMount(async () => {
     let validToken = false;
@@ -62,6 +63,7 @@
     uncompletedHabits = data.uncompleted;
     completedHabitCount = completedHabits.length;
     totalHabitCount = completedHabits.length + uncompletedHabits.length;
+    if (totalHabitCount > 0) noHabits = false;
 
     document.getElementById("content").style.visibility = "visible";
     document.querySelector(".heading").style.visibility = "visible";
@@ -135,46 +137,53 @@
   </div>
   <div class="container">
     <div class="content" id="content">
-      <p>
-        You have completed <i class="italics"> <b>{completedHabitCount}</b> out of {totalHabitCount}</i> of today's scheduled
-        habits. Good job! Keep going!
-      </p>
-      <div class="habit-lists">
-        <div class="list">
-          <h2>Upcoming Habits</h2>
-          <div class="list-items">
-            {#key uncompletedHabits}
-              {#each uncompletedHabits as h}
-                <DashboardHabit
-                  h_id={h._id}
-                  title={h.title}
-                  icon={h.icon}
-                  streak={h.streak}
-                  completed="false"
-                  on:habitCompleteEvent={habitCompleteEvent}
-                />
-              {/each}
-            {/key}
+      {#key noHabits}
+        {#if noHabits}
+          <p>You haven't added any habits yet. When you do, they will appear here. Click the 'Add Habit' button to get started"</p>
+        {:else}
+          <p>
+            You have completed <i class="italics"> <b>{completedHabitCount}</b> out of {totalHabitCount}</i> of today's scheduled
+            habits. Good job! Keep going!
+          </p>
+          <div class="habit-lists">
+            <div class="list">
+              <h2>Upcoming Habits</h2>
+              <div class="list-items">
+                {#key uncompletedHabits}
+                  {#each uncompletedHabits as h}
+                    <DashboardHabit
+                      h_id={h._id}
+                      title={h.title}
+                      icon={h.icon}
+                      streak={h.streak}
+                      completed="false"
+                      on:habitCompleteEvent={habitCompleteEvent}
+                    />
+                  {/each}
+                {/key}
+              </div>
+            </div>
+            <div class="list">
+              <h2>Completed Habits</h2>
+              <div class="list-items">
+                {#key completedHabits}
+                  {#each completedHabits as h}
+                    <DashboardHabit
+                      h_id={h._id}
+                      title={h.title}
+                      icon={h.icon}
+                      streak={h.streak}
+                      completed="true"
+                      on:habitCompleteEvent={habitCompleteEvent}
+                    />
+                  {/each}
+                {/key}
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="list">
-          <h2>Completed Habits</h2>
-          <div class="list-items">
-            {#key completedHabits}
-              {#each completedHabits as h}
-                <DashboardHabit
-                  h_id={h._id}
-                  title={h.title}
-                  icon={h.icon}
-                  streak={h.streak}
-                  completed="true"
-                  on:habitCompleteEvent={habitCompleteEvent}
-                />
-              {/each}
-            {/key}
-          </div>
-        </div>
-      </div>
+        {/if}
+      {/key}
+      
     </div>
     <div class="man">
       <object
