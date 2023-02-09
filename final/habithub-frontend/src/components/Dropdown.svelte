@@ -22,8 +22,6 @@
 
   export let value;
 
-  // I changed the return when value is null because it seemed frustrating
-  // to not know what categories I was allowed to use. 
   $: listEntries = categories.filter((c) => {
     if (!value || value === "") {
       return categories;
@@ -32,16 +30,24 @@
     }
   });
 
-  onMount(() => {
-    if (value != undefined && value != null && value != "") document.getElementById('ul').style.display = "none"
-    document.getElementById('habit-category').addEventListener('input', (event) => {
-      document.getElementById('ul').style.display = "block"
-    })
-  })
+  let dropdownVisible = false;
+
+  function toggleDropdown(e) {
+    e.stopPropagation();
+    dropdownVisible = !dropdownVisible;
+  }
+
+  // function hideDropdown() {
+  //   dropdownVisible = false;
+  // }
+
+  // onMount(() => {
+  //   document.addEventListener("click", hideDropdown);
+  // });
 
   function buttonClick(e) {
-    value = e.srcElement.value
-    document.getElementById('ul').style.display = "none"
+    value = e.srcElement.value;
+    dropdownVisible = false;
   }
 </script>
 
@@ -53,12 +59,21 @@
   label="Habit Category"
   input_type="text"
   classs="class"
+  on:click={toggleDropdown}
 >
-  <div id="list">
+  <div
+    id="list"
+    class="dropdown-list"
+    style="display: {dropdownVisible ? 'block' : 'none'}"
+  >
     {#if listEntries.length > 0}
       <ul id="ul">
         {#each listEntries as entry}
-          <li><button value={entry} on:click|preventDefault={buttonClick}>{entry}</button></li>
+          <li>
+            <button value={entry} on:click|preventDefault={buttonClick}
+              >{entry}</button
+            >
+          </li>
         {/each}
       </ul>
     {/if}

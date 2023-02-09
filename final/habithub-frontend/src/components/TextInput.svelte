@@ -22,7 +22,7 @@
   });
 
   function focus() {
-    document.getElementById(id).focus()
+    document.getElementById(id).focus();
   }
 </script>
 
@@ -35,8 +35,11 @@
     {name}
     {placeholder}
     class="text-input"
+    on:click
   />
-  <label class="label" for={name} on:click={focus}>{label}</label>
+  <label class="label" for={name} on:click={focus} on:keydown={focus}
+    >{label}</label
+  >
 
   <slot />
 </div>

@@ -117,7 +117,7 @@
       toastObj.message = "Problem resetting password";
       toast.showToastNow(4000)
     } else {
-      toastObj.message = "If account exists, you should receive a reset email soon";
+      toastObj.message = "If that account exists, you should receive a reset email soon";
       toast.showToastNow(4000)
     }
 
