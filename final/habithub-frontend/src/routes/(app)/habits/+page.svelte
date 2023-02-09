@@ -99,6 +99,7 @@
         h_description=""
         h_title=""
         category=""
+        goal=""
         on:submitEvent={closePopup}
       />
     </PopUp>
@@ -123,6 +124,7 @@
                 {userID}
                 icon={habit.icon}
                 category={habit.category}
+                goal={habit.totalGoal}
                 on:submitEvent={habitSubmitEvent}
               />
             {/each}

@@ -1,15 +1,20 @@
 <script>
-  import Button from "../../../components/Button.svelte";
   import { validateToken, signout, redirectToLocation } from "../../../utils";
   import { onMount } from "svelte";
   import ProgressCard from "../../../components/ProgressCard.svelte";
   import Warning from "../../../components/Warning.svelte";
   import Loader from "../../../components/Loader.svelte";
+  import Toast from "../../../components/Toast.svelte";
 
   let jwt;
   let userID;
   let habits = [{}];
   let noHabits = true;
+  let toast;
+  let toastObj = {
+    message: "",
+    description: ""
+  }
 
   onMount(async () => {
     const validToken = await validateToken();
@@ -38,11 +43,13 @@
     );
 
     if (!response.ok) {
-      // set a problem message
+      toastObj.message = "Problem getting habits."
+      toast.showToastNow(4000)
       return;
     }
 
     habits = await response.json();
+    if (habits.length > 0) noHabits = false;
     document.getElementById("progress").style.visibility = "visible";
     document.querySelector(".man").style.visibility = "visible";
     document.getElementById("spinner").style.display = "none";
@@ -50,6 +57,7 @@
 </script>
 
 <div class="body">
+  <Toast bind:this={toast} bind:message={toastObj.message} bind:description={toastObj.description}/>
   <div class="content">
     <div>
       <!-- <Warning

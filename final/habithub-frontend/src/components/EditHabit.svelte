@@ -1,8 +1,10 @@
 <script>
   import TextInput from "./TextInput.svelte";
+  import NumberInput from "./NumberInput.svelte";
   import Button from "./Button.svelte";
   import Dropdown from "./Dropdown.svelte";
   import { createEventDispatcher } from "svelte";
+  import { onMount } from "svelte";
 
   export let type;
   export let h_title;
@@ -12,11 +14,16 @@
   export let userID;
   export let jwt;
   export let category;
+  export let goal;
 
   let title;
   let description;
 
   const dispatch = createEventDispatcher();
+
+  onMount(() => {
+    console.log(goal)
+  })
 
   // develop based on: https://javascript.info/formdata
   // & https://svelte.dev/repl/74685aa8b4374c4c8f395ce643fee7b6?version=3.48.0
@@ -42,7 +49,8 @@
       body: JSON.stringify({
         title: titleString,
         description: descriptionString,
-        category: category
+        category: category,
+        totalGoal: goal
       }),
     });
 
@@ -71,6 +79,7 @@
       bind:value={h_title}
       placeholder="title"
       label="Title"
+      id="title"
     />
     <TextInput
       classs="description"
@@ -79,6 +88,14 @@
       bind:value={h_description}
       placeholder="description"
       label="Description"
+      id="desc"
+    />
+    <NumberInput 
+      bind:value={goal}
+      placeholder="goal"
+      label="Goal (days)"
+      name="goal"
+      id="number-input"
     />
     <div class="btn">
       <Button id="" on:click(handleSubmit)>{submitText}</Button>
@@ -95,4 +112,71 @@
     align-items: center;
     gap: 15px;
   }
+
+  // .goal-input {
+  //   width: 70%;
+  //   position: relative;
+  //   transition: $trans-05;
+  //   @media all and (max-width: 900px) {
+  //     width: 100%;
+  //   }
+  // }
+
+  // .number-label {
+  //   position: absolute;
+  //   left: 10px;
+  //   top: 14px;
+  //   transition: $trans-02;
+  //   padding: 0 2px;
+  //   z-index: 1;
+  //   &::before {
+  //     content: "";
+  //     height: 5px;
+  //     background-color: $white;
+  //     position: absolute;
+  //     left: 0;
+  //     top: 10px;
+  //     width: 100%;
+  //     z-index: -1;
+  //   }
+  //   &:hover {
+  //     cursor: text;
+  //   }
+  // }
+
+  // .number-input {
+  //   padding: 0.8rem;
+  //   border-radius: $card-radius;
+  //   width: 100%;
+  //   height: 100%;
+  //   border: 1px solid $light-grey;
+  //   background: $white;
+  //   font-size: 15px;
+  //   outline: none;
+  //   transition: $trans-03;
+  //   color: $black;
+  //   &:focus {
+  //     border: 1px solid $red;
+  //     & + .number-label {
+  //       top: -10px;
+  //       color: $red;
+  //       font-size: 14px;
+  //     }
+  //   }
+  //   &::placeholder {
+  //     font-size: 15px;
+  //     opacity: 0;
+  //     transition: $trans-03;
+  //   }
+  //   &:focus::placeholder {
+  //     opacity: 1;
+  //     animation-delay: 0.2s;
+  //   }
+  //   &:focus + label,
+  //   &:valid + label {
+  //     top: -10px;
+  //     color: $red;
+  //     font-size: 14px;
+  //   }
+  // }
 </style>

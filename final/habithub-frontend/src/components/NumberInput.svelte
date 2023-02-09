@@ -3,23 +3,12 @@
 <!-- Styled with the../routes/(app)/dashboard/+page.svelteXUfcujpsk -->
 <script>
   // import Page from "../routes/(app)/+page.svelte";
-  import { onMount } from "svelte";
-
   export let id;
   export let value;
   export let name;
   export let placeholder;
   export let classs;
   export let label;
-  export let input_type;
-
-  onMount(() => {
-    // this is necessary because of some weird two-way binding restriction
-    // on setting the input type
-    if (input_type == "password") {
-      document.getElementById(id).type = input_type;
-    }
-  });
 
   function focus() {
     document.getElementById(id).focus()
@@ -29,7 +18,7 @@
 <div class="input-container {classs}">
   <input
     required
-    type="text"
+    type="number"
     {id}
     bind:value
     {name}

@@ -8,6 +8,7 @@
   export let userID;
   export let icon;
   export let category;
+  export let goal;
 
   // import { redirectToLocation } from './../utils'
   import PopUp from "./PopUp.svelte";
@@ -70,6 +71,7 @@
           bind:h_title={name}
           on:submitEvent={closePopup}
           category={category}
+          goal={goal}
         />
       </PopUp>
       <PopUp icon="bx-trash" button_name="Delete" bind:showPopup={showDeletePopup}>
