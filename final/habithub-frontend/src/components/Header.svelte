@@ -50,11 +50,11 @@ https://youtu.be/ybXulmeilFM -->
         <h2 id="name">Name LastName</h2>
       </div>
       <hr />
-      <a href="/settings" class="sub-menu-link">
+      <!-- <a href="/settings" class="sub-menu-link">
         <i class="bx bx-edit img" />
         <p>Edit Profile</p>
         <i class="bx bx-chevron-right arrow" />
-      </a>
+      </a> -->
       <a href="/settings" class="sub-menu-link">
         <i class="bx bx-cog img" />
         <p>Settings</p>
