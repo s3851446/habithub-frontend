@@ -32,8 +32,6 @@
     }
   });
 
-  console.log(value)
-
   onMount(() => {
     if (value != undefined && value != null && value != "") document.getElementById('ul').style.display = "none"
     document.getElementById('habit-category').addEventListener('input', (event) => {

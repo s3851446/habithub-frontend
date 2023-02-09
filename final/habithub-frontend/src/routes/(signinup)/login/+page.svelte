@@ -5,6 +5,13 @@
   import { jwt, loggedIn, userFirstName } from "../../../stores";
   import { base } from "$app/paths";
   import Tagline from "../../../components/Tagline.svelte";
+  import Toast from "../../../components/Toast.svelte";
+
+  let toast;
+  let toastObj = {
+    message: "",
+    description: ""
+  }
 
   const formSubmit = (event) => {
     event.preventDefault();
@@ -78,17 +85,55 @@
       // put message somewhere if response bad
     }
   });
+
+  function showForgotPassword() {
+    document.getElementById('login-form').style.display = "none";
+    document.getElementById('reset-form').style.display = "flex";
+  }
+
+  function showLoginForm() {
+    document.getElementById('reset-form').style.display = "none";
+    document.getElementById('login-form').style.display = "flex";
+  }
+
+  async function resetSubmit() {
+    const resetEmail = document.getElementById('reset-email').value;
+    const response = await fetch(
+        "https://habithub-api.herokuapp.com/auth/reset",
+        {
+          //API base url should be stored somewhere for the whole site
+          method: "POST",
+          headers: {
+            Accept: "application.json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: resetEmail,
+          }),
+        }
+      );
+
+    if (!response.ok) {
+      toastObj.message = "Problem resetting password";
+      toast.showToastNow(4000)
+    } else {
+      toastObj.message = "If account exists, you should receive a reset email soon";
+      toast.showToastNow(4000)
+    }
+
+  }
 </script>
 
 <div class="body">
   <div class="slogan">
     <Tagline />
   </div>
+  <Toast bind:this={toast} bind:message={toastObj.message} bind:description={toastObj.description} showToast="" />
   <div class="rest">
     <img class="logo" src="{base}/images/logo_web.png" alt="Habit Hub logo" />
     <h1>Welcome Back!</h1>
-    <p>It's so good to see you again!</p>
-    <form class="form" on:submit={formSubmit}>
+    <form class="form" on:submit={formSubmit} id="login-form">
+      <p>It's so good to see you again!</p>
       <TextInput
         id="email"
         value=""
@@ -104,9 +149,32 @@
         placeholder="Enter your password here"
         label="Password"
         input_type="password"
-      />
+      >
+      <div class="forgot">
+        <button on:click|preventDefault={showForgotPassword}>Forgot password</button>
+      </div> 
+      </TextInput>
+      
       <div class="btn">
         <Button id="login_button">Login</Button>
+      </div>
+    </form>
+    <form class="form" on:submit={resetSubmit} id="reset-form">
+      <p>Enter your email address.<br/> You will receive an email with a password reset link shortly.</p>
+      <TextInput
+        id="reset-email"
+        value=""
+        name="reset-email"
+        placeholder="Email address"
+        label="Email address"
+        input_type="text"
+      >
+      <div class="forgot">
+        <button on:click|preventDefault={showLoginForm}>Back to login</button>
+      </div>
+      </TextInput>
+      <div class="btn">
+        <Button id="reset_button">Reset Password</Button>
       </div>
     </form>
     <p class="p">Don't have an account? <a href="/signup">Sign Up</a></p>
@@ -181,5 +249,22 @@
 
   .btn {
     margin: 10px 0;
+  }
+
+  #reset-form {
+    display: none;
+  }
+
+  .forgot {
+    display: flex;
+    justify-content: end;
+    margin-top: 0.2em;
+    & > button {
+      border: none;
+      color: $dark-grey;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 </style>
