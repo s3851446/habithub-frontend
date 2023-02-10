@@ -56,6 +56,10 @@
     padding: 16px;
   }
 
+  :global(body.darkmode) .new-container {
+    background: $black;
+  }
+
   .title {
     @include flex;
     flex-flow: row nowrap;

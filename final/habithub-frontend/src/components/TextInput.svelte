@@ -112,4 +112,17 @@
       font-size: 14px;
     }
   }
+
+  // :global(body.darkmode) .text-input{
+  //   background-color: $light-grey;
+  //   &:focus {
+  //     border-color: $yellow;
+  //     & + .label {
+  //       color: $yellow;
+  //     }
+  //   }
+  //   &:valid + label {
+  //     color: $yellow;
+  //   }
+  // }
 </style>

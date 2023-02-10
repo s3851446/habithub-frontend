@@ -46,6 +46,10 @@
     }
   }
 
+  :global(body.darkmode) .container {
+    background: $black;
+  }
+
   .notification {
     width: auto;
     margin-top: 15px;

@@ -33,6 +33,17 @@ body {
   }
 }
 
+body.darkmode {
+  color: $base-txt-color-light;
+  background-image: linear-gradient(
+    to bottom right,
+    #121212,
+    #111111,
+    #272727,
+    #313131,
+  )
+}
+
 h1,
 h2,
 h3,

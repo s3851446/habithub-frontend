@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import Button from "../../../components/Button.svelte";
   import TextInput from "../../../components/TextInput.svelte";
-  import { jwt, loggedIn, userFirstName } from "../../../stores";
+  // import { jwt, loggedIn, userFirstName, darkTheme } from "../../../stores";
   import { base } from "$app/paths";
   import Tagline from "../../../components/Tagline.svelte";
   import Toast from "../../../components/Toast.svelte";
@@ -78,12 +78,16 @@
       localStorage.setItem("jwt", data.accessToken);
       localStorage.setItem("loggedIn", true);
       localStorage.setItem("userID", data.user._id);
+      localStorage.setItem("darkTheme", data.user.colourScheme == "dark")
 
-      loggedIn.set(true);
-      jwt.set(data.accessToken);
-      userFirstName.set(data.user.firstName);
-      let loggedInVar;
-      loggedIn.subscribe((data) => (loggedInVar = data));
+      // var darkThemeVar = false;
+      // if (data.user.colourScheme == "dark")  darkThemeVar = true;
+      // loggedIn.set(true);
+      // jwt.set(data.accessToken);
+      // userFirstName.set(data.user.firstName);
+      // let loggedInVar;
+      // loggedIn.subscribe((data) => (loggedInVar = data));
+      // darkTheme.set(darkThemeVar)
 
       if (data.user.firstTime) {
         window.location.href = "/guide";

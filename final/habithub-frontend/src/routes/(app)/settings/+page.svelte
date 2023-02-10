@@ -362,6 +362,10 @@
     }
   }
 
+  :global(body.darkmode) .container {
+    background: $black;
+  }
+
   section {
     display: flex;
     flex-flow: row wrap;

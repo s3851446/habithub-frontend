@@ -77,6 +77,10 @@
     }
   }
 
+  :global(body.darkmode) .habit-card {
+    background: $black;
+  }
+
   .bx-chevron-right {
     font-size: 20px;
     transition: $trans-02;

@@ -102,6 +102,10 @@
     min-width: 200px;
   }
 
+  :global(body.darkmode) .parent {
+    background-color: $black
+  }
+
   p {
     width: 100%;
   }

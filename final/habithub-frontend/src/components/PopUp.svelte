@@ -99,6 +99,13 @@
     }
   }
 
+  :global(body.darkmode) .popup {
+    background: $black;
+    i {
+      color: $base-txt-color-light;
+    }
+  }
+
   .slot {
     margin: 30px 0 30px 0;
   }

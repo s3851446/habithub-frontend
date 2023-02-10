@@ -4,17 +4,23 @@
   import Footer from "../../components/Footer.svelte";
   import Header from "../../components/Header.svelte";
   import { onMount } from "svelte";
-  import { validateToken } from "../../utils";
-  import { page } from "$app/stores";
+  // import { validateToken } from "../../utils";
+  // import { page } from "$app/stores";
 
-  let validToken;
+  // let validToken;
 
   onMount(async () => {
+    if (localStorage.getItem("darkTheme")) {
+      document.body.classList.toggle('darkmode')
+    }
+    console.log(localStorage.getItem("darkTheme"))
+    document.getElementById('page-content').style.visibility = "visible";
+
     const sidebar = document.querySelector(".sidebar"),
-      toggle = document.querySelector(".toggle"),
-      userPic = document.querySelector(".user-pic"),
-      subMenuWrap = document.querySelector(".sub-menu-wrap"),
-      picImg = document.querySelector(".pic-img");
+    toggle = document.querySelector(".toggle"),
+    userPic = document.querySelector(".user-pic"),
+    subMenuWrap = document.querySelector(".sub-menu-wrap"),
+    picImg = document.querySelector(".pic-img");
 
     toggle.addEventListener("click", () => {
       sidebar.classList.toggle("close");
@@ -29,22 +35,29 @@
         subMenuWrap.classList.toggle("close-menu");
       });
 
-    const header = document.getElementById("header");
-    const navbar = document.getElementById("navbar");
+    // const header = document.getElementById("header");
+    // const navbar = document.getElementById("navbar");
 
-    validToken = await validateToken();
+    // validToken = await validateToken();
 
-    header.classList.add("hidden");
+    // header.classList.add("hidden");
 
-    if (validToken) {
-      header.classList.remove("hidden");
-    }
+    // if (validToken) {
+    //   header.classList.remove("hidden");
+    // }
   });
 </script>
 
-<Header id="header" />
-<Navbar id="navbar" />
-<slot />
-<Footer />
+<div class="page-content" id="page-content">
+  <Header id="header" />
+  <Navbar id="navbar" />
+  <slot />
+  <Footer />
+</div>
 
-<style lang="scss"></style>
+
+<style lang="scss">
+  .page-content {
+    visibility: hidden;
+  }
+</style>
