@@ -229,4 +229,8 @@ https://youtu.be/B4KZYsyuVOE -->
       padding: 8px 40px;
     }
   }
+
+  :global(body.darkmode) .copyright {
+    background: #444;
+  }
 </style>

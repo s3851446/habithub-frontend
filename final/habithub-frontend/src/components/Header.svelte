@@ -141,6 +141,10 @@ https://youtu.be/ybXulmeilFM -->
     box-shadow: $card-shadow;
   }
 
+  :global(body.darkmode) .sub-menu {
+    color: $black;
+  }
+
   .user-info {
     @include flex;
   }
