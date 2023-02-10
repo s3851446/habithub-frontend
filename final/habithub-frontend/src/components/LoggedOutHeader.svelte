@@ -14,11 +14,14 @@
 </script>
 
 <nav>
+  <div class="logo">
+    <img src="./images/logo_web.png" alt="Logo" />
+  </div>
   <div class="hamburger" on:click={toggleMenu} on:keydown={toggleMenu}>
     {#if showMenu}
       <p><i class="bx bx-x" /></p>
     {:else}
-      <p><i class="bx bx-menu-alt-left" /></p>
+      <p><i class="bx bx-menu-alt-right" /></p>
     {/if}
   </div>
   <div class="links {showMenu ? 'active' : ''}">
@@ -27,10 +30,13 @@
       <li><a href="/contactUs">Contact Us</a></li>
       <li><a href="/referenceList">Reference List</a></li>
       <li><a href="/login">Login</a></li>
+      <li>
+        <Button on:click={signupButtonClick}>
+          <i class="bx bx-plus" />
+          Sign Up
+        </Button>
+      </li>
     </ul>
-  </div>
-  <div class="buttons">
-    <Button on:click={signupButtonClick}>Sign Up</Button>
   </div>
 </nav>
 
@@ -42,7 +48,7 @@
     padding: 10px 2%;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     position: relative;
     flex-direction: row wrap;
     column-gap: 25px;
@@ -52,6 +58,10 @@
     @media only screen and (max-width: 900px) {
       justify-content: space-between;
     }
+  }
+
+  img {
+    width: 140px;
   }
 
   .hamburger {
@@ -88,14 +98,6 @@
     }
   }
 
-  .buttons {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
-  }
-
   .links {
     display: flex;
     @media only screen and (max-width: 900px) {
@@ -108,7 +110,6 @@
     flex-direction: column;
     position: absolute;
     top: 70px;
-    left: 0;
     right: 0;
     background: linear-gradient(to bottom right, #fdf4ee, #fcf6ee, #fdf1ed);
     height: calc(100vh - 70px);
@@ -122,6 +123,7 @@
       width: 100%;
       justify-content: flex-start;
       align-items: center;
+      gap: 0;
     }
     li {
       text-align: center;
