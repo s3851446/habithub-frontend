@@ -34,6 +34,9 @@
 
     jwt = localStorage.getItem("jwt")
     userID = localStorage.getItem("userID")
+    if (localStorage.getItem("darkTheme") == true) {
+      document.getElementById('theme').checked = true;
+    }
 
     setUserData(userID, jwt)
 
@@ -56,9 +59,6 @@
     firstName = data.firstName;
     lastName = data.lastName;
     email = data.email;
-    if (data.settings != null)
-      document.getElementById("colourScheme").innerHTML =
-        data.settings.colourScheme;
   }
 
   async function settingsSubmit() {
@@ -152,6 +152,28 @@
   async function deleteUser() {
     toastObj.message = "Jokes. This hasn't been implemented yet."
     toast.showToastNow(4000)
+  }
+
+  async function changeTheme() {
+    const checkbox = document.getElementById("theme").checked;
+    document.body.classList.toggle('darkmode')
+    localStorage.setItem('darkTheme', checkbox)
+    const response = await fetch(
+      `https://habithub-api.herokuapp.com/user/${userID}`,
+      {
+        method: "PUT",
+        headers: {
+          Accept: "application.json",
+          "Content-Type": "application/json",
+          Authorization: "BEARER " + jwt,
+        },
+        body: JSON.stringify({
+          settings: {
+            colourScheme: checkbox ? "dark" : "light"
+          }
+        }),
+      }
+    );
   }
 </script>
 
@@ -275,8 +297,9 @@
       </div>
       <hr />
       <div class="wrapper">
-        <h3>Colour Scheme</h3>
-        <p id="colourScheme">Light</p>
+        <h3>Dark mode</h3>
+        <!-- <p id="colourScheme">Light</p> -->
+        <input id="theme" type="checkbox" on:input={changeTheme}>
       </div>
     </div>
   </section>

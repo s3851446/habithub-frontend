@@ -31,6 +31,10 @@
     }
   }
 
+  :global(body.darkmode) .warning {
+    background: #555;
+  }
+
   p {
     margin: 0;
   }

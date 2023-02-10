@@ -4,16 +4,16 @@
   import Footer from "../../components/Footer.svelte";
   import Header from "../../components/Header.svelte";
   import { onMount } from "svelte";
+  import { loadUserData } from "../../utils";
   // import { validateToken } from "../../utils";
   // import { page } from "$app/stores";
 
   // let validToken;
 
   onMount(async () => {
-    if (localStorage.getItem("darkTheme")) {
-      document.body.classList.toggle('darkmode')
+    if (localStorage.getItem("darkTheme") == true) {
+      document.body.classList.add('darkmode')
     }
-    console.log(localStorage.getItem("darkTheme"))
     document.getElementById('page-content').style.visibility = "visible";
 
     const sidebar = document.querySelector(".sidebar"),
