@@ -34,7 +34,7 @@
 
     jwt = localStorage.getItem("jwt")
     userID = localStorage.getItem("userID")
-    if (localStorage.getItem("darkTheme") == true) {
+    if (localStorage.getItem("darkTheme") == "true") {
       document.getElementById('theme').checked = true;
     }
 

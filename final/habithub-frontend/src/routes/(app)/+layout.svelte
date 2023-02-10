@@ -11,7 +11,7 @@
   // let validToken;
 
   onMount(async () => {
-    if (localStorage.getItem("darkTheme") == true) {
+    if (localStorage.getItem("darkTheme") == "true") {
       document.body.classList.add('darkmode')
     }
     document.getElementById('page-content').style.visibility = "visible";
