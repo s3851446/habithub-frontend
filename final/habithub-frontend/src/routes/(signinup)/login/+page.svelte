@@ -105,11 +105,11 @@
           method: "POST",
           headers: {
             Accept: "application.json",
-            "Content-Type": "application/json",
+            "Content-Type": "application/json"
           },
           body: JSON.stringify({
             email: resetEmail,
-          }),
+          })
         }
       );
 
@@ -160,7 +160,7 @@
       </div>
     </form>
     <form class="form" on:submit={resetSubmit} id="reset-form">
-      <p>Enter your email address.<br/> You will receive an email with a password reset link shortly.</p>
+      <p>Enter your email address.<br/> We'll send you an email with a password reset link shortly.</p>
       <TextInput
         id="reset-email"
         value=""
