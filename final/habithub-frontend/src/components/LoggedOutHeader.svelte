@@ -137,5 +137,8 @@
     @media only screen and (min-width: 900px) {
       display: none;
     }
+    @media only screen and (max-width: 500px) {
+      width: 100%;
+    }
   }
 </style>
