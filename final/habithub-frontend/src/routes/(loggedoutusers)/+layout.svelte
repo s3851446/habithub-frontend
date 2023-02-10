@@ -1,9 +1,9 @@
 <script>
-  import "../../app.scss";
-  // import Header from "../../components/Header.svelte";
+  import "../../loggedOut.scss";
+  import LoggedOutHeader from "../../components/LoggedOutHeader.svelte";
   import Footer from "../../components/Footer.svelte";
 </script>
 
-<!-- <Header /> -->
+<LoggedOutHeader />
 <slot />
 <Footer />
