@@ -36,6 +36,7 @@
     {placeholder}
     class="text-input"
     on:click
+    autocomplete="off"
   />
   <label class="label" for={name} on:click={focus} on:keydown={focus}
     >{label}</label

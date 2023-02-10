@@ -9,6 +9,7 @@
   import Warning from "../../../components/Warning.svelte";
   import Toast from "../../../components/Toast.svelte";
   import Spinner from "../../../components/Spinner.svelte";
+  import SecondaryButton from "../../../components/SecondaryButton.svelte";
 
   let firstName = "Name";
   let lastName = "Last name";
@@ -17,6 +18,7 @@
   let jwt;
   let files;
   let showSettingsPopup = false;
+  let showDeletePopup = false;
   let toast;
   let toastObj = {
     message: "",
@@ -142,6 +144,15 @@
     setUserData(userID, jwt);
     files = null;
   }
+
+  function closeDeletePopup() {
+    showDeletePopup = false;
+  }
+
+  async function deleteUser() {
+    toastObj.message = "Jokes. This hasn't been implemented yet."
+    toast.showToastNow(4000)
+  }
 </script>
 
 <div class="body">
@@ -219,6 +230,21 @@
             <Spinner/>
           </div>
         </form>
+      </PopUp>
+      <PopUp
+        icon="bx-trash"
+        button_name="Delete Profile"
+        bind:showPopup={showDeletePopup}
+      >
+        <div class="delete-form">
+          <p>Are you sure you want to delete your account? 
+            This will remove all data associated with this account, 
+            and cannot be undone.</p>
+          <div>
+            <SecondaryButton on:click={closeDeletePopup}>Cancel</SecondaryButton>
+            <Button on:click={deleteUser}>Delete</Button>
+          </div>
+        </div>
       </PopUp>
     </div>
     <div class="container">
@@ -366,5 +392,16 @@
 
   #spinner {
     display: none;
+  }
+
+  .delete-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    & > p {
+      margin-bottom: 0.5em;
+    }
   }
 </style>
