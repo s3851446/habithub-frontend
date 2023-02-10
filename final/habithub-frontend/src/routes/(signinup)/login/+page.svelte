@@ -13,6 +13,8 @@
     description: ""
   }
 
+  // this is literally the most convoluted way to achieve this (I built it) but I 
+  // cannot be bothered fixing it now - EW
   const formSubmit = (event) => {
     event.preventDefault();
   };
@@ -24,14 +26,15 @@
       try {
         loginUser();
       } catch (err) {
-        console.log(err);
+        // console.log(err);
+        toastObj.message = "A problem occured while logging in."
       }
     }
 
     // method for sending login form data
     // based on answer here: https://stackoverflow.com/questions/68389117/using-fetch-api-to-create-a-login-form
 
-    // TODO: update url, change body content to email/password, stop form default behavior
+    // TODO: update url, stop form default behavior
     async function loginUser() {
       const emailField = document.getElementById("email");
       const passwordField = document.getElementById("password");
@@ -61,7 +64,13 @@
           response.status +
           " " +
           response.statusText;
-        throw new Error(message);
+        if (response.status == 400) {
+          toastObj.message = "Email or password incorrect."
+          toast.showToastNow(4000)
+          return;
+        } else {
+          throw new Error(message);
+        }
       }
 
       // add JWT to session if good
@@ -81,8 +90,6 @@
       } else {
         window.location.href = "/dashboard";
       }
-
-      // put message somewhere if response bad
     }
   });
 
