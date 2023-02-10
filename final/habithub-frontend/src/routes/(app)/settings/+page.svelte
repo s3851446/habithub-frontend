@@ -1,5 +1,11 @@
 <script>
-  import { validateToken, loadUserData, loadUserPic, signout, redirectToLocation } from "../../../utils";
+  import {
+    validateToken,
+    loadUserData,
+    loadUserPic,
+    signout,
+    redirectToLocation,
+  } from "../../../utils";
   import { onMount } from "svelte";
   import TextInput from "../../../components/TextInput.svelte";
   import NotificationCard from "../../../components/NotificationCardInner.svelte";
@@ -22,8 +28,8 @@
   let toast;
   let toastObj = {
     message: "",
-    description: ""
-  }
+    description: "",
+  };
 
   onMount(async () => {
     const validToken = await validateToken();
@@ -32,13 +38,13 @@
       redirectToLocation("/login");
     }
 
-    jwt = localStorage.getItem("jwt")
-    userID = localStorage.getItem("userID")
+    jwt = localStorage.getItem("jwt");
+    userID = localStorage.getItem("userID");
     if (localStorage.getItem("darkTheme") == "true") {
-      document.getElementById('theme').checked = true;
+      document.getElementById("theme").checked = true;
     }
 
-    setUserData(userID, jwt)
+    setUserData(userID, jwt);
 
     const picData = await loadUserPic(
       localStorage.getItem("userID"),
@@ -55,15 +61,15 @@
   });
 
   async function setUserData(userID, jwt) {
-    const data = await loadUserData(userID, jwt)
+    const data = await loadUserData(userID, jwt);
     firstName = data.firstName;
     lastName = data.lastName;
     email = data.email;
   }
 
   async function settingsSubmit() {
-    document.getElementById('submit').style.display = "none"
-    document.getElementById('spinner').style.display = "block"
+    document.getElementById("submit").style.display = "none";
+    document.getElementById("spinner").style.display = "block";
     const response = await fetch(
       `https://habithub-api.herokuapp.com/user/${userID}`,
       {
@@ -107,18 +113,17 @@
         picImg.style.display = "block";
         picIcon.style.display = "none";
 
-        toastObj.message = "Profile pic updated!"
-        toastObj.description = "You may need to reload the page to see the profile pic."
-        toast.showToastNow(4000)
+        toastObj.message = "Profile pic updated!";
+        toastObj.description =
+          "You may need to reload the page to see the profile pic.";
+        toast.showToastNow(4000);
         setTimeout(() => {
-          toastObj.description = ""
-        }, 5000)
+          toastObj.description = "";
+        }, 5000);
       } else {
-        toastObj.message = "Profile pic update failed."
-        toast.showToastNow(4000)
+        toastObj.message = "Profile pic update failed.";
+        toast.showToastNow(4000);
       }
-
-      
     }
 
     if (!response.ok) {
@@ -128,16 +133,16 @@
       } else {
         toastObj.message = "Problem updating settings.";
       }
-      toast.showToastNow(4000)
+      toast.showToastNow(4000);
     } else {
       showSettingsPopup = false;
-      toastObj.message = "Settings updated!"
-      toast.showToastNow(4000)
+      toastObj.message = "Settings updated!";
+      toast.showToastNow(4000);
     }
 
     files = null;
-    document.getElementById('spinner').style.display = "none"
-    document.getElementById('submit').style.display = "block"
+    document.getElementById("spinner").style.display = "none";
+    document.getElementById("submit").style.display = "block";
   }
 
   async function popupClosed() {
@@ -150,14 +155,14 @@
   }
 
   async function deleteUser() {
-    toastObj.message = "Jokes. This hasn't been implemented yet."
-    toast.showToastNow(4000)
+    toastObj.message = "Jokes. This hasn't been implemented yet.";
+    toast.showToastNow(4000);
   }
 
   async function changeTheme() {
     const checkbox = document.getElementById("theme").checked;
-    document.body.classList.toggle('darkmode')
-    localStorage.setItem('darkTheme', checkbox)
+    document.body.classList.toggle("darkmode");
+    localStorage.setItem("darkTheme", checkbox);
     const response = await fetch(
       `https://habithub-api.herokuapp.com/user/${userID}`,
       {
@@ -169,8 +174,8 @@
         },
         body: JSON.stringify({
           settings: {
-            colourScheme: checkbox ? "dark" : "light"
-          }
+            colourScheme: checkbox ? "dark" : "light",
+          },
         }),
       }
     );
@@ -178,7 +183,12 @@
 </script>
 
 <div class="body">
-  <Toast bind:this={toast} bind:message={toastObj.message} bind:description={toastObj.description} showToast="" />
+  <Toast
+    bind:this={toast}
+    bind:message={toastObj.message}
+    bind:description={toastObj.description}
+    showToast=""
+  />
   <Warning
     message="The notification and colour scheme
       features are still under construction.
@@ -210,64 +220,69 @@
           <img id="pic-img-settings" src="" alt="user-avatar" />
         </div>
       </div>
-      <PopUp
-        icon="bx-edit"
-        button_name="Edit Profile"
-        bind:showPopup={showSettingsPopup}
-        on:popupClosed={popupClosed}
-      >
-        <form action="" on:submit={settingsSubmit}>
-          <h2>Edit Profile</h2>
-          <p>Please enter your new profile information here</p>
-          <TextInput
-            id="firstName"
-            bind:value={firstName}
-            name="FirstName"
-            placeholder="Enter your first name here"
-            label="First Name"
-            input_type="text"
-          />
-          <TextInput
-            id="lastName"
-            bind:value={lastName}
-            name="LastName"
-            placeholder="Enter your last name here"
-            label="Last Name"
-            input_type="text"
-          />
-          <TextInput
-            id="email"
-            bind:value={email}
-            name="Email"
-            placeholder="Enter your email address here"
-            label="Email"
-            input_type="email"
-          />
-          <ImageUpload bind:file={files} />
-          <Button id="submit">
-            <i class="bx bx-save" />
-            Save Profile
-          </Button>
-          <div id="spinner">
-            <Spinner/>
+      <div class="popups">
+        <PopUp
+          icon="bx-trash"
+          button_name="Delete Profile"
+          bind:showPopup={showDeletePopup}
+        >
+          <div class="delete-form">
+            <p>
+              Are you sure you want to delete your account? This will remove all
+              data associated with this account, and cannot be undone.
+            </p>
+            <div>
+              <SecondaryButton on:click={closeDeletePopup}
+                >Cancel</SecondaryButton
+              >
+              <Button on:click={deleteUser}>Delete</Button>
+            </div>
           </div>
-        </form>
-      </PopUp>
-      <PopUp
-        icon="bx-trash"
-        button_name="Delete Profile"
-        bind:showPopup={showDeletePopup}
-      >
-        <div class="delete-form">
-          <p>Are you sure you want to delete your account? 
-            This will remove all data associated with this account, 
-            and cannot be undone.</p>
-          <div>
-            <SecondaryButton on:click={closeDeletePopup}>Cancel</SecondaryButton>
-            <Button on:click={deleteUser}>Delete</Button>
-          </div>
-        </div>
-      </PopUp>
+        </PopUp>
+        <PopUp
+          icon="bx-edit"
+          button_name="Edit Profile"
+          bind:showPopup={showSettingsPopup}
+          on:popupClosed={popupClosed}
+        >
+          <form action="" on:submit={settingsSubmit}>
+            <h2>Edit Profile</h2>
+            <p>Please enter your new profile information here</p>
+            <TextInput
+              id="firstName"
+              bind:value={firstName}
+              name="FirstName"
+              placeholder="Enter your first name here"
+              label="First Name"
+              input_type="text"
+            />
+            <TextInput
+              id="lastName"
+              bind:value={lastName}
+              name="LastName"
+              placeholder="Enter your last name here"
+              label="Last Name"
+              input_type="text"
+            />
+            <TextInput
+              id="email"
+              bind:value={email}
+              name="Email"
+              placeholder="Enter your email address here"
+              label="Email"
+              input_type="email"
+            />
+            <ImageUpload bind:file={files} />
+            <Button id="submit">
+              <i class="bx bx-save" />
+              Save Profile
+            </Button>
+            <div id="spinner">
+              <Spinner />
+            </div>
+          </form>
+        </PopUp>
+      </div>
     </div>
     <div class="container">
       <div class="error">
@@ -299,7 +314,7 @@
       <div class="wrapper">
         <h3>Dark mode</h3>
         <!-- <p id="colourScheme">Light</p> -->
-        <input id="theme" type="checkbox" on:input={changeTheme}>
+        <input id="theme" type="checkbox" on:input={changeTheme} />
       </div>
     </div>
   </section>
@@ -319,19 +334,24 @@
       font-size: 25px;
     }
   }
-
-  form {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-  }
-
   @mixin flex {
     display: flex;
     align-items: center;
+  }
+
+  form {
+    @include flex;
+    margin-top: 20px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .popups {
+    @include flex;
+    gap: 15px;
+    flex-direction: row wrap;
+    justify-content: flex-start;
   }
 
   .user-pic {
