@@ -16,7 +16,6 @@
   let passwordConfirm;
 
   onMount(() => {
-    console.log($page.url.searchParams.get("token"))
     if ($page.url.searchParams.get("token") == null) {
       toastObj.message = "Invalid password reset link.";
       toast.showToastNow(4000);
@@ -25,40 +24,37 @@
 
   async function passwordSubmit() {
     if ($page.url.searchParams.get("token") == null) {
-      console.log($page.url.searchParams.get("token"))
       toastObj.message = "Invalid password reset link.";
       toast.showToastNow(4000);
       return;
     }
-
+    
     if (password != passwordConfirm) {
-        toastObj.message = "Passwords must match.";
-        toast.showToastNow(4000);
-        return;
-    }
-
-
+      toastObj.message = "Passwords must match.";
+      toast.showToastNow(4000);
+      return;
+    } 
     const response = await fetch(
-      `https://habithub-api.herokuapp.com/auth/reset/${$page.url.searchParams.get("token")}`,
-      {
+    `https://habithub-api.herokuapp.com/auth/reset/${$page.url.searchParams.get("token")}`,
+    {
         method: "POST",
         headers: {
-          Accept: "application.json",
-          "Content-Type": "application/json"
+        Accept: "application.json",
+        "Content-Type": "application/json"
         },
         body: JSON.stringify({
             password: password
         })
-      }
+    }
     );
 
     if (!response.ok) {
-      if (response.status == 401) toastObj.message = "Unauthorised"
-      else toastObj.message = "Problem resetting password"
-      toast.showToastNow(4000)
+    if (response.status == 401) toastObj.message = "Unauthorised"
+    else toastObj.message = "Problem resetting password"
+    toast.showToastNow(4000)
     } else {
-      toastObj.message = "Password reset successfully"
-      toast.showToastNow(4000)
+    toastObj.message = "Password reset successfully"
+    toast.showToastNow(4000)
     }
   }
 
@@ -72,7 +68,7 @@
   <div class="rest">
     <img class="logo" src="{base}/images/logo_web.png" alt="Habit Hub logo" />
     <h1>Password Reset</h1>
-    <form class="form" on:submit={passwordSubmit}>
+    <form class="form" on:submit|preventDefault={passwordSubmit}>
       <p>Enter your new password.</p>
       <TextInput
         id="password"
