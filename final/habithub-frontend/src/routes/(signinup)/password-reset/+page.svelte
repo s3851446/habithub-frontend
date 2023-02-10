@@ -49,12 +49,13 @@
     );
 
     if (!response.ok) {
-    if (response.status == 401) toastObj.message = "Unauthorised"
-    else toastObj.message = "Problem resetting password"
-    toast.showToastNow(4000)
+      if (response.status == 401) toastObj.message = "Unauthorised"
+      else toastObj.message = "Problem resetting password"
+      toast.showToastNow(4000)
     } else {
-    toastObj.message = "Password reset successfully"
-    toast.showToastNow(4000)
+      const data = await response.json()
+      toastObj.message = `Password for ${data.email} reset successfully.`
+      toast.showToastNow(4000)
     }
   }
 
