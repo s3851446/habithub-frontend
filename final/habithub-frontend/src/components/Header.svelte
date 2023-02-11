@@ -113,11 +113,7 @@ https://youtu.be/ybXulmeilFM -->
   }
 
   #pic-img {
-    // width: 60px;
-    // height: 60px;
-    // border-radius: 100%;
     display: none;
-    // margin: -60px 0px 0px -60px;
   }
 
   i {

@@ -418,9 +418,6 @@
   }
 
   #pic-img-settings {
-    // width: 60px;
-    // height: 60px;
-    // border-radius: 100%;
     display: none;
   }
 
