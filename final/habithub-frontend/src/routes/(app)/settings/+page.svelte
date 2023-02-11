@@ -55,6 +55,20 @@
 
     if (picData) {
       picImg.src = `data:${picData.pic.mimetype};base64,${picData.pic.buffer64}`;
+
+      // display as crop
+      var height = picImg.naturalHeight;
+      var width = picImg.naturalWidth;
+      if (picImg.naturalWidth > picImg.naturalHeight) {
+        picImg.style.height = "60px";
+        var styleWidth = width/height*60;
+        picImg.style.width = `${styleWidth}px`;
+      } else {
+        picImg.style.width = "60px";
+        var styleHeight = height/width*60;
+        picImg.style.height = `${styleHeight}px`;
+      }
+
       picImg.style.display = "block";
       picIcon.style.display = "none";
     }
@@ -109,7 +123,24 @@
         const fileData = await fileResponse.json();
         const picImg = document.getElementById("pic-img-settings");
         const picIcon = document.getElementById("pic-icon-settings");
+        
+        picImg.style.display = "none";
+        picIcon.style.display = "block";
         picImg.src = `data:${fileData.mimetype};base64,${fileData.buffer64}`;
+
+        
+        if (picImg.naturalHeight == 0) {
+          setTimeout(() => {
+          setPic(picImg)
+          picImg.style.display = "block";
+          picIcon.style.display = "none";
+        }, 1000);
+        } else {
+          setPic(picImg);
+          picImg.style.display = "block";
+          picIcon.style.display = "none";
+        }
+
         picImg.style.display = "block";
         picIcon.style.display = "none";
 
@@ -155,8 +186,26 @@
   }
 
   async function deleteUser() {
-    toastObj.message = "Jokes. This hasn't been implemented yet.";
-    toast.showToastNow(4000);
+    // NOTE - need to delete the habit and refresh the page
+    let response = await fetch(
+      `https://habithub-api.herokuapp.com/user/${userID}`,
+      {
+        method: "DELETE",
+        headers: {
+          Accept: "application.json",
+          "Content-Type": "application/json",
+          Authorization: "BEARER " + jwt,
+        },
+      }
+    );
+
+    if (!response.ok) {
+      toastObj.message = "Problem deleting account.";
+      toast.showToastNow(4000);
+    } else {
+      window.location.href = "/logout"
+    }
+    
   }
 
   async function changeTheme() {
@@ -179,6 +228,21 @@
         }),
       }
     );
+  }
+
+  function setPic(picImg) {
+    // display as crop
+    var height = picImg.naturalHeight;
+    var width = picImg.naturalWidth;
+    if (picImg.naturalWidth > picImg.naturalHeight) {
+      picImg.style.height = "60px";
+      var styleWidth = width/height*60;
+      picImg.style.width = `${styleWidth}px`;
+    } else {
+      picImg.style.width = "60px";
+      var styleHeight = height/width*60;
+      picImg.style.height = `${styleHeight}px`;
+    }
   }
 </script>
 
@@ -361,10 +425,15 @@
     border-radius: 100%;
     @include flex;
     justify-content: center;
+    overflow: hidden;
     i {
       font-size: 35px;
       color: $light-grey;
     }
+  }
+
+  #pic-img-settings {
+    display: none;
   }
 
   .wrapper {
@@ -428,13 +497,6 @@
       align-items: center;
       flex-direction: column;
     }
-  }
-
-  #pic-img-settings {
-    width: 60px;
-    height: 60px;
-    border-radius: 100%;
-    display: none;
   }
 
   #spinner {

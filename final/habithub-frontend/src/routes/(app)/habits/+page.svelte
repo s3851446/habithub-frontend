@@ -81,6 +81,7 @@
       toast.showToastNow(4000)
     } else if (e.detail.type == "delete") {
       toastObj.message = "Habit deleted"
+      await fetchHabits(userID, jwt)
     }
   }
 </script>
@@ -128,6 +129,11 @@
                 on:submitEvent={habitSubmitEvent}
               />
             {/each}
+            <HabitCard
+              classs="dud-card flex"
+              name="" description="" streak="" jwt=""
+              userID="" icon="" category="" goal=""
+            />
           {/key}
         {/if}
       {/key}

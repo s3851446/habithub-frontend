@@ -80,15 +80,6 @@
       localStorage.setItem("userID", data.user._id);
       localStorage.setItem("darkTheme", data.user.colourScheme == "dark")
 
-      // var darkThemeVar = false;
-      // if (data.user.colourScheme == "dark")  darkThemeVar = true;
-      // loggedIn.set(true);
-      // jwt.set(data.accessToken);
-      // userFirstName.set(data.user.firstName);
-      // let loggedInVar;
-      // loggedIn.subscribe((data) => (loggedInVar = data));
-      // darkTheme.set(darkThemeVar)
-
       if (data.user.firstTime) {
         window.location.href = "/guide";
       } else {
@@ -273,6 +264,7 @@
     & > button {
       border: none;
       color: $dark-grey;
+      background: none;
       &:hover {
         text-decoration: underline;
       }
