@@ -120,25 +120,25 @@
 
       // do something with fileResponse
       if (fileResponse.ok) {
-        picImg.style.display = "none";
-        picIcon.style.display = "block";
-
         const fileData = await fileResponse.json();
         const picImg = document.getElementById("pic-img-settings");
         const picIcon = document.getElementById("pic-icon-settings");
+        
+        picImg.style.display = "none";
+        picIcon.style.display = "block";
         picImg.src = `data:${fileData.mimetype};base64,${fileData.buffer64}`;
 
-        // display as crop
-        var height = picImg.naturalHeight;
-        var width = picImg.naturalWidth;
-        if (picImg.naturalWidth > picImg.naturalHeight) {
-          picImg.style.height = "60px";
-          var styleWidth = width/height*60;
-          picImg.style.width = `${styleWidth}px`;
+        
+        if (picImg.naturalHeight == 0) {
+          setTimeout(() => {
+          setPic(picImg)
+          picImg.style.display = "block";
+          picIcon.style.display = "none";
+        }, 1000);
         } else {
-          picImg.style.width = "60px";
-          var styleHeight = height/width*60;
-          picImg.style.height = `${styleHeight}px`;
+          setPic(picImg);
+          picImg.style.display = "block";
+          picIcon.style.display = "none";
         }
 
         picImg.style.display = "block";
@@ -228,6 +228,21 @@
         }),
       }
     );
+  }
+
+  function setPic(picImg) {
+    // display as crop
+    var height = picImg.naturalHeight;
+    var width = picImg.naturalWidth;
+    if (picImg.naturalWidth > picImg.naturalHeight) {
+      picImg.style.height = "60px";
+      var styleWidth = width/height*60;
+      picImg.style.width = `${styleWidth}px`;
+    } else {
+      picImg.style.width = "60px";
+      var styleHeight = height/width*60;
+      picImg.style.height = `${styleHeight}px`;
+    }
   }
 </script>
 

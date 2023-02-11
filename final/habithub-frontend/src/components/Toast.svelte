@@ -77,6 +77,14 @@
     }
   }
 
+  :global(body.darkmode) .toast {
+    color: $black;
+    &.error {
+      background: $red;
+      color: $white;
+    }
+  }
+
   .toast-header {
     display: flex;
     align-items: center;
