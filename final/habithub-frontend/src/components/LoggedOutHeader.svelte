@@ -52,8 +52,11 @@
     position: relative;
     flex-direction: row wrap;
     column-gap: 25px;
-    position: sticky;
+    position: fixed;
     z-index: 1000;
+    margin-bottom: 70px;
+    background-color: rgba(252, 246, 238, 0.5);
+    backdrop-filter: blur(10px);
     box-shadow: $card-shadow;
     @media only screen and (max-width: 900px) {
       justify-content: space-between;
