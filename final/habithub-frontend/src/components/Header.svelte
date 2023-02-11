@@ -21,23 +21,36 @@
     if (data && data.pic) {
       picImg.src = `data:${data.pic.mimetype};base64,${data.pic.buffer64}`;
 
-      setTimeout(() => {
-        // display as crop
-        var height = picImg.naturalHeight;
-        var width = picImg.naturalWidth;
-        if (picImg.naturalWidth > picImg.naturalHeight) {
-          picImg.style.height = "60px";
-          var styleWidth = width/height*60;
-          picImg.style.width = `${styleWidth}px`;
-        } else {
-          picImg.style.width = "60px";
-          var styleHeight = height/width*60;
-          picImg.style.height = `${styleHeight}px`;
-        }
-
+      // sometimes the natural height / width are not set fast enough, 
+      // resulting in a buggy load. if so, a delay is set to let the DOM
+      // load the img properly
+      if (picImg.naturalHeight == 0) {
+        setTimeout(() => {
+        setPic(picImg)
         picImg.style.display = "block";
         picIcon.style.display = "none";
       }, 1000);
+      } else {
+        setPic(picImg);
+        picImg.style.display = "block";
+        picIcon.style.display = "none";
+      }
+      
+    }
+  }
+
+  function setPic(picImg) {
+    // display as crop
+    var height = picImg.naturalHeight;
+    var width = picImg.naturalWidth;
+    if (picImg.naturalWidth > picImg.naturalHeight) {
+      picImg.style.height = "60px";
+      var styleWidth = width/height*60;
+      picImg.style.width = `${styleWidth}px`;
+    } else {
+      picImg.style.width = "60px";
+      var styleHeight = height/width*60;
+      picImg.style.height = `${styleHeight}px`;
     }
   }
 
