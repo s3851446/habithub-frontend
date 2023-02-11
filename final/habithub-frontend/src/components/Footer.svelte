@@ -161,6 +161,15 @@ https://youtu.be/B4KZYsyuVOE -->
     }
   }
 
+  :global(body.darkmode) li {
+    a {
+      color: $light-grey;
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+
   p {
     font-size: 12px;
     margin-bottom: 10px;
