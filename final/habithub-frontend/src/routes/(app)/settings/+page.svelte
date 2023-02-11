@@ -55,6 +55,20 @@
 
     if (picData) {
       picImg.src = `data:${picData.pic.mimetype};base64,${picData.pic.buffer64}`;
+
+      // display as crop
+      var height = picImg.naturalHeight;
+      var width = picImg.naturalWidth;
+      if (picImg.naturalWidth > picImg.naturalHeight) {
+        picImg.style.height = "60px";
+        var styleWidth = width/height*60;
+        picImg.style.width = `${styleWidth}px`;
+      } else {
+        picImg.style.width = "60px";
+        var styleHeight = height/width*60;
+        picImg.style.height = `${styleHeight}px`;
+      }
+
       picImg.style.display = "block";
       picIcon.style.display = "none";
     }
@@ -106,10 +120,27 @@
 
       // do something with fileResponse
       if (fileResponse.ok) {
+        picImg.style.display = "none";
+        picIcon.style.display = "block";
+
         const fileData = await fileResponse.json();
         const picImg = document.getElementById("pic-img-settings");
         const picIcon = document.getElementById("pic-icon-settings");
         picImg.src = `data:${fileData.mimetype};base64,${fileData.buffer64}`;
+
+        // display as crop
+        var height = picImg.naturalHeight;
+        var width = picImg.naturalWidth;
+        if (picImg.naturalWidth > picImg.naturalHeight) {
+          picImg.style.height = "60px";
+          var styleWidth = width/height*60;
+          picImg.style.width = `${styleWidth}px`;
+        } else {
+          picImg.style.width = "60px";
+          var styleHeight = height/width*60;
+          picImg.style.height = `${styleHeight}px`;
+        }
+
         picImg.style.display = "block";
         picIcon.style.display = "none";
 
@@ -379,10 +410,18 @@
     border-radius: 100%;
     @include flex;
     justify-content: center;
+    overflow: hidden;
     i {
       font-size: 35px;
       color: $light-grey;
     }
+  }
+
+  #pic-img-settings {
+    // width: 60px;
+    // height: 60px;
+    // border-radius: 100%;
+    display: none;
   }
 
   .wrapper {
@@ -446,13 +485,6 @@
       align-items: center;
       flex-direction: column;
     }
-  }
-
-  #pic-img-settings {
-    width: 60px;
-    height: 60px;
-    border-radius: 100%;
-    display: none;
   }
 
   #spinner {
