@@ -24,6 +24,8 @@
       // sometimes the natural height / width are not set fast enough, 
       // resulting in a buggy load. if so, a delay is set to let the DOM
       // load the img properly
+      // NOTE - this should probably be in a while loop with a set number
+      // of attempts on delays
       if (picImg.naturalHeight == 0) {
         setTimeout(() => {
         setPic(picImg)
