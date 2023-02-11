@@ -155,8 +155,26 @@
   }
 
   async function deleteUser() {
-    toastObj.message = "Jokes. This hasn't been implemented yet.";
-    toast.showToastNow(4000);
+    // NOTE - need to delete the habit and refresh the page
+    let response = await fetch(
+      `https://habithub-api.herokuapp.com/user/${userID}`,
+      {
+        method: "DELETE",
+        headers: {
+          Accept: "application.json",
+          "Content-Type": "application/json",
+          Authorization: "BEARER " + jwt,
+        },
+      }
+    );
+
+    if (!response.ok) {
+      toastObj.message = "Problem deleting account.";
+      toast.showToastNow(4000);
+    } else {
+      window.location.href = "/logout"
+    }
+    
   }
 
   async function changeTheme() {
