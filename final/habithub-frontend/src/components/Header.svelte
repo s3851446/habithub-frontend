@@ -21,21 +21,23 @@
     if (data && data.pic) {
       picImg.src = `data:${data.pic.mimetype};base64,${data.pic.buffer64}`;
 
-      // display as crop
-      var height = picImg.naturalHeight;
-      var width = picImg.naturalWidth;
-      if (picImg.naturalWidth > picImg.naturalHeight) {
-        picImg.style.height = "60px";
-        var styleWidth = width/height*60;
-        picImg.style.width = `${styleWidth}px`;
-      } else {
-        picImg.style.width = "60px";
-        var styleHeight = height/width*60;
-        picImg.style.height = `${styleHeight}px`;
-      }
+      setTimeout(() => {
+        // display as crop
+        var height = picImg.naturalHeight;
+        var width = picImg.naturalWidth;
+        if (picImg.naturalWidth > picImg.naturalHeight) {
+          picImg.style.height = "60px";
+          var styleWidth = width/height*60;
+          picImg.style.width = `${styleWidth}px`;
+        } else {
+          picImg.style.width = "60px";
+          var styleHeight = height/width*60;
+          picImg.style.height = `${styleHeight}px`;
+        }
 
-      picImg.style.display = "block";
-      picIcon.style.display = "none";
+        picImg.style.display = "block";
+        picIcon.style.display = "none";
+      }, 1000);
     }
   }
 
