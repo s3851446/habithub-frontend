@@ -40,12 +40,28 @@
     showDeletePopup = false;
   }
 
-  function deleteHabit() {
+  async function deleteHabit() {
     // NOTE - need to delete the habit and refresh the page
-    showDeletePopup = false;
-    dispatch("submitEvent", {
-      type: "delete",
-    });
+    let response = await fetch(
+      `https://habithub-api.herokuapp.com/habit/habit/${h_id}`,
+      {
+        method: "DELETE",
+        headers: {
+          Accept: "application.json",
+          "Content-Type": "application/json",
+          Authorization: "BEARER " + jwt,
+        },
+      }
+    );
+
+    if (!response.ok) {
+      // NOTE - need to show a failure message
+    } else {
+      showDeletePopup = false;
+      dispatch("submitEvent", {
+        type: "delete"
+      });
+    }
   }
 </script>
 
@@ -121,6 +137,9 @@
   .dud-card {
     @extend .flex;
     visibility: hidden;
+    @media screen and (max-width: 1210px) {
+      flex-basis: 100%;
+    }
   }
 
   .bottom {
