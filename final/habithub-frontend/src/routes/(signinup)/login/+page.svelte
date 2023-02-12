@@ -26,7 +26,6 @@
       try {
         loginUser();
       } catch (err) {
-        // console.log(err);
         toastObj.message = "A problem occured while logging in."
       }
     }

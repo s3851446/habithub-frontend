@@ -18,8 +18,14 @@
     description: ""
   }
   let noHabits = true;
+  let editing = false;
+  let editingID = "";
 
   if ($page.url.searchParams.get("new") == "true") showNewPopup = true;
+  if ($page.url.searchParams.get("id")) {
+    editing = true;
+    editingID = $page.url.searchParams.get("id")
+  }
 
   onMount(async () => {
     const validToken = await validateToken();
@@ -57,6 +63,9 @@
     let data = await response.json();
     habits = data;
     if (habits.length > 0) noHabits = false;
+    
+    editingHabit(habits)
+
     document.getElementById("card-container").style.visibility = "visible";
     document.querySelector(".man").style.visibility = "visible";
     document.getElementById("spinner").style.display = "none";
@@ -83,6 +92,15 @@
       toastObj.message = "Habit deleted"
       await fetchHabits(userID, jwt)
     }
+  }
+
+  async function editingHabit(habits) {
+    habits.forEach(habit => {
+      if (habit._id == editingID) habit.editing = true;
+      else habit.editing = false;
+    })
+
+    history.pushState(null, '', '/habits')
   }
 </script>
 
@@ -127,6 +145,7 @@
                 category={habit.category}
                 goal={habit.totalGoal}
                 on:submitEvent={habitSubmitEvent}
+                editing={habit.editing}
               />
             {/each}
             <HabitCard

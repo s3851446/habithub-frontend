@@ -9,6 +9,7 @@
   export let icon;
   export let category;
   export let goal;
+  export let editing;
 
   // import { redirectToLocation } from './../utils'
   import PopUp from "./PopUp.svelte";
@@ -17,7 +18,8 @@
   import Button from "./Button.svelte";
   import SecondaryButton from "./SecondaryButton.svelte"
 
-  let showEditPopup = false;
+
+  let showEditPopup = editing;
   let showDeletePopup = false;
 
   const dispatch = createEventDispatcher();
@@ -34,6 +36,7 @@
       type: "update",
       title: name,
     });
+    // if (editing) window.location.href = '/dashboard';
   }
 
   function closeDeletePopup() {

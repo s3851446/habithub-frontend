@@ -25,10 +25,14 @@
       completed: yes,
     });
   }
+
+  function editHabit() {
+    window.location.href = `/habits?id=${h_id}`
+  }
 </script>
 
 <div class="habit-card {yes ? 'complete' : ''}">
-  <div class="wrapper">
+  <div class="wrapper" on:click={editHabit}>
     <div class="title">
       <i class="bx {icon}" />
       <h2>{title}</h2>
@@ -103,6 +107,9 @@
     justify-content: space-between;
     align-items: center;
     gap: 20px;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .card-info {
