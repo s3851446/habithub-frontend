@@ -30,6 +30,7 @@
     message: "",
     description: "",
   };
+  let toastError = false;
 
   onMount(async () => {
     const validToken = await validateToken();
@@ -144,6 +145,7 @@
         picImg.style.display = "block";
         picIcon.style.display = "none";
 
+        toastError = false;
         toastObj.message = "Profile pic updated!";
         toastObj.description =
           "You may need to reload the page to see the profile pic.";
@@ -152,6 +154,7 @@
           toastObj.description = "";
         }, 5000);
       } else {
+        toastError = true;
         toastObj.message = "Profile pic update failed.";
         toast.showToastNow(4000);
       }
@@ -164,9 +167,11 @@
       } else {
         toastObj.message = "Problem updating settings.";
       }
+      toastError = true;
       toast.showToastNow(4000);
     } else {
       showSettingsPopup = false;
+      toastError = false;
       toastObj.message = "Settings updated!";
       toast.showToastNow(4000);
     }
@@ -200,6 +205,7 @@
     );
 
     if (!response.ok) {
+      toastError = true;
       toastObj.message = "Problem deleting account.";
       toast.showToastNow(4000);
     } else {
@@ -252,6 +258,7 @@
     bind:message={toastObj.message}
     bind:description={toastObj.description}
     showToast=""
+    bind:error={toastError}
   />
   <Warning
     message="The notification and colour scheme

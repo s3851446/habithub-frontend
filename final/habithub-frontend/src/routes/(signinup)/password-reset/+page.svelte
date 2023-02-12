@@ -12,6 +12,7 @@
     message: "",
     description: ""
   }
+  let toastError = false;
   let password;
   let passwordConfirm;
 
@@ -24,12 +25,14 @@
 
   async function passwordSubmit() {
     if ($page.url.searchParams.get("token") == null) {
+      toastError = true;
       toastObj.message = "Invalid password reset link.";
       toast.showToastNow(4000);
       return;
     }
     
     if (password != passwordConfirm) {
+      toastError = true;
       toastObj.message = "Passwords must match.";
       toast.showToastNow(4000);
       return;
@@ -49,11 +52,13 @@
     );
 
     if (!response.ok) {
+      toastError = true;
       if (response.status == 401) toastObj.message = "Unauthorised"
       else toastObj.message = "Problem resetting password"
       toast.showToastNow(4000)
     } else {
       const data = await response.json()
+      toastError = false;
       toastObj.message = `Password for ${data.email} reset successfully.`
       toast.showToastNow(4000)
     }
@@ -65,7 +70,12 @@
   <div class="slogan">
     <Tagline />
   </div>
-  <Toast bind:this={toast} bind:message={toastObj.message} bind:description={toastObj.description}/>
+  <Toast 
+    bind:this={toast} 
+    bind:message={toastObj.message} 
+    bind:description={toastObj.description}
+    bind:error={toastError}
+  />
   <div class="rest">
     <img class="logo" src="{base}/images/logo_web.png" alt="Habit Hub logo" />
     <h1>Password Reset</h1>

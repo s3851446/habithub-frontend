@@ -18,6 +18,7 @@
     message: "",
     description: ""
   }
+  let toastError = false;
 
   async function handleSignup() {
     user.email = document.getElementById("email").value;
@@ -27,6 +28,7 @@
     user.passwordConfirm = document.getElementById("passwordConfirm").value;
 
     if (user.password != user.passwordConfirm) {
+      toastError = true;
       toastObj.message = "Passwords must match."
       toast.showToastNow(4000);
       return;
@@ -48,6 +50,7 @@
     });
 
     if (!response.ok) {
+      toastError = true;
       const data = await response.json()
       if (data.error_code && data.error_code == "#1BE") {
         toastObj.message = `'${user.email}' is already in use.`
@@ -59,6 +62,7 @@
       return;
     }
 
+    toastError = false;
     toastObj.message = "Account created successfully."
     toast.showToastNow(4000);
     // window.location.href = "/login";
@@ -70,7 +74,13 @@
     <Tagline />
   </div>
   <div class="rest">
-    <Toast bind:this={toast} bind:message={toastObj.message} bind:description={toastObj.description} showToast=""/>
+    <Toast 
+      bind:this={toast} 
+      bind:message={toastObj.message} 
+      bind:description={toastObj.description} 
+      showToast=""
+      bind:error={toastError}
+    />
     <img class="logo" src="{base}/images/logo_web.png" alt="Habit Hub logo" />
     <h1>Sign Up</h1>
     <form class="form">

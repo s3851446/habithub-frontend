@@ -12,6 +12,7 @@
     message: "",
     description: ""
   }
+  let toastError = false;
 
   // this is literally the most convoluted way to achieve this (I built it) but I 
   // cannot be bothered fixing it now - EW
@@ -26,7 +27,9 @@
       try {
         loginUser();
       } catch (err) {
+        toastError = true;
         toastObj.message = "A problem occured while logging in."
+        toast.showToastNow(4000);
       }
     }
 
@@ -64,6 +67,7 @@
           " " +
           response.statusText;
         if (response.status == 400) {
+          toastError = true;
           toastObj.message = "Email or password incorrect."
           toast.showToastNow(4000)
           return;
@@ -115,9 +119,11 @@
       );
 
     if (!response.ok) {
+      toastError = true;
       toastObj.message = "Problem resetting password";
       toast.showToastNow(4000)
     } else {
+      toastError = false;
       toastObj.message = "If that account exists, you should receive a reset email soon";
       toast.showToastNow(4000)
     }
@@ -129,7 +135,13 @@
   <div class="slogan">
     <Tagline />
   </div>
-  <Toast bind:this={toast} bind:message={toastObj.message} bind:description={toastObj.description} showToast="" />
+  <Toast 
+    bind:this={toast} 
+    bind:message={toastObj.message} 
+    bind:description={toastObj.description} 
+    showToast="" 
+    bind:error={toastError}
+  />
   <div class="rest">
     <img class="logo" src="{base}/images/logo_web.png" alt="Habit Hub logo" />
     <h1>Welcome Back!</h1>

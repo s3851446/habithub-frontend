@@ -15,6 +15,7 @@
     message: "",
     description: ""
   }
+  let toastError = false;
 
   onMount(async () => {
     const validToken = await validateToken();
@@ -43,6 +44,7 @@
     );
 
     if (!response.ok) {
+      toastError = true;
       toastObj.message = "Problem getting habits."
       toast.showToastNow(4000)
       return;
@@ -57,7 +59,12 @@
 </script>
 
 <div class="body">
-  <Toast bind:this={toast} bind:message={toastObj.message} bind:description={toastObj.description}/>
+  <Toast 
+    bind:this={toast} 
+    bind:message={toastObj.message} 
+    bind:description={toastObj.description}
+    bind:error={toastError}
+  />
   <div class="content">
     <div>
       <!-- <Warning

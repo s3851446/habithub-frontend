@@ -17,6 +17,7 @@
     message: "",
     description: ""
   }
+  let toastError = false;
   let noHabits = true;
   let editing = false;
   let editingID = "";
@@ -55,6 +56,7 @@
     );
 
     if (!response.ok) {
+      toastError = true;
       toastObj.message = "Problem getting habits."
       toast.showToastNow(4000)
       return;
@@ -73,6 +75,7 @@
 
   async function closePopup() {
     await fetchHabits(userID, jwt)
+    toastError = false;
     toastObj.message = "Habit created successfully"
     toast.showToastNow(4000)
     showNewPopup = false;
@@ -86,9 +89,11 @@
   async function habitSubmitEvent(e) {
     await fetchHabits(userID, jwt)
     if (e.detail.type == "update") {
+      toastError = false;
       toastObj.message = "Habit updated"
       toast.showToastNow(4000)
     } else if (e.detail.type == "delete") {
+      toastError = false;
       toastObj.message = "Habit deleted"
       await fetchHabits(userID, jwt)
     }
@@ -105,7 +110,12 @@
 </script>
 
 <div class="body">
-  <Toast bind:this={toast} bind:message={toastObj.message} bind:description={toastObj.description}/>
+  <Toast 
+    bind:this={toast} 
+    bind:message={toastObj.message} 
+    bind:description={toastObj.description} 
+    bind:error={toastError}
+  />
   <div class="heading">
     <h1>My Habits</h1>
     <PopUp icon="bx-plus" button_name="Add Habit" bind:showPopup={showNewPopup}>
