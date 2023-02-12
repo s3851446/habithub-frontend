@@ -100,7 +100,7 @@
       else habit.editing = false;
     })
 
-    history.pushState(null, '', '/habits')
+    history.replaceState(null, '', '/habits')
   }
 </script>
 
