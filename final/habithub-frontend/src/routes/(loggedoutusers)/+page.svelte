@@ -30,6 +30,7 @@
     </p>
   </section>
   <section>
+    <img src="./images/customise.png" alt="icon" />
     <h1>Customise your Journey</h1>
     <p>
       Unleash your unique potential with Habit Hub's personalised habits. Say
