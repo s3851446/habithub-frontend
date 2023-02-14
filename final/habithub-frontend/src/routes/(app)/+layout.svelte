@@ -5,10 +5,6 @@
   import Header from "../../components/Header.svelte";
   import { onMount } from "svelte";
   import { loadUserData } from "../../utils";
-  // import { validateToken } from "../../utils";
-  // import { page } from "$app/stores";
-
-  // let validToken;
 
   onMount(async () => {
     if (localStorage.getItem("darkTheme") == "true") {
