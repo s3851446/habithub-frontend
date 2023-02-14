@@ -1,7 +1,5 @@
 <div class="slogan">
   <h1>Kill bad habits, ignite positive change!</h1>
-  <!-- Animated with Svgator.
-  Man + cigarette from Adobe Stock Images.-->
   <object
     title="Man slashing cigarette"
     type="image/svg+xml"
