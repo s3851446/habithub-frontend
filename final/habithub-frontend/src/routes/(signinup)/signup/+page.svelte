@@ -63,7 +63,7 @@
     }
 
     toastError = false;
-    toastObj.message = "Account created successfully."
+    toastObj.message = "Account created successfully. Please sign in."
     toast.showToastNow(4000);
     // window.location.href = "/login";
   }
