@@ -3,9 +3,10 @@
     <h1>Reference List</h1>
     <h2>Svg and Images</h2>
     <p>
-      All SVGs and images used throughout the website have been taken from Adobe
-      stock Images. Some changes were made to the images and SVGs by the authors
-      of the website to match them to the theme of the website. <br />
+      The visual elements featured on this website, including all SVGs and
+      images, were sourced from Adobe Stock Images. Our authors have made
+      modifications to the images and SVGs to align them with the overall theme
+      of the website. <br />
       <b
         >Adobe Stock. n.d. “Find the perfect stock asset for your next creative
         project.” Adobe.
@@ -15,14 +16,16 @@
     </p>
     <h2>Website Components</h2>
     <p>
-      Some of the components (such as the footer) used throughout the website
-      were made with the help of YouTube tutorials. They have all been
-      referenced inside the code comments. Please see code comments for more
-      detail.
+      The incorporation of certain components, such as the footer, throughout
+      the website was achieved through the utilisation of YouTube tutorials.
+      These tutorials have been properly referenced within the code comments for
+      ease of review and transparency. Kindly refer to the code comments for
+      further information.
     </p>
     <h2>Animations</h2>
     <p>
-      The young man SVG animations were created via SVGator. <br /><b
+      The animated depictions of the young man utilised throughout the website
+      were created utilising the tool known as SVGator. <br /><b
         >SVGator. n.d. “The Easiest Way to Animate SVG.” SVGator.
         <a href="https://www.svgator.com/">https://www.svgator.com/</a>.</b
       >
