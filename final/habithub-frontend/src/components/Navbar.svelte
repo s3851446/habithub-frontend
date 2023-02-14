@@ -2,6 +2,10 @@
   import { jwt, loggedIn } from "../stores";
   import { base } from "$app/paths";
   export let id;
+
+  function toAbout() {
+    window.location.href = '/';
+  }
 </script>
 
 <!-- This component was created with the help of a YouTube tutorial.
@@ -10,7 +14,9 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
   <header>
     <div class="image-text">
       <span class="image">
-        <img src="{base}/images/logo_app.png" alt="Logo" />
+        <a href="/" on:click|preventDefault={toAbout}>
+          <img src="{base}/images/logo_app.png" alt="Logo" />
+        </a>
       </span>
       <div class="text header-text">
         <span class="name">Habit Hub</span>
@@ -22,31 +28,31 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
       <div class="menu">
         <ul class="menu-links" id="menu-links">
           <li class="nav-link">
-            <a href="/dashboard">
+            <a class="text-link" href="/dashboard">
               <i class="bx bx-home-alt icon" />
               <span class="text nav-text">Dashboard</span>
             </a>
           </li>
           <li class="nav-link">
-            <a href="/habits">
+            <a class="text-link" href="/habits">
               <i class="bx bx-list-check icon" />
               <span class="text nav-text">Habits</span>
             </a>
           </li>
           <li class="nav-link">
-            <a href="/statistics">
+            <a class="text-link" href="/statistics">
               <i class="bx bx-line-chart icon" />
               <span class="text nav-text">Statistics</span>
             </a>
           </li>
           <li class="nav-link">
-            <a href="/settings">
+            <a class="text-link" href="/settings">
               <i class="bx bx-cog icon" />
               <span class="text nav-text">Settings</span>
             </a>
           </li>
           <li class="nav-link">
-            <a href="/guide">
+            <a class="text-link" href="/guide">
               <i class="bx bx-help-circle icon" />
               <span class="text nav-text">Help/Guide</span>
             </a>
@@ -184,7 +190,7 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
     justify-content: center;
   }
 
-  a {
+  .text-link {
     font-size: 16px;
     width: 100%;
     color: $light-grey;
