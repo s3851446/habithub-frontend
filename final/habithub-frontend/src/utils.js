@@ -1,6 +1,3 @@
-// https://svelte.dev/tutorial/module-exports
-import { jwt, loggedIn, userFirstName } from "./stores";
-
 export async function validateToken() {
   const response = await fetch(
     "https://habithub-api.herokuapp.com/auth/validate",
@@ -17,31 +14,14 @@ export async function validateToken() {
 
   //NOTE - should put in another check here which ensures jwt data (e.g. u_id) matches existing user data
   if (!response.ok) {
-    loggedIn.set(false);
-    jwt.set("");
     signout();
     return false;
   }
-
-  loggedIn.set(true);
-  jwt.set(localStorage.getItem("jwt"));
-  let loggedInVar;
-  loggedIn.subscribe((data) => (loggedInVar = data));
-
-  let jwtVar;
-  jwt.subscribe((data) => (jwtVar = data));
-
   return true;
 }
 
 export function signout() {
   localStorage.clear();
-  loggedIn.set(false);
-  jwt.set("");
-  userFirstName.set("");
-
-  let loggedInVar;
-  loggedIn.subscribe((data) => (loggedInVar = data));
 }
 
 export function redirectToLocation(location) {

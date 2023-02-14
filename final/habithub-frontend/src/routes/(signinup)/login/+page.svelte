@@ -2,7 +2,6 @@
   import { onMount } from "svelte";
   import Button from "../../../components/Button.svelte";
   import TextInput from "../../../components/TextInput.svelte";
-  // import { jwt, loggedIn, userFirstName, darkTheme } from "../../../stores";
   import { base } from "$app/paths";
   import Tagline from "../../../components/Tagline.svelte";
   import Toast from "../../../components/Toast.svelte";
