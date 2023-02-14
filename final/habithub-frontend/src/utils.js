@@ -27,7 +27,6 @@ export function signout() {
 export function redirectToLocation(location) {
   window.location.href = location;
 }
-// might be useful for local storage: https://chasingcode.dev/blog/svelte-persist-state-to-localstorage/
 
 export async function loadUserData(id, token) {
   const fetchURL = "https://habithub-api.herokuapp.com/user/" + id;

@@ -111,7 +111,6 @@
     let response = await fetch(
       `https://habithub-api.herokuapp.com/habit/habit/${e.detail.h_id}`,
       {
-        // let response = await fetch(`http://localhost:3000/habit/habit/${e.detail.h_id}`, {
         method: "PUT",
         headers: {
           Accept: "application.json",
