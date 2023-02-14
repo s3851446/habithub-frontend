@@ -2,7 +2,7 @@
   export let id;
 </script>
 
-<button on:click {id} draggable="true">
+<button on:click {id}>
   <slot />
 </button>
 

@@ -66,6 +66,10 @@
       });
     }
   }
+
+  function editPopupClosed() {
+    dispatch("popupclosed");
+  }
 </script>
 
 <div class="parent {classs}">
@@ -80,7 +84,11 @@
       <span class="body-content">{streak} days!</span>
     </div>
     <div class="end">
-      <PopUp icon="bx-edit" button_name="Edit" bind:showPopup={showEditPopup}>
+      <PopUp icon="bx-edit" 
+        button_name="Edit" 
+        bind:showPopup={showEditPopup}
+        on:popupClosed={editPopupClosed}
+      >
         <EditHabit
           bind:jwt
           bind:userID
@@ -92,7 +100,7 @@
           on:submitEvent={closePopup}
           {category}
           {goal}
-        />
+      />
       </PopUp>
       <PopUp
         icon="bx-trash"
