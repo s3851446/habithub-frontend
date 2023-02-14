@@ -95,6 +95,7 @@
     } else if (e.detail.type == "delete") {
       toastError = false;
       toastObj.message = "Habit deleted"
+      toast.showToastNow(4000)
       await fetchHabits(userID, jwt)
     }
   }
@@ -106,6 +107,13 @@
     })
 
     history.replaceState(null, '', '/habits')
+  }
+
+  async function editPopupClosed() {
+    await fetchHabits(userID, jwt)
+    toastError = false;
+    toastObj.message = "Changes have not been saved.";
+    toast.showToastNow(4000)
   }
 </script>
 
@@ -155,6 +163,7 @@
                 category={habit.category}
                 goal={habit.totalGoal}
                 on:submitEvent={habitSubmitEvent}
+                on:popupclosed={editPopupClosed}
                 editing={habit.editing}
               />
             {/each}
