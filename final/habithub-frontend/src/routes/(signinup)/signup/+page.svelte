@@ -4,7 +4,6 @@
   import TextInput from "../../../components/TextInput.svelte";
   import Tagline from "../../../components/Tagline.svelte";
   import Toast from "../../../components/Toast.svelte";
-  import { dataset_dev } from "svelte/internal";
 
   let user = {
     email: "",
@@ -16,8 +15,8 @@
   let toast;
   let toastObj = {
     message: "",
-    description: ""
-  }
+    description: "",
+  };
   let toastError = false;
 
   async function handleSignup() {
@@ -29,7 +28,7 @@
 
     if (user.password != user.passwordConfirm) {
       toastError = true;
-      toastObj.message = "Passwords must match."
+      toastObj.message = "Passwords must match.";
       toast.showToastNow(4000);
       return;
     }
@@ -51,19 +50,19 @@
 
     if (!response.ok) {
       toastError = true;
-      const data = await response.json()
+      const data = await response.json();
       if (data.error_code && data.error_code == "#1BE") {
-        toastObj.message = `'${user.email}' is already in use.`
+        toastObj.message = `'${user.email}' is already in use.`;
         toast.showToastNow(4000);
       } else {
-        toastObj.message = "Something went wrong."
+        toastObj.message = "Something went wrong.";
         toast.showToastNow(4000);
       }
       return;
     }
 
     toastError = false;
-    toastObj.message = "Account created successfully. Please sign in."
+    toastObj.message = "Account created successfully. Please sign in.";
     toast.showToastNow(4000);
     // window.location.href = "/login";
   }
@@ -74,10 +73,10 @@
     <Tagline />
   </div>
   <div class="rest">
-    <Toast 
-      bind:this={toast} 
-      bind:message={toastObj.message} 
-      bind:description={toastObj.description} 
+    <Toast
+      bind:this={toast}
+      bind:message={toastObj.message}
+      bind:description={toastObj.description}
       showToast=""
       bind:error={toastError}
     />
@@ -136,8 +135,6 @@
 
 <style lang="scss">
   .body {
-    margin-left: -88px;
-    margin-top: -1px;
     padding: 0;
     display: flex;
     flex-direction: row;

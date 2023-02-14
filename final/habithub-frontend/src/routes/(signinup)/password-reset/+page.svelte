@@ -10,8 +10,8 @@
   let toast;
   let toastObj = {
     message: "",
-    description: ""
-  }
+    description: "",
+  };
   let toastError = false;
   let password;
   let passwordConfirm;
@@ -21,7 +21,7 @@
       toastObj.message = "Invalid password reset link.";
       toast.showToastNow(4000);
     }
-  })
+  });
 
   async function passwordSubmit() {
     if ($page.url.searchParams.get("token") == null) {
@@ -30,49 +30,50 @@
       toast.showToastNow(4000);
       return;
     }
-    
+
     if (password != passwordConfirm) {
       toastError = true;
       toastObj.message = "Passwords must match.";
       toast.showToastNow(4000);
       return;
-    } 
+    }
     const response = await fetch(
-    `https://habithub-api.herokuapp.com/auth/reset/${$page.url.searchParams.get("token")}`,
-    {
+      `https://habithub-api.herokuapp.com/auth/reset/${$page.url.searchParams.get(
+        "token"
+      )}`,
+      {
         method: "POST",
         headers: {
-        Accept: "application.json",
-        "Content-Type": "application/json"
+          Accept: "application.json",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            password: password
-        })
-    }
+          password: password,
+        }),
+      }
     );
 
     if (!response.ok) {
       toastError = true;
-      if (response.status == 401) toastObj.message = "Unauthorised"
-      else toastObj.message = "Problem resetting password"
-      toast.showToastNow(4000)
+      if (response.status == 401) toastObj.message = "Unauthorised";
+      else toastObj.message = "Problem resetting password";
+      toast.showToastNow(4000);
     } else {
-      const data = await response.json()
+      const data = await response.json();
       toastError = false;
-      toastObj.message = `Password for ${data.email} reset successfully.`
-      toast.showToastNow(4000)
+      toastObj.message = `Password for ${data.email} reset successfully.`;
+      toast.showToastNow(4000);
     }
   }
-
 </script>
 
 <div class="body">
   <div class="slogan">
     <Tagline />
   </div>
-  <Toast 
-    bind:this={toast} 
-    bind:message={toastObj.message} 
+  <Toast
+    bind:this={toast}
+    bind:message={toastObj.message}
     bind:description={toastObj.description}
     bind:error={toastError}
   />
@@ -107,8 +108,6 @@
 
 <style lang="scss">
   .body {
-    margin-left: -88px;
-    margin-top: -1px;
     padding: 0;
     display: flex;
     flex-direction: row;

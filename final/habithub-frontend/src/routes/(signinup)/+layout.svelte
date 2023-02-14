@@ -1,5 +1,5 @@
 <script>
-  import "../../app.scss";
+  import "../../loggedOut.scss";
 </script>
 
 <slot />
