@@ -13,7 +13,7 @@
   }
 
   if (icon == undefined || icon == null) {
-    icon = "bx-list-check"
+    icon = "bx-list-check";
   }
 
   const dispatch = createEventDispatcher();
@@ -27,12 +27,12 @@
   }
 
   function editHabit() {
-    window.location.href = `/habits?id=${h_id}`
+    window.location.href = `/habits?id=${h_id}`;
   }
 </script>
 
 <div class="habit-card {yes ? 'complete' : ''}">
-  <div class="wrapper" on:click={editHabit}>
+  <div class="wrapper" on:click={editHabit} on:keydown={editHabit}>
     <div class="title">
       <i class="bx {icon}" />
       <h2>{title}</h2>

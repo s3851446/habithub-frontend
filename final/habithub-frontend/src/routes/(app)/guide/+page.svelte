@@ -15,11 +15,11 @@
       redirectToLocation("/login");
     }
 
-    jwt = localStorage.getItem("jwt")
-    userID = localStorage.getItem("userID")
+    jwt = localStorage.getItem("jwt");
+    userID = localStorage.getItem("userID");
 
-    guideFinished()
-  })
+    guideFinished();
+  });
 
   async function guideFinished() {
     const response = await fetch(
@@ -32,7 +32,7 @@
           Authorization: "BEARER " + jwt,
         },
         body: JSON.stringify({
-          firstTime: false
+          firstTime: false,
         }),
       }
     );
@@ -51,8 +51,6 @@
     </div>
     <div class="step">
       <h2>View daily/weekly/monthly stats</h2>
-      <!-- Placeholder from Adobe Stock Images:
-            https://stock.adobe.com/au/search?k=image+placeholder&search_type=usertyped&asset_id=268556012 -->
       <img src="./images/img_placeholder.jpeg" alt="Placeholder" />
     </div>
     <div class="btn">
