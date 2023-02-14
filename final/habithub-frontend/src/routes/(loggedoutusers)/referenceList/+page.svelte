@@ -30,6 +30,50 @@
         <a href="https://www.svgator.com/">https://www.svgator.com/</a>.</b
       >
     </p>
+    <h2>JavaScript</h2>
+    <p>Several websites have been used to solve JavaScript problems and bugs.
+      <br />
+      <br />
+      <b>
+        Ahmed, I. 2021. “Using Fetch API to create a Login form.” Stack Overflow. 
+        <a href="https://stackoverflow.com/questions/68389117/using-fetch-api-to-create-a-login-form">
+          https://stackoverflow.com/questions/68389117/using-fetch-api-to-create-a-login-form
+        </a>
+      </b>
+      <br />
+      <br />
+      <b>
+        Kantor, I. 2021. “FormData.” JavaScript.Info.
+        <a href="https://javascript.info/formdata">
+          https://javascript.info/formdata
+        </a>
+      </b>
+      <br />
+      <br />
+      <b>
+        Mozilla. n.d. “History.replaceState().” Mozilla. 
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/History/replaceState">
+          https://developer.mozilla.org/en-US/docs/Web/API/History/replaceState
+        </a>
+      </b>
+      <br />
+      <br />
+      <b>
+        Mozilla. n.d. “Using the Fetch API.” Mozilla.  
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">
+          https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+        </a>
+      </b>
+      <br />
+      <br />
+      <b>
+        u/SillyFreak. 2022. “Best way to change URL (in SvelteKit) in a multi-step process 
+        without resetting the page.” Reddit.   
+        <a href="https://www.reddit.com/r/sveltejs/comments/t2oeqg/best_way_to_change_url_in_sveltekit_in_a/">
+          https://www.reddit.com/r/sveltejs/comments/t2oeqg/best_way_to_change_url_in_sveltekit_in_a/
+        </a>
+      </b>
+    </p>
   </div>
   <div class="man">
     <object title="Man typing" type="image/svg+xml" data="./images/typing.svg">
