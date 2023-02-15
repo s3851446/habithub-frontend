@@ -7,7 +7,6 @@
 
   function toggleMenu() {
     isMenuOpen = !isMenuOpen;
-    console.log("hi")
   }
 
   onMount(() => {
