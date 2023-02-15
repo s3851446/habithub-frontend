@@ -3,6 +3,12 @@
   import { onMount } from "svelte";
   import { loadUserData, loadUserPic } from "../utils";
 
+  let isMenuOpen = false;
+
+  function toggleMenu() {
+    isMenuOpen = !isMenuOpen;
+  }
+
   onMount(() => {
     if (localStorage.getItem("loggedIn")) {
       loadProfile();
@@ -21,23 +27,22 @@
     if (data && data.pic) {
       picImg.src = `data:${data.pic.mimetype};base64,${data.pic.buffer64}`;
 
-      // sometimes the natural height / width are not set fast enough, 
+      // sometimes the natural height / width are not set fast enough,
       // resulting in a buggy load. if so, a delay is set to let the DOM
       // load the img properly
       // NOTE - this should probably be in a while loop with a set number
       // of attempts on delays
       if (picImg.naturalHeight == 0) {
         setTimeout(() => {
-        setPic(picImg)
-        picImg.style.display = "block";
-        picIcon.style.display = "none";
-      }, 1000);
+          setPic(picImg);
+          picImg.style.display = "block";
+          picIcon.style.display = "none";
+        }, 1000);
       } else {
         setPic(picImg);
         picImg.style.display = "block";
         picIcon.style.display = "none";
       }
-      
     }
   }
 
@@ -47,11 +52,11 @@
     var width = picImg.naturalWidth;
     if (picImg.naturalWidth > picImg.naturalHeight) {
       picImg.style.height = "60px";
-      var styleWidth = width/height*60;
+      var styleWidth = (width / height) * 60;
       picImg.style.width = `${styleWidth}px`;
     } else {
       picImg.style.width = "60px";
-      var styleHeight = height/width*60;
+      var styleHeight = (height / width) * 60;
       picImg.style.height = `${styleHeight}px`;
     }
   }
@@ -70,11 +75,16 @@
 <!-- This component was created with the help of a YouTube tutorial.
 https://youtu.be/ybXulmeilFM -->
 <nav {id}>
-  <div class="user-pic" id="user-pic">
+  <div
+    class="user-pic"
+    id="user-pic"
+    on:click={toggleMenu}
+    on:keydown={toggleMenu}
+  >
     <i id="pic-icon" class="bx bxs-user profile" />
     <img id="pic-img" src="" alt="user-avatar" />
   </div>
-  <div class="sub-menu-wrap close-menu">
+  <div class={isMenuOpen ? "sub-menu-wrap" : "sub-menu-wrap close-menu"}>
     <div class="sub-menu">
       <div class="user-info">
         <i class="bx bxs-user" />

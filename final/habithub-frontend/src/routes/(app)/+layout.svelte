@@ -8,39 +8,16 @@
 
   onMount(async () => {
     if (localStorage.getItem("darkTheme") == "true") {
-      document.body.classList.add('darkmode')
+      document.body.classList.add("darkmode");
     }
-    document.getElementById('page-content').style.visibility = "visible";
+    document.getElementById("page-content").style.visibility = "visible";
 
     const sidebar = document.querySelector(".sidebar"),
-    toggle = document.querySelector(".toggle"),
-    userPic = document.querySelector(".user-pic"),
-    subMenuWrap = document.querySelector(".sub-menu-wrap"),
-    picImg = document.querySelector(".pic-img");
+      toggle = document.querySelector(".toggle");
 
     toggle.addEventListener("click", () => {
       sidebar.classList.toggle("close");
     });
-
-    userPic.addEventListener("click", () => {
-      subMenuWrap.classList.toggle("close-menu");
-    });
-
-    if (picImg)
-      picImg.addEventListener("click", () => {
-        subMenuWrap.classList.toggle("close-menu");
-      });
-
-    // const header = document.getElementById("header");
-    // const navbar = document.getElementById("navbar");
-
-    // validToken = await validateToken();
-
-    // header.classList.add("hidden");
-
-    // if (validToken) {
-    //   header.classList.remove("hidden");
-    // }
   });
 </script>
 
@@ -50,7 +27,6 @@
   <slot />
   <Footer />
 </div>
-
 
 <style lang="scss">
   .page-content {
