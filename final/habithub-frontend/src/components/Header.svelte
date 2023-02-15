@@ -7,6 +7,7 @@
 
   function toggleMenu() {
     isMenuOpen = !isMenuOpen;
+    console.log("hi")
   }
 
   onMount(() => {
@@ -85,7 +86,10 @@ https://youtu.be/ybXulmeilFM -->
     <img id="pic-img" src="" alt="user-avatar" />
   </div>
   <div class={isMenuOpen ? "sub-menu-wrap" : "sub-menu-wrap close-menu"}>
-    <div class="sub-menu">
+    <div class="sub-menu"
+      on:click={toggleMenu}
+      on:keydown={toggleMenu}
+    >
       <div class="user-info">
         <i class="bx bxs-user" />
         <h2 id="name">Name LastName</h2>
