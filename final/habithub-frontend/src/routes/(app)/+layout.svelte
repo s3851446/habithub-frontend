@@ -4,6 +4,7 @@
   import Footer from "../../components/Footer.svelte";
   import Header from "../../components/Header.svelte";
   import { onMount } from "svelte";
+  import { loadUserData } from "../../utils";
 
   onMount(async () => {
     if (localStorage.getItem("darkTheme") == "true") {

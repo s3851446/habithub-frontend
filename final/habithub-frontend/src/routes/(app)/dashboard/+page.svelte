@@ -74,9 +74,9 @@
     document.getElementById("spinner").style.display = "none";
   }
 
-  async function habitCompleteEvent(e) {
-    var streak;
+  var streak;
 
+  async function habitCompleteEvent(e) {
     if (e.detail.completed) {
       uncompletedHabits.forEach((habit) => {
         if (habit._id == e.detail.h_id) {
