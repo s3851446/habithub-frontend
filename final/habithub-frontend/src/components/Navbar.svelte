@@ -28,31 +28,31 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
     <div class="menu">
       <ul class="menu-links" id="menu-links">
         <li class="nav-link">
-          <a href="/dashboard">
+          <a href="/dashboard" class="text-link">
             <i class="bx bx-home-alt icon" />
             <span class="text nav-text">Dashboard</span>
           </a>
         </li>
         <li class="nav-link">
-          <a href="/habits">
+          <a href="/habits" class="text-link">
             <i class="bx bx-list-check icon" />
             <span class="text nav-text">Habits</span>
           </a>
         </li>
         <li class="nav-link">
-          <a href="/statistics">
+          <a href="/statistics" class="text-link">
             <i class="bx bx-line-chart icon" />
             <span class="text nav-text">Statistics</span>
           </a>
         </li>
         <li class="nav-link">
-          <a href="/settings">
+          <a href="/settings" class="text-link">
             <i class="bx bx-cog icon" />
             <span class="text nav-text">Settings</span>
           </a>
         </li>
         <li class="nav-link">
-          <a href="/guide">
+          <a href="/guide" class="text-link">
             <i class="bx bx-help-circle icon" />
             <span class="text nav-text">Help/Guide</span>
           </a>
@@ -62,7 +62,7 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
     <div class="bottom-content">
       <ul class="menu-links">
         <li class="">
-          <a id="loginLink" href="/logout">
+          <a id="loginLink" href="/logout" class="text-link">
             <i id="loginIcon" class="bx bx-log-out icon" />
             <span id="loginText" class="text nav-text">Log Out</span>
           </a>
