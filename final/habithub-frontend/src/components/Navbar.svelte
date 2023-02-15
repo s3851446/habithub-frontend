@@ -2,6 +2,10 @@
   import { jwt, loggedIn } from "../stores";
   import { base } from "$app/paths";
   export let id;
+
+  function toAbout() {
+    window.location.href = "/";
+  }
 </script>
 
 <!-- This component was created with the help of a YouTube tutorial.
@@ -10,7 +14,9 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
   <header>
     <div class="image-text">
       <span class="image">
-        <img src="{base}/images/logo_app.png" alt="Logo" />
+        <a href="/" on:click|preventDefault={toAbout}>
+          <img src="{base}/images/logo_app.png" alt="Logo" />
+        </a>
       </span>
       <div class="text header-text">
         <span class="name">Habit Hub</span>
@@ -175,7 +181,7 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
     justify-content: center;
   }
 
-  a {
+  .text-link {
     font-size: 16px;
     width: 100%;
     color: $light-grey;
