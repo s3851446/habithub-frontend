@@ -62,11 +62,11 @@
       var width = picImg.naturalWidth;
       if (picImg.naturalWidth > picImg.naturalHeight) {
         picImg.style.height = "60px";
-        var styleWidth = width/height*60;
+        var styleWidth = (width / height) * 60;
         picImg.style.width = `${styleWidth}px`;
       } else {
         picImg.style.width = "60px";
-        var styleHeight = height/width*60;
+        var styleHeight = (height / width) * 60;
         picImg.style.height = `${styleHeight}px`;
       }
 
@@ -123,18 +123,17 @@
         const fileData = await fileResponse.json();
         const picImg = document.getElementById("pic-img-settings");
         const picIcon = document.getElementById("pic-icon-settings");
-        
+
         picImg.style.display = "none";
         picIcon.style.display = "block";
         picImg.src = `data:${fileData.mimetype};base64,${fileData.buffer64}`;
 
-        
         if (picImg.naturalHeight == 0) {
           setTimeout(() => {
-          setPic(picImg)
-          picImg.style.display = "block";
-          picIcon.style.display = "none";
-        }, 1000);
+            setPic(picImg);
+            picImg.style.display = "block";
+            picIcon.style.display = "none";
+          }, 1000);
         } else {
           setPic(picImg);
           picImg.style.display = "block";
@@ -208,9 +207,8 @@
       toastObj.message = "Problem deleting account.";
       toast.showToastNow(4000);
     } else {
-      window.location.href = "/logout"
+      window.location.href = "/logout";
     }
-    
   }
 
   async function changeTheme() {
@@ -241,11 +239,11 @@
     var width = picImg.naturalWidth;
     if (picImg.naturalWidth > picImg.naturalHeight) {
       picImg.style.height = "60px";
-      var styleWidth = width/height*60;
+      var styleWidth = (width / height) * 60;
       picImg.style.width = `${styleWidth}px`;
     } else {
       picImg.style.width = "60px";
-      var styleHeight = height/width*60;
+      var styleHeight = (height / width) * 60;
       picImg.style.height = `${styleHeight}px`;
     }
   }
@@ -260,8 +258,7 @@
     bind:error={toastError}
   />
   <Warning
-    message="The notification and colour scheme
-      features are still under construction.
+    message="The notification feature is still under construction.
       We apologise for any inconveniences caused by this.
       This will be updated soon. Thank you for your patience."
   />
@@ -378,18 +375,14 @@
     <div class="container">
       <div class="error">
         <h2>Colour scheme</h2>
-        <i class="bx bx-error" />
       </div>
       <hr />
       <div class="wrapper">
         <h3>Dark mode</h3>
-        <!-- <p id="colourScheme">Light</p> -->
         <input id="theme" type="checkbox" on:input={changeTheme} />
       </div>
     </div>
   </section>
-  <!-- This page has no man as I felt that it didn't need one. It's just the settings 
-      page and user's don't need the man's emotions to motivate them here. -AB -->
 </div>
 
 <style lang="scss">
@@ -422,6 +415,9 @@
     gap: 15px;
     flex-direction: row wrap;
     justify-content: flex-start;
+    @media only screen and (max-width: 500px) {
+      flex-direction: column;
+    }
   }
 
   .user-pic {
@@ -462,7 +458,6 @@
 
   .container {
     width: 31%;
-    min-width: 300px;
     height: auto;
     background: $white;
     border-radius: $card-radius;
