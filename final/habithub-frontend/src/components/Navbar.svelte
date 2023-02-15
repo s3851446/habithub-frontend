@@ -19,50 +19,50 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
     <i class="bx bx-chevron-right toggle" />
   </header>
   <div class="menu-bar">
-      <div class="menu">
-        <ul class="menu-links" id="menu-links">
-          <li class="nav-link">
-            <a href="/dashboard">
-              <i class="bx bx-home-alt icon" />
-              <span class="text nav-text">Dashboard</span>
-            </a>
-          </li>
-          <li class="nav-link">
-            <a href="/habits">
-              <i class="bx bx-list-check icon" />
-              <span class="text nav-text">Habits</span>
-            </a>
-          </li>
-          <li class="nav-link">
-            <a href="/statistics">
-              <i class="bx bx-line-chart icon" />
-              <span class="text nav-text">Statistics</span>
-            </a>
-          </li>
-          <li class="nav-link">
-            <a href="/settings">
-              <i class="bx bx-cog icon" />
-              <span class="text nav-text">Settings</span>
-            </a>
-          </li>
-          <li class="nav-link">
-            <a href="/guide">
-              <i class="bx bx-help-circle icon" />
-              <span class="text nav-text">Help/Guide</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="bottom-content">
-        <ul class="menu-links">
-          <li class="">
-            <a id="loginLink" href="/logout">
-              <i id="loginIcon" class="bx bx-log-out icon" />
-              <span id="loginText" class="text nav-text">Log Out</span>
-            </a>
-          </li>
-        </ul>
-      </div>
+    <div class="menu">
+      <ul class="menu-links" id="menu-links">
+        <li class="nav-link">
+          <a href="/dashboard">
+            <i class="bx bx-home-alt icon" />
+            <span class="text nav-text">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-link">
+          <a href="/habits">
+            <i class="bx bx-list-check icon" />
+            <span class="text nav-text">Habits</span>
+          </a>
+        </li>
+        <li class="nav-link">
+          <a href="/statistics">
+            <i class="bx bx-line-chart icon" />
+            <span class="text nav-text">Statistics</span>
+          </a>
+        </li>
+        <li class="nav-link">
+          <a href="/settings">
+            <i class="bx bx-cog icon" />
+            <span class="text nav-text">Settings</span>
+          </a>
+        </li>
+        <li class="nav-link">
+          <a href="/guide">
+            <i class="bx bx-help-circle icon" />
+            <span class="text nav-text">Help/Guide</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="bottom-content">
+      <ul class="menu-links">
+        <li class="">
+          <a id="loginLink" href="/logout">
+            <i id="loginIcon" class="bx bx-log-out icon" />
+            <span id="loginText" class="text nav-text">Log Out</span>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
 
@@ -104,9 +104,6 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
       bottom: 0;
       border-radius: 0 6px 6px 0;
       padding: 10px 8px;
-      .toggle {
-        display: none;
-      }
       &.close {
         width: 60px;
       }
@@ -132,9 +129,6 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
     transition: $trans-04;
     white-space: nowrap;
     opacity: 1;
-    @media all and (max-width: 800px) {
-      display: none;
-    }
   }
 
   .image {
@@ -144,9 +138,6 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
 
   .header-text {
     @include flex-column;
-    @media all and (max-width: 800px) {
-      display: none;
-    }
   }
 
   .toggle {
