@@ -11,7 +11,7 @@
   export let label;
 
   function focus() {
-    document.getElementById(id).focus()
+    document.getElementById(id).focus();
   }
 </script>
 
@@ -25,8 +25,9 @@
     {placeholder}
     class="text-input"
   />
-  <label class="label" for={name} on:click={focus}>{label}</label>
-
+  <label class="label" for={name} on:click={focus} on:keydown={focus}
+    >{label}</label
+  >
   <slot />
 </div>
 
@@ -95,6 +96,31 @@
       top: -10px;
       color: $red;
       font-size: 14px;
+    }
+  }
+
+  :global(body.darkmode) .text-input {
+    background-color: $black;
+    color: $white;
+    &:focus {
+      & + .label {
+        color: $red;
+        font-weight: bold;
+        font-size: 15px;
+      }
+    }
+    &:focus + label,
+    &:valid + label {
+      color: $red;
+      font-weight: bold;
+      font-size: 15px;
+    }
+  }
+
+  :global(body.darkmode) .label {
+    color: $dark-grey;
+    &::before {
+      background-color: $black;
     }
   }
 </style>

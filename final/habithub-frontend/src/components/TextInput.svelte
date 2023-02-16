@@ -113,16 +113,28 @@
     }
   }
 
-  // :global(body.darkmode) .text-input{
-  //   background-color: $light-grey;
-  //   &:focus {
-  //     border-color: $yellow;
-  //     & + .label {
-  //       color: $yellow;
-  //     }
-  //   }
-  //   &:valid + label {
-  //     color: $yellow;
-  //   }
-  // }
+  :global(body.darkmode) .text-input {
+    background-color: $black;
+    color: $white;
+    &:focus {
+      & + .label {
+        color: $red;
+        font-weight: bold;
+        font-size: 15px;
+      }
+    }
+    &:focus + label,
+    &:valid + label {
+      color: $red;
+      font-weight: bold;
+      font-size: 15px;
+    }
+  }
+
+  :global(body.darkmode) .label {
+    color: $dark-grey;
+    &::before {
+      background-color: $black;
+    }
+  }
 </style>

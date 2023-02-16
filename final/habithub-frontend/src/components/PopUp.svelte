@@ -51,7 +51,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(83, 83, 83, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -100,7 +100,12 @@
   }
 
   :global(body.darkmode) .popup {
-    background: $black;
+    background-image: linear-gradient(
+      to bottom right,
+      #121212,
+      #111111,
+      #272727
+    );
     i {
       color: $base-txt-color-light;
     }
