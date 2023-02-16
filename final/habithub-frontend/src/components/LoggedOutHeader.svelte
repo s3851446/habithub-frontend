@@ -1,6 +1,7 @@
 <script>
   import Button from "./Button.svelte";
   import { goto } from "$app/navigation";
+  import { validateToken } from "../utils";
 
   let showMenu = false;
 
@@ -10,6 +11,14 @@
 
   function toggleMenu() {
     showMenu = !showMenu;
+  }
+
+  function loginOverride() {
+    if (localStorage.getItem("loggedIn") == "true" && validateToken(localStorage.getItem('jwt'))) {
+      window.location.href = '/dashboard'
+    } else {
+      window.location.href = '/login'
+    }
   }
 </script>
 
@@ -29,7 +38,7 @@
       <li><a href="/">About Us</a></li>
       <li><a href="/contactUs">Contact Us</a></li>
       <li><a href="/referenceList">Reference List</a></li>
-      <li><a href="/login">Login</a></li>
+      <li><a href="/login" on:click|preventDefault={loginOverride}>Login</a></li>
       <li>
         <Button on:click={signupButtonClick}>
           <i class="bx bx-plus" />
