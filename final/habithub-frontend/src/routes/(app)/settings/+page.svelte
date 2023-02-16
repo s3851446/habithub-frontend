@@ -477,6 +477,7 @@
 
   :global(body.darkmode) .container {
     background: $black;
+    box-shadow: none;
   }
 
   section {

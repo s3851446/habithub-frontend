@@ -71,11 +71,6 @@
     border-radius: $card-radius;
     box-shadow: $card-shadow;
     transition: $trans-05;
-    &:hover {
-      .bx-chevron-right {
-        transform: translateX(5px);
-      }
-    }
     &.complete {
       background: rgb(251, 255, 239);
     }
@@ -83,6 +78,7 @@
 
   :global(body.darkmode) .habit-card {
     background: $black;
+    box-shadow: none;
   }
 
   .bx-chevron-right {

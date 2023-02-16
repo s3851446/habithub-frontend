@@ -16,8 +16,7 @@
   import EditHabit from "./EditHabit.svelte";
   import { createEventDispatcher, onMount } from "svelte";
   import Button from "./Button.svelte";
-  import SecondaryButton from "./SecondaryButton.svelte"
-
+  import SecondaryButton from "./SecondaryButton.svelte";
 
   let showEditPopup = editing;
   let showDeletePopup = false;
@@ -62,7 +61,7 @@
     } else {
       showDeletePopup = false;
       dispatch("submitEvent", {
-        type: "delete"
+        type: "delete",
       });
     }
   }
@@ -84,8 +83,9 @@
       <span class="body-content">{streak} days!</span>
     </div>
     <div class="end">
-      <PopUp icon="bx-edit" 
-        button_name="Edit" 
+      <PopUp
+        icon="bx-edit"
+        button_name="Edit"
         bind:showPopup={showEditPopup}
         on:popupClosed={editPopupClosed}
       >
@@ -100,7 +100,7 @@
           on:submitEvent={closePopup}
           {category}
           {goal}
-      />
+        />
       </PopUp>
       <PopUp
         icon="bx-trash"
@@ -110,7 +110,8 @@
         <div class="delete-form">
           <p>Are you sure you want to delete "{name}"?</p>
           <div>
-            <SecondaryButton on:click={closeDeletePopup}>Cancel</SecondaryButton>
+            <SecondaryButton on:click={closeDeletePopup}>Cancel</SecondaryButton
+            >
             <Button on:click={deleteHabit}>Delete</Button>
           </div>
         </div>
@@ -130,7 +131,8 @@
   }
 
   :global(body.darkmode) .parent {
-    background-color: $black
+    background-color: $black;
+    box-shadow: none;
   }
 
   p {

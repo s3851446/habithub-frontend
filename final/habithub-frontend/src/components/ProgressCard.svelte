@@ -6,8 +6,9 @@
   export let goal;
   export let achieved;
 
-  if (goal == undefined || goal == null) goal = 30
-  if (best_streak == undefined || best_streak == null) best_streak = current_streak
+  if (goal == undefined || goal == null) goal = 30;
+  if (best_streak == undefined || best_streak == null)
+    best_streak = current_streak;
 </script>
 
 <div class="column">
@@ -58,6 +59,7 @@
 
   :global(body.darkmode) .new-container {
     background: $black;
+    box-shadow: none;
   }
 
   .title {

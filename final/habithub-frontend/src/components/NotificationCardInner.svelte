@@ -48,6 +48,8 @@
 
   :global(body.darkmode) .container {
     background: $black;
+    box-shadow: none;
+    border: 0.1px $dark-grey solid;
   }
 
   .notification {
