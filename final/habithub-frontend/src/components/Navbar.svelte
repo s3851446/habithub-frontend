@@ -116,6 +116,13 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
     }
   }
 
+  :global(body.darkmode) .sidebar {
+    background: $light-grey;
+    .text {
+      color: $black;
+    }
+  }
+
   header {
     position: relative;
   }
@@ -193,6 +200,14 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
     &:hover {
       background: $light-grey;
       color: $black;
+    }
+  }
+
+  :global(body.darkmode) .text-link {
+    color: $black;
+    &:hover {
+      background: $black;
+      color: $light-grey;
     }
   }
 
