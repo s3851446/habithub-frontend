@@ -276,7 +276,7 @@
         <h3>Last Name</h3>
         <p id="lastName">{lastName}</p>
       </div>
-      <div class="wrapper">
+      <div class="wrapper email">
         <h3>Email</h3>
         <p id="email">{email}</p>
       </div>
@@ -408,6 +408,10 @@
     flex-direction: column;
     justify-content: center;
     gap: 15px;
+  }
+
+  .email {
+    word-break: break-all;
   }
 
   .popups {
