@@ -44,14 +44,28 @@
     <h1>Welcome to Habit Hub!</h1>
     <p>This is a quick guide to show you what you can do with Habit Hub!</p>
     <div class="step">
-      <h2>Add/delete/edit habits</h2>
-      <!-- Placeholder from Adobe Stock Images:
-            https://stock.adobe.com/au/search?k=image+placeholder&search_type=usertyped&asset_id=268556012 -->
-      <img src="./images/img_placeholder.jpeg" alt="Placeholder" />
+      <h2>Add/edit/delete habits</h2>
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/Ia1mNH83pLg"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        />
+      </div>
     </div>
     <div class="step">
-      <h2>View daily/weekly/monthly stats</h2>
-      <img src="./images/img_placeholder.jpeg" alt="Placeholder" />
+      <h2>Check completed habits</h2>
+      <div class="video-container" />
+    </div>
+    <div class="step">
+      <h2>View habit stats</h2>
+      <div class="video-container" />
+    </div>
+    <div class="step">
+      <h2>Enable dark mode</h2>
+      <div class="video-container" />
     </div>
     <div class="btn">
       <Button on:click={() => goto("/dashboard")}>Okay, got it!</Button>
@@ -115,5 +129,18 @@
 
   .btn {
     margin-bottom: 20px;
+  }
+
+  .video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 </style>
