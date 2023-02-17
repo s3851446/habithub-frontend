@@ -57,15 +57,39 @@
     </div>
     <div class="step">
       <h2>Check completed habits</h2>
-      <div class="video-container" />
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/iUKvpbjbudI"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        />
+      </div>
     </div>
     <div class="step">
       <h2>View habit stats</h2>
-      <div class="video-container" />
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/3AMMtyo4gvo"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        />
+      </div>
     </div>
     <div class="step">
       <h2>Enable dark mode</h2>
-      <div class="video-container" />
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/G9IPAxXJZVU"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        />
+      </div>
     </div>
     <div class="btn">
       <Button on:click={() => goto("/dashboard")}>Okay, got it!</Button>
@@ -135,7 +159,10 @@
     position: relative;
     width: 100%;
     padding-bottom: 56.25%;
+    border-radius: $card-radius;
+    border: 0.1px solid $yellow;
     iframe {
+      border-radius: $card-radius;
       position: absolute;
       top: 0;
       left: 0;
