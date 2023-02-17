@@ -100,12 +100,7 @@
   }
 
   :global(body.darkmode) .popup {
-    background-image: linear-gradient(
-      to bottom right,
-      #121212,
-      #111111,
-      #272727
-    );
+    background: #1d2021;
     i {
       color: $base-txt-color-light;
     }

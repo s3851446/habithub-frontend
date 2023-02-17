@@ -102,6 +102,7 @@
   :global(body.darkmode) .text-input {
     background-color: $black;
     color: $white;
+    border: 1px solid rgb(67, 67, 67);
     &:focus {
       & + .label {
         color: $red;
