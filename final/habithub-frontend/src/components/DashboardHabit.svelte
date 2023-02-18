@@ -74,6 +74,11 @@
     &.complete {
       background: rgb(251, 255, 239);
     }
+    &:hover {
+      .bx-chevron-right {
+        transform: translateX(5px);
+      }
+    }
   }
 
   :global(body.darkmode) .habit-card {
