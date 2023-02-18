@@ -79,7 +79,7 @@
   <div class="bottom">
     <div class="start">
       <i class="bx bxs-hot icon" />
-      <span class="body-content">{streak} days!</span>
+      <span class="body-content">{streak} days streak!</span>
     </div>
     <div class="end">
       <PopUp
