@@ -11,7 +11,6 @@
   export let goal;
   export let editing;
 
-  // import { redirectToLocation } from './../utils'
   import PopUp from "./PopUp.svelte";
   import EditHabit from "./EditHabit.svelte";
   import { createEventDispatcher, onMount } from "svelte";

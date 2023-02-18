@@ -1,11 +1,7 @@
 <script>
   export let file = null;
 
-  // function handleFileUpload(){
-  //     //code for handling file upload
-  // }
-
-  //NOTE - should be checking for filetype before allowing file upload
+  // NOTE - should be checking for filetype before allowing file upload
   // only really want to allow png/jpeg
   // might also be worth restricting file size
 </script>

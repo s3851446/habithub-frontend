@@ -2,7 +2,6 @@
 
 <!-- Styled with the../routes/(app)/dashboard/+page.svelteXUfcujpsk -->
 <script>
-  // import Page from "../routes/(app)/+page.svelte";
   import { onMount } from "svelte";
 
   export let id;

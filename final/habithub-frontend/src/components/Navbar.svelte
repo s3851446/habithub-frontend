@@ -1,5 +1,4 @@
 <script>
-  import { jwt, loggedIn } from "../stores";
   import { base } from "$app/paths";
   export let id;
 
