@@ -8,13 +8,11 @@ html {
 }
 
 body {
-  background-image: linear-gradient(
-    to bottom right,
-    #fdf4ee,
-    #fcf6ee,
-    #fdf1ed,
-    $light-grey
-  );
+  background-image: linear-gradient(to bottom right,
+      #fdf4ee,
+      #fcf6ee,
+      #fdf1ed,
+      $light-grey );
   background-attachment: fixed;
   height: 100vh;
   color: $base-txt-color-dark;
@@ -24,13 +22,16 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+
   @media all and (max-width: 800px) {
     left: 60px;
     width: calc(100% - 70px);
   }
+
   @media all and (max-width: 300px) {
     width: 100%;
   }
+
   &.darkmode {
     color: $base-txt-color-light;
     background: #1d2021;
@@ -50,20 +51,22 @@ h6 {
 
 h1 {
   font-size: 32px;
+
   @media all and (max-width: 900px) {
     font-size: 25px;
   }
 }
 
-button {
+button,
+ul {
   font-family: $paragraph-font;
+  font-size: 15px;
 }
 
 p {
   @extend button;
   line-height: 1.5;
   margin-bottom: 20px;
-  font-size: 15px;
 }
 
 .body {

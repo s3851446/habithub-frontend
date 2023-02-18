@@ -6,13 +6,11 @@ html {
 }
 
 body {
-  background-image: linear-gradient(
-    to bottom right,
-    #fdf4ee,
-    #fcf6ee,
-    #fdf1ed,
-    $light-grey
-  );
+  background-image: linear-gradient(to bottom right,
+      #fdf4ee,
+      #fcf6ee,
+      #fdf1ed,
+      $light-grey );
   background-attachment: fixed;
   color: $base-txt-color-dark;
   position: relative;
@@ -34,20 +32,22 @@ h6 {
 
 h1 {
   font-size: 32px;
+
   @media all and (max-width: 900px) {
     font-size: 25px;
   }
 }
 
-button {
+button,
+ul {
   font-family: $paragraph-font;
+  font-size: 15px;
 }
 
 p {
   @extend button;
   line-height: 1.5;
   margin-bottom: 20px;
-  font-size: 15px;
 }
 
 label,
