@@ -37,13 +37,13 @@
     dropdownVisible = !dropdownVisible;
   }
 
-  // function hideDropdown() {
-  //   dropdownVisible = false;
-  // }
+  function hideDropdown() {
+    dropdownVisible = false;
+  }
 
-  // onMount(() => {
-  //   document.addEventListener("click", hideDropdown);
-  // });
+  onMount(() => {
+    document.addEventListener("click", hideDropdown);
+  });
 
   function buttonClick(e) {
     value = e.srcElement.value;
