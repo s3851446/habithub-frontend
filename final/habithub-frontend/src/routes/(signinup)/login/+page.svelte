@@ -20,6 +20,9 @@
   };
 
   onMount(() => {
+    if (localStorage.getItem('loggedIn') == "true") {
+      window.location.href = "/dashboard"
+    }
     const btn = document.getElementById("login_button");
     btn.addEventListener("click", loginClick);
     function loginClick() {

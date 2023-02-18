@@ -1,5 +1,6 @@
 <script>
   import { base } from "$app/paths";
+  import { onMount } from "svelte";
   import Button from "../../../components/Button.svelte";
   import TextInput from "../../../components/TextInput.svelte";
   import Tagline from "../../../components/Tagline.svelte";
@@ -18,6 +19,12 @@
     description: "",
   };
   let toastError = false;
+
+  onMount(() => {
+    if (localStorage.getItem('loggedIn') == "true") {
+      window.location.href = "/dashboard"
+    }
+  })
 
   async function handleSignup() {
     user.email = document.getElementById("email").value;
