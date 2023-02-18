@@ -38,11 +38,11 @@
     jwt = localStorage.getItem("jwt");
     userID = localStorage.getItem("userID");
 
-    fetchHabits(userID, jwt);
+    fetchHabits(userID, jwt, true);
   });
 
   // fetch habits should become a utils function (matching dashboard / )
-  async function fetchHabits(userID, jwt) {
+  async function fetchHabits(userID, jwt, isPageLoad) {
     let response = await fetch(
       `https://habithub-api.herokuapp.com/habit/user/${userID}`,
       {
@@ -66,7 +66,7 @@
     habits = data;
     if (habits.length > 0) noHabits = false;
     
-    editingHabit(habits)
+    editingHabit(habits, isPageLoad)
 
     document.getElementById("card-container").style.visibility = "visible";
     document.querySelector(".man").style.visibility = "visible";
@@ -74,7 +74,7 @@
   }
 
   async function closePopup() {
-    await fetchHabits(userID, jwt)
+    await fetchHabits(userID, jwt, false)
     toastError = false;
     toastObj.message = "Habit created successfully"
     toast.showToastNow(4000)
@@ -87,7 +87,7 @@
   }
 
   async function habitSubmitEvent(e) {
-    await fetchHabits(userID, jwt)
+    await fetchHabits(userID, jwt, false)
     if (e.detail.type == "update") {
       toastError = false;
       toastObj.message = "Habit updated"
@@ -100,17 +100,24 @@
     }
   }
 
-  async function editingHabit(habits) {
-    habits.forEach(habit => {
-      if (habit._id == editingID) habit.editing = true;
-      else habit.editing = false;
-    })
+  async function editingHabit(habits, isPageLoad) {
+    if (isPageLoad) {
+      habits.forEach(habit => {
+        if (habit._id == editingID) habit.editing = true;
+        else habit.editing = false;
+      })
+    } else {
+      habits.forEach(habit => {
+        habit.editing = false;
+      })
+    }
+    
 
     history.replaceState(null, '', '/habits')
   }
 
   async function editPopupClosed() {
-    await fetchHabits(userID, jwt)
+    await fetchHabits(userID, jwt, false)
     toastError = false;
     toastObj.message = "Changes have not been saved.";
     toast.showToastNow(4000)
