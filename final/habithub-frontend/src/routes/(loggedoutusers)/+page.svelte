@@ -1,5 +1,10 @@
 <script>
   import Button from "../../components/Button.svelte";
+  import { goto } from "$app/navigation";
+
+  function buttonClick() {
+    goto("/signup");
+  }
 </script>
 
 <section class="landing">
@@ -11,7 +16,7 @@
     <p>
       Empower your growth,<br />Track your progress, achieve your goals!
     </p>
-    <Button>Get Started</Button>
+    <Button on:click={buttonClick}>Get Started</Button>
   </div>
   <div class="img">
     <img src="./images/landing.png" alt="People doing good habits" />
