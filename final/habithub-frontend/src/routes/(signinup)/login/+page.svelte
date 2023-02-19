@@ -20,8 +20,8 @@
   };
 
   onMount(() => {
-    if (localStorage.getItem('loggedIn') == "true") {
-      window.location.href = "/dashboard"
+    if (localStorage.getItem("loggedIn") == "true") {
+      window.location.href = "/dashboard";
     }
     const btn = document.getElementById("login_button");
     btn.addEventListener("click", loginClick);
@@ -165,9 +165,12 @@
         input_type="password"
       >
         <div class="forgot">
-          <button on:click|preventDefault={showForgotPassword}
-            >Forgot password</button
+          <p
+            on:click|preventDefault={showForgotPassword}
+            on:keydown={showForgotPassword}
           >
+            Forgot password
+          </p>
         </div>
       </TextInput>
 
@@ -189,7 +192,9 @@
         input_type="text"
       >
         <div class="forgot">
-          <button on:click|preventDefault={showLoginForm}>Back to login</button>
+          <p on:click|preventDefault={showLoginForm} on:keydown={showLoginForm}>
+            Back to login
+          </p>
         </div>
       </TextInput>
       <div class="btn">
@@ -276,12 +281,13 @@
     display: flex;
     justify-content: end;
     margin-top: 0.2em;
-    & > button {
+    & > p {
       border: none;
       color: $dark-grey;
       background: none;
       &:hover {
         text-decoration: underline;
+        cursor: pointer;
       }
     }
   }
