@@ -14,10 +14,13 @@
   }
 
   function loginOverride() {
-    if (localStorage.getItem("loggedIn") == "true" && validateToken(localStorage.getItem('jwt'))) {
-      window.location.href = '/dashboard'
+    if (
+      localStorage.getItem("loggedIn") == "true" &&
+      validateToken(localStorage.getItem("jwt"))
+    ) {
+      window.location.href = "/dashboard";
     } else {
-      window.location.href = '/login'
+      window.location.href = "/login";
     }
   }
 </script>
@@ -38,7 +41,9 @@
       <li><a href="/">About Us</a></li>
       <li><a href="/contactUs">Contact Us</a></li>
       <li><a href="/referenceList">Reference List</a></li>
-      <li><a href="/login" on:click|preventDefault={loginOverride}>Login</a></li>
+      <li>
+        <a href="/login" on:click|preventDefault={loginOverride}>Login</a>
+      </li>
       <li>
         <Button on:click={signupButtonClick}>
           <i class="bx bx-plus" />
@@ -53,7 +58,6 @@
   nav {
     height: 70px;
     width: 100%;
-    border-bottom: solid 0.01px $light-grey;
     padding: 10px 2%;
     display: flex;
     align-items: center;
@@ -66,6 +70,7 @@
     margin-bottom: 70px;
     background-color: rgba(252, 246, 238, 0.5);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     box-shadow: $card-shadow;
     @media only screen and (max-width: 900px) {
       justify-content: space-between;
