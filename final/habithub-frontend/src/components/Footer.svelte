@@ -41,7 +41,7 @@ https://youtu.be/B4KZYsyuVOE -->
         <h1>Quick Links</h1>
         <ul>
           <li>
-            <a href="/aboutUs">About</a>
+            <a href="/">About</a>
           </li>
           <li><a href="/guide">Help</a></li>
           <li>
