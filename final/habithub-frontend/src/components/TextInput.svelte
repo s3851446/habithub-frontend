@@ -80,7 +80,7 @@
     padding: 0.8rem;
     border-radius: $card-radius;
     width: 100%;
-    height: 100%;
+    // height: 100%;
     border: 1px solid $light-grey;
     background: $white;
     font-size: 15px;
