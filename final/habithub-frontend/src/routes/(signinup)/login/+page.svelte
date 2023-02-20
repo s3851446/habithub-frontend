@@ -218,9 +218,6 @@
       justify-content: center;
       margin-top: 0;
     }
-    @media all and (max-width: 800px) {
-      margin-left: -60px;
-    }
   }
 
   .slogan {
@@ -247,6 +244,10 @@
   .logo {
     width: 250px;
     margin: 0 0 20px -20px;
+    @media only screen and (max-width: 278px) {
+      width: 100%;
+      margin: 0;
+    }
   }
 
   .form {
