@@ -1,5 +1,21 @@
-<div class="contact-us">
-  <div class="content">
+<script>
+  import AOS from "aos";
+  import "aos/dist/aos.css";
+  import { onMount } from "svelte";
+
+  onMount(() => {
+    AOS.init({});
+  });
+</script>
+
+<div class="contact-us" aos>
+  <div
+    class="content"
+    data-aos="fade-right"
+    data-aos-offset="200"
+    data-aos-delay="50"
+    data-aos-duration="1000"
+  >
     <h1>Contact Us</h1>
     <p>
       This website has been created as part of an assignment in an approved
@@ -52,7 +68,12 @@
       </p>
     </div>
   </div>
-  <div class="man">
+  <div
+    class="man"
+    data-aos="fade-left"
+    data-aos-delay="50"
+    data-aos-duration="1000"
+  >
     <object title="Man calling" type="image/svg+xml" data="./images/phone.svg">
       <img src="./images/phone.svg" alt="Man calling" />
     </object>

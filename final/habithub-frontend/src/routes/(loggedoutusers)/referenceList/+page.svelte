@@ -1,5 +1,21 @@
-<div class="reference">
-  <div class="content">
+<script>
+  import AOS from "aos";
+  import "aos/dist/aos.css";
+  import { onMount } from "svelte";
+
+  onMount(() => {
+    AOS.init({});
+  });
+</script>
+
+<div class="reference" aos>
+  <div
+    class="content"
+    data-aos="fade-right"
+    data-aos-offset="200"
+    data-aos-delay="50"
+    data-aos-duration="1000"
+  >
     <h1>Reference List</h1>
     <div class="section">
       <h2>Svg and Images</h2>
@@ -89,7 +105,13 @@
       </ul>
     </div>
   </div>
-  <div class="man">
+  <div
+    class="man"
+    data-aos="fade-left"
+    data-aos-offset="200"
+    data-aos-delay="50"
+    data-aos-duration="1000"
+  >
     <object title="Man typing" type="image/svg+xml" data="./images/typing.svg">
       <img src="./images/typing.svg" alt="Man typing" />
     </object>
