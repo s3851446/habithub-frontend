@@ -1,14 +1,27 @@
 <script>
   import Button from "../../components/Button.svelte";
   import { goto } from "$app/navigation";
+  import { onMount } from "svelte";
+  import AOS from "aos";
+  import "aos/dist/aos.css";
 
   function buttonClick() {
     goto("/signup");
   }
+
+  onMount(() => {
+    AOS.init({});
+  });
 </script>
 
-<section class="landing">
-  <div class="landing-txt">
+<section class="landing" aos>
+  <div
+    class="landing-txt"
+    data-aos="fade-right"
+    data-aos-offset="200"
+    data-aos-delay="50"
+    data-aos-duration="1000"
+  >
     <h1>
       <b>Transform</b> your habits, <br />
       organise <b>your life</b> with Habit Hub!
@@ -18,12 +31,23 @@
     </p>
     <Button on:click={buttonClick}>Get Started</Button>
   </div>
-  <div class="img">
+  <div
+    class="img"
+    data-aos="fade-left"
+    data-aos-offset="200"
+    data-aos-delay="50"
+    data-aos-duration="1000"
+  >
     <img src="./images/landing.png" alt="People doing good habits" />
   </div>
 </section>
-<div class="features">
-  <section>
+<div class="features" aos>
+  <section
+    data-aos="zoom-in"
+    data-aos-offset="200"
+    data-aos-delay="100"
+    data-aos-duration="1000"
+  >
     <img src="./images/intiutive-icon.png" alt="icon" />
     <h1>Intuitive Interface</h1>
     <p>
@@ -34,7 +58,12 @@
       habit-forming with Habit Hub.
     </p>
   </section>
-  <section>
+  <section
+    data-aos="zoom-in"
+    data-aos-offset="200"
+    data-aos-delay="50"
+    data-aos-duration="1000"
+  >
     <img src="./images/customise.png" alt="icon" />
     <h1>Customise your Journey</h1>
     <p>
@@ -46,7 +75,12 @@
       control of your life with Habit Hub today!
     </p>
   </section>
-  <section>
+  <section
+    data-aos="zoom-in"
+    data-aos-offset="200"
+    data-aos-delay="100"
+    data-aos-duration="1000"
+  >
     <img src="./images/progress.png" alt="icon" />
     <h1>Track Your Progress</h1>
     <p>
