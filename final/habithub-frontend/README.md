@@ -49,7 +49,7 @@ Settings
 - In the profile settings section, the user will be able to change all of their personal settings. By clicking on "change password", a new page or pop-up will open to allow the user to enter their current password and replace it with a new one.
   Status: ❌ edit profile feature was implemented but the option to change password isn't provided. Instead on the login page, we have a "forgot password?" link that allows users to reset their passwords.
 - Each habit can have individual notification settings applied to it, depending on the frequency, forgettability, or urgency of each habit.
-  Status: ❌
+  Status: ❌ This was a little out outside the skill-set of the members of The WebDevs and we did'nt have enough time to be able to learn how to do this.
 
 Statistics
 
