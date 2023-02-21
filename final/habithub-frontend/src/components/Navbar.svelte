@@ -138,7 +138,7 @@ https://youtu.be/bFvfqUMjvsA?list=PL4EfZpbcgnsDzLMCKqb1poI8m1Gbd_CXO -->
   .text {
     font-size: 16px;
     font-weight: 400;
-    transition: $trans-04;
+    transition: $trans-01;
     white-space: nowrap;
     opacity: 1;
   }
